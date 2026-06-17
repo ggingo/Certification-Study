@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GitHub Foundations Certification Practice Quiz</title>
+<style>
+  :root{
+    --bg:#0d1117; --panel:#161b22; --border:#30363d; --text:#e6edf3; --muted:#8b949e;
+    --accent:#2f81f7; --green:#238636; --green-bg:#12261e; --green-bd:#2ea043;
+    --red:#da3633; --red-bg:#25171c; --red-bd:#f85149; --yellow:#d29922;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.5}
+  .wrap{max-width:1240px;margin:0 auto;padding:28px clamp(16px,4vw,40px) 80px}
+  header{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+  header svg{flex:0 0 auto}
+  h1{font-size:clamp(18px,2.2vw,22px);margin:0;flex:1}
+  .iconbtn{font:inherit;font-size:13px;font-weight:600;background:#21262d;color:var(--text);
+    border:1px solid var(--border);border-radius:8px;padding:7px 12px;cursor:pointer;white-space:nowrap}
+  .iconbtn:hover{border-color:#8b949e}
+  .scoretally{font:inherit;font-size:13px;font-weight:700;white-space:nowrap;
+    border:1px solid var(--border);border-radius:8px;padding:7px 12px;
+    background:#161b22;color:var(--text)}
+  .scoretally b{font-weight:700}
+  .scoretally .pct{color:#3fb950}
+  .scoretally.low .pct{color:#f85149}
+  .scoretally .frac{color:#8b949e;font-weight:600}
+  .search{display:flex;gap:8px;margin:4px 0 0}
+  .search input{flex:1;font:inherit;font-size:14px;background:var(--panel);color:var(--text);
+    border:1px solid var(--border);border-radius:8px;padding:9px 12px}
+  .search input:focus{outline:none;border-color:var(--accent)}
+  .filternote{font-size:13px;color:var(--muted);margin:10px 0 0;padding:8px 12px;
+    background:#0f1c16;border-left:3px solid var(--green-bd);border-radius:6px}
+  .filternote.none{background:var(--red-bg);border-left-color:var(--red-bd);color:#f0b0ac}
+  .filternote a{color:var(--accent)}
+  .layout{display:flex;gap:clamp(20px,3vw,36px);align-items:flex-start;margin-top:18px}
+  .main{flex:1;min-width:0}
+  .sidebar{flex:0 0 270px;position:sticky;top:18px;max-height:calc(100vh - 96px);overflow:auto;
+    background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:16px 14px}
+  .side-h{display:flex;align-items:center;gap:8px;margin:2px 4px 12px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+  .side-h .ttl{flex:1;font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+  .side-h button{font:inherit;font-size:11.5px;font-weight:600;background:#21262d;color:var(--text);
+    border:1px solid var(--border);border-radius:6px;padding:4px 10px;cursor:pointer}
+  .side-h button:hover{border-color:#8b949e}
+  .sublist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px}
+  .sublist label{display:flex;align-items:center;gap:11px;padding:10px 11px;border-radius:9px;cursor:pointer;
+    font-size:14px;transition:background .12s}
+  .sublist label:hover{background:#0d1117}
+  .sublist label.on{background:#10243b}
+  .sublist input{width:16px;height:16px;accent-color:var(--accent);flex:0 0 auto;cursor:pointer}
+  .sublist .lbl{flex:1;min-width:0;line-height:1.35}
+  .sublist .cntwrap{display:flex;align-items:center;gap:6px;flex:0 0 auto}
+  .sublist .cnt{font-size:11.5px;color:var(--muted);background:#0d1117;border:1px solid var(--border);
+    border-radius:999px;padding:1px 9px;line-height:1.5;white-space:nowrap}
+  .sublist .cnt.answered{color:#fff;font-weight:600;background:#10243b;border-color:#1f6feb}
+  .sublist .savg{font-size:11px;color:#7ee0a0;background:#0d1117;border:1px solid #2ea04326;
+    border-radius:999px;padding:1px 7px;line-height:1.5;white-space:nowrap}
+  .sublist .savg:empty{display:none}
+  @media (max-width:1080px){ .sidebar{flex-basis:240px} }
+  @media (max-width:860px){
+    .layout{flex-direction:column;gap:18px}
+    .sidebar{flex:none;width:100%;position:static;max-height:none;order:-1;padding:14px}
+    .sublist{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:4px}
+  }
+  .bar{height:8px;background:var(--panel);border:1px solid var(--border);border-radius:6px;overflow:hidden;margin:16px 0 6px}
+  .bar>div{height:100%;background:linear-gradient(90deg,#1f6feb,#2ea043);width:0;transition:width .3s}
+  .meta{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted);margin-bottom:18px;gap:10px}
+  .meta .save{color:var(--green-bd);font-size:12px}
+  .livetimer{display:none;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);
+    background:#0d1117;border:1px solid var(--border);border-radius:8px;padding:3px 4px 3px 10px;flex:0 0 auto}
+  .livetimer.paused{border-color:var(--yellow);color:var(--yellow)}
+  .livetimer .tclock{font-variant-numeric:tabular-nums;font-weight:600}
+  .livetimer .tbtn{font:inherit;font-size:11.5px;font-weight:600;background:#21262d;color:var(--text);
+    border:1px solid var(--border);border-radius:6px;padding:3px 9px;cursor:pointer}
+  .livetimer .tbtn:hover{border-color:#8b949e}
+  .livetimer.paused .tbtn{border-color:var(--yellow);color:var(--yellow)}
+  .pauseoverlay{display:none;position:absolute;inset:0;border-radius:14px;
+    background:rgba(13,17,23,.88);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+    align-items:center;justify-content:center;z-index:5}
+  .pausebox{text-align:center;padding:24px}
+  .pausebox .picon{font-size:42px;margin-bottom:6px}
+  .pausebox .ptxt{font-size:18px;font-weight:700;margin-bottom:4px}
+  .pausebox .psub{font-size:13px;color:var(--muted);margin:0 auto 18px;max-width:340px}
+  .timeropt{background:#0d1117;border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin:0 0 18px}
+  .timeropt .chk{display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:14px;margin:0}
+  .timeropt .chk input{width:18px;height:18px;margin-top:1px;accent-color:var(--accent);cursor:pointer;flex:0 0 auto}
+  .timeropt .chk b{color:#fff}
+  .timeropt .chk .sub{display:block;color:var(--muted);font-size:12.5px;margin-top:3px}
+  .subjbreak{margin-top:28px;text-align:left}
+  .subjbreak h3{margin:0 0 4px;font-size:16px}
+  .sbhint{margin:0 0 12px;font-size:12.5px;color:var(--muted)}
+  .sbrow{padding:12px 0;border-top:1px solid var(--border)}
+  .sbhead{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+  .sbname{font-weight:600;font-size:14px}
+  .sbacc{font-weight:700;font-size:14px;font-variant-numeric:tabular-nums}
+  .sbacc.good{color:#3fb950}.sbacc.mid{color:#d29922}.sbacc.low{color:#f85149}
+  .sbbar{height:6px;background:#0d1117;border:1px solid var(--border);border-radius:5px;overflow:hidden;margin:7px 0}
+  .sbfill{display:block;height:100%}
+  .sbfill.good{background:#2ea043}.sbfill.mid{background:#d29922}.sbfill.low{background:#da3633}
+  .sbsub{font-size:12.5px;color:var(--muted)}
+  .card{position:relative;background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:clamp(18px,3vw,32px)}
+  .qhead{max-width:860px}
+  .qtype{display:inline-block;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);
+    border:1px solid var(--border);border-radius:999px;padding:2px 10px;margin-bottom:14px}
+  .qtype.multi{color:#e6edf3;font-weight:700;border-color:#3fb950;background:rgba(63,185,80,.15)}
+  .qtype .num{color:#fff;font-weight:800}
+  .hint.multi{color:#e6edf3;font-size:14px;font-weight:600}
+  .hint .num{color:#fff;font-weight:800;background:rgba(63,185,80,.20);
+    border:1px solid #3fb950;border-radius:6px;padding:0 7px}
+  .qtext{font-size:clamp(17px,1.4vw,20px);font-weight:600;margin:0 0 20px;white-space:pre-wrap;
+    max-width:860px;line-height:1.45}
+  .options{display:flex;flex-direction:column;gap:11px;max-width:860px}
+  .opt{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--border);border-radius:10px;
+    padding:13px 14px;cursor:pointer;background:#0d1117;transition:border-color .15s,background .15s}
+  .opt:hover{border-color:#484f58}
+  .opt input{margin-top:3px;width:17px;height:17px;accent-color:var(--accent);flex:0 0 auto;cursor:pointer}
+  .opt .txt{flex:1;white-space:pre-wrap}
+  .opt.correct{background:var(--green-bg);border-color:var(--green-bd)}
+  .opt.incorrect{background:var(--red-bg);border-color:var(--red-bd)}
+  .opt.locked{cursor:default}
+  .tag{font-size:11px;font-weight:700;padding:1px 8px;border-radius:999px;margin-left:8px;white-space:nowrap}
+  .tag.g{background:var(--green-bd);color:#fff}
+  .tag.r{background:var(--red-bd);color:#fff}
+  .verdict{margin:16px 0 0;font-weight:700;font-size:16px;display:none}
+  .verdict.correct{color:var(--green-bd);display:block}
+  .verdict.incorrect{color:var(--red-bd);display:block}
+  .reinsert{font-weight:500;color:var(--yellow);font-size:13px;margin-top:4px;display:none}
+  .explain{margin-top:14px;padding:12px 14px;border-left:3px solid var(--green-bd);
+    background:#0f1c16;border-radius:6px;color:#c9d1d9;font-size:14px;white-space:pre-wrap;display:none}
+  .actions{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
+  button{font:inherit;font-weight:600;border-radius:8px;padding:10px 20px;cursor:pointer;border:1px solid transparent}
+  .primary{background:var(--green);color:#fff;border-color:#2ea04366}
+  .primary:hover{background:#2ea043}
+  .primary:disabled{opacity:.5;cursor:not-allowed}
+  .secondary{background:#21262d;color:var(--text);border-color:var(--border)}
+  .secondary:hover{border-color:#8b949e}
+  .actions-right{display:flex;gap:10px;margin-left:auto;flex-wrap:wrap}
+  .ghost{background:transparent;color:var(--muted);border-color:var(--border);font-weight:600}
+  .ghost:hover{color:var(--text);border-color:#8b949e;background:#161b22}
+  .ghost.danger:hover{color:#f85149;border-color:#f85149;background:rgba(248,81,73,.08)}
+  .ghost.finish{color:#79c0ff;border-color:#1f4d80}
+  .ghost.finish:hover{color:#cae8ff;border-color:var(--accent);background:rgba(47,129,247,.10)}
+  .resetrow{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:26px;
+    padding-top:18px;border-top:1px solid var(--border);max-width:560px}
+  .resetrow .resethint{font-size:12px;color:var(--muted);flex:1;min-width:200px}
+  .hint{color:var(--muted);font-size:13px;margin-top:10px}
+  @media (max-width:560px){
+    header{flex-wrap:wrap}
+    .opt{padding:14px}
+    .actions{gap:10px}
+    .actions button{flex:1 1 auto}
+  }
+  .resume h2{margin:0 0 8px}
+  .resume p{color:var(--muted);margin:0 0 18px}
+  /* count slider */
+  .setup{padding:8px 4px 4px}
+  .setup .lead{color:var(--muted);margin:0 0 18px}
+  .countbox{background:#0d1117;border:1px solid var(--border);border-radius:12px;padding:20px 22px;margin:0 0 22px;max-width:560px}
+  .countbox .row{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:14px}
+  .countbox .lbl{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+  .countbox .val{font-size:30px;font-weight:800;color:var(--accent)}
+  .countbox .val small{font-size:14px;font-weight:600;color:var(--muted)}
+  input[type=range].slider{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:6px;
+    background:var(--border);outline:none;margin:6px 0 4px;cursor:pointer}
+  input[type=range].slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;
+    border-radius:50%;background:var(--accent);border:3px solid #0d1117;cursor:pointer;box-shadow:0 0 0 1px var(--accent)}
+  input[type=range].slider::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--accent);
+    border:3px solid #0d1117;cursor:pointer}
+  .ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:2px}
+  .ticks span{cursor:pointer;padding:2px 4px;border-radius:4px}
+  .ticks span:hover{color:var(--text);background:#161b22}
+  .ticks span.on{color:var(--accent);font-weight:700}
+  .prioropts{background:#0d1117;border:1px solid var(--border);border-radius:12px;
+    padding:16px 20px;margin:0 0 22px;max-width:560px}
+  .prioropts .ptitle{font-size:13px;color:var(--muted);margin:0 0 12px}
+  .prioropts .ptitle b{color:var(--text)}
+  .prioropts .chk{display:flex;align-items:flex-start;gap:10px;cursor:pointer;
+    padding:9px 0;font-size:15px;color:var(--text);line-height:1.4}
+  .prioropts .chk + .chk{border-top:1px solid var(--border)}
+  .prioropts .chk input{width:18px;height:18px;margin-top:1px;accent-color:var(--accent);cursor:pointer;flex:0 0 auto}
+  .prioropts .chk b{color:#fff}
+  .typesel{display:flex;gap:0;margin:0 0 22px;max-width:560px;border:1px solid var(--border);
+    border-radius:12px;overflow:hidden}
+  .typesel button{flex:1;font:inherit;font-size:14px;font-weight:600;color:var(--muted);
+    background:#0d1117;border:0;border-right:1px solid var(--border);padding:14px 10px;cursor:pointer;
+    display:flex;flex-direction:column;align-items:center;gap:3px;line-height:1.2}
+  .typesel button:last-child{border-right:0}
+  .typesel button .cnt{font-size:12px;font-weight:600;color:var(--muted)}
+  .typesel button:hover{background:#161b22;color:var(--text)}
+  .typesel button.on{background:rgba(63,185,80,.15);color:#fff}
+  .typesel button.on .cnt{color:#3fb950}
+  /* improvement areas */
+  .focusbanner{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:14px;color:#cfe3ff;
+    margin:12px 0 0;padding:10px 14px;background:#0d1f33;border-left:3px solid var(--accent);border-radius:8px}
+  .focusbanner button{margin-left:auto}
+  .misslist{list-style:decimal;margin:6px 0 22px;padding-left:24px;max-width:760px;
+    max-height:340px;overflow:auto;display:flex;flex-direction:column;gap:10px}
+  .misslist li{color:#c9d1d9;line-height:1.4}
+  .misslist li .mtype{font-size:11px;color:var(--yellow);text-transform:uppercase;letter-spacing:.04em;margin-left:6px}
+  .emptybox{color:var(--muted);background:#0d1117;border:1px dashed var(--border);border-radius:10px;padding:22px;text-align:center}
+  /* summary */
+  .summary{text-align:center;padding:30px 22px}
+  .summary h2{margin:0 0 18px;font-size:24px}
+  .score{font-size:56px;font-weight:800;margin:6px 0}
+  .score.good{color:var(--green-bd)} .score.mid{color:var(--yellow)} .score.low{color:var(--red-bd)}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:22px 0}
+  .stat{background:#0d1117;border:1px solid var(--border);border-radius:10px;padding:14px}
+  .stat .n{font-size:24px;font-weight:700}
+  .stat .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+  .footer{color:var(--muted);font-size:12px;text-align:center;margin-top:30px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <svg height="30" width="30" viewBox="0 0 16 16" fill="#e6edf3"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg>
+    <h1>GitHub Foundations Certification Practice Quiz</h1>
+    <span id="scoreTally" class="scoretally" style="display:none" title="Running percentage of answers you've gotten correct this session"></span>
+    <button id="improveBtn" class="iconbtn" style="display:none" title="Review and practice the questions you missed">⚑ Improvement areas</button>
+    <button id="restartBtn" class="iconbtn" style="display:none" title="Start the quiz over">↻ Restart</button>
+  </header>
+
+  <div class="search">
+    <input id="searchInput" type="search" autocomplete="off"
+      placeholder="🔍 Filter by topic — e.g. pull request, Actions, billing — then press Enter">
+    <button id="searchClear" class="iconbtn" style="display:none" title="Show all questions">Clear</button>
+  </div>
+  <div id="filterNote" class="filternote" style="display:none"></div>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="side-h">
+        <span class="ttl">Subjects</span>
+        <button id="subAll" title="Select every subject">All</button>
+        <button id="subClear" title="Clear selection">Clear</button>
+      </div>
+      <ul id="subList" class="sublist"></ul>
+    </aside>
+
+    <div class="main">
+      <div class="bar"><div id="prog"></div></div>
+      <div class="meta">
+        <span id="counter"></span>
+        <span id="saveState" class="save"></span>
+        <span id="remaining"></span>
+        <span id="liveTimer" class="livetimer" style="display:none"></span>
+      </div>
+
+      <div id="quiz" class="card"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const QUESTIONS = __QUESTIONS_DATA__;
+const STORE_KEY = "ghCertQuizProgress_v1";
+
+// active = the set currently being quizzed (all questions, or a topic-filtered subset)
+let ACTIVE = QUESTIONS;
+let filterActive = false;
+
+// signature so saved progress is invalidated if the question set changes after a rebuild
+function signature(){
+  let s = ACTIVE.length + ":";
+  for(const q of ACTIVE){ s += (q.question||"").slice(0,24); }
+  let h=0; for(let i=0;i<s.length;i++){ h=(h*31 + s.charCodeAt(i))|0; }
+  return ACTIVE.length + "_" + (h>>>0).toString(36);
+}
+const SIG = signature();
+
+// ---- state ----
+let queue = [];
+let total = QUESTIONS.length;
+let attempts = 0;
+let correctAttempts = 0;
+let firstCorrect = 0;
+let firstSeen = new Set();
+let answeredUnique = new Set();
+let current = null;
+let locked = false;
+let missedFirst = new Set();   // ids missed on first attempt = "improvement areas"
+let focusActive = false;       // focused practice on missed questions (not persisted)
+let chosenCount = 0;           // 0 = all of ACTIVE
+let testSeen = new Set();      // ids included in the current main test
+let lastGrade = null;          // {id, allRight, wasFirst} for the just-graded question
+let qStats = {};               // id -> {ms,n,fc}: response time, # responses, first-attempt correct (this test)
+let timerShow = false;         // whether the live response timer is displayed to the tester
+let qElapsed = 0;              // ms accrued on the current question (excludes paused gaps)
+let qSegStart = null;          // performance.now() when the running segment began (null = stopped)
+let paused = false;            // live timer paused for a break
+let _timerInt = null;          // interval handle for the ticking display
+
+const LASTTEST_KEY = STORE_KEY + "_lasttest";
+const RETIRED_KEY = STORE_KEY + "_retired";
+
+// questions the tester marked "don't ask again" — keyed by question text so the
+// list survives rebuilds (where numeric ids may shift) and spans all sessions
+let retiredKeys = new Set();
+function qKey(q){
+  const s=String(q.question||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+  let h=0; for(let i=0;i<s.length;i++){ h=(h*31 + s.charCodeAt(i))|0; }
+  return (h>>>0).toString(36)+'_'+s.length;
+}
+function isRetired(q){ return retiredKeys.has(q._key); }
+function livePool(set){ return (set||ACTIVE).filter(q=>!isRetired(q)); }
+function loadRetired(){
+  try{ const r=localStorage.getItem(RETIRED_KEY); if(!r) return new Set();
+    const a=JSON.parse(r); return new Set(Array.isArray(a)?a:[]); }catch(e){ return new Set(); }
+}
+function saveRetired(){
+  try{ localStorage.setItem(RETIRED_KEY, JSON.stringify([...retiredKeys])); }catch(e){}
+}
+
+function transient(){ return filterActive || focusActive; }
+function shuffle(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+
+// remember the most recent (non-transient) test so the next setup can offer to
+// reuse previously-seen / previously-missed questions
+function saveLastTest(){
+  if(transient()) return;
+  if(!testSeen.size) return;
+  try{
+    localStorage.setItem(LASTTEST_KEY, JSON.stringify({
+      sig: SIG, seen:[...testSeen], answered:[...firstSeen], missed:[...missedFirst],
+      pool: ACTIVE.length, ts: Date.now()
+    }));
+  }catch(e){}
+}
+function loadLastTest(){
+  try{
+    const r=localStorage.getItem(LASTTEST_KEY); if(!r) return null;
+    const o=JSON.parse(r);
+    if(!o || o.sig!==SIG || !Array.isArray(o.seen)) return null;
+    return o;
+  }catch(e){ return null; }
+}
+
+// ---- persistence ----
+function saveProgress(phase){
+  if(transient()) return;            // filtered / focused runs are not persisted
+  try{
+    const snap = {
+      sig: SIG, phase, total,
+      queue: queue.map(q=>q.id),
+      current: current ? current.id : null,
+      attempts, correctAttempts, firstCorrect,
+      firstSeen:[...firstSeen], answeredUnique:[...answeredUnique],
+      missed:[...missedFirst],
+      seen:[...testSeen],
+      stats: qStats,
+      showTimer: timerShow,
+      firstAttempt: QUESTIONS.map(q=>q.firstAttempt?1:0),
+      ts: Date.now()
+    };
+    localStorage.setItem(STORE_KEY, JSON.stringify(snap));
+    saveLastTest();
+    flashSaved();
+  }catch(e){}
+}
+function loadProgress(){
+  try{
+    const raw = localStorage.getItem(STORE_KEY);
+    if(!raw) return null;
+    const s = JSON.parse(raw);
+    if(s.sig !== SIG) return null;            // question set changed -> ignore old save
+    if(!s.queue || (s.queue.length===0 && (s.current===null))) return null;
+    return s;
+  }catch(e){ return null; }
+}
+function clearProgress(){ try{ localStorage.removeItem(STORE_KEY); }catch(e){} }
+// wipe EVERYTHING this app remembers: in-progress session, last-test history,
+// improvement areas, and the "don't ask again" retired list -> clean slate
+function resetAll(){
+  try{
+    localStorage.removeItem(STORE_KEY);
+    localStorage.removeItem(LASTTEST_KEY);
+    localStorage.removeItem(RETIRED_KEY);
+  }catch(e){}
+  retiredKeys=new Set();
+  missedFirst=new Set();
+  testSeen=new Set();
+  lastGrade=null;
+  qStats={}; timerShow=false;
+  filterActive=false; focusActive=false;
+  ACTIVE=QUESTIONS; total=QUESTIONS.length;
+  QUESTIONS.forEach(q=>q.firstAttempt=true);
+  updateImproveBtn();
+}
+let _saveTimer=null;
+function flashSaved(){
+  const el=document.getElementById('saveState');
+  el.textContent="✓ progress saved";
+  clearTimeout(_saveTimer);
+  _saveTimer=setTimeout(()=>{el.textContent="";},1500);
+}
+
+function updateImproveBtn(){
+  const b=document.getElementById('improveBtn');
+  if(!b) return;
+  const n=missedFirst.size;
+  b.textContent = n ? `⚑ Improvement areas (${n})` : '⚑ Improvement areas';
+}
+
+// ---- lifecycle ----
+function boot(){
+  QUESTIONS.forEach((q,i)=>{ q.id=i; q.firstAttempt=true; q._key=qKey(q); });
+  retiredKeys = loadRetired();
+  const saved = loadProgress();
+  if(saved){ showResume(saved); } else { freshStart(); }
+}
+
+// fresh start now opens the setup screen so the user can pick how many questions
+function freshStart(){
+  if(!transient()) clearProgress();
+  focusActive=false; setFocusBanner(false);
+  filterActive=false; ACTIVE=QUESTIONS; total=QUESTIONS.length;
+  missedFirst=new Set(); updateImproveBtn();
+  showSetup();
+}
+
+// build the list of selectable sizes in steps of 25, with an "All" stop at the end
+function sizeStops(n){
+  const stops=[];
+  for(let v=25; v<n; v+=25) stops.push(v);
+  stops.push(n); // final stop = all questions
+  return stops;
+}
+
+// pick the eligible question pool for the chosen type + prior-test options.
+// returns {forced, rest}: forced = previously-missed questions to guarantee in, rest = the rest.
+function eligible(typeSel, includeMissed, missedSet, excludeSet){
+  const typeOk = q => typeSel==='both' ? true
+                    : typeSel==='multiple' ? q.type==='multiple'
+                    : q.type!=='multiple';
+  const base = ACTIVE.filter(q=>typeOk(q) && !isRetired(q));
+  let forced = (includeMissed && missedSet) ? base.filter(q=>missedSet.has(q.id)) : [];
+  const fIds = new Set(forced.map(q=>q.id));
+  let rest = base.filter(q=>!fIds.has(q.id));
+  if(excludeSet && excludeSet.size) rest = rest.filter(q=>!excludeSet.has(q.id));
+  return {forced, rest};
+}
+
+function showSetup(){
+  document.getElementById('restartBtn').style.display='none';
+  document.getElementById('improveBtn').style.display='none';
+  hideScore();
+  stopTimerUI();
+  document.getElementById('counter').textContent='';
+  document.getElementById('remaining').textContent='';
+  document.getElementById('saveState').textContent='';
+  document.getElementById('prog').style.width='0%';
+  SUBJ_TOTAL=SUBJ_FULL;
+  document.querySelectorAll('#subList .cnt').forEach(el=>{el.textContent=SUBJ_TOTAL[el.dataset.key]||0;el.classList.remove('answered');});
+  document.querySelectorAll('#subList .savg').forEach(el=>el.textContent='');
+
+  const liveQs = livePool();
+  const liveTotal = liveQs.length;
+  const multiCount = liveQs.filter(q=>q.type==='multiple').length;
+  const singleCount = liveTotal - multiCount;
+
+  const last = loadLastTest();
+  const activeIds = new Set(liveQs.map(q=>q.id));
+  const lastSeen = last ? last.seen.filter(id=>activeIds.has(id)) : [];                    // full pool drawn last time
+  const lastAnswered = last ? (last.answered||last.seen).filter(id=>activeIds.has(id)) : []; // questions actually shown
+  const answeredSet = new Set(lastAnswered);
+  const unansweredIds = lastSeen.filter(id=>!answeredSet.has(id));                          // drawn but never reached
+  const unansweredSet = new Set(unansweredIds);
+  const missedIds = last ? last.missed.filter(id=>activeIds.has(id)) : [];
+  const missedSet = new Set(missedIds);
+  const showAnswered = lastAnswered.length>0 && lastAnswered.length<liveTotal;
+  const showUnanswered = unansweredIds.length>0;
+  const showPrior = showAnswered || showUnanswered;
+
+  let typeSel = 'both';
+
+  const retiredNote = retiredKeys.size
+    ? `<p class="ptitle" style="margin-top:10px">${retiredKeys.size} question${retiredKeys.size>1?'s':''} hidden via “Don’t ask again”. <a href="#" id="restoreRetired">Restore them</a>.</p>` : '';
+
+  const priorHtml = (showPrior || retiredNote) ? `
+      <div class="prioropts">
+        ${showPrior ? `<p class="ptitle">Your last test drew <b>${lastSeen.length}</b> of ${liveTotal} questions${lastAnswered.length?` — you answered <b>${lastAnswered.length}</b>`:''}${unansweredIds.length?`, with <b>${unansweredIds.length}</b> left unanswered`:''}.</p>` : ''}
+        ${showAnswered ? `<label class="chk"><input type="checkbox" id="optSeen" checked>
+          <span>Include the <b>${lastAnswered.length}</b> question${lastAnswered.length>1?'s':''} you <b>answered last test</b> (uncheck to skip them)</span></label>` : ''}
+        ${showUnanswered ? `<label class="chk"><input type="checkbox" id="optUnanswered" checked>
+          <span>Include the <b>${unansweredIds.length}</b> <b>unanswered question${unansweredIds.length>1?'s':''}</b> from your last test</span></label>` : ''}
+        ${missedIds.length ? `<label class="chk"><input type="checkbox" id="optMissed">
+          <span>Re-include the <b>${missedIds.length}</b> question${missedIds.length>1?'s':''} you <b>missed last time</b></span></label>` : ''}
+        ${retiredNote}
+      </div>` : '';
+
+  document.getElementById('quiz').innerHTML=`
+    <div class="setup">
+      <h2 style="margin:0 0 6px">Set up your practice test</h2>
+      <p class="lead">Pick the question types, how many you want, and start. The slider locks to steps of 25.</p>
+      <div class="typesel" id="typeSel">
+        <button data-t="both" class="on">Both<span class="cnt">${liveTotal}</span></button>
+        <button data-t="single">Single answer<span class="cnt">${singleCount}</span></button>
+        <button data-t="multiple">Multiple answer<span class="cnt">${multiCount}</span></button>
+      </div>
+      ${priorHtml}
+      <div class="timeropt">
+        <label class="chk"><input type="checkbox" id="optTimer">
+          <span>Show a <b>response timer</b> while I work, with a <b>pause</b> button for breaks.
+            <span class="sub">Your time per question is always measured for the by-subject results breakdown — this only controls whether the clock is visible.</span></span></label>
+      </div>
+      <div class="countbox" id="countbox"></div>
+      <div class="actions">
+        <button class="primary" id="startBtn">Start quiz →</button>
+      </div>
+      <div class="hint" id="setupHint"></div>
+      <div class="resetrow">
+        <button class="ghost danger" id="resetAllBtn" title="Forget all saved progress, history, improvement areas, and retired questions">↺ Reset all history</button>
+        <span class="resethint">Clears saved progress, last-test memory, improvement areas, and restores every “Don’t ask again” question.</span>
+      </div>
+    </div>`;
+
+  const getOpts = ()=>{
+    const se=document.getElementById('optSeen');
+    const ue=document.getElementById('optUnanswered');
+    const includeAnswered = se ? se.checked : true;
+    const includeUnanswered = ue ? ue.checked : true;
+    const om = document.getElementById('optMissed');
+    const includeMissed = !!(om && om.checked);
+    const excludeSet = new Set();
+    if(!includeAnswered) answeredSet.forEach(id=>excludeSet.add(id));
+    if(!includeUnanswered) unansweredSet.forEach(id=>excludeSet.add(id));
+    return {includeMissed, excludeSet};
+  };
+
+  let stops=[], idx=0;
+  function available(){
+    const {includeMissed, excludeSet} = getOpts();
+    const {forced, rest} = eligible(typeSel, includeMissed, missedSet, excludeSet);
+    return forced.length + rest.length;
+  }
+  function rebuild(){
+    const pool = available();
+    const startBtn = document.getElementById('startBtn');
+    const hint = document.getElementById('setupHint');
+    if(pool<=0){
+      document.getElementById('countbox').innerHTML='';
+      startBtn.disabled=true;
+      hint.textContent='No questions match these options. Adjust your selections.';
+      return;
+    }
+    startBtn.disabled=false;
+    stops = sizeStops(pool);
+    idx = stops.length-1;
+    const ticks = stops.map((v,i)=>`<span data-i="${i}">${i===stops.length-1?'All':v}</span>`).join('');
+    document.getElementById('countbox').innerHTML=`
+      <div class="row">
+        <span class="lbl">Questions in this test</span>
+        <span class="val" id="cntVal"></span>
+      </div>
+      <input type="range" class="slider" id="cntSlider" min="0" max="${stops.length-1}" step="1" value="${idx}">
+      <div class="ticks" id="cntTicks">${ticks}</div>`;
+    hint.textContent = `${pool} question${pool>1?'s':''} available with these options. A random selection is drawn each time.`;
+    const slider=document.getElementById('cntSlider');
+    const valEl=document.getElementById('cntVal');
+    const tickEls=[...document.querySelectorAll('#cntTicks span')];
+    function paint(){
+      const i=+slider.value, v=stops[i], all=(i===stops.length-1);
+      valEl.innerHTML = all ? `${v} <small>(all)</small>` : `${v}`;
+      tickEls.forEach(t=>t.classList.toggle('on',+t.dataset.i===i));
+    }
+    slider.addEventListener('input',paint);
+    tickEls.forEach(t=>t.addEventListener('click',()=>{ slider.value=t.dataset.i; paint(); }));
+    paint();
+  }
+
+  [...document.querySelectorAll('#typeSel button')].forEach(b=>{
+    b.addEventListener('click',()=>{
+      typeSel=b.dataset.t;
+      document.querySelectorAll('#typeSel button').forEach(x=>x.classList.toggle('on',x===b));
+      rebuild();
+    });
+  });
+  const optSeenEl=document.getElementById('optSeen'); if(optSeenEl) optSeenEl.addEventListener('change',rebuild);
+  const optUnansEl=document.getElementById('optUnanswered'); if(optUnansEl) optUnansEl.addEventListener('change',rebuild);
+  const om=document.getElementById('optMissed'); if(om) om.addEventListener('change',rebuild);
+  const rr=document.getElementById('restoreRetired');
+  if(rr) rr.addEventListener('click',e=>{ e.preventDefault(); retiredKeys=new Set(); saveRetired(); showSetup(); });
+  const resetBtn=document.getElementById('resetAllBtn');
+  if(resetBtn) resetBtn.addEventListener('click',()=>{
+    if(confirm('Reset all history?\n\nThis forgets your saved progress, last-test memory, improvement areas, and restores every “Don’t ask again” question. This cannot be undone.')){
+      resetAll();
+      showSetup();
+    }
+  });
+  document.getElementById('startBtn').addEventListener('click',()=>{
+    if(document.getElementById('startBtn').disabled) return;
+    const i=+document.getElementById('cntSlider').value;
+    const count = (i===stops.length-1) ? 0 : stops[i];
+    const {includeMissed, excludeSet} = getOpts();
+    const showTimer = !!(document.getElementById('optTimer') && document.getElementById('optTimer').checked);
+    beginTest(count, {typeSel, includeMissed, excludeSet, missedSet, showTimer});
+  });
+  rebuild();
+}
+
+function beginTest(count, opts){
+  opts = opts || {};
+  const typeSel = opts.typeSel || 'both';
+  const includeMissed = !!opts.includeMissed;
+  chosenCount = count;
+  attempts=0;correctAttempts=0;firstCorrect=0;
+  qStats={}; timerShow=!!opts.showTimer;
+  firstSeen=new Set();answeredUnique=new Set();current=null;locked=false;
+  ACTIVE.forEach(q=>q.firstAttempt=true);
+
+  const {forced, rest} = eligible(typeSel, includeMissed, opts.missedSet, opts.excludeSet);
+  shuffle(forced); shuffle(rest);
+  let pool;
+  if(count && count>0){
+    pool = forced.slice(0, count);
+    for(const q of rest){ if(pool.length>=count) break; pool.push(q); }
+    shuffle(pool);
+  } else {
+    pool = shuffle(forced.concat(rest));
+  }
+  queue = pool;
+  total = queue.length;
+  testSeen = new Set(queue.map(q=>q.id));
+  SUBJ_TOTAL = subjTotals(queue);
+  document.getElementById('restartBtn').style.display='inline-block';
+  document.getElementById('improveBtn').style.display='inline-block';
+  updateImproveBtn();
+  next();
+}
+
+function showResume(s){
+  const mastered = s.answeredUnique.length;
+  const stotal = s.total || ACTIVE.length;
+  const date = new Date(s.ts||Date.now());
+  document.getElementById('restartBtn').style.display='none';
+  document.getElementById('improveBtn').style.display='none';
+  hideScore();
+  stopTimerUI();
+  document.getElementById('counter').textContent='';
+  document.getElementById('remaining').textContent='';
+  document.getElementById('prog').style.width = (stotal?mastered/stotal*100:0)+'%';
+  document.getElementById('quiz').innerHTML=`
+    <div class="resume">
+      <h2>Welcome back 👋</h2>
+      <p>You have a saved session from ${date.toLocaleString()} —
+         <strong>${mastered}/${stotal}</strong> mastered, ${s.queue.length} still in the queue.</p>
+      <div class="actions">
+        <button class="primary" id="resumeBtn">Resume where I left off</button>
+        <button class="secondary" id="freshBtn">Start over</button>
+      </div>
+    </div>`;
+  document.getElementById('resumeBtn').addEventListener('click',()=>resume(s));
+  document.getElementById('freshBtn').addEventListener('click',freshStart);
+}
+
+function resume(s){
+  attempts=s.attempts; correctAttempts=s.correctAttempts; firstCorrect=s.firstCorrect;
+  firstSeen=new Set(s.firstSeen); answeredUnique=new Set(s.answeredUnique);
+  missedFirst=new Set(s.missed||[]);
+  testSeen=new Set(s.seen||s.queue||[]);
+  SUBJ_TOTAL=subjTotals([...testSeen].map(id=>QUESTIONS[id]));
+  qStats=s.stats||{};
+  timerShow=!!s.showTimer;
+  QUESTIONS.forEach((q,i)=>{ q.firstAttempt = s.firstAttempt ? !!s.firstAttempt[i] : true; });
+  const byId = id => QUESTIONS[id];
+  const droppedRetired = (s.queue||[]).filter(id=>{const q=byId(id); return q && isRetired(q);}).length;
+  queue = (s.queue||[]).map(byId).filter(q=>q && !isRetired(q));
+  total = (s.total || ACTIVE.length) - droppedRetired;
+  focusActive=false; setFocusBanner(false);
+  document.getElementById('restartBtn').style.display='inline-block';
+  document.getElementById('improveBtn').style.display='inline-block';
+  updateImproveBtn();
+  if(s.phase==='graded'){
+    current=null; locked=false; next();
+  } else {
+    current = s.current!=null ? byId(s.current) : null;
+    if(current && isRetired(current)) current=null;
+    locked=false;
+    if(!current){ next(); } else { render(); updateMeta(); }
+  }
+}
+
+function updateScore(){
+  const el=document.getElementById('scoreTally');
+  if(!el) return;
+  if(attempts>0){
+    const pct=Math.round(correctAttempts/attempts*100);
+    el.classList.toggle('low', pct<70);
+    el.innerHTML=`<span class="pct">${pct}%</span> correct <span class="frac">(${correctAttempts}/${attempts})</span>`;
+  } else {
+    el.classList.remove('low');
+    el.innerHTML=`<span class="frac">No answers yet</span>`;
+  }
+  el.style.display='inline-block';
+}
+function hideScore(){ const el=document.getElementById('scoreTally'); if(el) el.style.display='none'; }
+
+// ---- response timer (always measures; only displayed when timerShow) ----
+function fmtClock(ms){
+  const s=Math.max(0,Math.round(ms/1000));
+  return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+}
+function fmtAvg(ms){
+  if(!isFinite(ms)||ms<=0) return '—';
+  const s=ms/1000;
+  return s<60 ? s.toFixed(1)+'s' : fmtClock(ms);
+}
+function currentElapsedMs(){
+  return qElapsed + ((paused||qSegStart===null) ? 0 : (performance.now()-qSegStart));
+}
+function paintTimer(){
+  const c=document.querySelector('#liveTimer .tclock');
+  if(c) c.textContent='⏱ '+fmtClock(currentElapsedMs());
+}
+// begin (or restart) timing for the current question
+function beginQuestionTimer(){
+  qElapsed=0; paused=false; qSegStart=performance.now();
+  clearInterval(_timerInt); _timerInt=null;
+  showPauseOverlay(false);
+  const el=document.getElementById('liveTimer');
+  if(!el) return;
+  if(!timerShow){ el.style.display='none'; el.innerHTML=''; el.classList.remove('paused'); return; }
+  el.style.display='inline-flex';
+  el.classList.remove('paused');
+  el.innerHTML=`<span class="tclock">⏱ 0:00</span><button id="pauseBtn" class="tbtn" type="button">⏸ Pause</button>`;
+  const pb=document.getElementById('pauseBtn');
+  if(pb) pb.addEventListener('click',togglePause);
+  paintTimer();
+  _timerInt=setInterval(paintTimer,1000);
+}
+// stop the running segment, fold it into qElapsed, and return the total ms
+function endQuestionTimer(){
+  if(!paused && qSegStart!==null){ qElapsed+=performance.now()-qSegStart; }
+  qSegStart=null; paused=false;
+  clearInterval(_timerInt); _timerInt=null;
+  return qElapsed;
+}
+function showPauseOverlay(on){
+  const ov=document.getElementById('pauseOverlay');
+  if(ov) ov.style.display=on?'flex':'none';
+}
+function togglePause(){
+  if(!timerShow || locked) return;       // can't pause once the question is answered
+  const el=document.getElementById('liveTimer');
+  const pb=document.getElementById('pauseBtn');
+  if(paused){
+    paused=false; qSegStart=performance.now();
+    if(pb) pb.textContent='⏸ Pause';
+    if(el) el.classList.remove('paused');
+    showPauseOverlay(false);
+  } else {
+    qElapsed+=performance.now()-qSegStart; qSegStart=null; paused=true;
+    if(pb) pb.textContent='▶ Resume';
+    if(el) el.classList.add('paused');
+    showPauseOverlay(true);
+  }
+  paintTimer();
+}
+// fully tear the timer UI down (leaving a screen / finishing a test)
+function stopTimerUI(){
+  clearInterval(_timerInt); _timerInt=null;
+  paused=false; qSegStart=null;
+  showPauseOverlay(false);
+  const el=document.getElementById('liveTimer');
+  if(el){ el.style.display='none'; el.classList.remove('paused'); }
+}
+// record the just-graded question's response time + first-attempt result
+function recordTiming(id, ms, allRight){
+  const st=qStats[id]||(qStats[id]={ms:0,n:0,fc:null});
+  st.ms+=ms; st.n++;
+  if(st.fc===null) st.fc=!!allRight;
+}
+// aggregate per-question stats into a by-subject results breakdown for the summary
+function subjectBreakdownHTML(){
+  const agg={};
+  for(const id in qStats){
+    const q=QUESTIONS[id]; if(!q) continue;
+    const st=qStats[id];
+    const subs=(q._subjects&&q._subjects.length)?q._subjects:['general'];
+    for(const k of subs){
+      const a=agg[k]||(agg[k]={ans:0,fc:0,ms:0,n:0});
+      a.ans++; if(st.fc) a.fc++; a.ms+=st.ms; a.n+=st.n;
+    }
+  }
+  const rows=Object.keys(agg).map(k=>{
+    const a=agg[k];
+    return {label:SUBJECT_LABEL[k]||k, ans:a.ans, fc:a.fc,
+            acc:a.ans?Math.round(a.fc/a.ans*100):0, avg:a.n?a.ms/a.n:0};
+  });
+  if(!rows.length) return '';
+  rows.sort((x,y)=>x.acc-y.acc || y.ans-x.ans);
+  const cls=acc=>acc>=80?'good':acc>=60?'mid':'low';
+  const body=rows.map(r=>`
+    <div class="sbrow">
+      <div class="sbhead"><span class="sbname">${esc(r.label)}</span><span class="sbacc ${cls(r.acc)}">${r.acc}%</span></div>
+      <div class="sbbar"><span class="sbfill ${cls(r.acc)}" style="width:${r.acc}%"></span></div>
+      <div class="sbsub">${r.fc}/${r.ans} correct first try · avg ${fmtAvg(r.avg)} per question</div>
+    </div>`).join('');
+  return `
+    <div class="subjbreak">
+      <h3>Results by subject</h3>
+      <p class="sbhint">Sorted by first-attempt accuracy — focus your next test on the lowest. “Avg” is your average response time per question in that subject.</p>
+      <div class="sbtable">${body}</div>
+    </div>`;
+}
+
+function updateMeta(){
+  const done = answeredUnique.size;
+  document.getElementById('counter').textContent = `${done}/${total} mastered`;
+  document.getElementById('remaining').textContent = `${queue.length} in queue · ${attempts} attempts`;
+  document.getElementById('prog').style.width = (total? (done/total*100):0) + '%';
+  updateScore();
+  updateSubjectProgress();
+}
+
+function next(){
+  locked=false;
+  if(queue.length===0){ return summary(); }
+  current = queue.shift();
+  if(!firstSeen.has(current.id)){ firstSeen.add(current.id); }
+  render();
+  updateMeta();
+  saveProgress('question');
+}
+
+function render(){
+  const q=current;
+  lastGrade=null;
+  const inputType = q.type==='multiple' ? 'checkbox':'radio';
+  const correctCount = q.options.filter(o=>o.correct).length;
+  const opts = shuffle(q.options.map((o,idx)=>({o,idx})));
+  let html='';
+  const isMulti = q.type==='multiple' && correctCount>1;
+  const badge = q.type==='multiple'
+    ? `Select all that apply${correctCount>1?` — choose <span class="num">${correctCount}</span>`:''}`
+    : 'Select one';
+  html += `<span class="qtype${isMulti?' multi':''}">${badge}</span>`;
+  html += `<p class="qtext">${esc(q.question)}</p>`;
+  html += `<div class="options" id="opts">`;
+  opts.forEach(({o,idx})=>{
+    html += `<label class="opt" data-i="${idx}">
+       <input type="${inputType}" name="opt" value="${idx}">
+       <span class="txt">${esc(o.text)}</span>
+       <span class="tagslot"></span>
+     </label>`;
+  });
+  html += `</div>`;
+  html += `<div id="verdict" class="verdict"></div>`;
+  html += `<div id="reinsert" class="reinsert">↻ This question will appear again later.</div>`;
+  html += `<div id="explain" class="explain"></div>`;
+  html += `<div class="actions">
+      <button id="submit" class="primary" disabled>Submit</button>
+      <button id="nextBtn" class="secondary" style="display:none">Next →</button>
+      <div class="actions-right" id="skipWrap">
+        <button id="skipBtn" class="ghost" title="Skip this question for now — it won't count toward your score">↷ Skip</button>
+        <button id="retireBtn" class="ghost danger" title="Remove this question from all future tests (you already know it)">✕ Don't ask again</button>
+        <button id="finishBtn" class="ghost finish" title="End the test now and tally your results from the questions you've completed so far">🏁 Finish test</button>
+      </div>
+   </div>
+   <div class="hint${isMulti?' multi':''}" id="hint">${q.type==='multiple'?(correctCount>1?`Select <span class="num">${correctCount}</span> answers.`:'Choose one or more options.'):'Choose one option.'}</div>
+   <div id="pauseOverlay" class="pauseoverlay"><div class="pausebox"><div class="picon">⏸</div><div class="ptxt">Timer paused</div><div class="psub">Take a break — your response time isn't counting right now.</div><button id="resumeOverlayBtn" class="primary" type="button">▶ Resume</button></div></div>`;
+  document.getElementById('quiz').innerHTML=html;
+
+  const optsEl=document.getElementById('opts');
+  optsEl.addEventListener('change',()=>{
+    document.getElementById('submit').disabled = optsEl.querySelectorAll('input:checked').length===0;
+  });
+  document.getElementById('submit').addEventListener('click',grade);
+  document.getElementById('nextBtn').addEventListener('click',next);
+  document.getElementById('skipBtn').addEventListener('click',skipCurrent);
+  document.getElementById('retireBtn').addEventListener('click',retireCurrent);
+  document.getElementById('finishBtn').addEventListener('click',finishTest);
+  const rov=document.getElementById('resumeOverlayBtn');
+  if(rov) rov.addEventListener('click',togglePause);
+  beginQuestionTimer();
+}
+
+// drop the current question out of this test.
+// the running % correct (correctAttempts/attempts) is NEVER altered here, so:
+//   - retiring BEFORE submitting: nothing was graded, so it doesn't count toward %.
+//   - retiring AFTER submitting: the graded attempt stays counted toward %.
+function dropCurrent(){
+  if(!current) return;
+  const id=current.id;
+  const graded = !!(lastGrade && lastGrade.id===id);
+  const masteredCorrect = graded && lastGrade.allRight;   // answered correctly = a completed test item
+  queue=queue.filter(q=>q.id!==id);   // also removes any reinserted (wrong-answer) copies
+  if(testSeen.has(id)){ testSeen.delete(id); }
+  if(missedFirst.has(id)){ missedFirst.delete(id); updateImproveBtn(); }
+  // keep a correctly-answered question in the denominator (it's mastered & done);
+  // otherwise remove it so progress/summary reflect only the questions still in play.
+  if(!masteredCorrect){
+    if(answeredUnique.has(id)) answeredUnique.delete(id);
+    if(total>0) total--;
+  }
+  lastGrade=null;
+}
+function skipCurrent(){
+  if(locked) return;                  // skipping only makes sense before answering
+  dropCurrent();
+  current=null; locked=false;
+  saveProgress('question');
+  next();
+}
+function retireCurrent(){             // allowed before OR after submitting
+  if(!current) return;
+  retiredKeys.add(current._key);
+  saveRetired();
+  dropCurrent();
+  current=null; locked=false;
+  saveProgress('question');
+  next();
+}
+// end the test early and tally results from only the questions completed so far
+function finishTest(){
+  const done=Object.keys(qStats).length;
+  if(!confirm(`End the test now?\n\nYour results will be tallied from the ${done} question${done===1?'':'s'} you've completed so far. Unanswered questions are not counted.`)) return;
+  endQuestionTimer();
+  total=done;                 // denominator reflects only what was actually answered
+  queue=[]; current=null; locked=false;
+  summary();
+}
+
+function grade(){
+  if(locked) return; locked=true;
+  const respMs=endQuestionTimer();
+  const q=current;
+  const optsEl=document.getElementById('opts');
+  const labels=[...optsEl.querySelectorAll('.opt')];
+  const checked=new Set([...optsEl.querySelectorAll('input:checked')].map(i=>+i.value));
+  let allRight=true;
+  labels.forEach(lab=>{
+    const i=+lab.dataset.i;
+    const isCorrect=q.options[i].correct;
+    const picked=checked.has(i);
+    lab.classList.add('locked');
+    lab.querySelector('input').disabled=true;
+    const slot=lab.querySelector('.tagslot');
+    if(isCorrect){
+      lab.classList.add('correct');
+      slot.innerHTML = picked? '<span class="tag g">Your answer ✓</span>' : '<span class="tag g">Correct answer</span>';
+      if(!picked) allRight=false;
+    } else if(picked){
+      lab.classList.add('incorrect');
+      slot.innerHTML='<span class="tag r">Your answer ✗</span>';
+      allRight=false;
+    }
+  });
+
+  attempts++;
+  const wasFirst=q.firstAttempt; q.firstAttempt=false;
+  lastGrade={id:q.id, allRight, wasFirst};
+  recordTiming(q.id, respMs, allRight);
+  const lt=document.getElementById('liveTimer');
+  if(timerShow && lt){ lt.classList.remove('paused'); lt.innerHTML=`<span class="tclock">⏱ ${fmtClock(respMs)}</span>`; }
+  const verdict=document.getElementById('verdict');
+  if(allRight){
+    correctAttempts++;
+    if(wasFirst) firstCorrect++;
+    answeredUnique.add(q.id);
+    verdict.className='verdict correct';
+    verdict.textContent='✓ Correct';
+  } else {
+    verdict.className='verdict incorrect';
+    verdict.textContent='✗ Incorrect';
+    if(wasFirst && !transient()){ missedFirst.add(q.id); updateImproveBtn(); }
+    const pos=Math.floor(Math.random()*(queue.length+1));
+    queue.splice(pos,0,q);
+    document.getElementById('reinsert').style.display='block';
+  }
+  if(q.explanation){
+    const ex=document.getElementById('explain');
+    ex.textContent=q.explanation; ex.style.display='block';
+  }
+  document.getElementById('submit').style.display='none';
+  const sk=document.getElementById('skipBtn'); if(sk) sk.style.display='none';
+  const rt=document.getElementById('retireBtn');
+  if(rt){ rt.textContent="✕ Don't ask this again"; rt.title="You've got this one — remove it from all future tests (won't count toward your score)"; }
+  const nb=document.getElementById('nextBtn');
+  nb.style.display='inline-block';
+  nb.textContent = queue.length===0 ? 'See results →' : 'Next →';
+  nb.focus();
+  document.getElementById('hint').style.display='none';
+  updateMeta();
+  saveProgress('graded');
+}
+
+function summary(){
+  if(!transient()){ saveLastTest(); clearProgress(); }
+  document.getElementById('restartBtn').style.display='none';
+  document.getElementById('improveBtn').style.display='none';
+  hideScore();
+  stopTimerUI();
+  const sb = subjectBreakdownHTML();
+  const pct = total? Math.round(firstCorrect/total*100):0;
+  const overall = attempts? Math.round(correctAttempts/attempts*100):0;
+  const cls = pct>=80?'good':pct>=60?'mid':'low';
+  document.getElementById('prog').style.width='100%';
+  document.getElementById('counter').textContent='Complete';
+  document.getElementById('saveState').textContent='';
+  document.getElementById('remaining').textContent=`${attempts} total attempts`;
+
+  if(focusActive){
+    document.getElementById('quiz').innerHTML=`
+      <div class="summary">
+        <h2>⚑ Focused practice complete!</h2>
+        <div class="l" style="color:var(--muted);text-transform:uppercase;font-size:12px;letter-spacing:.05em">Score on missed questions</div>
+        <div class="score ${cls}">${pct}%</div>
+        <div class="stats">
+          <div class="stat"><div class="n">${total}</div><div class="l">Practiced</div></div>
+          <div class="stat"><div class="n">${firstCorrect}</div><div class="l">Correct first try</div></div>
+          <div class="stat"><div class="n">${attempts}</div><div class="l">Total attempts</div></div>
+          <div class="stat"><div class="n">${overall}%</div><div class="l">Overall accuracy</div></div>
+        </div>
+        ${sb}
+        <div class="actions" style="justify-content:center">
+          <button class="primary" id="againBtn">↻ Practice these again</button>
+          <button class="secondary" id="backFullBtn">← Back to full quiz</button>
+        </div>
+      </div>`;
+    document.getElementById('againBtn').addEventListener('click',startFocus);
+    document.getElementById('backFullBtn').addEventListener('click',exitFocus);
+    return;
+  }
+
+  const missBtn = missedFirst.size
+    ? `<button class="secondary" id="practiceMissBtn">⚑ Practice ${missedFirst.size} missed question${missedFirst.size===1?'':'s'} →</button>`
+    : '';
+  document.getElementById('quiz').innerHTML=`
+    <div class="summary">
+      <h2>🎉 Quiz Complete!</h2>
+      <div class="l" style="color:var(--muted);text-transform:uppercase;font-size:12px;letter-spacing:.05em">First-attempt score</div>
+      <div class="score ${cls}">${pct}%</div>
+      <div class="stats">
+        <div class="stat"><div class="n">${total}</div><div class="l">Questions answered</div></div>
+        <div class="stat"><div class="n">${firstCorrect}</div><div class="l">Correct first try</div></div>
+        <div class="stat"><div class="n">${total-firstCorrect}</div><div class="l">Missed first try</div></div>
+        <div class="stat"><div class="n">${attempts}</div><div class="l">Total attempts</div></div>
+        <div class="stat"><div class="n">${overall}%</div><div class="l">Overall accuracy</div></div>
+      </div>
+      ${sb}
+      <div class="actions" style="justify-content:center">
+        <button class="primary" id="retakeBtn">↻ Retake quiz</button>
+        ${missBtn}
+      </div>
+    </div>`;
+  document.getElementById('retakeBtn').addEventListener('click',freshStart);
+  const pm=document.getElementById('practiceMissBtn');
+  if(pm) pm.addEventListener('click',startFocus);
+}
+
+// ---- improvement areas / focused practice ----
+function setFocusBanner(on){
+  const note=document.getElementById('filterNote');
+  if(on){
+    note.className='focusbanner';
+    note.style.display='flex';
+    note.innerHTML=`<span>⚑ <strong>Focused practice</strong> — drilling the ${total} question${total===1?'':'s'} you missed.</span>
+       <button class="iconbtn" id="exitFocusBtn">← Back to full quiz</button>`;
+    const b=document.getElementById('exitFocusBtn'); if(b) b.addEventListener('click',exitFocus);
+  } else if(note.classList.contains('focusbanner')){
+    note.className='filternote'; note.style.display='none'; note.innerHTML='';
+  }
+}
+
+function showImprovement(){
+  const miss=[...missedFirst].map(id=>QUESTIONS[id]).filter(Boolean);
+  document.getElementById('restartBtn').style.display='none';
+  document.getElementById('improveBtn').style.display='none';
+  hideScore();
+  stopTimerUI();
+  setFocusBanner(false);
+  if(miss.length===0){
+    document.getElementById('quiz').innerHTML=`
+      <div class="setup">
+        <h2 style="margin:0 0 12px">⚑ Improvement areas</h2>
+        <div class="emptybox">Nothing to review yet — you haven't missed any questions on the first try. Keep going! 💪</div>
+        <div class="actions" style="margin-top:20px"><button class="secondary" id="backBtn">← Back to quiz</button></div>
+      </div>`;
+    document.getElementById('backBtn').addEventListener('click',returnToQuiz);
+    return;
+  }
+  const items=miss.map(q=>`<li>${esc(q.question)}${q.type==='multiple'?'<span class="mtype">multi</span>':''}</li>`).join('');
+  document.getElementById('quiz').innerHTML=`
+    <div class="setup">
+      <h2 style="margin:0 0 6px">⚑ Improvement areas</h2>
+      <p class="lead">${miss.length} question${miss.length===1?'':'s'} you answered incorrectly on the first try. Run a focused practice test on just these.</p>
+      <ol class="misslist">${items}</ol>
+      <div class="actions">
+        <button class="primary" id="focusBtn">Start focused practice →</button>
+        <button class="secondary" id="backBtn">← Back to quiz</button>
+      </div>
+    </div>`;
+  document.getElementById('focusBtn').addEventListener('click',startFocus);
+  document.getElementById('backBtn').addEventListener('click',returnToQuiz);
+}
+
+function startFocus(){
+  const items=[...missedFirst].map(id=>QUESTIONS[id]).filter(Boolean);
+  if(items.length===0){ showImprovement(); return; }
+  focusActive=true;
+  attempts=0;correctAttempts=0;firstCorrect=0;
+  qStats={};
+  firstSeen=new Set();answeredUnique=new Set();current=null;locked=false;
+  items.forEach(q=>q.firstAttempt=true);
+  queue=shuffle(items.slice());
+  total=queue.length;
+  SUBJ_TOTAL=subjTotals(queue);
+  document.getElementById('restartBtn').style.display='none';
+  document.getElementById('improveBtn').style.display='none';
+  setFocusBanner(true);
+  next();
+}
+
+// leave focus mode and reload the main quiz from the saved session (state was mutated by focus)
+function exitFocus(){
+  focusActive=false;
+  setFocusBanner(false);
+  ACTIVE=QUESTIONS;
+  total=QUESTIONS.length;
+  boot();
+}
+
+// return to the main quiz from the (non-mutating) improvement intro screen
+function returnToQuiz(){
+  document.getElementById('restartBtn').style.display='inline-block';
+  document.getElementById('improveBtn').style.display='inline-block';
+  updateImproveBtn();
+  if(!current){ next(); return; }
+  if(locked){ next(); return; }
+  render(); updateMeta();
+}
+
+function confirmRestart(){
+  if(confirm("Start the quiz over? Your current progress and saved session will be cleared.")){
+    freshStart();
+  }
+}
+
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+
+// ---- subjects + topic search / filter ----
+const SUBJECTS=[
+  {key:'git',label:'Git & Version Control',kw:['version control','distributed','git ','staging','snapshot of a repository']},
+  {key:'repos',label:'Repositories',kw:['repositor','readme','wiki','pinned','.github','default branch']},
+  {key:'branches',label:'Branches & Merging',kw:['branch','merge','merging','rebase']},
+  {key:'commits',label:'Commits',kw:['commit']},
+  {key:'pr',label:'Pull Requests',kw:['pull request','draft pull','code review','reviewer','status check','closes #']},
+  {key:'issues',label:'Issues',kw:['issue']},
+  {key:'discussions',label:'Discussions',kw:['discussion']},
+  {key:'actions',label:'Actions / CI-CD',kw:['github actions','workflow','ci/cd','continuous integration','runner']},
+  {key:'pages',label:'GitHub Pages',kw:['github pages','static site','static website']},
+  {key:'forks',label:'Forks & Cloning',kw:['fork','clone','cloning']},
+  {key:'collab',label:'Collaboration & Access',kw:['collaborator','permission','write access','read access','codeowners','invite']},
+  {key:'org',label:'Organizations & Teams',kw:['organization','team','security manager','innersource','inner source','member']},
+  {key:'plans',label:'Accounts, Plans & Billing',kw:['pricing','billing','free plan','github pro','enterprise','team plan','marketplace','plan for']},
+  {key:'sponsors',label:'Open Source & Sponsors',kw:['open source','sponsor','license','community']},
+  {key:'security',label:'Security & Auth',kw:['security','secret scanning','codeql','dependabot','vulnerab','branch protection','2fa','two-factor','multi-factor','authentication','personal access token','passkey','security key']},
+  {key:'copilot',label:'GitHub Copilot',kw:['copilot']},
+  {key:'apps',label:'Desktop, Mobile & CLI',kw:['github desktop','github mobile','github cli','command line','gui application']},
+  {key:'projects',label:'Projects & Planning',kw:['github projects','project board','project template','task list','project as a template']},
+  {key:'markdown',label:'Markdown & Writing',kw:['markdown','slash command','task list']},
+  {key:'profile',label:'Profile & Social',kw:['following','follow ','followers','profile','gist']},
+  {key:'insights',label:'Insights & Activity',kw:['insights','pulse','graph','contribution']}
+];
+const SUBJECT_LABEL={general:'General / Other'};
+SUBJECTS.forEach(s=>SUBJECT_LABEL[s.key]=s.label);
+
+let selectedSubjects=new Set();
+let searchWords=[];
+let SUBJ_TOTAL={};
+let SUBJ_FULL={};
+
+function questionHaystack(q){
+  let s=(q.question||"");
+  for(const o of (q.options||[])) s+=" "+(o.text||"");
+  if(q.explanation) s+=" "+q.explanation;
+  return s.toLowerCase();
+}
+
+function initSubjects(){
+  QUESTIONS.forEach(q=>{
+    const h=questionHaystack(q);
+    const tags=[];
+    for(const s of SUBJECTS){ if(s.kw.some(k=>h.includes(k))) tags.push(s.key); }
+    if(tags.length===0) tags.push('general');
+    q._subjects=tags;
+  });
+  const counts={};
+  QUESTIONS.forEach(q=>q._subjects.forEach(k=>counts[k]=(counts[k]||0)+1));
+  SUBJ_FULL=counts; SUBJ_TOTAL=counts;
+  let html='';
+  for(const s of SUBJECTS){
+    const c=counts[s.key]||0; if(!c) continue;
+    html+=`<li><label><input type="checkbox" value="${s.key}"><span class="lbl">${esc(s.label)}</span><span class="cntwrap"><span class="savg" data-key="${s.key}"></span><span class="cnt" data-key="${s.key}">${c}</span></span></label></li>`;
+  }
+  if(counts['general']) html+=`<li><label><input type="checkbox" value="general"><span class="lbl">General / Other</span><span class="cntwrap"><span class="savg" data-key="general"></span><span class="cnt" data-key="general">${counts['general']}</span></span></label></li>`;
+  const ul=document.getElementById('subList');
+  ul.innerHTML=html;
+  ul.addEventListener('change',e=>{
+    const cb=e.target.closest('input'); if(!cb) return;
+    if(cb.checked) selectedSubjects.add(cb.value); else selectedSubjects.delete(cb.value);
+    cb.closest('label').classList.toggle('on',cb.checked);
+    recomputeFilter();
+  });
+  document.getElementById('subAll').addEventListener('click',()=>{
+    selectedSubjects.clear();
+    document.querySelectorAll('#subList input').forEach(c=>{c.checked=true;selectedSubjects.add(c.value);c.closest('label').classList.add('on');});
+    recomputeFilter();
+  });
+  document.getElementById('subClear').addEventListener('click',resetFilters);
+  updateSubjectProgress();
+}
+
+// tally how many questions in a given set belong to each subject (used to scope the sidebar totals to the active test)
+function subjTotals(qs){
+  const c={};
+  qs.forEach(q=>{ if(!q) return; const subs=(q._subjects&&q._subjects.length)?q._subjects:['general']; subs.forEach(k=>c[k]=(c[k]||0)+1); });
+  return c;
+}
+
+// live-update the sidebar subject badges: answered/total, plus avg time per subject when the live timer is on
+function updateSubjectProgress(){
+  const ans={},ms={},n={};
+  for(const id in qStats){
+    const q=QUESTIONS[id]; if(!q) continue;
+    const st=qStats[id];
+    const subs=(q._subjects&&q._subjects.length)?q._subjects:['general'];
+    for(const k of subs){ ans[k]=(ans[k]||0)+1; ms[k]=(ms[k]||0)+st.ms; n[k]=(n[k]||0)+st.n; }
+  }
+  document.querySelectorAll('#subList .cnt').forEach(el=>{
+    const k=el.dataset.key, tot=SUBJ_TOTAL[k]||0, a=ans[k]||0;
+    el.textContent = a>0 ? `${a}/${tot}` : `${tot}`;
+    el.classList.toggle('answered', a>0);
+  });
+  document.querySelectorAll('#subList .savg').forEach(el=>{
+    const k=el.dataset.key, a=ans[k]||0;
+    el.textContent = (timerShow && a>0 && n[k]>0) ? '⏱ '+fmtAvg(ms[k]/n[k]) : '';
+  });
+}
+
+function applyFilter(term){
+  term=(term||"").trim();
+  searchWords = term ? term.toLowerCase().split(/\s+/).filter(Boolean) : [];
+  recomputeFilter();
+}
+
+function resetFilters(){
+  selectedSubjects.clear();
+  searchWords=[];
+  const si=document.getElementById('searchInput'); if(si) si.value='';
+  document.querySelectorAll('#subList input').forEach(c=>{c.checked=false;c.closest('label').classList.remove('on');});
+  recomputeFilter();
+}
+
+function recomputeFilter(){
+  const note=document.getElementById('filterNote');
+  const clr=document.getElementById('searchClear');
+  const subs=[...selectedSubjects];
+  if(subs.length===0 && searchWords.length===0){
+    filterActive=false; ACTIVE=QUESTIONS; total=QUESTIONS.length;
+    clr.style.display='none'; note.style.display='none'; note.innerHTML='';
+    boot(); return;
+  }
+  const matches=QUESTIONS.filter(q=>{
+    if(isRetired(q)) return false;
+    if(subs.length && !subs.some(k=>q._subjects.includes(k))) return false;
+    if(searchWords.length){ const h=questionHaystack(q); if(!searchWords.every(w=>h.includes(w))) return false; }
+    return true;
+  });
+  filterActive=true;
+  focusActive=false;
+  clr.style.display='inline-block';
+  note.style.display='block';
+  const parts=[];
+  if(subs.length) parts.push('Subjects: '+subs.map(k=>esc(SUBJECT_LABEL[k]||k)).join(', '));
+  if(searchWords.length) parts.push('matching “'+esc(searchWords.join(' '))+'”');
+  if(matches.length===0){
+    note.className='filternote none';
+    note.innerHTML=`No questions found — ${parts.join(' · ')}. <a href="#" id="clrLink">Show all questions</a>.`;
+    document.getElementById('restartBtn').style.display='none';
+    document.getElementById('improveBtn').style.display='none';
+    hideScore();
+    stopTimerUI();
+    document.getElementById('counter').textContent='';
+    document.getElementById('remaining').textContent='';
+    document.getElementById('prog').style.width='0%';
+    document.getElementById('quiz').innerHTML='<div class="resume"><p>No matching questions for that selection.</p></div>';
+    const cl=document.getElementById('clrLink'); if(cl) cl.addEventListener('click',e=>{e.preventDefault();resetFilters();});
+    return;
+  }
+  note.className='filternote';
+  note.innerHTML=`Showing <strong>${matches.length}</strong> of ${QUESTIONS.length} questions — ${parts.join(' · ')}.`;
+  ACTIVE=matches;
+  attempts=0;correctAttempts=0;firstCorrect=0;
+  qStats={};
+  firstSeen=new Set();answeredUnique=new Set();current=null;locked=false;
+  total=ACTIVE.length;
+  SUBJ_TOTAL=subjTotals(ACTIVE);
+  ACTIVE.forEach(q=>q.firstAttempt=true);
+  queue=shuffle(ACTIVE.slice());
+  document.getElementById('restartBtn').style.display='inline-block';
+  document.getElementById('improveBtn').style.display='none';
+  next();
+}
+
+document.getElementById('searchInput').addEventListener('keydown',e=>{
+  if(e.key==='Enter'){ e.preventDefault(); applyFilter(e.target.value); }
+});
+document.getElementById('searchClear').addEventListener('click',resetFilters);
+
+document.getElementById('restartBtn').addEventListener('click',confirmRestart);
+document.getElementById('improveBtn').addEventListener('click',showImprovement);
+document.addEventListener('keydown',e=>{
+  if(e.target && e.target.id==='searchInput') return;   // let the search box handle Enter
+  if(paused) return;                                    // ignore shortcuts while on a break
+  if(e.key==='Enter'){
+    const sub=document.getElementById('submit');
+    const nb=document.getElementById('nextBtn');
+    if(nb&&nb.style.display!=='none'){e.preventDefault();nb.click();}
+    else if(sub&&!sub.disabled&&sub.style.display!=='none'){e.preventDefault();sub.click();}
+  }
+});
+
+initSubjects();
+boot();
+</script>
+</body>
+</html>

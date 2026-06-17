@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GitHub Foundations Certification Practice Quiz</title>
+<style>
+  :root{
+    --bg:#0d1117; --panel:#161b22; --border:#30363d; --text:#e6edf3; --muted:#8b949e;
+    --accent:#2f81f7; --green:#238636; --green-bg:#12261e; --green-bd:#2ea043;
+    --red:#da3633; --red-bg:#25171c; --red-bd:#f85149; --yellow:#d29922;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.5}
+  .wrap{max-width:1240px;margin:0 auto;padding:28px clamp(16px,4vw,40px) 80px}
+  header{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+  header svg{flex:0 0 auto}
+  h1{font-size:clamp(18px,2.2vw,22px);margin:0;flex:1}
+  .iconbtn{font:inherit;font-size:13px;font-weight:600;background:#21262d;color:var(--text);
+    border:1px solid var(--border);border-radius:8px;padding:7px 12px;cursor:pointer;white-space:nowrap}
+  .iconbtn:hover{border-color:#8b949e}
+  .scoretally{font:inherit;font-size:13px;font-weight:700;white-space:nowrap;
+    border:1px solid var(--border);border-radius:8px;padding:7px 12px;
+    background:#161b22;color:var(--text)}
+  .scoretally b{font-weight:700}
+  .scoretally .pct{color:#3fb950}
+  .scoretally.low .pct{color:#f85149}
+  .scoretally .frac{color:#8b949e;font-weight:600}
+  .search{display:flex;gap:8px;margin:4px 0 0}
+  .search input{flex:1;font:inherit;font-size:14px;background:var(--panel);color:var(--text);
+    border:1px solid var(--border);border-radius:8px;padding:9px 12px}
+  .search input:focus{outline:none;border-color:var(--accent)}
+  .filternote{font-size:13px;color:var(--muted);margin:10px 0 0;padding:8px 12px;
+    background:#0f1c16;border-left:3px solid var(--green-bd);border-radius:6px}
+  .filternote.none{background:var(--red-bg);border-left-color:var(--red-bd);color:#f0b0ac}
+  .filternote a{color:var(--accent)}
+  .layout{display:flex;gap:clamp(20px,3vw,36px);align-items:flex-start;margin-top:18px}
+  .main{flex:1;min-width:0}
+  .sidebar{flex:0 0 270px;position:sticky;top:18px;max-height:calc(100vh - 96px);overflow:auto;
+    background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:16px 14px}
+  .side-h{display:flex;align-items:center;gap:8px;margin:2px 4px 12px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+  .side-h .ttl{flex:1;font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+  .side-h button{font:inherit;font-size:11.5px;font-weight:600;background:#21262d;color:var(--text);
+    border:1px solid var(--border);border-radius:6px;padding:4px 10px;cursor:pointer}
+  .side-h button:hover{border-color:#8b949e}
+  .sublist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px}
+  .sublist label{display:flex;align-items:center;gap:11px;padding:10px 11px;border-radius:9px;cursor:pointer;
+    font-size:14px;transition:background .12s}
+  .sublist label:hover{background:#0d1117}
+  .sublist label.on{background:#10243b}
+  .sublist input{width:16px;height:16px;accent-color:var(--accent);flex:0 0 auto;cursor:pointer}
+  .sublist .lbl{flex:1;min-width:0;line-height:1.35}
+  .sublist .cntwrap{display:flex;align-items:center;gap:6px;flex:0 0 auto}
+  .sublist .cnt{font-size:11.5px;color:var(--muted);background:#0d1117;border:1px solid var(--border);
+    border-radius:999px;padding:1px 9px;line-height:1.5;white-space:nowrap}
+  .sublist .cnt.answered{color:#fff;font-weight:600;background:#10243b;border-color:#1f6feb}
+  .sublist .savg{font-size:11px;color:#7ee0a0;background:#0d1117;border:1px solid #2ea04326;
+    border-radius:999px;padding:1px 7px;line-height:1.5;white-space:nowrap}
+  .sublist .savg:empty{display:none}
+  @media (max-width:1080px){ .sidebar{flex-basis:240px} }
+  @media (max-width:860px){
+    .layout{flex-direction:column;gap:18px}
+    .sidebar{flex:none;width:100%;position:static;max-height:none;order:-1;padding:14px}
+    .sublist{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:4px}
+  }
+  .bar{height:8px;background:var(--panel);border:1px solid var(--border);border-radius:6px;overflow:hidden;margin:16px 0 6px}
+  .bar>div{height:100%;background:linear-gradient(90deg,#1f6feb,#2ea043);width:0;transition:width .3s}
+  .meta{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted);margin-bottom:18px;gap:10px}
+  .meta .save{color:var(--green-bd);font-size:12px}
+  .livetimer{display:none;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);
+    background:#0d1117;border:1px solid var(--border);border-radius:8px;padding:3px 4px 3px 10px;flex:0 0 auto}
+  .livetimer.paused{border-color:var(--yellow);color:var(--yellow)}
+  .livetimer .tclock{font-variant-numeric:tabular-nums;font-weight:600}
+  .livetimer .tbtn{font:inherit;font-size:11.5px;font-weight:600;background:#21262d;color:var(--text);
+    border:1px solid var(--border);border-radius:6px;padding:3px 9px;cursor:pointer}
+  .livetimer .tbtn:hover{border-color:#8b949e}
+  .livetimer.paused .tbtn{border-color:var(--yellow);color:var(--yellow)}
+  .pauseoverlay{display:none;position:absolute;inset:0;border-radius:14px;
+    background:rgba(13,17,23,.88);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+    align-items:center;justify-content:center;z-index:5}
+  .pausebox{text-align:center;padding:24px}
+  .pausebox .picon{font-size:42px;margin-bottom:6px}
+  .pausebox .ptxt{font-size:18px;font-weight:700;margin-bottom:4px}
+  .pausebox .psub{font-size:13px;color:var(--muted);margin:0 auto 18px;max-width:340px}
+  .timeropt{background:#0d1117;border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin:0 0 18px}
+  .timeropt .chk{display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:14px;margin:0}
+  .timeropt .chk input{width:18px;height:18px;margin-top:1px;accent-color:var(--accent);cursor:pointer;flex:0 0 auto}
+  .timeropt .chk b{color:#fff}
+  .timeropt .chk .sub{display:block;color:var(--muted);font-size:12.5px;margin-top:3px}
+  .subjbreak{margin-top:28px;text-align:left}
+  .subjbreak h3{margin:0 0 4px;font-size:16px}
+  .sbhint{margin:0 0 12px;font-size:12.5px;color:var(--muted)}
+  .sbrow{padding:12px 0;border-top:1px solid var(--border)}
+  .sbhead{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+  .sbname{font-weight:600;font-size:14px}
+  .sbacc{font-weight:700;font-size:14px;font-variant-numeric:tabular-nums}
+  .sbacc.good{color:#3fb950}.sbacc.mid{color:#d29922}.sbacc.low{color:#f85149}
+  .sbbar{height:6px;background:#0d1117;border:1px solid var(--border);border-radius:5px;overflow:hidden;margin:7px 0}
+  .sbfill{display:block;height:100%}
+  .sbfill.good{background:#2ea043}.sbfill.mid{background:#d29922}.sbfill.low{background:#da3633}
+  .sbsub{font-size:12.5px;color:var(--muted)}
+  .card{position:relative;background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:clamp(18px,3vw,32px)}
+  .qhead{max-width:860px}
+  .qtype{display:inline-block;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);
+    border:1px solid var(--border);border-radius:999px;padding:2px 10px;margin-bottom:14px}
+  .qtype.multi{color:#e6edf3;font-weight:700;border-color:#3fb950;background:rgba(63,185,80,.15)}
+  .qtype .num{color:#fff;font-weight:800}
+  .hint.multi{color:#e6edf3;font-size:14px;font-weight:600}
+  .hint .num{color:#fff;font-weight:800;background:rgba(63,185,80,.20);
+    border:1px solid #3fb950;border-radius:6px;padding:0 7px}
+  .qtext{font-size:clamp(17px,1.4vw,20px);font-weight:600;margin:0 0 20px;white-space:pre-wrap;
+    max-width:860px;line-height:1.45}
+  .options{display:flex;flex-direction:column;gap:11px;max-width:860px}
+  .opt{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--border);border-radius:10px;
+    padding:13px 14px;cursor:pointer;background:#0d1117;transition:border-color .15s,background .15s}
+  .opt:hover{border-color:#484f58}
+  .opt input{margin-top:3px;width:17px;height:17px;accent-color:var(--accent);flex:0 0 auto;cursor:pointer}
+  .opt .txt{flex:1;white-space:pre-wrap}
+  .opt.correct{background:var(--green-bg);border-color:var(--green-bd)}
+  .opt.incorrect{background:var(--red-bg);border-color:var(--red-bd)}
+  .opt.locked{cursor:default}
+  .tag{font-size:11px;font-weight:700;padding:1px 8px;border-radius:999px;margin-left:8px;white-space:nowrap}
+  .tag.g{background:var(--green-bd);color:#fff}
+  .tag.r{background:var(--red-bd);color:#fff}
+  .verdict{margin:16px 0 0;font-weight:700;font-size:16px;display:none}
+  .verdict.correct{color:var(--green-bd);display:block}
+  .verdict.incorrect{color:var(--red-bd);display:block}
+  .reinsert{font-weight:500;color:var(--yellow);font-size:13px;margin-top:4px;display:none}
+  .explain{margin-top:14px;padding:12px 14px;border-left:3px solid var(--green-bd);
+    background:#0f1c16;border-radius:6px;color:#c9d1d9;font-size:14px;white-space:pre-wrap;display:none}
+  .actions{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
+  button{font:inherit;font-weight:600;border-radius:8px;padding:10px 20px;cursor:pointer;border:1px solid transparent}
+  .primary{background:var(--green);color:#fff;border-color:#2ea04366}
+  .primary:hover{background:#2ea043}
+  .primary:disabled{opacity:.5;cursor:not-allowed}
+  .secondary{background:#21262d;color:var(--text);border-color:var(--border)}
+  .secondary:hover{border-color:#8b949e}
+  .actions-right{display:flex;gap:10px;margin-left:auto;flex-wrap:wrap}
+  .ghost{background:transparent;color:var(--muted);border-color:var(--border);font-weight:600}
+  .ghost:hover{color:var(--text);border-color:#8b949e;background:#161b22}
+  .ghost.danger:hover{color:#f85149;border-color:#f85149;background:rgba(248,81,73,.08)}
+  .ghost.finish{color:#79c0ff;border-color:#1f4d80}
+  .ghost.finish:hover{color:#cae8ff;border-color:var(--accent);background:rgba(47,129,247,.10)}
+  .resetrow{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:26px;
+    padding-top:18px;border-top:1px solid var(--border);max-width:560px}
+  .resetrow .resethint{font-size:12px;color:var(--muted);flex:1;min-width:200px}
+  .hint{color:var(--muted);font-size:13px;margin-top:10px}
+  @media (max-width:560px){
+    header{flex-wrap:wrap}
+    .opt{padding:14px}
+    .actions{gap:10px}
+    .actions button{flex:1 1 auto}
+  }
+  .resume h2{margin:0 0 8px}
+  .resume p{color:var(--muted);margin:0 0 18px}
+  /* count slider */
+  .setup{padding:8px 4px 4px}
+  .setup .lead{color:var(--muted);margin:0 0 18px}
+  .countbox{background:#0d1117;border:1px solid var(--border);border-radius:12px;padding:20px 22px;margin:0 0 22px;max-width:560px}
+  .countbox .row{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:14px}
+  .countbox .lbl{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+  .countbox .val{font-size:30px;font-weight:800;color:var(--accent)}
+  .countbox .val small{font-size:14px;font-weight:600;color:var(--muted)}
+  input[type=range].slider{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:6px;
+    background:var(--border);outline:none;margin:6px 0 4px;cursor:pointer}
+  input[type=range].slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;
+    border-radius:50%;background:var(--accent);border:3px solid #0d1117;cursor:pointer;box-shadow:0 0 0 1px var(--accent)}
+  input[type=range].slider::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--accent);
+    border:3px solid #0d1117;cursor:pointer}
+  .ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:2px}
+  .ticks span{cursor:pointer;padding:2px 4px;border-radius:4px}
+  .ticks span:hover{color:var(--text);background:#161b22}
+  .ticks span.on{color:var(--accent);font-weight:700}
+  .prioropts{background:#0d1117;border:1px solid var(--border);border-radius:12px;
+    padding:16px 20px;margin:0 0 22px;max-width:560px}
+  .prioropts .ptitle{font-size:13px;color:var(--muted);margin:0 0 12px}
+  .prioropts .ptitle b{color:var(--text)}
+  .prioropts .chk{display:flex;align-items:flex-start;gap:10px;cursor:pointer;
+    padding:9px 0;font-size:15px;color:var(--text);line-height:1.4}
+  .prioropts .chk + .chk{border-top:1px solid var(--border)}
+  .prioropts .chk input{width:18px;height:18px;margin-top:1px;accent-color:var(--accent);cursor:pointer;flex:0 0 auto}
+  .prioropts .chk b{color:#fff}
+  .typesel{display:flex;gap:0;margin:0 0 22px;max-width:560px;border:1px solid var(--border);
+    border-radius:12px;overflow:hidden}
+  .typesel button{flex:1;font:inherit;font-size:14px;font-weight:600;color:var(--muted);
+    background:#0d1117;border:0;border-right:1px solid var(--border);padding:14px 10px;cursor:pointer;
+    display:flex;flex-direction:column;align-items:center;gap:3px;line-height:1.2}
+  .typesel button:last-child{border-right:0}
+  .typesel button .cnt{font-size:12px;font-weight:600;color:var(--muted)}
+  .typesel button:hover{background:#161b22;color:var(--text)}
+  .typesel button.on{background:rgba(63,185,80,.15);color:#fff}
+  .typesel button.on .cnt{color:#3fb950}
+  /* improvement areas */
+  .focusbanner{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:14px;color:#cfe3ff;
+    margin:12px 0 0;padding:10px 14px;background:#0d1f33;border-left:3px solid var(--accent);border-radius:8px}
+  .focusbanner button{margin-left:auto}
+  .misslist{list-style:decimal;margin:6px 0 22px;padding-left:24px;max-width:760px;
+    max-height:340px;overflow:auto;display:flex;flex-direction:column;gap:10px}
+  .misslist li{color:#c9d1d9;line-height:1.4}
+  .misslist li .mtype{font-size:11px;color:var(--yellow);text-transform:uppercase;letter-spacing:.04em;margin-left:6px}
+  .emptybox{color:var(--muted);background:#0d1117;border:1px dashed var(--border);border-radius:10px;padding:22px;text-align:center}
+  /* summary */
+  .summary{text-align:center;padding:30px 22px}
+  .summary h2{margin:0 0 18px;font-size:24px}
+  .score{font-size:56px;font-weight:800;margin:6px 0}
+  .score.good{color:var(--green-bd)} .score.mid{color:var(--yellow)} .score.low{color:var(--red-bd)}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:22px 0}
+  .stat{background:#0d1117;border:1px solid var(--border);border-radius:10px;padding:14px}
+  .stat .n{font-size:24px;font-weight:700}
+  .stat .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+  .footer{color:var(--muted);font-size:12px;text-align:center;margin-top:30px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <svg height="30" width="30" viewBox="0 0 16 16" fill="#e6edf3"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg>
+    <h1>GitHub Foundations Certification Practice Quiz</h1>
+    <span id="scoreTally" class="scoretally" style="display:none" title="Running percentage of answers you've gotten correct this session"></span>
+    <button id="improveBtn" class="iconbtn" style="display:none" title="Review and practice the questions you missed">⚑ Improvement areas</button>
+    <button id="restartBtn" class="iconbtn" style="display:none" title="Start the quiz over">↻ Restart</button>
+  </header>
+
+  <div class="search">
+    <input id="searchInput" type="search" autocomplete="off"
+      placeholder="🔍 Filter by topic — e.g. pull request, Actions, billing — then press Enter">
+    <button id="searchClear" class="iconbtn" style="display:none" title="Show all questions">Clear</button>
+  </div>
+  <div id="filterNote" class="filternote" style="display:none"></div>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="side-h">
+        <span class="ttl">Subjects</span>
+        <button id="subAll" title="Select every subject">All</button>
+        <button id="subClear" title="Clear selection">Clear</button>
+      </div>
+      <ul id="subList" class="sublist"></ul>
+    </aside>
+
+    <div class="main">
+      <div class="bar"><div id="prog"></div></div>
+      <div class="meta">
+        <span id="counter"></span>
+        <span id="saveState" class="save"></span>
+        <span id="remaining"></span>
+        <span id="liveTimer" class="livetimer" style="display:none"></span>
+      </div>
+
+      <div id="quiz" class="card"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const QUESTIONS = [{"question": "What happens if you lose internet connectivity while using a Codespace?", "type": "single", "options": [{"text": "If the connection to the internet is lost while working in a Codespace, edit access is lost until connectivity is recovered.", "correct": true}, {"text": "Codespaces don't require an internet connection. You can access your Codespace regardless of connectivity.", "correct": false}, {"text": "If you lose internet connection while working on your Codespace, your unsaved changes are lost.", "correct": false}, {"text": "Nothing happens. Everything is always saved regardless of internet access.", "correct": false}], "explanation": "A Codespace is a remote development environment and requires an active internet connection to interact with it. If the internet connection is lost, the environment remains until a connection is reestablished. Changes are stored within the remote environment until committed and"}, {"question": "What's the maximum number of Codespaces that you can create per repository or branch?", "type": "single", "options": [{"text": "You can only create two Codespaces.", "correct": false}, {"text": "You can create a total of ten Codespaces.", "correct": false}, {"text": "You can create a total of thirty Codespaces.", "correct": false}, {"text": "You can create an unlimited number of Codespaces.", "correct": true}], "explanation": "You can create an unlimited number of Codespaces per repository or branch assuming there is available storage."}, {"question": "What are the different options that allow you to automate operations in your GitHub Project?", "type": "multiple", "options": [{"text": "GitHub Charts", "correct": false}, {"text": "GitHub Dependabot", "correct": false}, {"text": "GitHub GraphQL API", "correct": true}, {"text": "Project workflows", "correct": true}, {"text": "Project items", "correct": false}, {"text": "GitHub Copilot", "correct": false}, {"text": "GitHub Actions", "correct": true}], "explanation": null}, {"question": "What is a good way to make sure you're integrating the most secure versions of your project dependencies?", "type": "single", "options": [{"text": "Configure your package files to always use the latest versions of dependencies.", "correct": false}, {"text": "Check each project's security details closely before adding it to your dependencies by confirming its version status across multiple advisory sites.", "correct": false}, {"text": "Enable Dependabot for your repository.", "correct": true}, {"text": "Enable repository dependency graph alerts.", "correct": false}], "explanation": "Dependabot scans your repository's dependency manifests and notifies you via an alert and pull request whenever a utilized version or upstream dependency is discovered as insecure."}, {"question": "Which of the following roles are available for a repository at the organization level on GitHub?", "type": "multiple", "options": [{"text": "Delete", "correct": false}, {"text": "Write", "correct": true}, {"text": "Read", "correct": true}, {"text": "Triage", "correct": true}, {"text": "Admin", "correct": true}, {"text": "Maintain", "correct": true}], "explanation": null}, {"question": "What is the difference between a GitHub organization account and a GitHub personal/user account?", "type": "single", "options": [{"text": "An organization account is intended for multiple people and teams, while personal/user accounts are typically for individuals.", "correct": true}, {"text": "You pay more for organization accounts versus personal/user accounts.", "correct": false}, {"text": "They are exactly the same.", "correct": false}, {"text": "Personal/ user accounts have more access than organization accounts.", "correct": false}], "explanation": "Organizations are shared accounts where an unlimited number of people can collaborate across many projects at once and with tiered permissions."}, {"question": "How does GitHub help people that want to write proper issue and pull request comments but don't know Markdown syntax?", "type": "single", "options": [{"text": "There is a text formatting toolbar on issue and pull request comment forms which generates Markdown for you.", "correct": true}, {"text": "GitHub pull requests and issues don't support Markdown.", "correct": false}, {"text": "GitHub automatically converts HTML to Markdown in issue and pull request comments.", "correct": false}, {"text": "By providing a Markdown cheat sheet.", "correct": false}], "explanation": null}, {"question": "What is the GitHub Marketplace?", "type": "single", "options": [{"text": "A place where you can purchase more GitHub seats for your organization.", "correct": false}, {"text": "A place to upgrade your GitHub plan.", "correct": false}, {"text": "A place where you can meet Sponsors to help sponsor your project.", "correct": false}, {"text": "A place for discovering and installing additional functionality for GitHub.", "correct": true}], "explanation": "The GitHub Marketplace offers various community developed resources such as applications, Actions, and extensions to add additional functionality to GitHub."}, {"question": "You have been requested to review a pull request. As you read through it, you notice several minor coding errors and typos. How should you handle the review?", "type": "single", "options": [{"text": "Start a review and fix obvious typos inline. Add comments in places that require further discussion or offer educational value. Complete the review with changes requested.", "correct": true}, {"text": "Leave single comments for each issue you come across, but do not change the code. For typos, include the correct spelling of the word as a reference. Approve the pull request if you trust the author to implement your suggestions.", "correct": false}, {"text": "Reject the pull request. We can't risk any bugs accidentally being merged into an important branch.", "correct": false}], "explanation": "Contributors always appreciate when reviewers show an interest in getting their code merged. While every project has its own contribution"}, {"question": "What is InnerSource?", "type": "single", "options": [{"text": "InnerSource refers to the practice of applying open source principles within an organization", "correct": true}, {"text": "InnerSource refers to the practice of applying open source principles in personal projects", "correct": false}, {"text": "InnerSource refers to the internal knowledge base of an organization about the project they are working on.", "correct": false}, {"text": "InnerSource is a tool that allows organizations to see what open source projects they are using in their code.", "correct": false}], "explanation": null}, {"question": "What GitHub feature allows the creation of preconfigured development environments where all necessary tools and dependencies to contribute to a repository are installed?", "type": "single", "options": [{"text": "GitHub DevEnv", "correct": false}, {"text": "GitHub Copilot", "correct": false}, {"text": "GitHub Docker", "correct": false}, {"text": "GitHub Codespaces", "correct": true}], "explanation": null}, {"question": "In Git, what is a \"commit\" used for?", "type": "single", "options": [{"text": "A remote server where code is stored.", "correct": false}, {"text": "A record of changes to a repository's history.", "correct": true}, {"text": "An external plugin to integrate with other services.", "correct": false}, {"text": "A summary of issues and bugs in a project.", "correct": false}], "explanation": "A \"commit\" is a snapshots of your entire repository at specific times"}, {"question": "In Git terminology, what is a \"remote\"?", "type": "single", "options": [{"text": "A local copy of a repository stored on your computer.", "correct": false}, {"text": "A separate branch used for experimental code.", "correct": false}, {"text": "A backup of your repository stored in a secure location.", "correct": false}, {"text": "A repository that tracks the same project but resides somewhere else.", "correct": true}], "explanation": "Remotes are references to other repositories for collaboration and synchronization."}, {"question": "Which search query finds all open issues labeled test that mention 'fix' in their body text?", "type": "single", "options": [{"text": "type:issue label:test is:open body:\"fix\"", "correct": false}, {"text": "is:issue in:comments label:test \"fix\"", "correct": false}, {"text": "is:pr is:open label:test \"fix\"", "correct": false}, {"text": "is:issue is:open label:test \"fix\"", "correct": true}], "explanation": null}, {"question": "Which feature in GitHub Projects enables you to effortlessly generate graphs and charts for visualizing the current status and historical progression of your project?", "type": "single", "options": [{"text": "Project Insights", "correct": true}, {"text": "GitHub Actions", "correct": false}, {"text": "Copilot Charts", "correct": false}, {"text": "Milestones", "correct": false}], "explanation": null}, {"question": "What's the difference between Git and GitHub?", "type": "single", "options": [{"text": "Git is a distributed version control system (DVCS) that runs locally. GitHub is an interface layer that provides a shared remote.", "correct": true}, {"text": "Git is version control for projects with one contributor. GitHub is version control for projects with multiple contributors.", "correct": false}, {"text": "Git and GitHub are the same.", "correct": false}, {"text": "Git is local version control. GitHub is remote version control.", "correct": false}], "explanation": "Git is the tool you can use to work with a local branch and push changes to a remote repository. GitHub acts as a remote repository."}, {"question": "What is the difference between an issue, discussion, and pull request in GitHub?", "type": "single", "options": [{"text": "All three terms refer to the same thing in GitHub.", "correct": false}, {"text": "An issue is a way to discuss code changes, discussions are about project features, and pull requests are for bug reports.", "correct": false}, {"text": "Issues are for suggesting changes, discussions are for general project topics, and pull requests are for code review and merging.", "correct": true}, {"text": "An issue is for code review, discussions are for bug reports, and pull requests are for general project topics.", "correct": false}], "explanation": "In GitHub, \"issues\" are used for suggesting changes, reporting bugs, and tracking tasks; \"discussions\" are broader project topics; and \"pull requests\" are used for code review and merging."}, {"question": "What is the primary function of a GitHub Action?", "type": "single", "options": [{"text": "To automate software development tasks.", "correct": false}, {"text": "To facilitate continuous integration and continuous delivery (CI/CD).", "correct": false}, {"text": "Integrate infrastructure as code within your project's context.", "correct": false}, {"text": "All of the above", "correct": true}], "explanation": "The GitHub Actions platform provides an ecosystem for running very triggerable workflows. Developers can create custom workflows and shareable Actions to enable many common tasks such as continuous integration/delivery, administrative tasks, and infrastructure as code."}, {"question": "Which of the following cannot be used as an event trigger ('on: xyz')?", "type": "single", "options": [{"text": "Making a commit to a branch", "correct": false}, {"text": "A user visits a specified page on the repository", "correct": true}, {"text": "Merging a branch", "correct": false}, {"text": "Opening an issue", "correct": false}], "explanation": "GitHub Actions supports many types of workflow triggers, including several events related to Git activity and Issue management, for example pushing a commit, starting a pull request, merging, creating an issue, or adding comments"}, {"question": "Your project requires appropriate hardware to run. Can you customize the amount of CPU cores that will be allocated to your GitHub Codespace environment?", "type": "single", "options": [{"text": "No, GitHub Codespaces are hosted on Microsoft Azure and we have no control on what hardware they are running", "correct": false}, {"text": "Yes, you can choose an alternative machine type either when you create a codespace or at any time after you've created a codespace.", "correct": true}], "explanation": null}, {"question": "What are the different repository visibility options?", "type": "single", "options": [{"text": "Private and Public", "correct": false}, {"text": "Private, Public and Internal (Enterprise only)", "correct": true}, {"text": "Personal, Public and Internal (Enterprise only)", "correct": false}, {"text": "Personal and Public", "correct": false}], "explanation": null}, {"question": "What type of user authentication is used to verify a user identity against a known identity provider?", "type": "single", "options": [{"text": "Two-factor authentication (2FA)", "correct": false}, {"text": "Time-based One-time Password (TOTP)", "correct": false}, {"text": "SAML Single Sign-on (SAML SSO)", "correct": true}, {"text": "Short Message Service (SMS)", "correct": false}], "explanation": "SAML authentication is an industry standard process used to verify user identity and credentials against a known identity provider. It is supported by GitHub."}, {"question": "Which of these is true regarding custom fields for items in GitHub Projects?", "type": "single", "options": [{"text": "Custom fields enable the addition of metadata beyond the built-in options, such as target dates and iteration fields.", "correct": true}, {"text": "Custom fields are exclusively for aesthetic modifications and do not add any meaningful metadata.", "correct": false}, {"text": "Custom fields are limited to textual information and cannot include numeric or date-related metadata.", "correct": false}, {"text": "Custom fields are limited to predefined options and cannot include user-defined metadata.", "correct": false}], "explanation": null}, {"question": "What are the different possible lifecycle phases for a GitHub Codespace?", "type": "single", "options": [{"text": "Create, Delete", "correct": false}, {"text": "Create, Stop, Delete", "correct": false}, {"text": "Create, Rebuild, Stop, Delete", "correct": true}, {"text": "Create, Rebuild, Delete", "correct": false}], "explanation": null}, {"question": "Which Markdown element is not correctly paired with its syntax?", "type": "single", "options": [{"text": "Bold text - **bold**", "correct": false}, {"text": "Heading - # Heading", "correct": false}, {"text": "Inline code - '''code'''", "correct": true}, {"text": "Hyperlink - [title](https://)", "correct": false}], "explanation": null}, {"question": "Which of the following actions can you perform on a GitHub Discussion?", "type": "multiple", "options": [{"text": "Convert the discussion to a secret gist", "correct": false}, {"text": "Convert it to an issue", "correct": true}, {"text": "Merge it into an existing pull request", "correct": false}, {"text": "Transfer it to another repository discussion (if you have admin permissions)", "correct": true}, {"text": "Pin a discussion", "correct": true}], "explanation": null}, {"question": "How can you customize the environment that is run in GitHub Codespaces?", "type": "single", "options": [{"text": "By creating a .github/codespaces.yml configuration file", "correct": false}, {"text": "By creating custom machine images with the repository installed", "correct": false}, {"text": "By creating a .devcontainer/devcontainer.json configuration file", "correct": true}, {"text": "By creating a custom Dockerfile in the root of your repository", "correct": false}], "explanation": null}, {"question": "How can you assign an issue to a specific GitHub user?", "type": "single", "options": [{"text": "Edit the issue's Markdown content to mention the user's username.", "correct": false}, {"text": "Use the \"Assignees\" section when creating or editing the issue.", "correct": true}, {"text": "Assigning issues to users is only possible for repository owners.", "correct": false}, {"text": "Send a direct message to the user containing the issue details.", "correct": false}], "explanation": "You can assign an issue to a specific user by using the \"Assignees\" section when creating or viewing the issue. This user will then be notified and responsible for the issue."}, {"question": "What are GitHub Enterprise Managed Users?", "type": "single", "options": [{"text": "Users who are responsible for managing GitHub Enterprise servers.", "correct": false}, {"text": "Individuals with access to public repositories on GitHub.", "correct": false}, {"text": "Users managed by SSO (single sign on) with restricted permissions.", "correct": true}, {"text": "Developers who exclusively use GitHub for personal projects.", "correct": false}], "explanation": "GitHub Enterprise Managed Users are individuals who have access to internal repositories hosted on GitHub Enterprise and restricted public access. They are centrally managed by administrators, allowing for controlled collaboration and access permissions."}, {"question": "On your personal GitHub dashboard you received a notification that user octocat has created a new repository octocat/my-repo. Why did you receive that notification?", "type": "single", "options": [{"text": "Because you are following the user octocat", "correct": true}, {"text": "Because you recently visited octocat user profile", "correct": false}, {"text": "Because you contributed to the octocat/my-repo repository", "correct": false}, {"text": "Because you starred the octocat/my-repo repository", "correct": false}], "explanation": null}, {"question": "What is the name of the settings section for changing a project's visibility, deleting a project, or closing a project?", "type": "single", "options": [{"text": "Red Zone", "correct": false}, {"text": "Visibility and Access", "correct": false}, {"text": "Danger Zone", "correct": true}, {"text": "More options", "correct": false}], "explanation": "Each Project contains a \"Danger Zone\" settings area, typically stylized in red, that provides critical configuration options such as visibility, closing, and deleting the project."}, {"question": "What are Enterprise Managed Users?", "type": "single", "options": [{"text": "It's an user account without access to GitHub web UI but is rather only used for automation tasks in your GitHub Enterprise", "correct": false}, {"text": "It's a GitHub Enterprise feature that allows you to manage user access from an external identity provider such as Azure AD or Okta", "correct": true}, {"text": "It's a shared user account that can be used by multiple users in your Enterprise", "correct": false}, {"text": "It's a GitHub Enterprise support user that can be used to manage your Enterprise by GitHub Support once requested", "correct": false}], "explanation": null}, {"question": "What happens when you choose to close a Project?", "type": "single", "options": [{"text": "The content is retained and you have the ability to reopen it later.", "correct": true}, {"text": "The project is permanently removed from the platform", "correct": false}, {"text": "The Project is moved to a separate folder", "correct": false}, {"text": "Associated values and insights data are deleted", "correct": false}], "explanation": null}, {"question": "Which of these can make a repository more discoverable?", "type": "multiple", "options": [{"text": "Giving the repository a descriptive name", "correct": true}, {"text": "A well-crafted collection of markdown documents like README.md, CONTRIBUTING.md and others.", "correct": true}, {"text": "Covering the repository software with tests", "correct": false}, {"text": "Defining proper CI/CD pipelines", "correct": false}, {"text": "Setting up topics for the repository", "correct": true}, {"text": "Using a wide range of GitHub Apps and GitHub Actions", "correct": false}], "explanation": null}, {"question": "What are GitHub Wikis?", "type": "single", "options": [{"text": "Wikis is repository feature for hosting documentation.", "correct": true}, {"text": "Wikis is a feature for hosting code snippets.", "correct": false}, {"text": "Wikis is the official GitHub documentation.", "correct": false}, {"text": "Wikis is a place where you hold the project's README.md file.", "correct": false}], "explanation": null}, {"question": "What is the purpose of a team?", "type": "single", "options": [{"text": "A team allows you to manage an organization account.", "correct": false}, {"text": "A team allows you to control permission levels for an enterprise.", "correct": false}, {"text": "A team allows a single user to sign in using different accounts credentials.", "correct": false}, {"text": "A team is intended to reflect a company or group's structure. It's used to provide cascading access permissions and make it easy to notify all team members via mentions.", "correct": true}], "explanation": "A team is intended to reflect a company or project's structure. It's used to provide cascading access permissions and make it easy to notify all team members via mentions."}, {"question": "Which of the following best describes the relationship between InnerSource and open-source? (question text partially obscured in screenshot)", "type": "single", "options": [{"text": "Anyone can offer a contribution to an open-source program, whereas InnerSource programs only accept contributions from members of the team that owns the repository.", "correct": false}, {"text": "InnerSource programs are forked from open-source programs by organizations that only use and maintain them privately moving forward.", "correct": false}, {"text": "InnerSource programs are fundamentally the same as open-source programs, except that their access is limited to people within their organization.", "correct": true}, {"text": "Anyone can use InnerSource programs and can also view, modify, and distribute a project for any purpose.", "correct": false}], "explanation": "Both InnerSource and open-source programs are designed to accept contributions from people outside the team that owns the repository. However, with open-source, the scope is expanded to anyone in the... (explanation text cut off in screenshot)"}, {"question": "What are the two available options when you no longer need to use a Project?", "type": "single", "options": [{"text": "Deactivate and archive", "correct": false}, {"text": "Archive and close", "correct": false}, {"text": "Delete and archive", "correct": false}, {"text": "Close and delete", "correct": true}], "explanation": null}, {"question": "Who should have 2 Factor Authentication enabled on GitHub?", "type": "single", "options": [{"text": "GitHub Organization owners", "correct": false}, {"text": "GitHub Enterprise Server users", "correct": false}, {"text": "All GitHub users", "correct": true}, {"text": "It's not recommended to use 2FA on GitHub for anyone", "correct": false}], "explanation": null}, {"question": "Which advanced search operator combination would you use to find public repositories with more than 100 stars that mention 'docker' in their name?", "type": "single", "options": [{"text": "docker in:description stars:<100 is:public", "correct": false}, {"text": "topic:docker stars:>100 in:readme", "correct": false}, {"text": "in:name docker stars:>100 is:public", "correct": true}, {"text": "is:public name:docker stars:100", "correct": false}], "explanation": null}, {"question": "What are some actions you can do in regards to Repository Templates?", "type": "multiple", "options": [{"text": "Create a new repository from a repository template", "correct": true}, {"text": "Delete all repositories that do not use a repository template provided by your organization", "correct": false}, {"text": "Delete all repositories created from a repository template", "correct": false}, {"text": "Create a repository template from an existing repository", "correct": true}, {"text": "Create an organization from a repository template", "correct": false}], "explanation": null}, {"question": "GitHub Action workflows are triggered by events. Which of these are valid events that GitHub Actions support?", "type": "multiple", "options": [{"text": "A commit is pushed to a branch", "correct": true}, {"text": "A change is made to the repository settings", "correct": false}, {"text": "A pull request is opened", "correct": true}, {"text": "A new vulnerability has been detected in a dependency", "correct": false}, {"text": "A new member has been added to the repository", "correct": false}], "explanation": null}, {"question": "How do you display certain reserved characters in Markdown, like asterisks (*) and underscores (_)?", "type": "single", "options": [{"text": "Use three in a row, like *** or ___.", "correct": false}, {"text": "Escape them with a backslash, like \\\\* or \\\\_.", "correct": true}, {"text": "Unfortunately, this is not supported at this time.", "correct": false}, {"text": "Just implement the asterisk and underscore, they will show automatically.", "correct": false}], "explanation": "https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax"}, {"question": "How are GitHub Wiki pages edited and maintained?", "type": "single", "options": [{"text": "Only repository owners have editing access to Wiki pages.", "correct": false}, {"text": "Wiki pages can only be edited using the command line interface (CLI).", "correct": false}, {"text": "Editing of Wiki pages is restricted to users with write access to the repository.", "correct": false}, {"text": "Any user with appropriate permissions can modify Wiki pages through the GitHub web interface.", "correct": true}], "explanation": "GitHub Wiki pages provide a simple web-based editing experience and enable extended collaboration by allowing project contributions separate from the Git repository, typically about usage or documentation. If permissions are provided, users with read access to the repository can have edit access to the wiki."}, {"question": "How can you ensure that pull requests for a given area of the repository are not merged unless certain users or teams have approved?", "type": "single", "options": [{"text": "Clearly explain the pull request policy in CONTRIBUTING.md.", "correct": false}, {"text": "Use a CODEOWNERS file and enable required reviews.", "correct": true}, {"text": "Add a table mapping directory paths to required users in SECURITY.md.", "correct": false}], "explanation": "A CODEOWNERS file specifies users or teams as required reviewers if certain files are modified. It uses the same syntax as .gitingore files."}, {"question": "On the GitHub platform how can you stay up to date and notified with a user's public activity?", "type": "single", "options": [{"text": "By following an organization", "correct": false}, {"text": "By following the user", "correct": true}, {"text": "By subscribing to the user's feed", "correct": false}, {"text": "By subscribing to an organization's feed", "correct": false}], "explanation": "Each user has a profile where they can share work publicly. Other users can follow these users to be informed about their latest work."}, {"question": "Which of these can you customize in a Codespaces .devcontainer/devcontainer.json configuration file?", "type": "multiple", "options": [{"text": "Shell configuration", "correct": true}, {"text": "Operating system or base image", "correct": true}, {"text": "GitHub Actions billing usage", "correct": false}, {"text": "Repository branch protection rules", "correct": false}, {"text": "Codespace display name", "correct": true}, {"text": "Organization-level policies", "correct": false}], "explanation": null}, {"question": "In a GitHub Project, what types of views can be created?", "type": "single", "options": [{"text": "Table, Board, Roadmap", "correct": true}, {"text": "Gantt, Kanban, Spreadsheet", "correct": false}, {"text": "Simple List, Tree List, Linked Nodes", "correct": false}, {"text": "Timeline, Calendar, Gantt, Board", "correct": false}], "explanation": "GitHub projects allows creating customized views by combining multiple view types such as Table, Board and Roadmap with filters on your fields."}, {"question": "What is a GitHub Codespace?", "type": "single", "options": [{"text": "A GitHub Codespace is an interactive holographic coding environment that required special hardware to use.", "correct": false}, {"text": "GitHub Codespace is an AI-powered coding tool that auto-generates near flawless code", "correct": false}, {"text": "GitHub Codespace is an annual GitHub hosted event where developers can meet and discuss coding topics.", "correct": false}, {"text": "It's a preconfigured development environment specifically setup for a repository. It allows you immediately start writing code for a project without having to setup a local development environment.", "correct": true}], "explanation": null}, {"question": "You would like to include an HTML snippet to your GitHub Pages website, but Markdown doesn't offer a way to render it should you do?", "type": "single", "options": [{"text": "Just add the HTML inline.", "correct": true}, {"text": "Cut the content. If it's not supported in Markdown, then it's probably not worth including.", "correct": false}, {"text": "Open an issue that requests Markdown support for your very specialized scenario.", "correct": false}, {"text": "Implement a separate md file in the same branch and link it to your original content.", "correct": false}], "explanation": "Markdown is not a complete replacement for HTML, so it's understood that you may need to add HTML in to get the desired results. There are however different Markdown renders and there are sometimes limitations."}, {"question": "You want to merge changes from branch feature-a into main and you are creating a pull request. Which branch should be the base branch and which branch should be the compare branch?", "type": "single", "options": [{"text": "feature-a is the base branch and main is the compare branch.", "correct": false}, {"text": "main is the base branch and feature-a is the compare branch.", "correct": true}], "explanation": null}, {"question": "In a GitHub Pull Request, what is the purpose of comparing the \"base\" and \"compare\" branches?", "type": "single", "options": [{"text": "It is used to merge the two branches automatically.", "correct": false}, {"text": "It allows you to pick one of the branches as the \"winner.\"", "correct": false}, {"text": "It shows the differences between the two branches' code.", "correct": true}, {"text": "It generates a new branch that combines both \"base\" and \"compare.\"", "correct": false}], "explanation": "The \"base\" branch is usually the target for merging, and the \"compare\" branch is used to show the changes that will be merged."}, {"question": "If you stop your GitHub Codespace environment can you come back to the changes later if you haven't committed them?", "type": "single", "options": [{"text": "Yes, that's the default behavior when stopping and then starting a GitHub Codespace", "correct": true}, {"text": "No, these changes will be lost. You need to commit them before stopping the Codespace.", "correct": false}], "explanation": null}, {"question": "Which of these actions will make sure that prior to any push to the main branch, the changes have been approved by at least two people?", "type": "multiple", "options": [{"text": "Create a deployment protection rule for main branch", "correct": false}, {"text": "On the branch protection rule, require a pull request before merging", "correct": true}, {"text": "Setup a CODEOWNERS file in the repository", "correct": false}, {"text": "On the branch protection rule, require at least 2 approvals before merging a pull request", "correct": true}, {"text": "On the deployment protection rule, require at least 2 approvals before merging a pull request", "correct": false}, {"text": "Enforce status checks are passing before merging a pull request to the main branch", "correct": false}, {"text": "Create a branch protection rule for main branch", "correct": true}], "explanation": null}, {"question": "What is another name for a version control system?", "type": "single", "options": [{"text": "Version management software (VMS).", "correct": false}, {"text": "Software configuration management (SCM) system.", "correct": true}, {"text": "Software control management (SCM) system.", "correct": false}], "explanation": null}, {"question": "What is the role of an organization security manager?", "type": "single", "options": [{"text": "Security managers are organization members who have complete access to the organization.", "correct": false}, {"text": "Security managers are organization members who, in addition to their permissions as members, are allowed to block and unblock non-member contributors, set interaction limits, and hide comments in public repositories owned by the organization.", "correct": false}, {"text": "Security managers are organization members who can view security alerts and manage settings for code security across your organization, as well as read permissions for all repositories in the organization.", "correct": true}, {"text": "Security managers are organization members who can manage the billing settings for your organization, such as payment information.", "correct": false}], "explanation": null}, {"question": "What are GitHub Gists primarily used for?", "type": "single", "options": [{"text": "Managing public repositories with version control.", "correct": false}, {"text": "Hosting large files for download.", "correct": false}, {"text": "Sharing and collaborating on small code snippets or text notes.", "correct": true}, {"text": "Creating private repositories for personal projects.", "correct": false}], "explanation": "Gists are small pieces of code or markdown-formatted text and typically shared for the purposes of a snippet."}, {"question": "Which statement best describes a major difference between new GitHub Projects and GitHub Projects Classic?", "type": "single", "options": [{"text": "GitHub Projects Classic has a built-in AI that automatically closes pull requests, while the new GitHub Projects do not.", "correct": false}, {"text": "GitHub Projects Classic supports code scanning and secret scanning, while the new GitHub Projects do not.", "correct": false}, {"text": "The new GitHub Projects only allow you to manage open issues without supporting pull requests.", "correct": false}, {"text": "The new GitHub Projects provide a flexible spreadsheet-like interface, custom fields, and two-way issue synchronization that were not available in Projects Classic.", "correct": true}], "explanation": null}, {"question": "Which of these is a repository feature that is used as a community forum to have conversations, ask questions, post announcements and share ideas?", "type": "single", "options": [{"text": "Discussions", "correct": true}, {"text": "Gists", "correct": false}, {"text": "Wikis", "correct": false}, {"text": "Pull requests", "correct": false}], "explanation": null}, {"question": "What are the different permission levels for a repository owned by a personal account?", "type": "multiple", "options": [{"text": "billing manager", "correct": false}, {"text": "repository owner", "correct": true}, {"text": "security manager", "correct": false}, {"text": "collaborator", "correct": true}, {"text": "project owner", "correct": false}], "explanation": null}, {"question": "What are the two types of GitHub Actions?", "type": "single", "options": [{"text": "Container actions and JavaScript actions", "correct": true}, {"text": "Embedded actions and container actions", "correct": false}, {"text": "Workflows and triggers", "correct": false}, {"text": "Events and jobs", "correct": false}], "explanation": "Custom Actions can be created as an embedded Action or a container Action. With container actions, the environment is part of the Action's code. JavaScript actions don't include the environment in the code."}, {"question": "What slash command inserts a code block in Markdown?", "type": "single", "options": [{"text": "/markdown", "correct": false}, {"text": "/code", "correct": true}, {"text": "/insertcode", "correct": false}, {"text": "/md", "correct": false}], "explanation": "The /code command is used for adding a code block."}, {"question": "What is the [main difference between] centralized and distributed version control systems?", "type": "single", "options": [{"text": "Centralized systems use a centralized server for code storage, while distributed systems do not require a server.", "correct": true}, {"text": "Centralized systems are faster than distributed systems in handling large projects.", "correct": false}, {"text": "Distributed systems rely on cloud-based storage, while centralized systems use local repositories.", "correct": false}, {"text": "Centralized systems provide stronger security measures compared to distributed systems.", "correct": false}], "explanation": "Centralized version control systems rely on a central server for code storage and collaboration, while distributed systems allow each contributor to have their own local repository and synchronize directly."}, {"question": "What are the differences between GitHub Copilot Individual and GitHub Copilot Business?", "type": "single", "options": [{"text": "GitHub Copilot Individual can only be used when working on public repositories and GitHub Copilot Business can be used when working on public and private repositories within an organization", "correct": false}, {"text": "GitHub Copilot Individual is free and GitHub Copilot Business is a paid feature", "correct": false}, {"text": "GitHub Copilot Individual uses an AI model trained on public source code and GitHub Copilot Business uses an AI model trained on private source code", "correct": false}, {"text": "GitHub Copilot Individual can only be used by personal accounts and GitHub Copilot Business is used by organizations and enterprises", "correct": true}], "explanation": null}, {"question": "Which tool helps you keep the repository dependencies up to date?", "type": "single", "options": [{"text": "GitHub Copilot", "correct": false}, {"text": "GitHub Actions", "correct": false}, {"text": "Dependabot", "correct": true}, {"text": "CodeQL", "correct": false}], "explanation": null}, {"question": "What set of settings is included in the \"Securities\" tab for a repository?", "type": "single", "options": [{"text": "Security Advisories, Security Policy, and Code scanning alerts.", "correct": false}, {"text": "GDPR Compliance, Security Advisories, Security Policy, and Code scanning alerts.", "correct": false}, {"text": "Dependabot Alerts, Security Policy, and Code scanning alerts.", "correct": false}, {"text": "Security Advisories, Dependabot Alerts, Security Policy, and Code scanning alerts.", "correct": true}], "explanation": "The Security tab of a repository provides settings for advisories, policies, dependency alerts, and code scanning alerts."}, {"question": "Which statement best describes the difference between cloning a repository and forking a repository?", "type": "single", "options": [{"text": "Forking creates a copy under your GitHub account, while cloning creates a local copy on your computer without linking ownership to your account.", "correct": true}, {"text": "Cloning always transfers repository ownership, while forking does not.", "correct": false}, {"text": "When you clone a repository, changes you push go directly to the original repository. Forking requires a separate local copy.", "correct": false}, {"text": "Only private repositories can be forked, whereas only public repositories can be cloned.", "correct": false}], "explanation": null}, {"question": "Your team has been tracking data of all kinds since your InnerSource program went live three months ago. Which of the following metrics indicates your program is great and improving?", "type": "single", "options": [{"text": "A dramatic rise in pull requests that address bugs in your software.", "correct": true}, {"text": "A growing rate of bug reports that are quickly closed because they cannot be reproduced.", "correct": false}, {"text": "A steady decline in new issues.", "correct": false}, {"text": "Time to open.", "correct": false}], "explanation": "The number of impactful pull requests indicates is definitely useful, and could mean more people are motivated to improve the quality of your software and are making the investment themselves. Be careful [explanation cut off]"}, {"question": "Which of these statements about GitHub Enterprise deployment options are true?", "type": "multiple", "options": [{"text": "GitHub Enterprise Cloud is a set of advanced functionality on GitHub.com", "correct": true}, {"text": "GitHub Enterprise Cloud is a self-hosted platform that runs on the company's infrastructure", "correct": false}, {"text": "GitHub Enterprise Cloud is a cloud hosted platform that runs on the company's cloud infrastructure", "correct": false}, {"text": "GitHub Enterprise Server is a set of advanced functionality on GitHub.com", "correct": false}, {"text": "GitHub Enterprise Server is a self-hosted platform that runs on the company's infrastructure", "correct": true}], "explanation": null}, {"question": "Which of the GitHub features best serves as a simple way to share small code snippets with others?", "type": "single", "options": [{"text": "Issues", "correct": false}, {"text": "Wikis", "correct": false}, {"text": "Projects", "correct": false}, {"text": "Gists", "correct": true}], "explanation": null}, {"question": "Which of the following Git commands allow you to create a new branch and start working on it in one line?", "type": "multiple", "options": [{"text": "git branch -c <new_branch_name>", "correct": false}, {"text": "git switch -m <new_branch_name>", "correct": false}, {"text": "git checkout -m <new_branch_name>", "correct": false}, {"text": "git switch -c <new_branch_name>", "correct": true}, {"text": "git merge -m <new_branch_name>", "correct": false}, {"text": "git checkout -b <new_branch_name>", "correct": true}], "explanation": null}, {"question": "What steps are required to create a pull request if you only have read access?", "type": "single", "options": [{"text": "Send a patch file to maintainers via email.", "correct": false}, {"text": "Clone a repo, commit changes, and force push.", "correct": false}, {"text": "Get accepted as a team member.", "correct": false}, {"text": "Fork a repo, clone it, commit changes, and push to your fork.", "correct": true}], "explanation": "Unless you are a project contributor, you don't have access to directly push modifications. In this case, fork the repository to create your own copy, then you can make changes and submit a pull request."}, {"question": "What field can you use to create a Priority grouping like High, Medium, and Low in your Project?", "type": "single", "options": [{"text": "Date", "correct": false}, {"text": "Single select", "correct": true}, {"text": "Iteration field", "correct": false}, {"text": "Issue", "correct": false}], "explanation": "The Single select field allows you to create multiple groups like Priority grouping in order to help you organize and prioritize your Project. https://docs.github.com/en/issues/planning-and-tracking-with-projects/understanding-fields/about-single-select-fields"}, {"question": "What's the appropriate repository permission role for contributors who need to actively push changes to your repository?", "type": "single", "options": [{"text": "Admin", "correct": false}, {"text": "Write", "correct": true}, {"text": "Triage", "correct": false}, {"text": "Maintain", "correct": false}], "explanation": "The write permission is the appropriate permission level for collaborators that need to create branches, push changes, and create pull requests."}, {"question": "If you face yourself often writing the same set of comments on issues or pull requests, what GitHub feature would you use to save time?", "type": "single", "options": [{"text": "Repository templates", "correct": false}, {"text": "Labels", "correct": false}, {"text": "Comment templates", "correct": false}, {"text": "Saved replies", "correct": true}], "explanation": null}, {"question": "What does an iteration field help you do in Projects?", "type": "single", "options": [{"text": "Allows you to keep track of the various changes made to an issue or pull request.", "correct": false}, {"text": "Allows you to reverse the changes you made to your Project.", "correct": false}, {"text": "Allows you to create sequential phases of your project and group issues and pull requests based on the phase.", "correct": true}, {"text": "Allows you to edit, reiterate, and automate your project as changes are made to issues and pull requests.", "correct": false}], "explanation": "Iteration fields enable organizing issues and pull requests into repeating blocks of time. They are an organizational tool but do not directly impact changes or history."}, {"question": "What is the easiest way to add automation to your Project?", "type": "single", "options": [{"text": "GraphQL API", "correct": false}, {"text": "Built-in Automation", "correct": true}, {"text": "GitHub Actions", "correct": false}, {"text": "GitHub Copilot", "correct": false}], "explanation": "GitHub Projects include built-in automation to allow easily setup of common tasks like adding issues to the project or updating status."}, {"question": "How can you start using GitHub Copilot after activating the GitHub Copilot subscription?", "type": "single", "options": [{"text": "Setup GitHub Copilot in one of the supported IDE's such as Visual Studio Code or JetBrains and start coding", "correct": true}, {"text": "You need to edit the repository settings and enable GitHub Copilot for the repository", "correct": false}, {"text": "You need to setup a GitHub Action that will setup GitHub Copilot on your repository", "correct": false}, {"text": "GitHub Copilot will automatically start giving suggestions on pull requests and issues in your repository", "correct": false}], "explanation": null}, {"question": "Which of these GitHub features serves the purpose of an adaptable spreadsheet, task board and a roadmap that integrates with issues and pull requests on GitHub to plan and track your work effectively?", "type": "single", "options": [{"text": "GitHub Organization", "correct": false}, {"text": "GitHub Repository", "correct": false}, {"text": "GitHub Project", "correct": true}, {"text": "GitHub Copilot", "correct": false}], "explanation": null}, {"question": "Your team is preparing to deploy a new feature using GitHub branches. What should be done to ensure the feature branch is ready for deployment?", "type": "single", "options": [{"text": "Delete the feature branch to finalize the deployment process.", "correct": false}, {"text": "Commit all changes directly to the main branch without review.", "correct": false}, {"text": "Ensure all changes are reviewed and approved through a pull request before merging into the main branch.", "correct": true}], "explanation": null}, {"question": "Where can you disable repository features such as issues, wikis or projects on a repository that you own?", "type": "single", "options": [{"text": "These features cannot be disabled", "correct": false}, {"text": "In the .github/settings.yml configuration file", "correct": false}, {"text": "In your account settings", "correct": false}, {"text": "In the repository settings", "correct": true}], "explanation": null}, {"question": "One of your source projects relies on secrets kept in a folder called .secrets. You would like to make sure that the files kept in this folder on development machines are not inadvertently committed to the repository. Which of these files will best help enforce this policy?", "type": "single", "options": [{"text": "SECURITY.md", "correct": false}, {"text": ".gitignore", "correct": true}, {"text": "CONTRIBUTING.md", "correct": false}, {"text": "README.md", "correct": false}], "explanation": "The .gitignore can be used to help enforce which files are included in commits by tools that respect it. However, note that this policy is enforced by the client and does not necessarily preve..."}, {"question": "How can you search for specific issues within a GitHub repository?", "type": "single", "options": [{"text": "Use the repository's README.md file to search for issues.", "correct": false}, {"text": "Search for issue titles using the global GitHub search bar.", "correct": true}, {"text": "Manually browse through each issue in the repository.", "correct": false}, {"text": "Open each milestone to find related issues.", "correct": false}], "explanation": "You can use the global GitHub search bar to search for issue titles, labels, and keywords within a specific repository. This is a powerful way to find relevant issues."}, {"question": "What is a \"branch\" in Git?", "type": "single", "options": [{"text": "A specific release version of a project.", "correct": false}, {"text": "A copy of the entire repository on a different server.", "correct": false}, {"text": "A separate timeline of commits for a specific feature or task.", "correct": true}, {"text": "A list of contributors to a repository.", "correct": false}], "explanation": "In Git, a \"branch\" is a separate timeline of commits that allows developers to work on specific features or tasks independently."}, {"question": "What is the purpose of forking a repository?", "type": "single", "options": [{"text": "It creates a duplicate of the upstream repo and allows you to make changes directly to the original repo.", "correct": false}, {"text": "It automatically creates an issue allowing people to see how the original repo can be improved.", "correct": false}, {"text": "Forking lets you make changes to a project without affecting the original repository.", "correct": true}, {"text": "It creates a pull request to show your team what you are changing.", "correct": false}], "explanation": "After you fork a repository, you can fetch updates from the upstream repository to keep your fork up to date, and you can propose changes from your fork to the upstream repository with pull requests. https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo"}, {"question": "What are some supported integrated development environments for GitHub Copilot?", "type": "single", "options": [{"text": "Only Visual Studio Code and Visual Studio", "correct": false}, {"text": "Visual Studio Code, Visual Studio, Xcode, JetBrains, and Neovim", "correct": false}, {"text": "Visual Studio Code, Visual Studio, Spyder, Eclipse", "correct": true}, {"text": "Visual Studio Code, Visual Studio, Jupyter, NetBeans, Notepad++", "correct": false}], "explanation": "GitHub Copilot is supported in many IDEs such as VS Code, Visual Studio, Xcode, JetBrains IDEs, Neovim and even has an SDK for build support for other interfaces. own extensions."}, {"question": "How can you link a Pull Request (PR) to a GitHub Issue?", "type": "single", "options": [{"text": "Mention the PR number in the issue description.", "correct": true}, {"text": "Add a comment with the PR link in the issue conversation thread.", "correct": false}, {"text": "Select the related PR in the \"Development\" area.", "correct": false}, {"text": "All of the above.", "correct": false}], "explanation": "Issue and pull request numbers can be mentioned in the description or a comment."}, {"question": "Which of these statements about saved replies are true?", "type": "multiple", "options": [{"text": "Saved replies are comments that you can reuse in issues and pull requests.", "correct": true}, {"text": "When someone comments on your issue or pull request, you can save their reply and set a notification to remind yourself about responding to it later.", "correct": false}, {"text": "Saved replies are only available to repository owners which can setup automated replies to issues and pull requests.", "correct": false}, {"text": "You can create, edit and delete them in your GitHub account settings in the Saved replies section.", "correct": true}], "explanation": null}, {"question": "Which of these is a common use case for GitHub Actions?", "type": "single", "options": [{"text": "Training machine learning models", "correct": false}, {"text": "Large data processing and analytics", "correct": false}, {"text": "Running automated tests prior to merging a pull request", "correct": true}, {"text": "Adding sponsorship button to your project", "correct": false}], "explanation": null}, {"question": "How do you create a new issue in a GitHub repository?", "type": "single", "options": [{"text": "By sending an email to the repository owner.", "correct": false}, {"text": "By writing a comment on an existing issue.", "correct": false}, {"text": "By clicking the \"New Issue\" button and providing details.", "correct": true}, {"text": "By modifying the \"master\" branch of the repository.", "correct": false}], "explanation": "To create a new issue, you click the \"New Issue\" button within the repository and provide a title, description, and other relevant information."}, {"question": "Which of these tools serves as an AI pair programmer that offers autocomplete-style suggestions as you code?", "type": "single", "options": [{"text": "GitHub Partner", "correct": false}, {"text": "GitHub Assistant", "correct": false}, {"text": "GitHub Copilot", "correct": true}, {"text": "GitHub AI Aid", "correct": false}], "explanation": null}, {"question": "Which of these is NOT a role in a GitHub Organization?", "type": "single", "options": [{"text": "Organization member", "correct": false}, {"text": "Billing manager", "correct": false}, {"text": "Outside collaborator", "correct": false}, {"text": "Organization architect", "correct": true}, {"text": "Organization owner", "correct": false}, {"text": "Organization moderator", "correct": false}, {"text": "GitHub App manager", "correct": false}, {"text": "Security manager", "correct": false}], "explanation": null}, {"question": "As an organization owner, you want to ensure that everyone who is signed in to your corporate network can access the GitHub website without requiring a additional credentials. Which technology would you enable to accomplish this?", "type": "single", "options": [{"text": "Single sign-on", "correct": true}, {"text": "Two-factor authentication", "correct": false}, {"text": "Personal Access Tokens", "correct": false}, {"text": "SSH keys", "correct": false}], "explanation": "Single sign-on is the right technology to allow network users to access the GitHub website without extra credentials."}, {"question": "You would like to include an HTML snippet to your GitHub Page but Markdown doesn't offer a way to render it. What should you do?", "type": "single", "options": [{"text": "Just add the HTML inline.", "correct": true}, {"text": "Cut the content. If it's not supported in Markdown, then it's probably not worth including.", "correct": false}, {"text": "Open an issue that requests Markdown support for your very specialized scenario.", "correct": false}, {"text": "Implement a separate md file in the same branch and link it to your original content.", "correct": false}], "explanation": "Markdown is not a complete replacement for HTML, so it's understood that you may need to add HTML in to get the desired results. There are however different Markdown renders and there are sometimes limitations."}, {"question": "What is the GitHub Flow?", "type": "single", "options": [{"text": "It refers to a one branch workflow where developers work on their features on the master branch, and then get their feature code reviewed, tested, and committed.", "correct": false}, {"text": "It's a practice where every time a commit is pushed to the main branch, a new release is automatically created and deployed.", "correct": false}, {"text": "It refers to a branch-based workflow where developers create a branch for each new change they're working on, and then open pull requests to get their code reviewed, tested, and merged into the main branch.", "correct": true}, {"text": "It's a practice where every time a commit is pushed to the main branch, a set of CI/CD pipelines are triggered to run tests and validate the code changes.", "correct": false}], "explanation": null}, {"question": "Which of the below is a valid way to prompt GitHub Copilot for a suggestion in the IDE?", "type": "single", "options": [{"text": "Type a code comment or text in a markdown file. Wait for a suggestion to appear. Press the ‘Tab’ key to accept the suggestion.", "correct": true}, {"text": "Navigate to github.com, select the Copilot Chat window and enter a question.", "correct": false}, {"text": "Highlight the code with your mouse. Open the command palette, select the ‘GitHub Copilot’ option, and enter your prompt into the chat box.", "correct": false}, {"text": "Copilot cannot be prompted for suggestions. It automatically provides suggestions.", "correct": false}], "explanation": "Copilot uses several context areas for prompting for a suggestion. One of them is pauses in code editing activity in the IDE. There are also options for inline chat and in a side chat panel. https://docs.github.com/en/copilot/using"}, {"question": "What are the different levels of GitHub organizational hierarchy?", "type": "multiple", "options": [{"text": "Organization level", "correct": true}, {"text": "Team level", "correct": true}, {"text": "Enterprise level", "correct": true}, {"text": "Pro level", "correct": false}, {"text": "Personal level", "correct": false}], "explanation": null}, {"question": "How can you define guiding protocols for users intending to submit bug reports or propose new features in your repository so they know what information to fill-in?", "type": "single", "options": [{"text": "Add labels to issues that they create", "correct": false}, {"text": "Set up GitHub Projects", "correct": false}, {"text": "Create issue templates", "correct": true}, {"text": "Have an example issue in the repository that is easy to copy and is never closed", "correct": false}], "explanation": null}, {"question": "When should a GitHub issue be used instead of a discussion?", "type": "single", "options": [{"text": "When seeking open-ended feedback on a project idea.", "correct": false}, {"text": "When tracking specific tasks or bugs related to a project.", "correct": true}, {"text": "When announcing project milestones to the team.", "correct": false}], "explanation": null}, {"question": "Is GitHub Copilot free to use?", "type": "single", "options": [{"text": "Yes, GitHub Copilot Free is available for all personal GitHub accounts with limited usage", "correct": true}, {"text": "No, it requires a paid subscription", "correct": false}, {"text": "Yes, but only for students, teachers, and open source maintainers", "correct": false}, {"text": "Yes, but only for individuals working on public repositories", "correct": false}], "explanation": "GitHub Copilot Free is available to all personal GitHub accounts, providing limited code completions and chat interactions per month."}, {"question": "Which GitHub Project layout would best serve as a Kanban board?", "type": "single", "options": [{"text": "Table layout", "correct": false}, {"text": "Agile layout", "correct": false}, {"text": "Roadmap layout", "correct": false}, {"text": "Board layout", "correct": true}], "explanation": null}, {"question": "Why would a repository owner want to use milestones?", "type": "multiple", "options": [{"text": "To communicate that the repository is in a stable state", "correct": false}, {"text": "To have an overview of how much work is left to complete a project phase", "correct": true}, {"text": "To bring automation to the repository", "correct": false}, {"text": "To track the repository dependencies", "correct": false}, {"text": "To list the repository contributors", "correct": false}, {"text": "To associate issues and pull requests with specific project phases", "correct": true}], "explanation": null}, {"question": "You want to grant a user permissions to add and remove organization members to and from a team. Which permission do you need to grant that user?", "type": "single", "options": [{"text": "Admin permission on all related repository", "correct": false}, {"text": "Maintain permission on at least one related repository", "correct": false}, {"text": "Organization billing manager", "correct": false}, {"text": "Team maintainer", "correct": true}], "explanation": "The team maintainer permission is used for adding and removing organization members to and from a team. https://docs.github.com/en/organizations/organizing-members-into-teams/about-teams"}, {"question": "What is a function you can execute on GitHub Mobile?", "type": "single", "options": [{"text": "Create branches and pull requests.", "correct": false}, {"text": "Attach and remove release artifacts.", "correct": false}, {"text": "Add and clone repositories.", "correct": false}, {"text": "Manage, triage, and clear notifications from github.com.", "correct": true}], "explanation": "On GitHub Mobile, you can manage, triage, and clear notifications from github.com."}, {"question": "Where does a user authenticate after enabling SAML Single sign-on?", "type": "single", "options": [{"text": "With a GitHub login.", "correct": false}, {"text": "With the organization credentials.", "correct": false}, {"text": "With the Identity Provider (IdP).", "correct": true}, {"text": "With a personal login.", "correct": false}], "explanation": "When a member attempts to access resources within an organization that uses SAML SSO, GitHub redirects the member to the IdP to authenticate."}, {"question": "Which of these statements best describes a version control system?", "type": "single", "options": [{"text": "It's a system that allows tracking of what people install on their computers.", "correct": false}, {"text": "It's a system that tracks the history of changes made to a collection of files.", "correct": true}, {"text": "It's a system that allows you to create a local copy of a project's source code.", "correct": false}, {"text": "It's a system that leverages the git command line tool.", "correct": false}], "explanation": null}, {"question": "What defines the lifecycle of a Codespace?", "type": "single", "options": [{"text": "It is completely manual. It begins when you create a Codespace and ends when you delete it.", "correct": true}, {"text": "It is automated and exists as long a repository as a Codespace configuration file.", "correct": false}, {"text": "Every new repository comes with a default Codespace. If not used within 30days, it is automatically deleted.", "correct": false}, {"text": "Codespace lifecycles are associated to creating and closing pull requests.", "correct": false}], "explanation": "Codespace configurations are defined in a repository within the \".devcontainer\" folder. The creation of a Codespace is initiated by a user and remains until the user or policy settings explicitly delete it."}, {"question": "Which of these statements best describes what GitHub is?", "type": "single", "options": [{"text": "GitHub is a file sharing platform with features that make collaboration on projects easy using centralized version control.", "correct": false}, {"text": "GitHub is a distributed version control system with features that make collaboration on projects easy.", "correct": false}, {"text": "GitHub is a modern CI/CD platform with features that help drive rapid product development.", "correct": false}, {"text": "GitHub is a platform that uses Git as its core technology and adds features that make collaboration and code management easier.", "correct": true}], "explanation": null}, {"question": "What GitHub features allow repository contributors to work on simple code changes directly through the web browser?", "type": "multiple", "options": [{"text": "github.dev editor", "correct": true}, {"text": "GitHub Codespaces", "correct": true}, {"text": "GitHub Online", "correct": false}, {"text": "GitHub Remote", "correct": false}, {"text": "GitHub Projects", "correct": false}, {"text": "GitHub Dependabot", "correct": false}], "explanation": null}, {"question": "Which of these layouts are available in GitHub Projects?", "type": "multiple", "options": [{"text": "Table layout", "correct": true}, {"text": "Roadmap layout", "correct": true}, {"text": "Agile layout", "correct": false}, {"text": "Board layout", "correct": true}, {"text": "Project layout", "correct": false}, {"text": "Scrum layout", "correct": false}], "explanation": null}, {"question": "What is the relation between Git and GitHub?", "type": "single", "options": [{"text": "GitHub is a file sharing system and Git is a platform that uses GitHub as its core technology.", "correct": false}, {"text": "Git is a distributed version control system and GitHub is a platform that uses Git as its core technology.", "correct": true}, {"text": "Git is a file sharing system and GitHub is a platform that uses Git as its core technology.", "correct": false}, {"text": "GitHub is a distributed version control system and Git is a platform that uses GitHub as its core technology.", "correct": false}], "explanation": null}, {"question": "Which of the following choices best describes the relationship between open-source and InnerSource programs?", "type": "single", "options": [{"text": "Anyone can offer a contribution to an open-source program, whereas InnerSource programs only accept contributions from members of the team that owns the repository.", "correct": false}, {"text": "InnerSource programs are forked from open-source programs by organizations that only use and maintain them privately moving forward.", "correct": false}, {"text": "InnerSource programs are fundamentally the same as open-source programs, except that their access is limited to people within their organization.", "correct": true}, {"text": "Anyone can use InnerSource programs and can also view, modify, and distribute a project for any purpose.", "correct": false}], "explanation": "Both InnerSource and open-source programs are designed to accept contributions from people outside the team that owns the repository. However, with open-source, the scope is expanded to anyone in the world."}, {"question": "Which of the following is true about GitHub wikis?", "type": "single", "options": [{"text": "You can only edit wikis directly on GitHub; local editing is not supported.", "correct": false}, {"text": "Wikis in private repositories are accessible to anyone with a GitHub account.", "correct": false}, {"text": "Markdown cannot be used to add rendered math expressions, diagrams, maps, and 3D models to a wiki.", "correct": false}, {"text": "Wikis in public repositories are accessible to anyone, while those in private repositories are only accessible to repository collaborators.", "correct": true}], "explanation": null}, {"question": "What are GitHub's slash commands?", "type": "single", "options": [{"text": "It's a way of automating GitHub Actions.", "correct": false}, {"text": "It's a way to quickly insert complex Markdown into your pull request or issue comments and descriptions.", "correct": true}, {"text": "It's an another name for the GitHub CLI.", "correct": false}, {"text": "It's a way to quickly fix code formatting issues in your pull request's code changes.", "correct": false}], "explanation": null}, {"question": "How can you enforce status checks passing before merging a pull request to the main branch?", "type": "single", "options": [{"text": "By running tests locally prior to pushing to the remote repository", "correct": false}, {"text": "By using GitHub Actions", "correct": false}, {"text": "By making the repository private", "correct": false}, {"text": "By creating a branch protection rule", "correct": true}], "explanation": null}, {"question": "What are GitHub teams?", "type": "single", "options": [{"text": "It's a way of managing access to personal GitHub repositories to many users at once.", "correct": false}, {"text": "It's a group of GitHub users from the same organization.", "correct": true}, {"text": "It's a version of Microsoft Teams for GitHub.", "correct": false}], "explanation": null}, {"question": "Which of the following statements accurately describes GitHub Pages?", "type": "single", "options": [{"text": "It is a feature exclusively available to GitHub Enterprise users.", "correct": false}, {"text": "GitHub Pages supports dynamic server-side scripting and databases.", "correct": false}, {"text": "GitHub Pages allows users to host and publish static websites directly from GitHub repositories.", "correct": true}, {"text": "GitHub Pages provides unlimited free hosting of all types of web applications.", "correct": false}], "explanation": "GitHub Pages is a service that allows any user to create and host static websites directly from their GitHub repositories, making it easy to share information, project documentation, and more."}, {"question": "Your team has been receiving some low-quality bug reports without enough information to properly diagnose. Which of the following choices is the best way to address the issue?", "type": "single", "options": [{"text": "Use GitHub Script to add a workflow action that automatically rejects any issues with a description fewer than 200 characters long.", "correct": false}, {"text": "Add an ISSUE_TEMPLATE.md file that includes fields for reproduction steps, system properties, and instructions for generating and including important logs.", "correct": true}, {"text": "Add a CONTRIBUTING.md file that clearly explains what's expected in bug reports, such as reproduction steps, system properties, and instructions for generating and including important logs.", "correct": false}, {"text": "Add a issues.md file that clearly explains what's expected in bug reports, such as reproduction steps, system properties, and instructions for generating and including important logs.", "correct": false}], "explanation": "An action may ensure length but doesn't necessarily mean that your team will receive the desired the information to diagnose and fix bugs."}, {"question": "What is the purpose of a CODEOWNERS file?", "type": "single", "options": [{"text": "The CODEOWNERS file contains information about the software licensing fees and conditions under which the code can be used.", "correct": false}, {"text": "The CODEOWNERS file allows you to define individuals or teams that are responsible for specific areas of the codebase or its entirety.", "correct": true}, {"text": "The CODEOWNERS file contains contact details to the repository owners.", "correct": false}, {"text": "The CODEOWNERS file includes information about the code quality and the maintainability of the code.", "correct": false}], "explanation": null}, {"question": "Can you disable the issues tab on a repository?", "type": "single", "options": [{"text": "Yes", "correct": true}, {"text": "No", "correct": false}], "explanation": null}, {"question": "Which of these best describes git?", "type": "single", "options": [{"text": "Git is a file sharing system.", "correct": false}, {"text": "Git is a centralized version control system.", "correct": false}, {"text": "Git is a distributed version control system.", "correct": true}, {"text": "Git is the product of GitHub that allows for version control.", "correct": false}], "explanation": null}, {"question": "Can you change a gist from public to secret after creating it?", "type": "single", "options": [{"text": "Yes", "correct": false}, {"text": "No", "correct": true}], "explanation": null}, {"question": "What is the minimum repository role a user must have to directly push commits to a repository owned by an organization?", "type": "single", "options": [{"text": "Triage", "correct": false}, {"text": "Maintain", "correct": false}, {"text": "Write", "correct": true}, {"text": "Read", "correct": false}, {"text": "Admin", "correct": false}], "explanation": null}, {"question": "What is a GitHub Codespace deep link?", "type": "single", "options": [{"text": "It's a link to the most recent GitHub Codespace that you have used in any repository", "correct": false}, {"text": "It's a link that points to a specific GitHub.com Page that allows you to create a new GitHub Codespace and select specific configuration", "correct": true}, {"text": "It's a link between the GitHub Codespace and the repository which keeps the Codespace in sync with the changes in the repository", "correct": false}, {"text": "It's a link to the most recent GitHub Codespace that was created for the repository", "correct": false}], "explanation": null}, {"question": "How does the synchronization between GitHub projects, issues and pull requests work?", "type": "single", "options": [{"text": "Information synchronization only works in one direction - from project to issues and pull requests. Updates to issues and pull requests won't be automatically mirrored in GitHub Project items.", "correct": false}, {"text": "Updates to the issues and pull requests will not be automatically reflected in GitHub Projects, it has to be triggered manually by the user.", "correct": false}, {"text": "Information synchronization only works in one direction - from issues and pull requests to projects. Updates to Project items won't be automatically mirrored in issues and pull requests.", "correct": false}, {"text": "Updates to the issues and pull requests will be automatically reflected in GitHub Projects. This integration works both ways, so that when you change information about a pull request or issue in your project, the pull request or issue reflects that information.", "correct": true}], "explanation": null}, {"question": "How do you create a GitHub Milestone for tracking project progress?", "type": "single", "options": [{"text": "By creating a new branch and adding a milestone label.", "correct": false}, {"text": "By approving a release label associated with a pull request.", "correct": false}, {"text": "By creating a new release of the project.", "correct": false}, {"text": "By going to the \"Issues\" tab and selecting \"Milestones,\" then clicking \"New Milestone.\"", "correct": true}], "explanation": "To create a GitHub Milestone, you navigate to the \"Issues\" tab of the repository, select \"Milestones,\" and then click \"New Milestone.\" This allows you to set a title, description, due date, and associate issues and pull requests with the Milestone for tracking progress."}, {"question": "Your team has been receiving low-quality bug reports with missing information to properly diagnose. Of the following choices, which is the best way to address the issue?", "type": "single", "options": [{"text": "Use GitHub Script to add a workflow action that automatically rejects any issues with a description fewer than 200 characters long.", "correct": false}, {"text": "Add an ISSUE_TEMPLATE.md file that includes fields for reproduction steps, system properties, and instructions for generating and including important logs.", "correct": true}, {"text": "Add a CONTRIBUTING.md file that clearly explains what's expected in bug reports, such as reproduction steps, system properties, and instructions for generating and including important logs.", "correct": false}, {"text": "Add a issues.md file that clearly explains what's expected in bug reports, such as reproduction steps, system properties, and instructions for generating and including important logs.", "correct": false}], "explanation": "An action may ensure length but doesn't necessarily mean that your team will receive the desired the information to diagnose and fix bugs."}, {"question": "You want to grant a user permissions to add and remove organization members to and from a team. Which permission would you need to grant that user?", "type": "single", "options": [{"text": "Admin permission on all related repository", "correct": false}, {"text": "Maintain permission on at least one related repository", "correct": false}, {"text": "Organization billing manager", "correct": false}, {"text": "Team maintainer", "correct": true}], "explanation": "The team maintainer permission is used for adding and removing organization members to and from a team."}, {"question": "What is the role of an organization moderator?", "type": "single", "options": [{"text": "Moderators are organization members who, in addition to their permissions as members, are allowed to block and unblock non-member contributors, set interaction limits, and hide comments in public repositories owned by the organization.", "correct": true}, {"text": "Moderators are organization members who have complete access to the organization.", "correct": false}, {"text": "Moderators are organization members who can manage the billing settings for your organization, such as payment information.", "correct": false}, {"text": "Moderators are organization members who can view security alerts and manage settings for code security across your organization, as well as read permissions for all repositories in the organization.", "correct": false}], "explanation": null}, {"question": "What does a \"Pull Request\" (PR) in GitHub refer to?", "type": "single", "options": [{"text": "A request to delete a repository permanently.", "correct": false}, {"text": "A request to merge changes from one branch into another.", "correct": true}, {"text": "A request for adding a new developer to the project.", "correct": false}, {"text": "A request to download the latest version of a repository.", "correct": false}], "explanation": "A \"Pull Request\" (PR) is a process collect peer feedback and to merge changes made in one branch, usually a feature branch, into another branch, usually the main or default branch."}, {"question": "Who are repository collaborators?", "type": "single", "options": [{"text": "Collaborators are people who have raised issues or pull requests on a repository.", "correct": false}, {"text": "Collaborators are people who have been granted write access to a repository.", "correct": true}, {"text": "Collaborators are people who have funded a repository.", "correct": false}, {"text": "Collaborators are people who have made code contributions to a repository.", "correct": false}], "explanation": null}, {"question": "Which of the following scenarios is a common use case for a version control system?", "type": "single", "options": [{"text": "Gathering feature requirements for a large project and communicating them to stakeholders.", "correct": false}, {"text": "Deleting earlier versions of a project or file, so you know you are working only with the most current file or data.", "correct": false}, {"text": "Making experimental changes to your project in an isolated branch.", "correct": true}, {"text": "Scheduling team meetings and tracking attendance for project updates.", "correct": false}], "explanation": null}, {"question": "What is the purpose of linking an activity to a Pull Request?", "type": "single", "options": [{"text": "Linking an activity helps generate automated code suggestions.", "correct": false}, {"text": "Linking an activity connects the Pull Request to external repositories.", "correct": false}, {"text": "Linking an activity makes code reviews more complex and confusing.", "correct": false}, {"text": "Linking an activity creates connections between Pull Request discussions, issues, and other relevant entities.", "correct": true}], "explanation": "Linking other activities helps provide better context by connecting other relevant discussions, issues, pull requests, etc."}, {"question": "What are the different GitHub pricing plans for organization accounts?", "type": "multiple", "options": [{"text": "Personal", "correct": false}, {"text": "Team", "correct": true}, {"text": "Advanced", "correct": false}, {"text": "Enterprise", "correct": true}, {"text": "Free", "correct": true}, {"text": "Business", "correct": false}, {"text": "Pro", "correct": false}], "explanation": null}, {"question": "What are the different available options for adding issues and pull requests to a GitHub Project board?", "type": "single", "options": [{"text": "Individually, automatically, or in bulk.", "correct": true}, {"text": "Only individually or in bulk", "correct": false}, {"text": "Only automatically using project workflows", "correct": false}, {"text": "Only manually, one at a time.", "correct": false}], "explanation": null}, {"question": "You are an admin and want to enable team synchronization for your organization. What installation permissions do you need to configure team synchronization for Azure AD?", "type": "single", "options": [{"text": "Provide the tenant URL", "correct": false}, {"text": "Read all users' full profiles", "correct": true}, {"text": "Generate a valid Single Sign-on for Web Systems (SSWS) token", "correct": false}, {"text": "Enable SAML Single Sign-on (SSO)", "correct": false}], "explanation": "To enable team synchronization for Azure AD, the installation needs the following permissions: read all users' full profiles, Sign in and read user profile, and read directory data."}, {"question": "What are the use cases for labels?", "type": "single", "options": [{"text": "Categorizing issues and pull requests", "correct": true}, {"text": "Assigning labels to repository contributors to indicate their role and permissions in the project", "correct": false}, {"text": "Assigning them to releases so that they are included in the release notes", "correct": false}, {"text": "Categorizing files in the repository", "correct": false}], "explanation": null}, {"question": "What are Repository Insights?", "type": "single", "options": [{"text": "It's a place where you can see data about the repository such as code frequency, list of the most active contributors and more.", "correct": true}, {"text": "Repository Insights is a feature that allows you to see the repository's secret and code scanning alerts.", "correct": false}, {"text": "It's a list of best practices to follow when administrating a repository.", "correct": false}, {"text": "It's a feature that allows you to see the repository's security overview.", "correct": false}], "explanation": null}, {"question": "What is the difference between GitHub projects and GitHub projects classic?", "type": "single", "options": [{"text": "GitHub Projects classic is a the new GitHub experience which offers a lot of new features and improvements over the older GitHub Projects.", "correct": false}, {"text": "GitHub Projects classic is simpler way to manage your GitHub Projects and is recommended for beginners.", "correct": false}, {"text": "GitHub Projects is a the new GitHub experience which offers a lot of new features and improvements over the older GitHub Projects classic.", "correct": true}, {"text": "GitHub Projects classic is the enhanced versions which in addition to GitHub Projects offers some pre-cooked templates such as roadmaps and sprints.", "correct": false}], "explanation": null}, {"question": "How can you make commits to a Pull Request after it has been opened?", "type": "single", "options": [{"text": "You cannot make any commits to a Pull Request after it's opened.", "correct": false}, {"text": "You must close the Pull Request and open a new one with the changes.", "correct": false}, {"text": "Commits can be made directly to the \"compare\" branch in the Pull Request.", "correct": true}, {"text": "Commits are made on the \"base\" branch and are automatically reflected in the Pull Request.", "correct": false}], "explanation": "You can continue to make commits to the \"compare\" branch of the Pull Request even after it has been opened. This is very common and addressing feedback from the reviews."}, {"question": "What is the best reason to decide to upgrade to the GitHub Enterprise product?", "type": "single", "options": [{"text": "Because you want to use GitHub Actions and Codespaces.", "correct": false}, {"text": "Because your VP needs to use GitHub Insights.", "correct": false}, {"text": "Because you want to centrally manage users and repositories across multiple organizations.", "correct": true}, {"text": "Because you want to use the team pull request reviewers feature.", "correct": false}], "explanation": "GitHub Enterprise is required for managing multiple organizations along with their users and repositories"}, {"question": "In GitHub a proposal to merge a set of changes from one branch into another branch is called a:", "type": "single", "options": [{"text": "A merge branch", "correct": false}, {"text": "Issue", "correct": false}, {"text": "Gist", "correct": false}, {"text": "Pull Request", "correct": true}, {"text": "Commit", "correct": false}], "explanation": null}, {"question": "Which of these statements regarding GitHub Codespaces lifecycle are true?", "type": "multiple", "options": [{"text": "If you close the browser tab in which your Codespace was running, the Codespace will automatically be stopped", "correct": false}, {"text": "You can stop and restart a Codespace without affecting its running processes.", "correct": false}, {"text": "A Codespace's lifecycle begins when you create a Codespace and ends when you delete it.", "correct": true}, {"text": "You can disconnect and reconnect to an active Codespace without affecting its running processes.", "correct": true}, {"text": "If you create another Codespace on a branch which already had a Codespace running on it, the original Codespace will be deleted", "correct": false}, {"text": "You can stop and restart a Codespace without losing the changes that you make to your project.", "correct": true}], "explanation": null}, {"question": "What is the name of GitHub's continuous integration and continuous delivery (CI/CD) platform?", "type": "single", "options": [{"text": "GitHub Projects", "correct": false}, {"text": "GitHub Pipelines", "correct": false}, {"text": "GitHub Actions", "correct": true}, {"text": "GitHub Workflows", "correct": false}], "explanation": null}, {"question": "Please select the Markdown snippets that would produce this text: Hello, world!", "type": "single", "options": [{"text": "*Hello, *world*!*", "correct": false}, {"text": "**Hello, *world*!**", "correct": false}, {"text": "*Hello, **world**!*", "correct": true}, {"text": "#### Hello, world!", "correct": false}], "explanation": "A single asterisk italicizes the wrapped text. Double asterisks bold the wrapped text. In this example they are combined to."}, {"question": "Which of these workflows are built-in automations in GitHub Projects?", "type": "multiple", "options": [{"text": "When issues or pull requests in your project are closed, their status is set to Done", "correct": true}, {"text": "When issues or pull requests are opened in your project, their status is set to Done.", "correct": false}, {"text": "When a new contributor is added to a repository, the unassigned issues are assigned to him.", "correct": false}, {"text": "When a GitHub Action is triggered, create a new item in your GitHub Project.", "correct": false}, {"text": "When pull requests in your project are merged, their status is set to Done.", "correct": true}], "explanation": null}, {"question": "Which of the following statements about GitHub Gists is true?", "type": "single", "options": [{"text": "Gists can only contain code and programming-related content.", "correct": false}, {"text": "Gists are always public and cannot be made private.", "correct": false}, {"text": "Gists can include both code snippets and markdown-formatted text.", "correct": true}, {"text": "Gists have the same access controls as regular GitHub repositories.", "correct": false}], "explanation": "Gists are commonly made of code snippets, markdown formatted text, and small files, making them versatile for various simple uses."}, {"question": "In what scenario would GitHub Issues be more effective than Discussions?", "type": "single", "options": [{"text": "When making announcements and sharing news with the team.", "correct": false}, {"text": "When seeking community input on project ideas and improvements.", "correct": false}, {"text": "When tracking specific tasks and bugs that require resolution.", "correct": true}], "explanation": null}, {"question": "What is the meaning of the word `distributed` in distributed version control system?", "type": "single", "options": [{"text": "It means that developers can have a full copy of the repository and its history on their local machine.", "correct": true}, {"text": "It means that the codebase is distributed across multiple servers for load balancing.", "correct": false}, {"text": "The term refers to the peer-to-peer sharing of code files among users.", "correct": false}, {"text": "It means that tasks among the team members using the system are easily distributed.", "correct": false}], "explanation": null}, {"question": "Which of these definitions best describes open source software?", "type": "single", "options": [{"text": "It's free to use for any purposes as long as you sign the open source license.", "correct": false}, {"text": "It's software with source code that anyone can rely on.", "correct": false}, {"text": "It's software with source code that anyone can inspect, modify, and enhance.", "correct": true}, {"text": "It's free to use for any personal purposes as long as you don't make profit out of it.", "correct": false}], "explanation": null}, {"question": "What are the effects of you following a user on GitHub?", "type": "single", "options": [{"text": "You will get notifications on your personal dashboard about their public activity.", "correct": true}, {"text": "That user will get notifications on their personal dashboard about your public activity.", "correct": false}, {"text": "You will get access to their private repositories once the follow request is accepted.", "correct": false}, {"text": "You can engage in private conversations with them using GitHub Chat.", "correct": false}], "explanation": null}, {"question": "What is a GitHub Pro plan?", "type": "single", "options": [{"text": "GitHub Pro is a paid plan for enterprises to self-host GitHub on their own servers.", "correct": false}, {"text": "GitHub Pro is a paid plan for organizations that offers additional features in addition to the free organizations plan.", "correct": false}, {"text": "GitHub Pro is a certification path at the end of which you become a GitHub Pro.", "correct": false}, {"text": "GitHub Pro is a paid plan for personal accounts that offers additional features in addition to the free plan.", "correct": true}], "explanation": null}, {"question": "What is a git commit?", "type": "single", "options": [{"text": "A commit refers to the code changes made to a repository in a pull request.", "correct": false}, {"text": "A commit refers to a new or updated file in a repository.", "correct": false}, {"text": "A commit is a snapshot of a repository at a specific point in time.", "correct": true}, {"text": "A commit is human readable text that describes the changes made to a repository.", "correct": false}], "explanation": null}, {"question": "How can you work together with a friend of yours on a repository that you have created on your personal GitHub account?", "type": "single", "options": [{"text": "Go to repository settings and invite him as a collaborator", "correct": true}, {"text": "Provide your friend your GitHub credentials", "correct": false}, {"text": "Add him to `CODEOWNERS` file", "correct": false}, {"text": "It's not possible to work together on personal repositories. You can only do that for repositories owned by organizations.", "correct": false}], "explanation": null}, {"question": "What is the GitHub Sponsors program?", "type": "single", "options": [{"text": "It's a program where highly skilled developers volunteer to help students learn how to use GitHub", "correct": false}, {"text": "It's a program that helps people find a job in the tech industry", "correct": false}, {"text": "It's a way to financially support the developers of the open source projects", "correct": true}, {"text": "It's a group of companies that fund GitHub", "correct": false}], "explanation": null}, {"question": "What is a fork in GitHub?", "type": "single", "options": [{"text": "A fork is the state of a repository when it is not up to date with the remote repository.", "correct": false}, {"text": "A fork is a branch that is not up to date with the default branch of the repository.", "correct": false}, {"text": "A fork is a personal copy of another user's repository that lives on your account.", "correct": true}, {"text": "A fork is the place where a branch splits off into at least two other branches.", "correct": false}], "explanation": null}, {"question": "Which of these is a practice that encourages collaboration, visibility and sharing of code among different teams within an organization?", "type": "single", "options": [{"text": "InnerSource", "correct": true}, {"text": "OpenSource", "correct": false}, {"text": "Continuous Integration", "correct": false}, {"text": "Git Flow", "correct": false}], "explanation": null}, {"question": "What is CodeQL?", "type": "single", "options": [{"text": "A code analysis tool", "correct": true}, {"text": "A programming language", "correct": false}, {"text": "A version control system", "correct": false}, {"text": "A text editor", "correct": false}], "explanation": null}, {"question": "Is there a free version of GitHub for organizations?", "type": "single", "options": [{"text": "Yes", "correct": true}, {"text": "No", "correct": false}], "explanation": null}, {"question": "What is a pull request template?", "type": "single", "options": [{"text": "Pull request template is a file that defines the default pull request structure that project contributors will automatically see when they open a pull request.", "correct": true}, {"text": "Pull request template is a pull request that is automatically generated when a new branch is created.", "correct": false}, {"text": "Pull request template is a pull request that is chosen by the repository owner for reference when creating new pull requests.", "correct": false}, {"text": "Pull request template is an example of how code changes should look like in a pull request in a given repository.", "correct": false}], "explanation": null}, {"question": "Under which GitHub pricing plan can you create an unlimited number of public repositories?", "type": "single", "options": [{"text": "Team", "correct": false}, {"text": "Enterprise", "correct": false}, {"text": "Free", "correct": false}, {"text": "Pro", "correct": false}, {"text": "Team and Enterprise", "correct": false}, {"text": "All of them", "correct": true}], "explanation": null}, {"question": "Which feature provides pre-built charts or visualizations for repository activity and health?", "type": "single", "options": [{"text": "GitHub Discussions", "correct": false}, {"text": "GitHub Actions", "correct": false}, {"text": "Insights tab", "correct": true}, {"text": "GitHub Projects", "correct": false}], "explanation": null}, {"question": "What are pinned repositories on GitHub?", "type": "single", "options": [{"text": "Pinned repositories are repositories that GitHub promotes. There are new pinned repositories each month.", "correct": false}, {"text": "Pinned repositories are repositories that have been marked as favorites by GitHub users.", "correct": false}, {"text": "Pinned repositories are repositories that you have pinned to the top of your GitHub profile.", "correct": true}, {"text": "Pinned repositories are repositories that have been temporarily or indefinitely suspended by GitHub.", "correct": false}], "explanation": null}, {"question": "What is/are the common GitHub pricing plan(s) for both personal and organization accounts?", "type": "single", "options": [{"text": "Team", "correct": false}, {"text": "Pro", "correct": false}, {"text": "Business", "correct": false}, {"text": "Advanced", "correct": false}, {"text": "Free", "correct": true}, {"text": "Personal", "correct": false}, {"text": "Enterprise", "correct": false}], "explanation": null}, {"question": "What is one of the main benefits for using a Personal Access Token (PAT) instead of a standard username and password for GitHub authentication?", "type": "single", "options": [{"text": "PAT lets you authenticate GitHub Enterprise Server against your existing accounts and centrally manage repository access.", "correct": false}, {"text": "PAT is an extra layer of security used when logging into websites or apps. With PAT, users have to sign in with their username and password and provide another form of authentication that only they have access to.", "correct": false}, {"text": "PATs can be managed by the organization and enterprise.", "correct": false}, {"text": "PAT can be used for authentication to GitHub when using the GitHub API or the command line. Users generate a token via the GitHub's settings option, and tie the token permissions to a repository or organization.", "correct": true}], "explanation": null}, {"question": "What is GitHub Desktop?", "type": "single", "options": [{"text": "It's an online editor that allows you to work on your repository in the browser.", "correct": false}, {"text": "It's a GitHub pricing plan for personal accounts that offers additional features in addition to the free plan.", "correct": false}, {"text": "It's a GUI Application for working with Git and GitHub on your computer.", "correct": true}, {"text": "It's a self hosted version of GitHub that you can install on your own servers or personal computer.", "correct": false}], "explanation": null}, {"question": "Which GitHub pricing plan offers self-hosted deployment of GitHub?", "type": "single", "options": [{"text": "Pro", "correct": false}, {"text": "Team", "correct": false}, {"text": "Enterprise", "correct": true}, {"text": "All of them", "correct": false}, {"text": "Free", "correct": false}, {"text": "None of them", "correct": false}], "explanation": null}, {"question": "What feature is unique to GitHub Desktop compared to github.com?", "type": "single", "options": [{"text": "View repository insights", "correct": false}, {"text": "Create new repositories", "correct": false}, {"text": "Clone repositories to local machine", "correct": false}, {"text": "Visualize branch histories in a graphical interface", "correct": true}], "explanation": null}, {"question": "What syntax is used in GitHub Markdown to create a task list?", "type": "single", "options": [{"text": "# TODO: and # DONE:", "correct": false}, {"text": "- [ ] and - [x]", "correct": true}, {"text": "<task> and <done>", "correct": false}, {"text": "// TODO: and // DONE:", "correct": false}], "explanation": null}, {"question": "How can you link a pull request to an issue?", "type": "multiple", "options": [{"text": "By using a keyword in the pull request description and referencing the issue title.", "correct": false}, {"text": "Manually from either the pull request or the issue view.", "correct": true}, {"text": "By including the issue number in the code changes.", "correct": false}, {"text": "By using a keyword in the pull request description and referencing the issue number.", "correct": true}, {"text": "By including the issue number in the commit message.", "correct": false}], "explanation": null}, {"question": "If there are multiple Readme.md files in a GitHub repository, what is the priority order to show them?", "type": "single", "options": [{"text": "Root directory, .docs directory, .github directory", "correct": false}, {"text": ".docs directory, Root directory, .github directory", "correct": false}, {"text": ".docs directory, .github directory, Root directory", "correct": false}, {"text": ".github directory, Root directory, .docs directory", "correct": true}], "explanation": null}, {"question": "If a GitHub Discussion is converted into an Issue and the issue is closed or referred to using its corresponding # number, will the discussion be modified?", "type": "single", "options": [{"text": "No", "correct": true}, {"text": "Yes", "correct": false}], "explanation": "When you \"convert\" a discussion into an Issue it essentially creates a new issue that is soft linked to the discussion and pre-fills the issue information. There isn't a bigger connection between them."}, {"question": "What improvement do issue forms bring over issue templates?", "type": "single", "options": [{"text": "There is no such thing as issue forms in GitHub", "correct": false}, {"text": "Issue form is a tool for creating issues that only contain form fields for title and description, simplifying the process but not necessarily improving the information quality compared to issue templates.", "correct": false}, {"text": "Issue form is a feature that automatically closes issues after a certain period of time, providing a more efficient issue management compared to issue templates.", "correct": false}, {"text": "Issue forms allow for users to be prompted for information when creating an issue and then have that information automatically added to the issue.", "correct": true}], "explanation": null}, {"question": "What language is used to write comments on GitHub issues and pull requests?", "type": "single", "options": [{"text": "Markdown", "correct": true}, {"text": "AsciiDoc", "correct": false}, {"text": "reStructuredText", "correct": false}, {"text": "HTML", "correct": false}], "explanation": null}, {"question": "What are draft pull requests?", "type": "single", "options": [{"text": "Draft pull requests are templates for creating new pull requests.", "correct": false}, {"text": "Draft pull requests are pull requests that have already been reviewed but not merged.", "correct": false}, {"text": "Draft pull requests are pull requests that have already been reviewed but not approved.", "correct": false}, {"text": "Draft pull requests are pull requests that are not ready to be reviewed yet.", "correct": true}], "explanation": null}, {"question": "Which of these statements about the differences of issues and discussions is true?", "type": "single", "options": [{"text": "GitHub Discussions are for conversations that need to be transparent and accessible but do not need to be tracked on a project board and are not related to code, unlike GitHub Issues.", "correct": true}, {"text": "GitHub Issues are for conversations that need to be transparent and accessible but do not need to be tracked on a project board and are not related to code, unlike GitHub Discussions.", "correct": false}], "explanation": null}, {"question": "What are the different deployment options for GitHub Enterprise?", "type": "multiple", "options": [{"text": "GitHub Enterprise Free", "correct": false}, {"text": "GitHub Enterprise Advanced", "correct": false}, {"text": "GitHub Enterprise Server", "correct": true}, {"text": "GitHub Enterprise Team", "correct": false}, {"text": "GitHub Enterprise Pro", "correct": false}, {"text": "GitHub Enterprise Cloud", "correct": true}], "explanation": null}, {"question": "What are the different forms of two-factor or multi-factor authentication supported by GitHub?", "type": "multiple", "options": [{"text": "Email", "correct": false}, {"text": "Text message", "correct": true}, {"text": "Time-based one-time password (TOTP)", "correct": true}, {"text": "Security key", "correct": true}, {"text": "Passkey", "correct": true}, {"text": "Phone call", "correct": false}, {"text": "GitHub mobile", "correct": true}], "explanation": "While text messages are supported in some countries, phone calls are not."}, {"question": "What are some actions you can do in regards to Project Templates in your organization?", "type": "multiple", "options": [{"text": "With admin or write permissions, copy an existing project as a template", "correct": true}, {"text": "Publish your templates in GitHub Marketplace for anyone to use", "correct": false}, {"text": "Configure recommended templates to your organization's members", "correct": true}, {"text": "Create a new template to be used as a base for new projects", "correct": true}, {"text": "With write permission, set an existing project as a template", "correct": false}], "explanation": "You need admin permissions to set an existing project as a template."}, {"question": "What is the effect of adding a line `Closes #11` to the pull request's description?", "type": "single", "options": [{"text": "Once that pull request is merged, the issue #11 will be closed automatically.", "correct": true}, {"text": "Once that pull request is merged, the #11th branch will be deleted automatically.", "correct": false}, {"text": "That pull request will be automatically merged on the 11th of that month.", "correct": false}, {"text": "That pull request will be automatically merged once the issue #11 is closed.", "correct": false}, {"text": "Once that pull request is merged, the pull request #11 will be deleted automatically.", "correct": false}], "explanation": null}, {"question": "What is GitHub Mobile?", "type": "single", "options": [{"text": "It's a service that allows you to test your mobile apps on real devices.", "correct": false}, {"text": "It's a GitHub telemetry service that allows you to track your users' activity on your website or mobile app.", "correct": false}, {"text": "It's a GitHub data transfer service for petabytes of data where a GitHub owned car will drive to your location and transfer the data to your local network.", "correct": false}, {"text": "It's a mobile app for iOS and Android that allows you to work with GitHub from your phone.", "correct": true}], "explanation": null}, {"question": "Which of these is a capability of a Security Manager with respect to GitHub Actions in an organization?", "type": "single", "options": [{"text": "They can remove the `Require status checks to pass before merging` branch protection rule.", "correct": false}, {"text": "They can turn off code reviews for repositories in the organization.", "correct": false}, {"text": "They can configure which actions are allowed or blocked across the organization.", "correct": true}, {"text": "They can delete all workflow runs from private repositories that are over 90 days old.", "correct": false}], "explanation": null}, {"question": "What are the different GitHub pricing plans for personal accounts?", "type": "multiple", "options": [{"text": "Free", "correct": true}, {"text": "Enterprise", "correct": false}, {"text": "Business", "correct": false}, {"text": "Team", "correct": false}, {"text": "Personal", "correct": false}, {"text": "Advanced", "correct": false}, {"text": "Pro", "correct": true}], "explanation": null}, {"question": "What are the possible statuses for a pull request review?", "type": "multiple", "options": [{"text": "Approve", "correct": true}, {"text": "Deny", "correct": false}, {"text": "Applaud", "correct": false}, {"text": "Comment", "correct": true}, {"text": "Request Changes", "correct": true}, {"text": "Close", "correct": false}], "explanation": null}, {"question": "Who can setup billing or assign billing managers for an organization?", "type": "multiple", "options": [{"text": "Team maintainer at the team level", "correct": false}, {"text": "Billing managers at the organization level", "correct": true}, {"text": "Admin in at the team level", "correct": false}, {"text": "Owner of the repository", "correct": false}, {"text": "Owner at the organization level", "correct": true}, {"text": "Owner at the enterprise level", "correct": true}], "explanation": null}, {"question": "Which of the following actions cannot be performed directly from GitHub Desktop?", "type": "single", "options": [{"text": "Managing GitHub Actions", "correct": true}, {"text": "Committing changes", "correct": false}, {"text": "Stashing changes", "correct": false}, {"text": "Switching between branches", "correct": false}], "explanation": null}, {"question": "Which information can be found in the Pulse section in the Insights tab of a repository?", "type": "multiple", "options": [{"text": "Pull requests open/merged ratio", "correct": true}, {"text": "Amount of code line additions and deletions", "correct": true}, {"text": "List of unresolved conversations", "correct": true}, {"text": "Summary of repository activity", "correct": true}, {"text": "Amount of forks of the repo", "correct": false}, {"text": "List of issue discussions", "correct": false}], "explanation": null}, {"question": "Which of the following best describes GitHub secret scanning?", "type": "single", "options": [{"text": "A feature that searches repositories for known secret formats to prevent accidental exposure of sensitive data.", "correct": true}, {"text": "A feature that scans issues for unverified credentials and deletes them automatically.", "correct": false}, {"text": "A feature that encrypts your repository secrets before pushing them to GitHub.", "correct": false}, {"text": "A feature that runs third-party password managers on your code to store secrets securely.", "correct": false}], "explanation": "Secret scanning detects tokens, keys, and other credentials to help avoid leaks."}, {"question": "Which of the following are valid states for a pull request on GitHub?", "type": "multiple", "options": [{"text": "Closed", "correct": true}, {"text": "Pending", "correct": false}, {"text": "Merged", "correct": true}, {"text": "Open", "correct": true}, {"text": "Draft", "correct": true}, {"text": "Abandoned", "correct": false}], "explanation": null}, {"question": "Which of these statements accurately describes a difference between personal accounts and organization accounts on GitHub?", "type": "single", "options": [{"text": "An organization account can have multiple owners and members, whereas a personal account belongs to a single user only.", "correct": true}, {"text": "An organization account can only be created if you have a GitHub Enterprise plan.", "correct": false}, {"text": "A personal account allows unlimited private repositories, but an organization account only allows public repositories.", "correct": false}, {"text": "A personal account can only be accessed via SSH keys, while an organization account can only be accessed via passwords.", "correct": false}], "explanation": "Organizations allow for collaborative management by multiple people, while a personal account is tied to an individual."}, {"question": "Which of these statements about pinned items on your GitHub profile is true?", "type": "single", "options": [{"text": "You can pin up to six repositories or gists on your profile for quick access.", "correct": true}, {"text": "Pinning an item deletes it from your repository list.", "correct": false}, {"text": "You can pin up to 10 repositories on your profile.", "correct": false}, {"text": "You can only pin public repositories, not private ones.", "correct": false}], "explanation": "GitHub supports pinning up to six items (repositories or gists)."}, {"question": "Which action is necessary for adding a file to a GitHub repository?", "type": "single", "options": [{"text": "Having read access to the repository.", "correct": false}, {"text": "Having write access to the repository.", "correct": true}, {"text": "Being a repository owner.", "correct": false}], "explanation": null}, {"question": "What is the significance of the 'commit message' in the GitHub flow process?", "type": "single", "options": [{"text": "It provides a summary of changes made in a commit, aiding in project history tracking.", "correct": true}, {"text": "It automatically merges changes into the main branch.", "correct": false}, {"text": "It creates a backup of the repository.", "correct": false}], "explanation": null}, {"question": "What is the main difference between an organization member and an outside collaborator for a repository owned by that organization?", "type": "single", "options": [{"text": "Outside collaborators can manage billing settings, while members cannot.", "correct": false}, {"text": "Members can never contribute to private repositories, while outside collaborators can.", "correct": false}, {"text": "Outside collaborators automatically become team maintainers in the organization.", "correct": false}, {"text": "Outside collaborators have repository-level access but are not part of the organization; members belong to the organization and may have broader access and roles.", "correct": true}], "explanation": null}, {"question": "Which of these statements about GitHub Pages is correct?", "type": "single", "options": [{"text": "GitHub Pages enables you to host static sites from a GitHub repository.", "correct": true}, {"text": "GitHub Pages allows you to host a private website for free, accessible only by organization members.", "correct": false}, {"text": "GitHub Pages automatically converts Java files into dynamic web apps.", "correct": false}, {"text": "GitHub Pages can only be used by organization accounts.", "correct": false}], "explanation": "GitHub Pages is specifically for static site hosting from your repo. Both personal and organization accounts can use Pages."}, {"question": "Which roles in an organization can view and manage security alerts for private repositories?", "type": "single", "options": [{"text": "Organization owners and Security managers", "correct": true}, {"text": "Outside collaborators", "correct": false}, {"text": "Repository maintainers", "correct": false}, {"text": "Billing managers", "correct": false}], "explanation": "Organization owners and Security managers can view and manage security alerts, including for private repositories."}, {"question": "Why might a team choose GitHub Issues over Discussions for managing bug reports?", "type": "single", "options": [{"text": "Issues are automatically resolved when linked to pull requests.", "correct": false}, {"text": "Issues provide a structured format for tracking and resolving bugs.", "correct": true}, {"text": "Discussions provide better visibility and tracking for bug reports.", "correct": false}], "explanation": null}, {"question": "Which of these features does GitHub Copilot for Business offer that GitHub Copilot for Individuals does not?", "type": "single", "options": [{"text": "Local hosting of the AI model behind GitHub Copilot", "correct": false}, {"text": "Organization-wide policy management, including restricting model suggestions based on public code", "correct": true}, {"text": "Exemption from all paid usage fees", "correct": false}, {"text": "24/7 phone support from GitHub Copilot team", "correct": false}], "explanation": null}];
+const STORE_KEY = "ghCertQuizProgress_v1";
+
+// active = the set currently being quizzed (all questions, or a topic-filtered subset)
+let ACTIVE = QUESTIONS;
+let filterActive = false;
+
+// signature so saved progress is invalidated if the question set changes after a rebuild
+function signature(){
+  let s = ACTIVE.length + ":";
+  for(const q of ACTIVE){ s += (q.question||"").slice(0,24); }
+  let h=0; for(let i=0;i<s.length;i++){ h=(h*31 + s.charCodeAt(i))|0; }
+  return ACTIVE.length + "_" + (h>>>0).toString(36);
+}
+const SIG = signature();
+
+// ---- state ----
+let queue = [];
+let total = QUESTIONS.length;
+let attempts = 0;
+let correctAttempts = 0;
+let firstCorrect = 0;
+let firstSeen = new Set();
+let answeredUnique = new Set();
+let current = null;
+let locked = false;
+let missedFirst = new Set();   // ids missed on first attempt = "improvement areas"
+let focusActive = false;       // focused practice on missed questions (not persisted)
+let chosenCount = 0;           // 0 = all of ACTIVE
+let testSeen = new Set();      // ids included in the current main test
+let lastGrade = null;          // {id, allRight, wasFirst} for the just-graded question
+let qStats = {};               // id -> {ms,n,fc}: response time, # responses, first-attempt correct (this test)
+let timerShow = false;         // whether the live response timer is displayed to the tester
+let qElapsed = 0;              // ms accrued on the current question (excludes paused gaps)
+let qSegStart = null;          // performance.now() when the running segment began (null = stopped)
+let paused = false;            // live timer paused for a break
+let _timerInt = null;          // interval handle for the ticking display
+
+const LASTTEST_KEY = STORE_KEY + "_lasttest";
+const RETIRED_KEY = STORE_KEY + "_retired";
+
+// questions the tester marked "don't ask again" — keyed by question text so the
+// list survives rebuilds (where numeric ids may shift) and spans all sessions
+let retiredKeys = new Set();
+function qKey(q){
+  const s=String(q.question||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+  let h=0; for(let i=0;i<s.length;i++){ h=(h*31 + s.charCodeAt(i))|0; }
+  return (h>>>0).toString(36)+'_'+s.length;
+}
+function isRetired(q){ return retiredKeys.has(q._key); }
+function livePool(set){ return (set||ACTIVE).filter(q=>!isRetired(q)); }
+function loadRetired(){
+  try{ const r=localStorage.getItem(RETIRED_KEY); if(!r) return new Set();
+    const a=JSON.parse(r); return new Set(Array.isArray(a)?a:[]); }catch(e){ return new Set(); }
+}
+function saveRetired(){
+  try{ localStorage.setItem(RETIRED_KEY, JSON.stringify([...retiredKeys])); }catch(e){}
+}
+
+function transient(){ return filterActive || focusActive; }
+function shuffle(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+
+// remember the most recent (non-transient) test so the next setup can offer to
+// reuse previously-seen / previously-missed questions
+function saveLastTest(){
+  if(transient()) return;
+  if(!testSeen.size) return;
+  try{
+    localStorage.setItem(LASTTEST_KEY, JSON.stringify({
+      sig: SIG, seen:[...testSeen], answered:[...firstSeen], missed:[...missedFirst],
+      pool: ACTIVE.length, ts: Date.now()
+    }));
+  }catch(e){}
+}
+function loadLastTest(){
+  try{
+    const r=localStorage.getItem(LASTTEST_KEY); if(!r) return null;
+    const o=JSON.parse(r);
+    if(!o || o.sig!==SIG || !Array.isArray(o.seen)) return null;
+    return o;
+  }catch(e){ return null; }
+}
+
+// ---- persistence ----
+function saveProgress(phase){
+  if(transient()) return;            // filtered / focused runs are not persisted
+  try{
+    const snap = {
+      sig: SIG, phase, total,
+      queue: queue.map(q=>q.id),
+      current: current ? current.id : null,
+      attempts, correctAttempts, firstCorrect,
+      firstSeen:[...firstSeen], answeredUnique:[...answeredUnique],
+      missed:[...missedFirst],
+      seen:[...testSeen],
+      stats: qStats,
+      showTimer: timerShow,
+      firstAttempt: QUESTIONS.map(q=>q.firstAttempt?1:0),
+      ts: Date.now()
+    };
+    localStorage.setItem(STORE_KEY, JSON.stringify(snap));
+    saveLastTest();
+    flashSaved();
+  }catch(e){}
+}
+function loadProgress(){
+  try{
+    const raw = localStorage.getItem(STORE_KEY);
+    if(!raw) return null;
+    const s = JSON.parse(raw);
+    if(s.sig !== SIG) return null;            // question set changed -> ignore old save
+    if(!s.queue || (s.queue.length===0 && (s.current===null))) return null;
+    return s;
+  }catch(e){ return null; }
+}
+function clearProgress(){ try{ localStorage.removeItem(STORE_KEY); }catch(e){} }
+// wipe EVERYTHING this app remembers: in-progress session, last-test history,
+// improvement areas, and the "don't ask again" retired list -> clean slate
+function resetAll(){
+  try{
+    localStorage.removeItem(STORE_KEY);
+    localStorage.removeItem(LASTTEST_KEY);
+    localStorage.removeItem(RETIRED_KEY);
+  }catch(e){}
+  retiredKeys=new Set();
+  missedFirst=new Set();
+  testSeen=new Set();
+  lastGrade=null;
+  qStats={}; timerShow=false;
+  filterActive=false; focusActive=false;
+  ACTIVE=QUESTIONS; total=QUESTIONS.length;
+  QUESTIONS.forEach(q=>q.firstAttempt=true);
+  updateImproveBtn();
+}
+let _saveTimer=null;
+function flashSaved(){
+  const el=document.getElementById('saveState');
+  el.textContent="✓ progress saved";
+  clearTimeout(_saveTimer);
+  _saveTimer=setTimeout(()=>{el.textContent="";},1500);
+}
+
+function updateImproveBtn(){
+  const b=document.getElementById('improveBtn');
+  if(!b) return;
+  const n=missedFirst.size;
+  b.textContent = n ? `⚑ Improvement areas (${n})` : '⚑ Improvement areas';
+}
+
+// ---- lifecycle ----
+function boot(){
+  QUESTIONS.forEach((q,i)=>{ q.id=i; q.firstAttempt=true; q._key=qKey(q); });
+  retiredKeys = loadRetired();
+  const saved = loadProgress();
+  if(saved){ showResume(saved); } else { freshStart(); }
+}
+
+// fresh start now opens the setup screen so the user can pick how many questions
+function freshStart(){
+  if(!transient()) clearProgress();
+  focusActive=false; setFocusBanner(false);
+  filterActive=false; ACTIVE=QUESTIONS; total=QUESTIONS.length;
+  missedFirst=new Set(); updateImproveBtn();
+  showSetup();
+}
+
+// build the list of selectable sizes in steps of 25, with an "All" stop at the end
+function sizeStops(n){
+  const stops=[];
+  for(let v=25; v<n; v+=25) stops.push(v);
+  stops.push(n); // final stop = all questions
+  return stops;
+}
+
+// pick the eligible question pool for the chosen type + prior-test options.
+// returns {forced, rest}: forced = previously-missed questions to guarantee in, rest = the rest.
+function eligible(typeSel, includeMissed, missedSet, excludeSet){
+  const typeOk = q => typeSel==='both' ? true
+                    : typeSel==='multiple' ? q.type==='multiple'
+                    : q.type!=='multiple';
+  const base = ACTIVE.filter(q=>typeOk(q) && !isRetired(q));
+  let forced = (includeMissed && missedSet) ? base.filter(q=>missedSet.has(q.id)) : [];
+  const fIds = new Set(forced.map(q=>q.id));
+  let rest = base.filter(q=>!fIds.has(q.id));
+  if(excludeSet && excludeSet.size) rest = rest.filter(q=>!excludeSet.has(q.id));
+  return {forced, rest};
+}
+
+function showSetup(){
+  document.getElementById('restartBtn').style.display='none';
+  document.getElementById('improveBtn').style.display='none';
+  hideScore();
+  stopTimerUI();
+  document.getElementById('counter').textContent='';
+  document.getElementById('remaining').textContent='';
+  document.getElementById('saveState').textContent='';
+  document.getElementById('prog').style.width='0%';
+  SUBJ_TOTAL=SUBJ_FULL;
+  document.querySelectorAll('#subList .cnt').forEach(el=>{el.textContent=SUBJ_TOTAL[el.dataset.key]||0;el.classList.remove('answered');});
+  document.querySelectorAll('#subList .savg').forEach(el=>el.textContent='');
+
+  const liveQs = livePool();
+  const liveTotal = liveQs.length;
+  const multiCount = liveQs.filter(q=>q.type==='multiple').length;
+  const singleCount = liveTotal - multiCount;
+
+  const last = loadLastTest();
+  const activeIds = new Set(liveQs.map(q=>q.id));
+  const lastSeen = last ? last.seen.filter(id=>activeIds.has(id)) : [];                    // full pool drawn last time
+  const lastAnswered = last ? (last.answered||last.seen).filter(id=>activeIds.has(id)) : []; // questions actually shown
+  const answeredSet = new Set(lastAnswered);
+  const unansweredIds = lastSeen.filter(id=>!answeredSet.has(id));                          // drawn but never reached
+  const unansweredSet = new Set(unansweredIds);
+  const missedIds = last ? last.missed.filter(id=>activeIds.has(id)) : [];
+  const missedSet = new Set(missedIds);
+  const showAnswered = lastAnswered.length>0 && lastAnswered.length<liveTotal;
+  const showUnanswered = unansweredIds.length>0;
+  const showPrior = showAnswered || showUnanswered;
+
+  let typeSel = 'both';
+
+  const retiredNote = retiredKeys.size
+    ? `<p class="ptitle" style="margin-top:10px">${retiredKeys.size} question${retiredKeys.size>1?'s':''} hidden via “Don’t ask again”. <a href="#" id="restoreRetired">Restore them</a>.</p>` : '';
+
+  const priorHtml = (showPrior || retiredNote) ? `
+      <div class="prioropts">
+        ${showPrior ? `<p class="ptitle">Your last test drew <b>${lastSeen.length}</b> of ${liveTotal} questions${lastAnswered.length?` — you answered <b>${lastAnswered.length}</b>`:''}${unansweredIds.length?`, with <b>${unansweredIds.length}</b> left unanswered`:''}.</p>` : ''}
+        ${showAnswered ? `<label class="chk"><input type="checkbox" id="optSeen" checked>
+          <span>Include the <b>${lastAnswered.length}</b> question${lastAnswered.length>1?'s':''} you <b>answered last test</b> (uncheck to skip them)</span></label>` : ''}
+        ${showUnanswered ? `<label class="chk"><input type="checkbox" id="optUnanswered" checked>
+          <span>Include the <b>${unansweredIds.length}</b> <b>unanswered question${unansweredIds.length>1?'s':''}</b> from your last test</span></label>` : ''}
+        ${missedIds.length ? `<label class="chk"><input type="checkbox" id="optMissed">
+          <span>Re-include the <b>${missedIds.length}</b> question${missedIds.length>1?'s':''} you <b>missed last time</b></span></label>` : ''}
+        ${retiredNote}
+      </div>` : '';
+
+  document.getElementById('quiz').innerHTML=`
+    <div class="setup">
+      <h2 style="margin:0 0 6px">Set up your practice test</h2>
+      <p class="lead">Pick the question types, how many you want, and start. The slider locks to steps of 25.</p>
+      <div class="typesel" id="typeSel">
+        <button data-t="both" class="on">Both<span class="cnt">${liveTotal}</span></button>
+        <button data-t="single">Single answer<span class="cnt">${singleCount}</span></button>
+        <button data-t="multiple">Multiple answer<span class="cnt">${multiCount}</span></button>
+      </div>
+      ${priorHtml}
+      <div class="timeropt">
+        <label class="chk"><input type="checkbox" id="optTimer">
+          <span>Show a <b>response timer</b> while I work, with a <b>pause</b> button for breaks.
+            <span class="sub">Your time per question is always measured for the by-subject results breakdown — this only controls whether the clock is visible.</span></span></label>
+      </div>
+      <div class="countbox" id="countbox"></div>
+      <div class="actions">
+        <button class="primary" id="startBtn">Start quiz →</button>
+      </div>
+      <div class="hint" id="setupHint"></div>
+      <div class="resetrow">
+        <button class="ghost danger" id="resetAllBtn" title="Forget all saved progress, history, improvement areas, and retired questions">↺ Reset all history</button>
+        <span class="resethint">Clears saved progress, last-test memory, improvement areas, and restores every “Don’t ask again” question.</span>
+      </div>
+    </div>`;
+
+  const getOpts = ()=>{
+    const se=document.getElementById('optSeen');
+    const ue=document.getElementById('optUnanswered');
+    const includeAnswered = se ? se.checked : true;
+    const includeUnanswered = ue ? ue.checked : true;
+    const om = document.getElementById('optMissed');
+    const includeMissed = !!(om && om.checked);
+    const excludeSet = new Set();
+    if(!includeAnswered) answeredSet.forEach(id=>excludeSet.add(id));
+    if(!includeUnanswered) unansweredSet.forEach(id=>excludeSet.add(id));
+    return {includeMissed, excludeSet};
+  };
+
+  let stops=[], idx=0;
+  function available(){
+    const {includeMissed, excludeSet} = getOpts();
+    const {forced, rest} = eligible(typeSel, includeMissed, missedSet, excludeSet);
+    return forced.length + rest.length;
+  }
+  function rebuild(){
+    const pool = available();
+    const startBtn = document.getElementById('startBtn');
+    const hint = document.getElementById('setupHint');
+    if(pool<=0){
+      document.getElementById('countbox').innerHTML='';
+      startBtn.disabled=true;
+      hint.textContent='No questions match these options. Adjust your selections.';
+      return;
+    }
+    startBtn.disabled=false;
+    stops = sizeStops(pool);
+    idx = stops.length-1;
+    const ticks = stops.map((v,i)=>`<span data-i="${i}">${i===stops.length-1?'All':v}</span>`).join('');
+    document.getElementById('countbox').innerHTML=`
+      <div class="row">
+        <span class="lbl">Questions in this test</span>
+        <span class="val" id="cntVal"></span>
+      </div>
+      <input type="range" class="slider" id="cntSlider" min="0" max="${stops.length-1}" step="1" value="${idx}">
+      <div class="ticks" id="cntTicks">${ticks}</div>`;
+    hint.textContent = `${pool} question${pool>1?'s':''} available with these options. A random selection is drawn each time.`;
+    const slider=document.getElementById('cntSlider');
+    const valEl=document.getElementById('cntVal');
+    const tickEls=[...document.querySelectorAll('#cntTicks span')];
+    function paint(){
+      const i=+slider.value, v=stops[i], all=(i===stops.length-1);
+      valEl.innerHTML = all ? `${v} <small>(all)</small>` : `${v}`;
+      tickEls.forEach(t=>t.classList.toggle('on',+t.dataset.i===i));
+    }
+    slider.addEventListener('input',paint);
+    tickEls.forEach(t=>t.addEventListener('click',()=>{ slider.value=t.dataset.i; paint(); }));
+    paint();
+  }
+
+  [...document.querySelectorAll('#typeSel button')].forEach(b=>{
+    b.addEventListener('click',()=>{
+      typeSel=b.dataset.t;
+      document.querySelectorAll('#typeSel button').forEach(x=>x.classList.toggle('on',x===b));
+      rebuild();
+    });
+  });
+  const optSeenEl=document.getElementById('optSeen'); if(optSeenEl) optSeenEl.addEventListener('change',rebuild);
+  const optUnansEl=document.getElementById('optUnanswered'); if(optUnansEl) optUnansEl.addEventListener('change',rebuild);
+  const om=document.getElementById('optMissed'); if(om) om.addEventListener('change',rebuild);
+  const rr=document.getElementById('restoreRetired');
+  if(rr) rr.addEventListener('click',e=>{ e.preventDefault(); retiredKeys=new Set(); saveRetired(); showSetup(); });
+  const resetBtn=document.getElementById('resetAllBtn');
+  if(resetBtn) resetBtn.addEventListener('click',()=>{
+    if(confirm('Reset all history?\n\nThis forgets your saved progress, last-test memory, improvement areas, and restores every “Don’t ask again” question. This cannot be undone.')){
+      resetAll();
+      showSetup();
+    }
+  });
+  document.getElementById('startBtn').addEventListener('click',()=>{
+    if(document.getElementById('startBtn').disabled) return;
+    const i=+document.getElementById('cntSlider').value;
+    const count = (i===stops.length-1) ? 0 : stops[i];
+    const {includeMissed, excludeSet} = getOpts();
+    const showTimer = !!(document.getElementById('optTimer') && document.getElementById('optTimer').checked);
+    beginTest(count, {typeSel, includeMissed, excludeSet, missedSet, showTimer});
+  });
+  rebuild();
+}
+
+function beginTest(count, opts){
+  opts = opts || {};
+  const typeSel = opts.typeSel || 'both';
+  const includeMissed = !!opts.includeMissed;
+  chosenCount = count;
+  attempts=0;correctAttempts=0;firstCorrect=0;
+  qStats={}; timerShow=!!opts.showTimer;
+  firstSeen=new Set();answeredUnique=new Set();current=null;locked=false;
+  ACTIVE.forEach(q=>q.firstAttempt=true);
+
+  const {forced, rest} = eligible(typeSel, includeMissed, opts.missedSet, opts.excludeSet);
+  shuffle(forced); shuffle(rest);
+  let pool;
+  if(count && count>0){
+    pool = forced.slice(0, count);
+    for(const q of rest){ if(pool.length>=count) break; pool.push(q); }
+    shuffle(pool);
+  } else {
+    pool = shuffle(forced.concat(rest));
+  }
+  queue = pool;
+  total = queue.length;
+  testSeen = new Set(queue.map(q=>q.id));
+  SUBJ_TOTAL = subjTotals(queue);
+  document.getElementById('restartBtn').style.display='inline-block';
+  document.getElementById('improveBtn').style.display='inline-block';
+  updateImproveBtn();
+  next();
+}
+
+function showResume(s){
+  const mastered = s.answeredUnique.length;
+  const stotal = s.total || ACTIVE.length;
+  const date = new Date(s.ts||Date.now());
+  document.getElementById('restartBtn').style.display='none';
+  document.getElementById('improveBtn').style.display='none';
+  hideScore();
+  stopTimerUI();
+  document.getElementById('counter').textContent='';
+  document.getElementById('remaining').textContent='';
+  document.getElementById('prog').style.width = (stotal?mastered/stotal*100:0)+'%';
+  document.getElementById('quiz').innerHTML=`
+    <div class="resume">
+      <h2>Welcome back 👋</h2>
+      <p>You have a saved session from ${date.toLocaleString()} —
+         <strong>${mastered}/${stotal}</strong> mastered, ${s.queue.length} still in the queue.</p>
+      <div class="actions">
+        <button class="primary" id="resumeBtn">Resume where I left off</button>
+        <button class="secondary" id="freshBtn">Start over</button>
+      </div>
+    </div>`;
+  document.getElementById('resumeBtn').addEventListener('click',()=>resume(s));
+  document.getElementById('freshBtn').addEventListener('click',freshStart);
+}
+
+function resume(s){
+  attempts=s.attempts; correctAttempts=s.correctAttempts; firstCorrect=s.firstCorrect;
+  firstSeen=new Set(s.firstSeen); answeredUnique=new Set(s.answeredUnique);
+  missedFirst=new Set(s.missed||[]);
+  testSeen=new Set(s.seen||s.queue||[]);
+  SUBJ_TOTAL=subjTotals([...testSeen].map(id=>QUESTIONS[id]));
+  qStats=s.stats||{};
+  timerShow=!!s.showTimer;
+  QUESTIONS.forEach((q,i)=>{ q.firstAttempt = s.firstAttempt ? !!s.firstAttempt[i] : true; });
+  const byId = id => QUESTIONS[id];
+  const droppedRetired = (s.queue||[]).filter(id=>{const q=byId(id); return q && isRetired(q);}).length;
+  queue = (s.queue||[]).map(byId).filter(q=>q && !isRetired(q));
+  total = (s.total || ACTIVE.length) - droppedRetired;
+  focusActive=false; setFocusBanner(false);
+  document.getElementById('restartBtn').style.display='inline-block';
+  document.getElementById('improveBtn').style.display='inline-block';
+  updateImproveBtn();
+  if(s.phase==='graded'){
+    current=null; locked=false; next();
+  } else {
+    current = s.current!=null ? byId(s.current) : null;
+    if(current && isRetired(current)) current=null;
+    locked=false;
+    if(!current){ next(); } else { render(); updateMeta(); }
+  }
+}
+
+function updateScore(){
+  const el=document.getElementById('scoreTally');
+  if(!el) return;
+  if(attempts>0){
+    const pct=Math.round(correctAttempts/attempts*100);
+    el.classList.toggle('low', pct<70);
+    el.innerHTML=`<span class="pct">${pct}%</span> correct <span class="frac">(${correctAttempts}/${attempts})</span>`;
+  } else {
+    el.classList.remove('low');
+    el.innerHTML=`<span class="frac">No answers yet</span>`;
+  }
+  el.style.display='inline-block';
+}
+function hideScore(){ const el=document.getElementById('scoreTally'); if(el) el.style.display='none'; }
+
+// ---- response timer (always measures; only displayed when timerShow) ----
+function fmtClock(ms){
+  const s=Math.max(0,Math.round(ms/1000));
+  return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+}
+function fmtAvg(ms){
+  if(!isFinite(ms)||ms<=0) return '—';
+  const s=ms/1000;
+  return s<60 ? s.toFixed(1)+'s' : fmtClock(ms);
+}
+function currentElapsedMs(){
+  return qElapsed + ((paused||qSegStart===null) ? 0 : (performance.now()-qSegStart));
+}
+function paintTimer(){
+  const c=document.querySelector('#liveTimer .tclock');
+  if(c) c.textContent='⏱ '+fmtClock(currentElapsedMs());
+}
+// begin (or restart) timing for the current question
+function beginQuestionTimer(){
+  qElapsed=0; paused=false; qSegStart=performance.now();
+  clearInterval(_timerInt); _timerInt=null;
+  showPauseOverlay(false);
+  const el=document.getElementById('liveTimer');
+  if(!el) return;
+  if(!timerShow){ el.style.display='none'; el.innerHTML=''; el.classList.remove('paused'); return; }
+  el.style.display='inline-flex';
+  el.classList.remove('paused');
+  el.innerHTML=`<span class="tclock">⏱ 0:00</span><button id="pauseBtn" class="tbtn" type="button">⏸ Pause</button>`;
+  const pb=document.getElementById('pauseBtn');
+  if(pb) pb.addEventListener('click',togglePause);
+  paintTimer();
+  _timerInt=setInterval(paintTimer,1000);
+}
+// stop the running segment, fold it into qElapsed, and return the total ms
+function endQuestionTimer(){
+  if(!paused && qSegStart!==null){ qElapsed+=performance.now()-qSegStart; }
+  qSegStart=null; paused=false;
+  clearInterval(_timerInt); _timerInt=null;
+  return qElapsed;
+}
+function showPauseOverlay(on){
+  const ov=document.getElementById('pauseOverlay');
+  if(ov) ov.style.display=on?'flex':'none';
+}
+function togglePause(){
+  if(!timerShow || locked) return;       // can't pause once the question is answered
+  const el=document.getElementById('liveTimer');
+  const pb=document.getElementById('pauseBtn');
+  if(paused){
+    paused=false; qSegStart=performance.now();
+    if(pb) pb.textContent='⏸ Pause';
+    if(el) el.classList.remove('paused');
+    showPauseOverlay(false);
+  } else {
+    qElapsed+=performance.now()-qSegStart; qSegStart=null; paused=true;
+    if(pb) pb.textContent='▶ Resume';
+    if(el) el.classList.add('paused');
+    showPauseOverlay(true);
+  }
+  paintTimer();
+}
+// fully tear the timer UI down (leaving a screen / finishing a test)
+function stopTimerUI(){
+  clearInterval(_timerInt); _timerInt=null;
+  paused=false; qSegStart=null;
+  showPauseOverlay(false);
+  const el=document.getElementById('liveTimer');
+  if(el){ el.style.display='none'; el.classList.remove('paused'); }
+}
+// record the just-graded question's response time + first-attempt result
+function recordTiming(id, ms, allRight){
+  const st=qStats[id]||(qStats[id]={ms:0,n:0,fc:null});
+  st.ms+=ms; st.n++;
+  if(st.fc===null) st.fc=!!allRight;
+}
+// aggregate per-question stats into a by-subject results breakdown for the summary
+function subjectBreakdownHTML(){
+  const agg={};
+  for(const id in qStats){
+    const q=QUESTIONS[id]; if(!q) continue;
+    const st=qStats[id];
+    const subs=(q._subjects&&q._subjects.length)?q._subjects:['general'];
+    for(const k of subs){
+      const a=agg[k]||(agg[k]={ans:0,fc:0,ms:0,n:0});
+      a.ans++; if(st.fc) a.fc++; a.ms+=st.ms; a.n+=st.n;
+    }
+  }
+  const rows=Object.keys(agg).map(k=>{
+    const a=agg[k];
+    return {label:SUBJECT_LABEL[k]||k, ans:a.ans, fc:a.fc,
+            acc:a.ans?Math.round(a.fc/a.ans*100):0, avg:a.n?a.ms/a.n:0};
+  });
+  if(!rows.length) return '';
+  rows.sort((x,y)=>x.acc-y.acc || y.ans-x.ans);
+  const cls=acc=>acc>=80?'good':acc>=60?'mid':'low';
+  const body=rows.map(r=>`
+    <div class="sbrow">
+      <div class="sbhead"><span class="sbname">${esc(r.label)}</span><span class="sbacc ${cls(r.acc)}">${r.acc}%</span></div>
+      <div class="sbbar"><span class="sbfill ${cls(r.acc)}" style="width:${r.acc}%"></span></div>
+      <div class="sbsub">${r.fc}/${r.ans} correct first try · avg ${fmtAvg(r.avg)} per question</div>
+    </div>`).join('');
+  return `
+    <div class="subjbreak">
+      <h3>Results by subject</h3>
+      <p class="sbhint">Sorted by first-attempt accuracy — focus your next test on the lowest. “Avg” is your average response time per question in that subject.</p>
+      <div class="sbtable">${body}</div>
+    </div>`;
+}
+
+function updateMeta(){
+  const done = answeredUnique.size;
+  document.getElementById('counter').textContent = `${done}/${total} mastered`;
+  document.getElementById('remaining').textContent = `${queue.length} in queue · ${attempts} attempts`;
+  document.getElementById('prog').style.width = (total? (done/total*100):0) + '%';
+  updateScore();
+  updateSubjectProgress();
+}
+
+function next(){
+  locked=false;
+  if(queue.length===0){ return summary(); }
+  current = queue.shift();
+  if(!firstSeen.has(current.id)){ firstSeen.add(current.id); }
+  render();
+  updateMeta();
+  saveProgress('question');
+}
+
+function render(){
+  const q=current;
+  lastGrade=null;
+  const inputType = q.type==='multiple' ? 'checkbox':'radio';
+  const correctCount = q.options.filter(o=>o.correct).length;
+  const opts = shuffle(q.options.map((o,idx)=>({o,idx})));
+  let html='';
+  const isMulti = q.type==='multiple' && correctCount>1;
+  const badge = q.type==='multiple'
+    ? `Select all that apply${correctCount>1?` — choose <span class="num">${correctCount}</span>`:''}`
+    : 'Select one';
+  html += `<span class="qtype${isMulti?' multi':''}">${badge}</span>`;
+  html += `<p class="qtext">${esc(q.question)}</p>`;
+  html += `<div class="options" id="opts">`;
+  opts.forEach(({o,idx})=>{
+    html += `<label class="opt" data-i="${idx}">
+       <input type="${inputType}" name="opt" value="${idx}">
+       <span class="txt">${esc(o.text)}</span>
+       <span class="tagslot"></span>
+     </label>`;
+  });
+  html += `</div>`;
+  html += `<div id="verdict" class="verdict"></div>`;
+  html += `<div id="reinsert" class="reinsert">↻ This question will appear again later.</div>`;
+  html += `<div id="explain" class="explain"></div>`;
+  html += `<div class="actions">
+      <button id="submit" class="primary" disabled>Submit</button>
+      <button id="nextBtn" class="secondary" style="display:none">Next →</button>
+      <div class="actions-right" id="skipWrap">
+        <button id="skipBtn" class="ghost" title="Skip this question for now — it won't count toward your score">↷ Skip</button>
+        <button id="retireBtn" class="ghost danger" title="Remove this question from all future tests (you already know it)">✕ Don't ask again</button>
+        <button id="finishBtn" class="ghost finish" title="End the test now and tally your results from the questions you've completed so far">🏁 Finish test</button>
+      </div>
+   </div>
+   <div class="hint${isMulti?' multi':''}" id="hint">${q.type==='multiple'?(correctCount>1?`Select <span class="num">${correctCount}</span> answers.`:'Choose one or more options.'):'Choose one option.'}</div>
+   <div id="pauseOverlay" class="pauseoverlay"><div class="pausebox"><div class="picon">⏸</div><div class="ptxt">Timer paused</div><div class="psub">Take a break — your response time isn't counting right now.</div><button id="resumeOverlayBtn" class="primary" type="button">▶ Resume</button></div></div>`;
+  document.getElementById('quiz').innerHTML=html;
+
+  const optsEl=document.getElementById('opts');
+  optsEl.addEventListener('change',()=>{
+    document.getElementById('submit').disabled = optsEl.querySelectorAll('input:checked').length===0;
+  });
+  document.getElementById('submit').addEventListener('click',grade);
+  document.getElementById('nextBtn').addEventListener('click',next);
+  document.getElementById('skipBtn').addEventListener('click',skipCurrent);
+  document.getElementById('retireBtn').addEventListener('click',retireCurrent);
+  document.getElementById('finishBtn').addEventListener('click',finishTest);
+  const rov=document.getElementById('resumeOverlayBtn');
+  if(rov) rov.addEventListener('click',togglePause);
+  beginQuestionTimer();
+}
+
+// drop the current question out of this test.
+// the running % correct (correctAttempts/attempts) is NEVER altered here, so:
+//   - retiring BEFORE submitting: nothing was graded, so it doesn't count toward %.
+//   - retiring AFTER submitting: the graded attempt stays counted toward %.
+function dropCurrent(){
+  if(!current) return;
+  const id=current.id;
+  const graded = !!(lastGrade && lastGrade.id===id);
+  const masteredCorrect = graded && lastGrade.allRight;   // answered correctly = a completed test item
+  queue=queue.filter(q=>q.id!==id);   // also removes any reinserted (wrong-answer) copies
+  if(testSeen.has(id)){ testSeen.delete(id); }
+  if(missedFirst.has(id)){ missedFirst.delete(id); updateImproveBtn(); }
+  // keep a correctly-answered question in the denominator (it's mastered & done);
+  // otherwise remove it so progress/summary reflect only the questions still in play.
+  if(!masteredCorrect){
+    if(answeredUnique.has(id)) answeredUnique.delete(id);
+    if(total>0) total--;
+  }
+  lastGrade=null;
+}
+function skipCurrent(){
+  if(locked) return;                  // skipping only makes sense before answering
+  dropCurrent();
+  current=null; locked=false;
+  saveProgress('question');
+  next();
+}
+function retireCurrent(){             // allowed before OR after submitting
+  if(!current) return;
+  retiredKeys.add(current._key);
+  saveRetired();
+  dropCurrent();
+  current=null; locked=false;
+  saveProgress('question');
+  next();
+}
+// end the test early and tally results from only the questions completed so far
+function finishTest(){
+  const done=Object.keys(qStats).length;
+  if(!confirm(`End the test now?\n\nYour results will be tallied from the ${done} question${done===1?'':'s'} you've completed so far. Unanswered questions are not counted.`)) return;
+  endQuestionTimer();
+  total=done;                 // denominator reflects only what was actually answered
+  queue=[]; current=null; locked=false;
+  summary();
+}
+
+function grade(){
+  if(locked) return; locked=true;
+  const respMs=endQuestionTimer();
+  const q=current;
+  const optsEl=document.getElementById('opts');
+  const labels=[...optsEl.querySelectorAll('.opt')];
+  const checked=new Set([...optsEl.querySelectorAll('input:checked')].map(i=>+i.value));
+  let allRight=true;
+  labels.forEach(lab=>{
+    const i=+lab.dataset.i;
+    const isCorrect=q.options[i].correct;
+    const picked=checked.has(i);
+    lab.classList.add('locked');
+    lab.querySelector('input').disabled=true;
+    const slot=lab.querySelector('.tagslot');
+    if(isCorrect){
+      lab.classList.add('correct');
+      slot.innerHTML = picked? '<span class="tag g">Your answer ✓</span>' : '<span class="tag g">Correct answer</span>';
+      if(!picked) allRight=false;
+    } else if(picked){
+      lab.classList.add('incorrect');
+      slot.innerHTML='<span class="tag r">Your answer ✗</span>';
+      allRight=false;
+    }
+  });
+
+  attempts++;
+  const wasFirst=q.firstAttempt; q.firstAttempt=false;
+  lastGrade={id:q.id, allRight, wasFirst};
+  recordTiming(q.id, respMs, allRight);
+  const lt=document.getElementById('liveTimer');
+  if(timerShow && lt){ lt.classList.remove('paused'); lt.innerHTML=`<span class="tclock">⏱ ${fmtClock(respMs)}</span>`; }
+  const verdict=document.getElementById('verdict');
+  if(allRight){
+    correctAttempts++;
+    if(wasFirst) firstCorrect++;
+    answeredUnique.add(q.id);
+    verdict.className='verdict correct';
+    verdict.textContent='✓ Correct';
+  } else {
+    verdict.className='verdict incorrect';
+    verdict.textContent='✗ Incorrect';
+    if(wasFirst && !transient()){ missedFirst.add(q.id); updateImproveBtn(); }
+    const pos=Math.floor(Math.random()*(queue.length+1));
+    queue.splice(pos,0,q);
+    document.getElementById('reinsert').style.display='block';
+  }
+  if(q.explanation){
+    const ex=document.getElementById('explain');
+    ex.textContent=q.explanation; ex.style.display='block';
+  }
+  document.getElementById('submit').style.display='none';
+  const sk=document.getElementById('skipBtn'); if(sk) sk.style.display='none';
+  const rt=document.getElementById('retireBtn');
+  if(rt){ rt.textContent="✕ Don't ask this again"; rt.title="You've got this one — remove it from all future tests (won't count toward your score)"; }
+  const nb=document.getElementById('nextBtn');
+  nb.style.display='inline-block';
+  nb.textContent = queue.length===0 ? 'See results →' : 'Next →';
+  nb.focus();
+  document.getElementById('hint').style.display='none';
+  updateMeta();
+  saveProgress('graded');
+}
+
+function summary(){
+  if(!transient()){ saveLastTest(); clearProgress(); }
+  document.getElementById('restartBtn').style.display='none';
+  document.getElementById('improveBtn').style.display='none';
+  hideScore();
+  stopTimerUI();
+  const sb = subjectBreakdownHTML();
+  const pct = total? Math.round(firstCorrect/total*100):0;
+  const overall = attempts? Math.round(correctAttempts/attempts*100):0;
+  const cls = pct>=80?'good':pct>=60?'mid':'low';
+  document.getElementById('prog').style.width='100%';
+  document.getElementById('counter').textContent='Complete';
+  document.getElementById('saveState').textContent='';
+  document.getElementById('remaining').textContent=`${attempts} total attempts`;
+
+  if(focusActive){
+    document.getElementById('quiz').innerHTML=`
+      <div class="summary">
+        <h2>⚑ Focused practice complete!</h2>
+        <div class="l" style="color:var(--muted);text-transform:uppercase;font-size:12px;letter-spacing:.05em">Score on missed questions</div>
+        <div class="score ${cls}">${pct}%</div>
+        <div class="stats">
+          <div class="stat"><div class="n">${total}</div><div class="l">Practiced</div></div>
+          <div class="stat"><div class="n">${firstCorrect}</div><div class="l">Correct first try</div></div>
+          <div class="stat"><div class="n">${attempts}</div><div class="l">Total attempts</div></div>
+          <div class="stat"><div class="n">${overall}%</div><div class="l">Overall accuracy</div></div>
+        </div>
+        ${sb}
+        <div class="actions" style="justify-content:center">
+          <button class="primary" id="againBtn">↻ Practice these again</button>
+          <button class="secondary" id="backFullBtn">← Back to full quiz</button>
+        </div>
+      </div>`;
+    document.getElementById('againBtn').addEventListener('click',startFocus);
+    document.getElementById('backFullBtn').addEventListener('click',exitFocus);
+    return;
+  }
+
+  const missBtn = missedFirst.size
+    ? `<button class="secondary" id="practiceMissBtn">⚑ Practice ${missedFirst.size} missed question${missedFirst.size===1?'':'s'} →</button>`
+    : '';
+  document.getElementById('quiz').innerHTML=`
+    <div class="summary">
+      <h2>🎉 Quiz Complete!</h2>
+      <div class="l" style="color:var(--muted);text-transform:uppercase;font-size:12px;letter-spacing:.05em">First-attempt score</div>
+      <div class="score ${cls}">${pct}%</div>
+      <div class="stats">
+        <div class="stat"><div class="n">${total}</div><div class="l">Questions answered</div></div>
+        <div class="stat"><div class="n">${firstCorrect}</div><div class="l">Correct first try</div></div>
+        <div class="stat"><div class="n">${total-firstCorrect}</div><div class="l">Missed first try</div></div>
+        <div class="stat"><div class="n">${attempts}</div><div class="l">Total attempts</div></div>
+        <div class="stat"><div class="n">${overall}%</div><div class="l">Overall accuracy</div></div>
+      </div>
+      ${sb}
+      <div class="actions" style="justify-content:center">
+        <button class="primary" id="retakeBtn">↻ Retake quiz</button>
+        ${missBtn}
+      </div>
+    </div>`;
+  document.getElementById('retakeBtn').addEventListener('click',freshStart);
+  const pm=document.getElementById('practiceMissBtn');
+  if(pm) pm.addEventListener('click',startFocus);
+}
+
+// ---- improvement areas / focused practice ----
+function setFocusBanner(on){
+  const note=document.getElementById('filterNote');
+  if(on){
+    note.className='focusbanner';
+    note.style.display='flex';
+    note.innerHTML=`<span>⚑ <strong>Focused practice</strong> — drilling the ${total} question${total===1?'':'s'} you missed.</span>
+       <button class="iconbtn" id="exitFocusBtn">← Back to full quiz</button>`;
+    const b=document.getElementById('exitFocusBtn'); if(b) b.addEventListener('click',exitFocus);
+  } else if(note.classList.contains('focusbanner')){
+    note.className='filternote'; note.style.display='none'; note.innerHTML='';
+  }
+}
+
+function showImprovement(){
+  const miss=[...missedFirst].map(id=>QUESTIONS[id]).filter(Boolean);
+  document.getElementById('restartBtn').style.display='none';
+  document.getElementById('improveBtn').style.display='none';
+  hideScore();
+  stopTimerUI();
+  setFocusBanner(false);
+  if(miss.length===0){
+    document.getElementById('quiz').innerHTML=`
+      <div class="setup">
+        <h2 style="margin:0 0 12px">⚑ Improvement areas</h2>
+        <div class="emptybox">Nothing to review yet — you haven't missed any questions on the first try. Keep going! 💪</div>
+        <div class="actions" style="margin-top:20px"><button class="secondary" id="backBtn">← Back to quiz</button></div>
+      </div>`;
+    document.getElementById('backBtn').addEventListener('click',returnToQuiz);
+    return;
+  }
+  const items=miss.map(q=>`<li>${esc(q.question)}${q.type==='multiple'?'<span class="mtype">multi</span>':''}</li>`).join('');
+  document.getElementById('quiz').innerHTML=`
+    <div class="setup">
+      <h2 style="margin:0 0 6px">⚑ Improvement areas</h2>
+      <p class="lead">${miss.length} question${miss.length===1?'':'s'} you answered incorrectly on the first try. Run a focused practice test on just these.</p>
+      <ol class="misslist">${items}</ol>
+      <div class="actions">
+        <button class="primary" id="focusBtn">Start focused practice →</button>
+        <button class="secondary" id="backBtn">← Back to quiz</button>
+      </div>
+    </div>`;
+  document.getElementById('focusBtn').addEventListener('click',startFocus);
+  document.getElementById('backBtn').addEventListener('click',returnToQuiz);
+}
+
+function startFocus(){
+  const items=[...missedFirst].map(id=>QUESTIONS[id]).filter(Boolean);
+  if(items.length===0){ showImprovement(); return; }
+  focusActive=true;
+  attempts=0;correctAttempts=0;firstCorrect=0;
+  qStats={};
+  firstSeen=new Set();answeredUnique=new Set();current=null;locked=false;
+  items.forEach(q=>q.firstAttempt=true);
+  queue=shuffle(items.slice());
+  total=queue.length;
+  SUBJ_TOTAL=subjTotals(queue);
+  document.getElementById('restartBtn').style.display='none';
+  document.getElementById('improveBtn').style.display='none';
+  setFocusBanner(true);
+  next();
+}
+
+// leave focus mode and reload the main quiz from the saved session (state was mutated by focus)
+function exitFocus(){
+  focusActive=false;
+  setFocusBanner(false);
+  ACTIVE=QUESTIONS;
+  total=QUESTIONS.length;
+  boot();
+}
+
+// return to the main quiz from the (non-mutating) improvement intro screen
+function returnToQuiz(){
+  document.getElementById('restartBtn').style.display='inline-block';
+  document.getElementById('improveBtn').style.display='inline-block';
+  updateImproveBtn();
+  if(!current){ next(); return; }
+  if(locked){ next(); return; }
+  render(); updateMeta();
+}
+
+function confirmRestart(){
+  if(confirm("Start the quiz over? Your current progress and saved session will be cleared.")){
+    freshStart();
+  }
+}
+
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+
+// ---- subjects + topic search / filter ----
+const SUBJECTS=[
+  {key:'git',label:'Git & Version Control',kw:['version control','distributed','git ','staging','snapshot of a repository']},
+  {key:'repos',label:'Repositories',kw:['repositor','readme','wiki','pinned','.github','default branch']},
+  {key:'branches',label:'Branches & Merging',kw:['branch','merge','merging','rebase']},
+  {key:'commits',label:'Commits',kw:['commit']},
+  {key:'pr',label:'Pull Requests',kw:['pull request','draft pull','code review','reviewer','status check','closes #']},
+  {key:'issues',label:'Issues',kw:['issue']},
+  {key:'discussions',label:'Discussions',kw:['discussion']},
+  {key:'actions',label:'Actions / CI-CD',kw:['github actions','workflow','ci/cd','continuous integration','runner']},
+  {key:'pages',label:'GitHub Pages',kw:['github pages','static site','static website']},
+  {key:'forks',label:'Forks & Cloning',kw:['fork','clone','cloning']},
+  {key:'collab',label:'Collaboration & Access',kw:['collaborator','permission','write access','read access','codeowners','invite']},
+  {key:'org',label:'Organizations & Teams',kw:['organization','team','security manager','innersource','inner source','member']},
+  {key:'plans',label:'Accounts, Plans & Billing',kw:['pricing','billing','free plan','github pro','enterprise','team plan','marketplace','plan for']},
+  {key:'sponsors',label:'Open Source & Sponsors',kw:['open source','sponsor','license','community']},
+  {key:'security',label:'Security & Auth',kw:['security','secret scanning','codeql','dependabot','vulnerab','branch protection','2fa','two-factor','multi-factor','authentication','personal access token','passkey','security key']},
+  {key:'copilot',label:'GitHub Copilot',kw:['copilot']},
+  {key:'apps',label:'Desktop, Mobile & CLI',kw:['github desktop','github mobile','github cli','command line','gui application']},
+  {key:'projects',label:'Projects & Planning',kw:['github projects','project board','project template','task list','project as a template']},
+  {key:'markdown',label:'Markdown & Writing',kw:['markdown','slash command','task list']},
+  {key:'profile',label:'Profile & Social',kw:['following','follow ','followers','profile','gist']},
+  {key:'insights',label:'Insights & Activity',kw:['insights','pulse','graph','contribution']}
+];
+const SUBJECT_LABEL={general:'General / Other'};
+SUBJECTS.forEach(s=>SUBJECT_LABEL[s.key]=s.label);
+
+let selectedSubjects=new Set();
+let searchWords=[];
+let SUBJ_TOTAL={};
+let SUBJ_FULL={};
+
+function questionHaystack(q){
+  let s=(q.question||"");
+  for(const o of (q.options||[])) s+=" "+(o.text||"");
+  if(q.explanation) s+=" "+q.explanation;
+  return s.toLowerCase();
+}
+
+function initSubjects(){
+  QUESTIONS.forEach(q=>{
+    const h=questionHaystack(q);
+    const tags=[];
+    for(const s of SUBJECTS){ if(s.kw.some(k=>h.includes(k))) tags.push(s.key); }
+    if(tags.length===0) tags.push('general');
+    q._subjects=tags;
+  });
+  const counts={};
+  QUESTIONS.forEach(q=>q._subjects.forEach(k=>counts[k]=(counts[k]||0)+1));
+  SUBJ_FULL=counts; SUBJ_TOTAL=counts;
+  let html='';
+  for(const s of SUBJECTS){
+    const c=counts[s.key]||0; if(!c) continue;
+    html+=`<li><label><input type="checkbox" value="${s.key}"><span class="lbl">${esc(s.label)}</span><span class="cntwrap"><span class="savg" data-key="${s.key}"></span><span class="cnt" data-key="${s.key}">${c}</span></span></label></li>`;
+  }
+  if(counts['general']) html+=`<li><label><input type="checkbox" value="general"><span class="lbl">General / Other</span><span class="cntwrap"><span class="savg" data-key="general"></span><span class="cnt" data-key="general">${counts['general']}</span></span></label></li>`;
+  const ul=document.getElementById('subList');
+  ul.innerHTML=html;
+  ul.addEventListener('change',e=>{
+    const cb=e.target.closest('input'); if(!cb) return;
+    if(cb.checked) selectedSubjects.add(cb.value); else selectedSubjects.delete(cb.value);
+    cb.closest('label').classList.toggle('on',cb.checked);
+    recomputeFilter();
+  });
+  document.getElementById('subAll').addEventListener('click',()=>{
+    selectedSubjects.clear();
+    document.querySelectorAll('#subList input').forEach(c=>{c.checked=true;selectedSubjects.add(c.value);c.closest('label').classList.add('on');});
+    recomputeFilter();
+  });
+  document.getElementById('subClear').addEventListener('click',resetFilters);
+  updateSubjectProgress();
+}
+
+// tally how many questions in a given set belong to each subject (used to scope the sidebar totals to the active test)
+function subjTotals(qs){
+  const c={};
+  qs.forEach(q=>{ if(!q) return; const subs=(q._subjects&&q._subjects.length)?q._subjects:['general']; subs.forEach(k=>c[k]=(c[k]||0)+1); });
+  return c;
+}
+
+// live-update the sidebar subject badges: answered/total, plus avg time per subject when the live timer is on
+function updateSubjectProgress(){
+  const ans={},ms={},n={};
+  for(const id in qStats){
+    const q=QUESTIONS[id]; if(!q) continue;
+    const st=qStats[id];
+    const subs=(q._subjects&&q._subjects.length)?q._subjects:['general'];
+    for(const k of subs){ ans[k]=(ans[k]||0)+1; ms[k]=(ms[k]||0)+st.ms; n[k]=(n[k]||0)+st.n; }
+  }
+  document.querySelectorAll('#subList .cnt').forEach(el=>{
+    const k=el.dataset.key, tot=SUBJ_TOTAL[k]||0, a=ans[k]||0;
+    el.textContent = a>0 ? `${a}/${tot}` : `${tot}`;
+    el.classList.toggle('answered', a>0);
+  });
+  document.querySelectorAll('#subList .savg').forEach(el=>{
+    const k=el.dataset.key, a=ans[k]||0;
+    el.textContent = (timerShow && a>0 && n[k]>0) ? '⏱ '+fmtAvg(ms[k]/n[k]) : '';
+  });
+}
+
+function applyFilter(term){
+  term=(term||"").trim();
+  searchWords = term ? term.toLowerCase().split(/\s+/).filter(Boolean) : [];
+  recomputeFilter();
+}
+
+function resetFilters(){
+  selectedSubjects.clear();
+  searchWords=[];
+  const si=document.getElementById('searchInput'); if(si) si.value='';
+  document.querySelectorAll('#subList input').forEach(c=>{c.checked=false;c.closest('label').classList.remove('on');});
+  recomputeFilter();
+}
+
+function recomputeFilter(){
+  const note=document.getElementById('filterNote');
+  const clr=document.getElementById('searchClear');
+  const subs=[...selectedSubjects];
+  if(subs.length===0 && searchWords.length===0){
+    filterActive=false; ACTIVE=QUESTIONS; total=QUESTIONS.length;
+    clr.style.display='none'; note.style.display='none'; note.innerHTML='';
+    boot(); return;
+  }
+  const matches=QUESTIONS.filter(q=>{
+    if(isRetired(q)) return false;
+    if(subs.length && !subs.some(k=>q._subjects.includes(k))) return false;
+    if(searchWords.length){ const h=questionHaystack(q); if(!searchWords.every(w=>h.includes(w))) return false; }
+    return true;
+  });
+  filterActive=true;
+  focusActive=false;
+  clr.style.display='inline-block';
+  note.style.display='block';
+  const parts=[];
+  if(subs.length) parts.push('Subjects: '+subs.map(k=>esc(SUBJECT_LABEL[k]||k)).join(', '));
+  if(searchWords.length) parts.push('matching “'+esc(searchWords.join(' '))+'”');
+  if(matches.length===0){
+    note.className='filternote none';
+    note.innerHTML=`No questions found — ${parts.join(' · ')}. <a href="#" id="clrLink">Show all questions</a>.`;
+    document.getElementById('restartBtn').style.display='none';
+    document.getElementById('improveBtn').style.display='none';
+    hideScore();
+    stopTimerUI();
+    document.getElementById('counter').textContent='';
+    document.getElementById('remaining').textContent='';
+    document.getElementById('prog').style.width='0%';
+    document.getElementById('quiz').innerHTML='<div class="resume"><p>No matching questions for that selection.</p></div>';
+    const cl=document.getElementById('clrLink'); if(cl) cl.addEventListener('click',e=>{e.preventDefault();resetFilters();});
+    return;
+  }
+  note.className='filternote';
+  note.innerHTML=`Showing <strong>${matches.length}</strong> of ${QUESTIONS.length} questions — ${parts.join(' · ')}.`;
+  ACTIVE=matches;
+  attempts=0;correctAttempts=0;firstCorrect=0;
+  qStats={};
+  firstSeen=new Set();answeredUnique=new Set();current=null;locked=false;
+  total=ACTIVE.length;
+  SUBJ_TOTAL=subjTotals(ACTIVE);
+  ACTIVE.forEach(q=>q.firstAttempt=true);
+  queue=shuffle(ACTIVE.slice());
+  document.getElementById('restartBtn').style.display='inline-block';
+  document.getElementById('improveBtn').style.display='none';
+  next();
+}
+
+document.getElementById('searchInput').addEventListener('keydown',e=>{
+  if(e.key==='Enter'){ e.preventDefault(); applyFilter(e.target.value); }
+});
+document.getElementById('searchClear').addEventListener('click',resetFilters);
+
+document.getElementById('restartBtn').addEventListener('click',confirmRestart);
+document.getElementById('improveBtn').addEventListener('click',showImprovement);
+document.addEventListener('keydown',e=>{
+  if(e.target && e.target.id==='searchInput') return;   // let the search box handle Enter
+  if(paused) return;                                    // ignore shortcuts while on a break
+  if(e.key==='Enter'){
+    const sub=document.getElementById('submit');
+    const nb=document.getElementById('nextBtn');
+    if(nb&&nb.style.display!=='none'){e.preventDefault();nb.click();}
+    else if(sub&&!sub.disabled&&sub.style.display!=='none'){e.preventDefault();sub.click();}
+  }
+});
+
+initSubjects();
+boot();
+</script>
+</body>
+</html>

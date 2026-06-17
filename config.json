@@ -1,0 +1,8 @@
+{
+  "docx_path": "/path/to/your/GitHub Foundations Study Material.docx",
+  "sharepoint": {
+    "name": "GitHub Foundations Study Material.docx",
+    "_comment": "Personal SharePoint/OneDrive identifiers redacted before publishing to a public repo. Restore your own values locally."
+  },
+  "_comment": "docx_path is the LOCAL file the toolkit reads. Point it at your OneDrive-synced copy (auto-updates) or a downloaded copy you refresh. The sharepoint block is reference metadata for the online source."
+}
