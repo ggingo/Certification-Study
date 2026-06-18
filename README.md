@@ -10,10 +10,11 @@ Everything lives in `~/github-cert-quiz/`.
 - **template.html** — the app UI/logic the builder injects questions into.
 - **update_quiz.py** — the incremental builder.
 - **publish.py** — one command to rebuild **and** push the live GitHub Pages site.
-- **site/** — the published web app (`index.html`); this folder is the GitHub Pages git repo.
+- **index.html** — the published web app served by GitHub Pages (repo root, `main` branch).
+- **site/** — legacy copy from the old standalone Pages repo; no longer the live source.
 - **pending/** — scratch area where brand-new screenshots are staged for transcription.
 
-**Live site:** https://ggingo.github.io/github-foundations-cert-quiz/
+**Live site:** https://ggingo.github.io/Certification-Study/
 
 ## Taking the quiz
 - One question at a time; radio buttons for single-answer, checkboxes for "select all that apply".
@@ -52,12 +53,14 @@ python3 ~/github-cert-quiz/update_quiz.py --docx "/path/to/your.docx"
 
 ## Publishing updates to the live website
 The published site at GitHub Pages is a static snapshot — it does **not** auto-update.
-After adding questions, push the new build live with **one command**:
+GitHub Pages serves the **root `index.html`** of this repo (`ggingo/Certification-Study`)
+from the `main` branch. After adding questions, push the new build live with **one command**
+(run it from your clone of the Certification-Study repo):
 ```
-python3 ~/github-cert-quiz/publish.py
+python3 publish.py
 ```
-This detects new screenshots, rebuilds, copies the result into `site/index.html`,
-and commits + pushes (only if something changed). The live URL redeploys in ~1 minute.
+This detects new screenshots, rebuilds, copies the result into the root `index.html`,
+and commits + pushes `main` (only if something changed). The live URL redeploys in ~1 minute.
 
 If there are brand-new screenshots that still need transcribing, `publish.py` pauses and
 asks you to transcribe them first (say *"transcribe the pending quiz images"* to Copilot),
