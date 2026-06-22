@@ -1,0 +1,263 @@
+[
+  {
+    "question": "How is GitHub Copilot best described?",
+    "type": "single",
+    "options": [
+      {"text": "An AI-powered coding assistant (\"AI pair programmer\") that suggests and generates code and answers questions in your editor", "correct": true},
+      {"text": "A code formatter that enforces a fixed style guide", "correct": false},
+      {"text": "A CI/CD service that builds and deploys your repositories", "correct": false},
+      {"text": "A package manager for installing open-source dependencies", "correct": false}
+    ],
+    "explanation": "GitHub Copilot is an AI-powered coding assistant\u2014an \"AI pair programmer\"\u2014that helps you generate, understand, refactor, and debug code using inline suggestions and a chat experience.",
+    "source": "Copilot Fundamentals \u00b7 Introduction to GitHub Copilot / AI pair programmer",
+    "course": "copilot"
+  },
+  {
+    "question": "GitHub Copilot was developed in collaboration with which company and is originally powered by which system?",
+    "type": "single",
+    "options": [
+      {"text": "OpenAI, powered by the OpenAI Codex system", "correct": true},
+      {"text": "Google, powered by the Gemini system", "correct": false},
+      {"text": "Anthropic, powered by the Claude system", "correct": false},
+      {"text": "Meta, powered by the Llama system", "correct": false}
+    ],
+    "explanation": "Microsoft developed GitHub Copilot in collaboration with OpenAI, and it is powered by the OpenAI Codex system, which was trained on a large concentration of public source code.",
+    "source": "Copilot Fundamentals \u00b7 Introduction to GitHub Copilot / AI pair programmer",
+    "course": "copilot"
+  },
+  {
+    "question": "In which of the following environments is GitHub Copilot available as an extension? (Choose all that apply.)",
+    "type": "multiple",
+    "options": [
+      {"text": "Visual Studio Code", "correct": true},
+      {"text": "Visual Studio", "correct": true},
+      {"text": "Vim/Neovim", "correct": true},
+      {"text": "The JetBrains suite of IDEs", "correct": true},
+      {"text": "Microsoft Word", "correct": false}
+    ],
+    "explanation": "GitHub Copilot is available as an extension for VS Code, Visual Studio, Vim/Neovim, and the JetBrains suite of IDEs.",
+    "source": "Copilot Fundamentals \u00b7 Introduction to GitHub Copilot / AI pair programmer",
+    "course": "copilot"
+  },
+  {
+    "question": "What does the Copilot chat experience inside a supported editor let you do?",
+    "type": "single",
+    "options": [
+      {"text": "Ask questions about your code, get explanations of logic or errors, and generate tests or documentation using your project context", "correct": true},
+      {"text": "Only autocomplete a single line of code at a time with no conversation", "correct": false},
+      {"text": "Replace your editor's source control with a built-in Git client", "correct": false},
+      {"text": "Deploy your application to a cloud provider", "correct": false}
+    ],
+    "explanation": "Copilot chat is an interactive experience in supported editors. It understands your code context so you can ask questions, get explanations of logic or errors, and generate tests, documentation, or implementation ideas.",
+    "source": "Copilot Fundamentals \u00b7 Introduction to GitHub Copilot / AI pair programmer",
+    "course": "copilot"
+  },
+  {
+    "question": "When you open a pull request, how can GitHub Copilot help reviewers?",
+    "type": "single",
+    "options": [
+      {"text": "It can automatically generate a summary description of the changes", "correct": true},
+      {"text": "It automatically merges the pull request once checks pass", "correct": false},
+      {"text": "It deletes the source branch after review", "correct": false},
+      {"text": "It assigns reviewers based on repository billing", "correct": false}
+    ],
+    "explanation": "Copilot can automatically generate a pull request summary of the changes, helping reviewers understand intent and reducing the effort of writing PR descriptions.",
+    "source": "Copilot Fundamentals \u00b7 Introduction to GitHub Copilot / AI pair programmer",
+    "course": "copilot"
+  },
+  {
+    "question": "What is the purpose of the GitHub Copilot command-line interface (CLI)?",
+    "type": "single",
+    "options": [
+      {"text": "To ask for command suggestions, generate shell scripts, and understand command output or errors in the terminal", "correct": true},
+      {"text": "To replace Git as the version control system", "correct": false},
+      {"text": "To host static websites from the terminal", "correct": false},
+      {"text": "To manage organization billing from the command line", "correct": false}
+    ],
+    "explanation": "Copilot for the CLI helps in the terminal: you can ask for command suggestions and code snippets, generate shell scripts, and understand output or errors.",
+    "source": "Copilot Fundamentals \u00b7 Introduction to GitHub Copilot / AI pair programmer",
+    "course": "copilot"
+  },
+  {
+    "question": "How do inline suggestions appear, and how do you accept one in your editor?",
+    "type": "single",
+    "options": [
+      {"text": "They appear as grayed-out text ahead of the cursor, and you accept by pressing the Tab key", "correct": true},
+      {"text": "They appear in a popup dialog, and you accept by pressing Enter twice", "correct": false},
+      {"text": "They appear highlighted in red, and you accept by pressing Esc", "correct": false},
+      {"text": "They appear only in the chat panel, and you accept by clicking Submit", "correct": false}
+    ],
+    "explanation": "Inline suggestions show as grayed-out text ahead of your cursor. Press Tab (or the right-arrow key) to accept; keep typing or press Esc to reject.",
+    "source": "Copilot Fundamentals \u00b7 Introduction to GitHub Copilot / Interact with Copilot",
+    "course": "copilot"
+  },
+  {
+    "question": "How do you reject an inline suggestion that Copilot offers?",
+    "type": "single",
+    "options": [
+      {"text": "Keep typing or press the Esc key", "correct": true},
+      {"text": "Press the Tab key", "correct": false},
+      {"text": "Press the right-arrow key", "correct": false},
+      {"text": "Save the file", "correct": false}
+    ],
+    "explanation": "To reject an inline suggestion, simply keep typing or press Esc. Tab and the right-arrow key accept the suggestion.",
+    "source": "Copilot Fundamentals \u00b7 Introduction to GitHub Copilot / Interact with Copilot",
+    "course": "copilot"
+  },
+  {
+    "question": "What is inline chat in GitHub Copilot used for?",
+    "type": "single",
+    "options": [
+      {"text": "Context-specific conversations directly within the editor to request code changes or explanations without switching context", "correct": true},
+      {"text": "Chatting with other developers in your organization in real time", "correct": false},
+      {"text": "Posting questions to the public GitHub Community forum", "correct": false},
+      {"text": "Sending email summaries of your commits", "correct": false}
+    ],
+    "explanation": "Inline chat (opened with Ctrl+I / Cmd+I) enables context-specific conversations within the editor so you can request modifications or explanations for a specific code location without switching contexts.",
+    "source": "Copilot Fundamentals \u00b7 Introduction to GitHub Copilot / Interact with Copilot",
+    "course": "copilot"
+  },
+  {
+    "question": "In Visual Studio Code, where can you find Copilot actions such as \"Explain This\" or \"Generate Unit Tests\"?",
+    "type": "single",
+    "options": [
+      {"text": "The command palette (Ctrl+Shift+P / Cmd+Shift+P), by typing \"Copilot\"", "correct": true},
+      {"text": "The repository Settings page on GitHub.com", "correct": false},
+      {"text": "The Git blame view", "correct": false},
+      {"text": "The organization billing dashboard", "correct": false}
+    ],
+    "explanation": "Open the command palette with Ctrl+Shift+P (Cmd+Shift+P on Mac), type \"Copilot,\" and choose actions like \"Explain This\" or \"Generate Unit Tests.\"",
+    "source": "Copilot Fundamentals \u00b7 Introduction to GitHub Copilot / Interact with Copilot",
+    "course": "copilot"
+  },
+  {
+    "question": "Which GitHub Copilot plan lets an individual developer use Copilot at no cost with limited monthly code completions and chat requests?",
+    "type": "single",
+    "options": [
+      {"text": "GitHub Copilot Free", "correct": true},
+      {"text": "GitHub Copilot Business", "correct": false},
+      {"text": "GitHub Copilot Enterprise", "correct": false},
+      {"text": "GitHub Copilot Pro+", "correct": false}
+    ],
+    "explanation": "GitHub Copilot Free lets individual developers use Copilot at no cost, including limited monthly completions and chat requests plus access to supported AI models.",
+    "source": "Copilot Fundamentals \u00b7 Introduction to GitHub Copilot / Subscription plans",
+    "course": "copilot"
+  },
+  {
+    "question": "An organization wants centralized policy management, public-code filtering, and IP indemnity for its developers' Copilot usage. Which plan provides these?",
+    "type": "single",
+    "options": [
+      {"text": "GitHub Copilot Business", "correct": true},
+      {"text": "GitHub Copilot Free", "correct": false},
+      {"text": "GitHub Copilot Pro", "correct": false},
+      {"text": "GitHub Copilot Pro+", "correct": false}
+    ],
+    "explanation": "GitHub Copilot Business adds centralized management and policy controls, security vulnerability filtering, code referencing / public code filtering, and IP indemnity\u2014features aimed at organizations.",
+    "source": "Copilot Fundamentals \u00b7 Introduction to GitHub Copilot / Subscription plans",
+    "course": "copilot"
+  },
+  {
+    "question": "Which capability is unique to GitHub Copilot Enterprise (beyond what Business offers)?",
+    "type": "single",
+    "options": [
+      {"text": "Personalized code suggestions based on the organization's internal/private code by indexing its codebase", "correct": true},
+      {"text": "Inline code completions in the editor", "correct": false},
+      {"text": "Access to Copilot chat in the IDE", "correct": false},
+      {"text": "The ability to reject suggestions with the Esc key", "correct": false}
+    ],
+    "explanation": "Copilot Enterprise includes everything in Business plus personalization\u2014it can index an organization's codebase to give tailored suggestions, AI-powered search/documentation, and deep GitHub integration.",
+    "source": "Copilot Fundamentals \u00b7 Introduction to GitHub Copilot / Subscription plans",
+    "course": "copilot"
+  },
+  {
+    "question": "What distinguishes GitHub Copilot Pro+ from GitHub Copilot Pro?",
+    "type": "single",
+    "options": [
+      {"text": "Pro+ adds additional premium model request capacity and priority infrastructure access on top of all Pro features", "correct": true},
+      {"text": "Pro+ removes the ability to use Copilot chat", "correct": false},
+      {"text": "Pro+ is free while Pro is paid", "correct": false},
+      {"text": "Pro+ only works in the CLI, not in editors", "correct": false}
+    ],
+    "explanation": "Copilot Pro+ includes all Pro features plus additional premium request capacity and priority access to high-demand infrastructure, for individuals with higher usage needs.",
+    "source": "Copilot Fundamentals \u00b7 Introduction to GitHub Copilot / Subscription plans",
+    "course": "copilot"
+  },
+  {
+    "question": "What are Microsoft and GitHub's six principles of Responsible AI?",
+    "type": "single",
+    "options": [
+      {"text": "Fairness; Reliability and safety; Privacy and security; Inclusiveness; Transparency; Accountability", "correct": true},
+      {"text": "Speed; Scalability; Security; Simplicity; Savings; Support", "correct": false},
+      {"text": "Accuracy; Automation; Availability; Auditing; Authentication; Authorization", "correct": false},
+      {"text": "Fairness; Profitability; Performance; Privacy; Portability; Predictability", "correct": false}
+    ],
+    "explanation": "The six principles are Fairness, Reliability and safety, Privacy and security, Inclusiveness, Transparency, and Accountability.",
+    "source": "Copilot Fundamentals \u00b7 Responsible AI with GitHub Copilot / Six principles",
+    "course": "copilot"
+  },
+  {
+    "question": "Which Responsible AI principle states that AI systems should treat all people fairly and avoid differential impacts on similarly situated groups?",
+    "type": "single",
+    "options": [
+      {"text": "Fairness", "correct": true},
+      {"text": "Transparency", "correct": false},
+      {"text": "Accountability", "correct": false},
+      {"text": "Reliability and safety", "correct": false}
+    ],
+    "explanation": "Fairness means AI systems should treat everyone fairly, giving consistent recommendations to people in similar situations and using techniques to detect and mitigate bias.",
+    "source": "Copilot Fundamentals \u00b7 Responsible AI with GitHub Copilot / Six principles",
+    "course": "copilot"
+  },
+  {
+    "question": "The Responsible AI principle that AI systems should be understandable maps to which principle?",
+    "type": "single",
+    "options": [
+      {"text": "Transparency", "correct": true},
+      {"text": "Inclusiveness", "correct": false},
+      {"text": "Privacy and security", "correct": false},
+      {"text": "Fairness", "correct": false}
+    ],
+    "explanation": "Transparency means AI systems should be understandable\u2014people should be able to comprehend how decisions are made.",
+    "source": "Copilot Fundamentals \u00b7 Responsible AI with GitHub Copilot / Six principles",
+    "course": "copilot"
+  },
+  {
+    "question": "Under the Responsible AI principles, who should be accountable for AI systems?",
+    "type": "single",
+    "options": [
+      {"text": "People should be accountable for AI systems", "correct": true},
+      {"text": "The AI model itself is solely accountable", "correct": false},
+      {"text": "Only the end users are accountable", "correct": false},
+      {"text": "No accountability is required for AI systems", "correct": false}
+    ],
+    "explanation": "Accountability means people\u2014not the AI\u2014are responsible for how AI systems operate and the outcomes they produce.",
+    "source": "Copilot Fundamentals \u00b7 Responsible AI with GitHub Copilot / Six principles",
+    "course": "copilot"
+  },
+  {
+    "question": "Which Responsible AI principle focuses on AI systems performing consistently as intended and responding safely to unexpected conditions?",
+    "type": "single",
+    "options": [
+      {"text": "Reliability and safety", "correct": true},
+      {"text": "Inclusiveness", "correct": false},
+      {"text": "Transparency", "correct": false},
+      {"text": "Accountability", "correct": false}
+    ],
+    "explanation": "Reliability and safety means AI systems must operate reliably, safely, and consistently\u2014functioning as designed, handling unexpected conditions safely, and resisting harmful manipulation.",
+    "source": "Copilot Fundamentals \u00b7 Responsible AI with GitHub Copilot / Six principles",
+    "course": "copilot"
+  },
+  {
+    "question": "Which Responsible AI principle is concerned with AI systems empowering everyone and engaging people, regardless of ability or background?",
+    "type": "single",
+    "options": [
+      {"text": "Inclusiveness", "correct": true},
+      {"text": "Privacy and security", "correct": false},
+      {"text": "Reliability and safety", "correct": false},
+      {"text": "Accountability", "correct": false}
+    ],
+    "explanation": "Inclusiveness means AI systems should empower and engage everyone, avoiding the exclusion of any group of people.",
+    "source": "Copilot Fundamentals \u00b7 Responsible AI with GitHub Copilot / Six principles",
+    "course": "copilot"
+  }
+]
