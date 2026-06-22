@@ -8,6 +8,13 @@ Workflow when you add new screenshots to the Word doc:
   3. Copilot writes the transcriptions and runs:  python3 update_quiz.py --ingest <file.json>
   4. quiz.html is rebuilt automatically. Open it.
 
+Adding screenshots for a SPECIFIC course (e.g. Copilot Fundamentals):
+  Use a separate Word doc per course and pass --course so the screenshots are tagged:
+    python3 update_quiz.py --docx '/path/to/Copilot Screenshots.docx' --course copilot
+  Transcribe, then:
+    python3 update_quiz.py --ingest <file.json>      (course is remembered from the staging step)
+  Omit --course and screenshots default to the "foundations" course.
+
 Other commands:
   python3 update_quiz.py --build       -> just rebuild quiz.html from manifest.json (no docx needed)
   python3 update_quiz.py --status      -> show counts + anything pending transcription
@@ -186,7 +193,7 @@ def build():
 
 
 # ---------- detect new ----------
-def detect(docx):
+def detect(docx, course=None):
     if not os.path.exists(docx):
         print(f"ERROR: document not found at: {docx}")
         print("Pass the correct path:  python3 update_quiz.py --docx '/path/to/your.docx'")
@@ -207,9 +214,13 @@ def detect(docx):
         dest = os.path.join(PENDING_DIR, name)
         shutil.copyfile(p, dest)
         pending.append({"name": name, "hash": h})
+    # Remember which course these staged screenshots belong to so --ingest can
+    # tag them automatically (e.g. run with --course copilot on a Copilot doc).
     with open(PENDING_JSON, "w") as f:
-        json.dump(pending, f, indent=2)
+        json.dump({"course": course, "items": pending}, f, indent=2)
     shutil.rmtree(tmp, ignore_errors=True)
+    if course:
+        print(f"Course for these screenshots: {course}")
     print(f"Document images: {len(media)} | already known: {len(media)-len(new)} | NEW: {len(new)}")
     if new:
         print(f"\n{len(new)} new screenshot(s) staged in: {PENDING_DIR}")
@@ -219,9 +230,18 @@ def detect(docx):
 
 
 # ---------- ingest transcriptions ----------
-def ingest(trans_file):
+def _load_pending():
+    """Return (course, {name: hash}). Supports old list shape and new dict shape."""
     with open(PENDING_JSON) as f:
-        pend = {x["name"]: x["hash"] for x in json.load(f)}
+        data = json.load(f)
+    if isinstance(data, dict):
+        items = data.get("items") or []
+        return data.get("course"), {x["name"]: x["hash"] for x in items}
+    return None, {x["name"]: x["hash"] for x in data}
+
+
+def ingest(trans_file, course=None):
+    staged_course, pend = _load_pending()
     with open(trans_file) as f:
         objs = json.load(f)
     manifest = load_manifest()
@@ -232,13 +252,18 @@ def ingest(trans_file):
         if not h:
             print(f"  ! could not match '{src}' to a pending image hash; skipping")
             continue
-        manifest[h] = {
+        # Course precedence: explicit per-question > --course flag > staged course.
+        course_val = o.get("course") or course or staged_course
+        entry = {
             "question": o.get("question"),
             "type": o.get("type"),
             "options": o.get("options") or [],
             "explanation": o.get("explanation"),
             "source": src,
         }
+        if course_val:
+            entry["course"] = course_val
+        manifest[h] = entry
         added += 1
     save_manifest(manifest)
     print(f"Ingested {added} transcription(s) into manifest ({len(manifest)} total known).")
@@ -249,10 +274,10 @@ def status():
     manifest = load_manifest()
     print(f"Known transcribed images: {len(manifest)}")
     if os.path.exists(PENDING_JSON):
-        with open(PENDING_JSON) as f:
-            p = json.load(f)
-        if p:
-            print(f"Pending transcription: {len(p)} image(s) in {PENDING_DIR}")
+        staged_course, pend = _load_pending()
+        if pend:
+            tag = f" (course: {staged_course})" if staged_course else ""
+            print(f"Pending transcription: {len(pend)} image(s) in {PENDING_DIR}{tag}")
     if os.path.exists(QUESTIONS_JSON):
         with open(QUESTIONS_JSON) as f:
             print(f"Quiz currently has: {len(json.load(f))} unique questions")
@@ -261,6 +286,9 @@ def status():
 def main():
     ap = argparse.ArgumentParser(description="Incremental GitHub cert quiz builder")
     ap.add_argument("--docx", default=DOCX_DEFAULT, help="path to the Word document")
+    ap.add_argument("--course", default=None,
+                    help="course these screenshots belong to (e.g. copilot, foundations). "
+                         "Defaults to foundations when omitted.")
     ap.add_argument("--build", action="store_true", help="rebuild quiz.html from manifest only")
     ap.add_argument("--ingest", metavar="FILE", help="merge a transcription JSON into the manifest, then rebuild")
     ap.add_argument("--status", action="store_true", help="show counts")
@@ -268,11 +296,11 @@ def main():
     if a.status:
         return status()
     if a.ingest:
-        return ingest(a.ingest)
+        return ingest(a.ingest, a.course)
     if a.build:
         return build()
     # default: detect new from docx, then rebuild from what's known
-    detect(a.docx)
+    detect(a.docx, a.course)
     build()
 
 
