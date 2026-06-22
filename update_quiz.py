@@ -41,7 +41,11 @@ PENDING_JSON = os.path.join(HERE, "pending", "pending.json")
 QUESTIONS_JSON = os.path.join(HERE, "questions.json")
 QUIZ_HTML = os.path.join(HERE, "quiz.html")
 TEMPLATE = os.path.join(HERE, "template.html")
+COURSES_DIR = os.path.join(HERE, "courses")
 DESKTOP_COPY = os.path.expanduser("~/Desktop/GitHub-Cert-Quiz.html")
+
+# Questions from the screenshot manifest belong to this course unless tagged otherwise.
+DEFAULT_COURSE = "foundations"
 
 
 # ---------- helpers ----------
@@ -71,6 +75,29 @@ def save_manifest(m):
         json.dump(m, f, indent=2, ensure_ascii=False)
 
 
+def load_courses():
+    """Load curated, sourceless question sets from courses/*.json.
+
+    Each file is a JSON array of question dicts already in final shape:
+      {question, type, options:[{text,correct}], explanation, source, course}
+    A question's course defaults to the file's name stem (e.g. courses/copilot.json
+    -> course "copilot") when the question itself doesn't specify one.
+    """
+    out = []
+    if os.path.isdir(COURSES_DIR):
+        for fn in sorted(os.listdir(COURSES_DIR)):
+            if not fn.endswith(".json"):
+                continue
+            stem = os.path.splitext(fn)[0]
+            with open(os.path.join(COURSES_DIR, fn)) as f:
+                arr = json.load(f)
+            for q in arr:
+                q = dict(q)
+                q.setdefault("course", stem)
+                out.append(q)
+    return out
+
+
 def extract_media(docx):
     """Return dict hash -> temp filepath for every embedded image."""
     tmp = tempfile.mkdtemp(prefix="quizmedia_")
@@ -92,8 +119,16 @@ def extract_media(docx):
 # ---------- build ----------
 def build():
     manifest = load_manifest()
-    kept, seen, dropped, deduped = [], set(), 0, 0
+    # Combine the screenshot manifest (Foundations) with any curated course files.
+    candidates = []
     for h, q in manifest.items():
+        q = dict(q)
+        q.setdefault("course", DEFAULT_COURSE)
+        candidates.append(q)
+    candidates.extend(load_courses())
+
+    kept, seen, dropped, deduped = [], set(), 0, 0
+    for q in candidates:
         qt = q.get("question")
         if not qt or not str(qt).strip():
             dropped += 1
@@ -106,7 +141,10 @@ def build():
         if not opts or not any(o.get("correct") for o in opts):
             dropped += 1
             continue
-        key = norm(qt) + "||" + "|".join(sorted(norm(o.get("text", "")) for o in opts))
+        course = q.get("course") or DEFAULT_COURSE
+        # Dedup within a course only: the same concept may legitimately appear in
+        # both Foundations and Copilot study sets.
+        key = course + "||" + norm(qt) + "||" + "|".join(sorted(norm(o.get("text", "")) for o in opts))
         if key in seen:
             deduped += 1
             continue
@@ -118,6 +156,8 @@ def build():
             "type": qtype,
             "options": [{"text": str(o.get("text", "")).strip(), "correct": bool(o.get("correct"))} for o in opts],
             "explanation": q.get("explanation") or None,
+            "course": course,
+            "source": q.get("source") or None,
         })
 
     with open(QUESTIONS_JSON, "w") as f:
@@ -132,10 +172,15 @@ def build():
         desk = f" (and copied to {DESKTOP_COPY})"
     except Exception:
         desk = ""
+    by_course = {}
+    for q in kept:
+        by_course[q["course"]] = by_course.get(q["course"], 0) + 1
+    course_str = ", ".join(f"{k}: {v}" for k, v in sorted(by_course.items()))
     print(f"Built {len(kept)} unique questions "
           f"[{sum(1 for q in kept if q['type']=='single')} single / "
           f"{sum(1 for q in kept if q['type']=='multiple')} multi]; "
           f"removed {deduped} duplicates, {dropped} unusable.")
+    print(f"By course -> {course_str}")
     print(f"Wrote {QUIZ_HTML}{desk}")
     return kept
 
