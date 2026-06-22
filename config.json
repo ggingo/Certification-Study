@@ -1,8 +1,12 @@
 {
   "docx_path": "/path/to/your/GitHub Foundations Study Material.docx",
+  "courses": {
+    "foundations": "/path/to/your/GitHub Foundations Study Material.docx",
+    "copilot": "/path/to/your/GitHub Copilot Screenshots.docx"
+  },
   "sharepoint": {
     "name": "GitHub Foundations Study Material.docx",
     "_comment": "Personal SharePoint/OneDrive identifiers redacted before publishing to a public repo. Restore your own values locally."
   },
-  "_comment": "docx_path is the LOCAL file the toolkit reads. Point it at your OneDrive-synced copy (auto-updates) or a downloaded copy you refresh. The sharepoint block is reference metadata for the online source."
+  "_comment": "docx_path is the default (foundations) doc. The 'courses' map points each course to its own local Word doc; add Copilot screenshots to the copilot doc and run: python3 update_quiz.py --docx '<copilot doc>' --course copilot. Point each path at your OneDrive-synced copy (auto-updates) or a downloaded copy you refresh."
 }
