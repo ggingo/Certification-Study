@@ -2777,5 +2777,76 @@
     "explanation": "Hovering over a failing test in Test Explorer and selecting the Fix Test Failure button (sparkle icon) triggers GitHub Copilot to open a chat session with the failing test and its output already attached.",
     "source": "Copilot Fundamentals · Develop unit tests using GitHub Copilot tools / Extend tests with ghost text and fix failing tests",
     "course": "copilot"
+  },
+  {
+    "question": "What are the supported IDE extensions for GitHub Copilot?",
+    "type": "single",
+    "options": [
+      {
+        "text": "VS Code and Visual Studio",
+        "correct": false
+      },
+      {
+        "text": "GitHub.com, VS Code, Visual Studio, Neovim, and JetBrains",
+        "correct": false
+      },
+      {
+        "text": "VS Code, Visual Studio, Neovim, and JetBrains",
+        "correct": true
+      }
+    ],
+    "explanation": "GitHub Copilot provides IDE extensions for Visual Studio Code, Visual Studio, Neovim, and the JetBrains suite of IDEs.",
+    "source": "Copilot Fundamentals · Introduction to GitHub Copilot (study screenshot)",
+    "course": "copilot"
+  },
+  {
+    "question": "What is the difference between GitHub Copilot Business and GitHub Copilot Enterprise?",
+    "type": "single",
+    "options": [
+      {
+        "text": "GitHub Copilot Enterprise has code completions, whereas GitHub Copilot Business doesn't.",
+        "correct": false
+      },
+      {
+        "text": "GitHub Copilot Enterprise has chat in IDE and mobile, whereas GitHub Copilot Business doesn't.",
+        "correct": false
+      },
+      {
+        "text": "GitHub Copilot Enterprise has an extra layer of personalization. Organizations use their own codebase to train GitHub Copilot.",
+        "correct": true
+      },
+      {
+        "text": "GitHub Copilot Enterprise has an extra layer of security, with IP indemnity and enterprise-grade security, safety, and privacy.",
+        "correct": false
+      }
+    ],
+    "explanation": "GitHub Copilot Enterprise builds on Business by adding a layer of personalization, letting organizations tailor Copilot to their own codebase.",
+    "source": "Copilot Fundamentals · Introduction to GitHub Copilot (study screenshot)",
+    "course": "copilot"
+  },
+  {
+    "question": "Which GitHub Copilot plan includes all Pro features plus additional premium usage and priority infrastructure access?",
+    "type": "single",
+    "options": [
+      {
+        "text": "GitHub Copilot Free",
+        "correct": false
+      },
+      {
+        "text": "GitHub Copilot Pro",
+        "correct": false
+      },
+      {
+        "text": "GitHub Copilot Pro+",
+        "correct": true
+      },
+      {
+        "text": "GitHub Copilot Enterprise",
+        "correct": false
+      }
+    ],
+    "explanation": "GitHub Copilot Pro+ includes all Pro features and adds extra premium usage along with priority access to infrastructure.",
+    "source": "Copilot Fundamentals · Introduction to GitHub Copilot (study screenshot)",
+    "course": "copilot"
   }
 ]
