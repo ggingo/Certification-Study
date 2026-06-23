@@ -47,21 +47,41 @@ def git(*args, check=True):
                           capture_output=True, text=True, check=check)
 
 
+def _course_docx(course):
+    """Resolve the local Word doc for a course from config.json."""
+    try:
+        with open(os.path.join(HERE, "config.json")) as f:
+            courses = json.load(f).get("courses") or {}
+        p = courses.get(course)
+        if p:
+            return os.path.expanduser(p)
+    except Exception:
+        pass
+    return None
+
+
 def main():
     ap = argparse.ArgumentParser(description="Build and publish the cert quiz to GitHub Pages")
-    ap.add_argument("--docx", default=u.DOCX_DEFAULT, help="path to the Word document")
+    ap.add_argument("--docx", default=None, help="path to the Word document")
+    ap.add_argument("--course", default=None,
+                    help="course the screenshots belong to (e.g. copilot, foundations). "
+                         "Picks that course's doc from config.json unless --docx is given.")
     ap.add_argument("--build-only", action="store_true",
                     help="skip docx detection; rebuild from manifest only")
     ap.add_argument("--no-push", action="store_true", help="build + stage but do not commit/push")
     a = ap.parse_args()
 
+    # Resolve which doc to read: explicit --docx wins, else the course's doc, else default.
+    docx = a.docx or _course_docx(a.course) or u.DOCX_DEFAULT
+
     # 1. Detect new screenshots (unless --build-only)
     if not a.build_only:
-        u.detect(a.docx)
+        u.detect(docx, a.course)
         # If new images were staged but not yet transcribed into the manifest, stop.
         if os.path.exists(PENDING_JSON):
             with open(PENDING_JSON) as f:
-                pending = json.load(f)
+                data = json.load(f)
+            pending = data.get("items", []) if isinstance(data, dict) else data
             manifest = u.load_manifest()
             untranscribed = [p for p in pending if p["hash"] not in manifest]
             if untranscribed:
