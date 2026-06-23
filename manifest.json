@@ -2512,7 +2512,7 @@
     "source": "image110.jpg"
   },
   "e54735dfeaa412a456a575b279a2e20ca781404b43ee980e08fb340ec544f7b3": {
-    "question": "What set of settings is included in the \u201cSecurities\u201d tab for a repository?",
+    "question": "What set of settings is included in the “Securities” tab for a repository?",
     "type": "single",
     "options": [
       {
@@ -2724,7 +2724,7 @@
     "type": "single",
     "options": [
       {
-        "text": "Type a code comment or text in a markdown file. Wait for a suggestion to appear. Press the \u2018Tab\u2019 key to accept the suggestion.",
+        "text": "Type a code comment or text in a markdown file. Wait for a suggestion to appear. Press the ‘Tab’ key to accept the suggestion.",
         "correct": true
       },
       {
@@ -2732,7 +2732,7 @@
         "correct": false
       },
       {
-        "text": "Highlight the code with your mouse. Open the command palette, select the \u2018GitHub Copilot\u2019 option, and enter your prompt into the chat box.",
+        "text": "Highlight the code with your mouse. Open the command palette, select the ‘GitHub Copilot’ option, and enter your prompt into the chat box.",
         "correct": false
       },
       {
@@ -4376,7 +4376,7 @@
     "source": "image189.jpg"
   },
   "825d4a58023038ea919237cf49b01b8b69d89c323b51987d5cbfaacd08afd7d0": {
-    "question": "On the GitHub platform how can you stay up to date and notified with a user\u2019s public activity?",
+    "question": "On the GitHub platform how can you stay up to date and notified with a user’s public activity?",
     "type": "single",
     "options": [
       {
@@ -4388,11 +4388,11 @@
         "correct": true
       },
       {
-        "text": "By subscribing to the user\u2019s feed",
+        "text": "By subscribing to the user’s feed",
         "correct": false
       },
       {
-        "text": "By subscribing to an organization\u2019s feed",
+        "text": "By subscribing to an organization’s feed",
         "correct": false
       }
     ],
@@ -4484,7 +4484,7 @@
         "correct": false
       },
       {
-        "text": "Read all users\u2019 full profiles",
+        "text": "Read all users’ full profiles",
         "correct": true
       },
       {
@@ -4496,7 +4496,7 @@
         "correct": false
       }
     ],
-    "explanation": "To enable team synchronization for Azure AD, the installation needs the following permissions: read all users\u2019 full profiles, Sign in and read user profile, and read directory data.",
+    "explanation": "To enable team synchronization for Azure AD, the installation needs the following permissions: read all users’ full profiles, Sign in and read user profile, and read directory data.",
     "source": "image195.jpg"
   },
   "548fdead24ef60d176965a6c36736f04f6bfe9ee079a607795d28c20bca46d56": {
@@ -7754,5 +7754,30 @@
     ],
     "explanation": null,
     "source": "p063.png"
+  },
+  "185b0af0465cd84dda1a6cbf9e653d38fc458587456a1bbe745ca2dd005e2eab": {
+    "question": "What is GitHub Copilot?",
+    "type": "single",
+    "options": [
+      {
+        "text": "GitHub Copilot is an AI pair programmer that you can use to get code suggestions.",
+        "correct": true
+      },
+      {
+        "text": "GitHub Copilot is OpenAI Codex, a new AI system that OpenAI created.",
+        "correct": false
+      },
+      {
+        "text": "GitHub Copilot is a JavaScript public repository and is one of the best-supported languages.",
+        "correct": false
+      },
+      {
+        "text": "GitHub Copilot can write a comment that describes logic, and you can add your suggested code to implement the solution.",
+        "correct": false
+      }
+    ],
+    "explanation": "GitHub Copilot is an AI pair programmer that provides code suggestions directly in your editor.",
+    "source": "p001.png",
+    "course": "copilot"
   }
 }
