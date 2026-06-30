@@ -20,8 +20,8 @@
         "correct": false
       }
     ],
-    "explanation": "GitHub Copilot is an AI-powered coding assistant—an \"AI pair programmer\"—that helps you generate, understand, refactor, and debug code using inline suggestions and a chat experience.",
-    "source": "Copilot Fundamentals · Introduction to GitHub Copilot / AI pair programmer",
+    "explanation": "GitHub Copilot is an AI-powered coding assistant\u2014an \"AI pair programmer\"\u2014that helps you generate, understand, refactor, and debug code using inline suggestions and a chat experience.",
+    "source": "Copilot Fundamentals \u00b7 Introduction to GitHub Copilot / AI pair programmer",
     "course": "copilot"
   },
   {
@@ -46,7 +46,7 @@
       }
     ],
     "explanation": "Microsoft developed GitHub Copilot in collaboration with OpenAI, and it is powered by the OpenAI Codex system, which was trained on a large concentration of public source code.",
-    "source": "Copilot Fundamentals · Introduction to GitHub Copilot / AI pair programmer",
+    "source": "Copilot Fundamentals \u00b7 Introduction to GitHub Copilot / AI pair programmer",
     "course": "copilot"
   },
   {
@@ -75,7 +75,7 @@
       }
     ],
     "explanation": "GitHub Copilot is available as an extension for VS Code, Visual Studio, Vim/Neovim, and the JetBrains suite of IDEs.",
-    "source": "Copilot Fundamentals · Introduction to GitHub Copilot / AI pair programmer",
+    "source": "Copilot Fundamentals \u00b7 Introduction to GitHub Copilot / AI pair programmer",
     "course": "copilot"
   },
   {
@@ -100,7 +100,7 @@
       }
     ],
     "explanation": "Copilot chat is an interactive experience in supported editors. It understands your code context so you can ask questions, get explanations of logic or errors, and generate tests, documentation, or implementation ideas.",
-    "source": "Copilot Fundamentals · Introduction to GitHub Copilot / AI pair programmer",
+    "source": "Copilot Fundamentals \u00b7 Introduction to GitHub Copilot / AI pair programmer",
     "course": "copilot"
   },
   {
@@ -125,7 +125,7 @@
       }
     ],
     "explanation": "Copilot can automatically generate a pull request summary of the changes, helping reviewers understand intent and reducing the effort of writing PR descriptions.",
-    "source": "Copilot Fundamentals · Introduction to GitHub Copilot / AI pair programmer",
+    "source": "Copilot Fundamentals \u00b7 Introduction to GitHub Copilot / AI pair programmer",
     "course": "copilot"
   },
   {
@@ -150,7 +150,7 @@
       }
     ],
     "explanation": "Copilot for the CLI helps in the terminal: you can ask for command suggestions and code snippets, generate shell scripts, and understand output or errors.",
-    "source": "Copilot Fundamentals · Introduction to GitHub Copilot / AI pair programmer",
+    "source": "Copilot Fundamentals \u00b7 Introduction to GitHub Copilot / AI pair programmer",
     "course": "copilot"
   },
   {
@@ -175,7 +175,7 @@
       }
     ],
     "explanation": "Inline suggestions show as grayed-out text ahead of your cursor. Press Tab (or the right-arrow key) to accept; keep typing or press Esc to reject.",
-    "source": "Copilot Fundamentals · Introduction to GitHub Copilot / Interact with Copilot",
+    "source": "Copilot Fundamentals \u00b7 Introduction to GitHub Copilot / Interact with Copilot",
     "course": "copilot"
   },
   {
@@ -200,7 +200,7 @@
       }
     ],
     "explanation": "To reject an inline suggestion, simply keep typing or press Esc. Tab and the right-arrow key accept the suggestion.",
-    "source": "Copilot Fundamentals · Introduction to GitHub Copilot / Interact with Copilot",
+    "source": "Copilot Fundamentals \u00b7 Introduction to GitHub Copilot / Interact with Copilot",
     "course": "copilot"
   },
   {
@@ -225,7 +225,7 @@
       }
     ],
     "explanation": "Inline chat (opened with Ctrl+I / Cmd+I) enables context-specific conversations within the editor so you can request modifications or explanations for a specific code location without switching contexts.",
-    "source": "Copilot Fundamentals · Introduction to GitHub Copilot / Interact with Copilot",
+    "source": "Copilot Fundamentals \u00b7 Introduction to GitHub Copilot / Interact with Copilot",
     "course": "copilot"
   },
   {
@@ -250,7 +250,7 @@
       }
     ],
     "explanation": "Open the command palette with Ctrl+Shift+P (Cmd+Shift+P on Mac), type \"Copilot,\" and choose actions like \"Explain This\" or \"Generate Unit Tests.\"",
-    "source": "Copilot Fundamentals · Introduction to GitHub Copilot / Interact with Copilot",
+    "source": "Copilot Fundamentals \u00b7 Introduction to GitHub Copilot / Interact with Copilot",
     "course": "copilot"
   },
   {
@@ -275,7 +275,7 @@
       }
     ],
     "explanation": "GitHub Copilot Free lets individual developers use Copilot at no cost, including limited monthly completions and chat requests plus access to supported AI models.",
-    "source": "Copilot Fundamentals · Introduction to GitHub Copilot / Subscription plans",
+    "source": "Copilot Fundamentals \u00b7 Introduction to GitHub Copilot / Subscription plans",
     "course": "copilot"
   },
   {
@@ -299,8 +299,8 @@
         "correct": false
       }
     ],
-    "explanation": "GitHub Copilot Business adds centralized management and policy controls, security vulnerability filtering, code referencing / public code filtering, and IP indemnity—features aimed at organizations.",
-    "source": "Copilot Fundamentals · Introduction to GitHub Copilot / Subscription plans",
+    "explanation": "GitHub Copilot Business adds centralized management and policy controls, security vulnerability filtering, code referencing / public code filtering, and IP indemnity\u2014features aimed at organizations.",
+    "source": "Copilot Fundamentals \u00b7 Introduction to GitHub Copilot / Subscription plans",
     "course": "copilot"
   },
   {
@@ -324,8 +324,8 @@
         "correct": false
       }
     ],
-    "explanation": "Copilot Enterprise includes everything in Business plus personalization—it can index an organization's codebase to give tailored suggestions, AI-powered search/documentation, and deep GitHub integration.",
-    "source": "Copilot Fundamentals · Introduction to GitHub Copilot / Subscription plans",
+    "explanation": "Copilot Enterprise includes everything in Business plus personalization\u2014it can index an organization's codebase to give tailored suggestions, AI-powered search/documentation, and deep GitHub integration.",
+    "source": "Copilot Fundamentals \u00b7 Introduction to GitHub Copilot / Subscription plans",
     "course": "copilot"
   },
   {
@@ -350,7 +350,7 @@
       }
     ],
     "explanation": "Copilot Pro+ includes all Pro features plus additional premium request capacity and priority access to high-demand infrastructure, for individuals with higher usage needs.",
-    "source": "Copilot Fundamentals · Introduction to GitHub Copilot / Subscription plans",
+    "source": "Copilot Fundamentals \u00b7 Introduction to GitHub Copilot / Subscription plans",
     "course": "copilot"
   },
   {
@@ -375,7 +375,7 @@
       }
     ],
     "explanation": "The six principles are Fairness, Reliability and safety, Privacy and security, Inclusiveness, Transparency, and Accountability.",
-    "source": "Copilot Fundamentals · Responsible AI with GitHub Copilot / Six principles",
+    "source": "Copilot Fundamentals \u00b7 Responsible AI with GitHub Copilot / Six principles",
     "course": "copilot"
   },
   {
@@ -400,7 +400,7 @@
       }
     ],
     "explanation": "Fairness means AI systems should treat everyone fairly, giving consistent recommendations to people in similar situations and using techniques to detect and mitigate bias.",
-    "source": "Copilot Fundamentals · Responsible AI with GitHub Copilot / Six principles",
+    "source": "Copilot Fundamentals \u00b7 Responsible AI with GitHub Copilot / Six principles",
     "course": "copilot"
   },
   {
@@ -424,8 +424,8 @@
         "correct": false
       }
     ],
-    "explanation": "Transparency means AI systems should be understandable—people should be able to comprehend how decisions are made.",
-    "source": "Copilot Fundamentals · Responsible AI with GitHub Copilot / Six principles",
+    "explanation": "Transparency means AI systems should be understandable\u2014people should be able to comprehend how decisions are made.",
+    "source": "Copilot Fundamentals \u00b7 Responsible AI with GitHub Copilot / Six principles",
     "course": "copilot"
   },
   {
@@ -449,8 +449,8 @@
         "correct": false
       }
     ],
-    "explanation": "Accountability means people—not the AI—are responsible for how AI systems operate and the outcomes they produce.",
-    "source": "Copilot Fundamentals · Responsible AI with GitHub Copilot / Six principles",
+    "explanation": "Accountability means people\u2014not the AI\u2014are responsible for how AI systems operate and the outcomes they produce.",
+    "source": "Copilot Fundamentals \u00b7 Responsible AI with GitHub Copilot / Six principles",
     "course": "copilot"
   },
   {
@@ -474,8 +474,8 @@
         "correct": false
       }
     ],
-    "explanation": "Reliability and safety means AI systems must operate reliably, safely, and consistently—functioning as designed, handling unexpected conditions safely, and resisting harmful manipulation.",
-    "source": "Copilot Fundamentals · Responsible AI with GitHub Copilot / Six principles",
+    "explanation": "Reliability and safety means AI systems must operate reliably, safely, and consistently\u2014functioning as designed, handling unexpected conditions safely, and resisting harmful manipulation.",
+    "source": "Copilot Fundamentals \u00b7 Responsible AI with GitHub Copilot / Six principles",
     "course": "copilot"
   },
   {
@@ -500,7 +500,7 @@
       }
     ],
     "explanation": "Inclusiveness means AI systems should empower and engage everyone, avoiding the exclusion of any group of people.",
-    "source": "Copilot Fundamentals · Responsible AI with GitHub Copilot / Six principles",
+    "source": "Copilot Fundamentals \u00b7 Responsible AI with GitHub Copilot / Six principles",
     "course": "copilot"
   },
   {
@@ -525,7 +525,7 @@
       }
     ],
     "explanation": "The 'Surround' principle directs developers to use descriptive filenames and keep related files open so that GitHub Copilot receives rich context, leading to more tailored code suggestions.",
-    "source": "Copilot Fundamentals · Introduction to Prompt Engineering with GitHub Copilot / Prompt engineering foundations and best practices",
+    "source": "Copilot Fundamentals \u00b7 Introduction to Prompt Engineering with GitHub Copilot / Prompt engineering foundations and best practices",
     "course": "copilot"
   },
   {
@@ -550,7 +550,7 @@
       }
     ],
     "explanation": "One-shot learning involves providing a single example to help Copilot generate code that follows the developer's specific patterns and conventions, making it effective for creating consistent implementations.",
-    "source": "Copilot Fundamentals · Introduction to Prompt Engineering with GitHub Copilot / Prompt engineering foundations and best practices",
+    "source": "Copilot Fundamentals \u00b7 Introduction to Prompt Engineering with GitHub Copilot / Prompt engineering foundations and best practices",
     "course": "copilot"
   },
   {
@@ -575,7 +575,7 @@
       }
     ],
     "explanation": "Role prompting involves instructing Copilot to assume the perspective of a specific expert (such as a security expert or testing specialist), which generates more targeted, domain-appropriate code on the first try.",
-    "source": "Copilot Fundamentals · Introduction to Prompt Engineering with GitHub Copilot / Prompt engineering foundations and best practices",
+    "source": "Copilot Fundamentals \u00b7 Introduction to Prompt Engineering with GitHub Copilot / Prompt engineering foundations and best practices",
     "course": "copilot"
   },
   {
@@ -600,7 +600,7 @@
       }
     ],
     "explanation": "The Fill-in-the-Middle (FIM) technique pre-processes both the code before and after the cursor position, effectively expanding the model's understanding so it can generate more accurate and relevant suggestions.",
-    "source": "Copilot Fundamentals · Introduction to Prompt Engineering with GitHub Copilot / GitHub Copilot user prompt process flow",
+    "source": "Copilot Fundamentals \u00b7 Introduction to Prompt Engineering with GitHub Copilot / GitHub Copilot user prompt process flow",
     "course": "copilot"
   },
   {
@@ -625,7 +625,7 @@
       }
     ],
     "explanation": "During outbound post-processing, Copilot checks responses for common bugs or vulnerabilities specifically including cross-site scripting (XSS) and SQL injection to ensure generated code is robust and secure.",
-    "source": "Copilot Fundamentals · Introduction to Prompt Engineering with GitHub Copilot / GitHub Copilot user prompt process flow",
+    "source": "Copilot Fundamentals \u00b7 Introduction to Prompt Engineering with GitHub Copilot / GitHub Copilot user prompt process flow",
     "course": "copilot"
   },
   {
@@ -650,7 +650,7 @@
       }
     ],
     "explanation": "For Copilot Chat used outside the code editor (including CLI, Mobile, and GitHub.com), GitHub typically retains prompts, suggestions, and supporting context for 28 days.",
-    "source": "Copilot Fundamentals · Introduction to Prompt Engineering with GitHub Copilot / GitHub Copilot data",
+    "source": "Copilot Fundamentals \u00b7 Introduction to Prompt Engineering with GitHub Copilot / GitHub Copilot data",
     "course": "copilot"
   },
   {
@@ -675,7 +675,7 @@
       }
     ],
     "explanation": "GitHub Copilot Individual subscribers have the option to opt out of sharing their prompts with GitHub; by default, those prompts would be used to fine-tune GitHub's foundational model.",
-    "source": "Copilot Fundamentals · Introduction to Prompt Engineering with GitHub Copilot / GitHub Copilot data",
+    "source": "Copilot Fundamentals \u00b7 Introduction to Prompt Engineering with GitHub Copilot / GitHub Copilot data",
     "course": "copilot"
   },
   {
@@ -700,7 +700,7 @@
       }
     ],
     "explanation": "LoRA adds smaller trainable parts to each layer of the pretrained model while leaving the original model unchanged, which saves time and compute resources compared to full fine-tuning, and outperforms other adaptation methods like adapters and prefix-tuning.",
-    "source": "Copilot Fundamentals · Introduction to Prompt Engineering with GitHub Copilot / GitHub Copilot Large Language Models (LLMs)",
+    "source": "Copilot Fundamentals \u00b7 Introduction to Prompt Engineering with GitHub Copilot / GitHub Copilot Large Language Models (LLMs)",
     "course": "copilot"
   },
   {
@@ -725,7 +725,7 @@
       }
     ],
     "explanation": "Instructions are free text that tell Copilot what to focus on, its areas of expertise, and what to avoid. Attachments are the actual content (files, folders, issues, PRs, uploads, or free text) that give Copilot relevant information to ground its responses.",
-    "source": "Copilot Fundamentals · Introduction to Copilot Spaces / Creating your first space",
+    "source": "Copilot Fundamentals \u00b7 Introduction to Copilot Spaces / Creating your first space",
     "course": "copilot"
   },
   {
@@ -750,7 +750,7 @@
       }
     ],
     "explanation": "When a Space is owned by an organization, it can be shared across the organization using GitHub's built-in permission model, making it accessible to relevant team members.",
-    "source": "Copilot Fundamentals · Introduction to Copilot Spaces / Creating your first space",
+    "source": "Copilot Fundamentals \u00b7 Introduction to Copilot Spaces / Creating your first space",
     "course": "copilot"
   },
   {
@@ -775,7 +775,7 @@
       }
     ],
     "explanation": "Copilot Spaces always refer to the latest version of the code on the main branch of the repository, so attached files stay fresh as the codebase evolves without needing to re-attach them.",
-    "source": "Copilot Fundamentals · Introduction to Copilot Spaces / Creating your first space",
+    "source": "Copilot Fundamentals \u00b7 Introduction to Copilot Spaces / Creating your first space",
     "course": "copilot"
   },
   {
@@ -800,7 +800,7 @@
       }
     ],
     "explanation": "A Space does not grant new access; it only surfaces content that viewers are already entitled to see based on their existing GitHub repository permissions, allowing safe sharing across an organization.",
-    "source": "Copilot Fundamentals · Introduction to Copilot Spaces / Sharing, Discoverability, and Governance",
+    "source": "Copilot Fundamentals \u00b7 Introduction to Copilot Spaces / Sharing, Discoverability, and Governance",
     "course": "copilot"
   },
   {
@@ -825,7 +825,7 @@
       }
     ],
     "explanation": "The module explicitly advises against pasting sensitive data into free-text notes and instead recommends linking to version-controlled files, where standard GitHub review and permissions processes apply.",
-    "source": "Copilot Fundamentals · Introduction to Copilot Spaces / Sharing, Discoverability, and Governance",
+    "source": "Copilot Fundamentals \u00b7 Introduction to Copilot Spaces / Sharing, Discoverability, and Governance",
     "course": "copilot"
   },
   {
@@ -850,7 +850,7 @@
       }
     ],
     "explanation": "When a Space grows beyond a single job, the guidance is to split it into smaller Spaces so that discoverability stays high and answer quality remains consistent, preventing context limit issues and degraded responses.",
-    "source": "Copilot Fundamentals · Introduction to Copilot Spaces / Do's and Don'ts of Working in a Space",
+    "source": "Copilot Fundamentals \u00b7 Introduction to Copilot Spaces / Do's and Don'ts of Working in a Space",
     "course": "copilot"
   },
   {
@@ -875,7 +875,7 @@
       }
     ],
     "explanation": "The module explicitly states that @-mentioning people will not notify anyone, and Copilot extensions cannot be invoked from within a Space's chat. These actions are unsupported in that environment.",
-    "source": "Copilot Fundamentals · Introduction to Copilot Spaces / Do's and Don'ts of Working in a Space",
+    "source": "Copilot Fundamentals \u00b7 Introduction to Copilot Spaces / Do's and Don'ts of Working in a Space",
     "course": "copilot"
   },
   {
@@ -900,7 +900,7 @@
       }
     ],
     "explanation": "GitHub Copilot refers to its inline AI-generated suggestions as 'ghost text.' Developers can accept a ghost text suggestion by pressing the Tab key.",
-    "source": "Copilot Fundamentals · Using Advanced GitHub Copilot Features / Advanced GitHub Copilot features",
+    "source": "Copilot Fundamentals \u00b7 Using Advanced GitHub Copilot Features / Advanced GitHub Copilot features",
     "course": "copilot"
   },
   {
@@ -925,7 +925,7 @@
       }
     ],
     "explanation": "The inline chat in Visual Studio Code is accessed using Ctrl+i on Windows (or Command+i on Mac), enabling interaction with Copilot closer to the code without switching to a separate pane.",
-    "source": "Copilot Fundamentals · Using Advanced GitHub Copilot Features / Advanced GitHub Copilot features",
+    "source": "Copilot Fundamentals \u00b7 Using Advanced GitHub Copilot Features / Advanced GitHub Copilot features",
     "course": "copilot"
   },
   {
@@ -949,8 +949,8 @@
         "correct": false
       }
     ],
-    "explanation": "The @terminal agent lets developers chat with GitHub Copilot to interact with the terminal, allowing Copilot to provide suggestions based on terminal output—for example, asking 'How do I fix the error message I'm seeing?'",
-    "source": "Copilot Fundamentals · Using Advanced GitHub Copilot Features / Advanced GitHub Copilot features",
+    "explanation": "The @terminal agent lets developers chat with GitHub Copilot to interact with the terminal, allowing Copilot to provide suggestions based on terminal output\u2014for example, asking 'How do I fix the error message I'm seeing?'",
+    "source": "Copilot Fundamentals \u00b7 Using Advanced GitHub Copilot Features / Advanced GitHub Copilot features",
     "course": "copilot"
   },
   {
@@ -975,7 +975,7 @@
       }
     ],
     "explanation": "The /fix slash command is used to correct bugs in selected code. The module demonstrates using /fix in the inline chat to repair a Python file.read bug, with Copilot providing the corrected method call.",
-    "source": "Copilot Fundamentals · Using Advanced GitHub Copilot Features / Applied GitHub Copilot techniques",
+    "source": "Copilot Fundamentals \u00b7 Using Advanced GitHub Copilot Features / Applied GitHub Copilot techniques",
     "course": "copilot"
   },
   {
@@ -999,8 +999,8 @@
         "correct": false
       }
     ],
-    "explanation": "The /doc slash command adds comments to the specified or selected code, whereas /explain is used to get explanations about what code does—these are two distinct commands with different purposes.",
-    "source": "Copilot Fundamentals · Using Advanced GitHub Copilot Features / Applied GitHub Copilot techniques",
+    "explanation": "The /doc slash command adds comments to the specified or selected code, whereas /explain is used to get explanations about what code does\u2014these are two distinct commands with different purposes.",
+    "source": "Copilot Fundamentals \u00b7 Using Advanced GitHub Copilot Features / Applied GitHub Copilot techniques",
     "course": "copilot"
   },
   {
@@ -1024,8 +1024,8 @@
         "correct": false
       }
     ],
-    "explanation": "By default, GitHub Copilot uses all open files in the text editor as additional context—not just the active file—to generate more relevant and accurate suggestions.",
-    "source": "Copilot Fundamentals · Using Advanced GitHub Copilot Features / Applied GitHub Copilot techniques",
+    "explanation": "By default, GitHub Copilot uses all open files in the text editor as additional context\u2014not just the active file\u2014to generate more relevant and accurate suggestions.",
+    "source": "Copilot Fundamentals \u00b7 Using Advanced GitHub Copilot Features / Applied GitHub Copilot techniques",
     "course": "copilot"
   },
   {
@@ -1050,7 +1050,7 @@
       }
     ],
     "explanation": "The GitHub Copilot Free tier offers exactly 2,000 code autocompletes and 50 chat messages per month. These usage limits distinguish Free from paid plans like Pro, Business, and Enterprise.",
-    "source": "Copilot Fundamentals · GitHub Copilot Across Environments / Code completion with GitHub Copilot",
+    "source": "Copilot Fundamentals \u00b7 GitHub Copilot Across Environments / Code completion with GitHub Copilot",
     "course": "copilot"
   },
   {
@@ -1058,11 +1058,11 @@
     "type": "single",
     "options": [
       {
-        "text": "Option (⌥) or Alt+]",
+        "text": "Option (\u2325) or Alt+]",
         "correct": true
       },
       {
-        "text": "Option (⌥) or Alt+[",
+        "text": "Option (\u2325) or Alt+[",
         "correct": false
       },
       {
@@ -1074,8 +1074,8 @@
         "correct": false
       }
     ],
-    "explanation": "On macOS, Option (⌥) or Alt+] moves to the next suggestion, while Option (⌥) or Alt+[ moves to the previous suggestion. On Windows/Linux the same Alt+] / Alt+[ shortcuts apply.",
-    "source": "Copilot Fundamentals · GitHub Copilot Across Environments / Code completion with GitHub Copilot",
+    "explanation": "On macOS, Option (\u2325) or Alt+] moves to the next suggestion, while Option (\u2325) or Alt+[ moves to the previous suggestion. On Windows/Linux the same Alt+] / Alt+[ shortcuts apply.",
+    "source": "Copilot Fundamentals \u00b7 GitHub Copilot Across Environments / Code completion with GitHub Copilot",
     "course": "copilot"
   },
   {
@@ -1100,7 +1100,7 @@
       }
     ],
     "explanation": "Standard models like GPT-4o consume 1 PRU per request, while premium models such as o1-preview and o1-mini consume 2 PRUs per request (double the standard rate). Premium models offer enhanced reasoning for complex tasks.",
-    "source": "Copilot Fundamentals · GitHub Copilot Across Environments / GitHub Copilot Chat",
+    "source": "Copilot Fundamentals \u00b7 GitHub Copilot Across Environments / GitHub Copilot Chat",
     "course": "copilot"
   },
   {
@@ -1108,7 +1108,7 @@
     "type": "single",
     "options": [
       {
-        "text": "PR summary generation consumes Premium Request Units (PRUs), typically 1–2 PRUs depending on complexity",
+        "text": "PR summary generation consumes Premium Request Units (PRUs), typically 1\u20132 PRUs depending on complexity",
         "correct": true
       },
       {
@@ -1124,8 +1124,8 @@
         "correct": false
       }
     ],
-    "explanation": "The module explicitly notes that PR summary generation is an advanced feature that consumes PRUs — typically 1–2 PRUs depending on the size and complexity of the changes.",
-    "source": "Copilot Fundamentals · GitHub Copilot Across Environments / GitHub Copilot on GitHub.com",
+    "explanation": "The module explicitly notes that PR summary generation is an advanced feature that consumes PRUs \u2014 typically 1\u20132 PRUs depending on the size and complexity of the changes.",
+    "source": "Copilot Fundamentals \u00b7 GitHub Copilot Across Environments / GitHub Copilot on GitHub.com",
     "course": "copilot"
   },
   {
@@ -1150,7 +1150,7 @@
       }
     ],
     "explanation": "The module explicitly states that 'Slash commands cannot be replaced with natural language prompts. They are the only way to control session settings and configuration.' Commands like /model and /theme are used for configuration.",
-    "source": "Copilot Fundamentals · GitHub Copilot Across Environments / GitHub Copilot for the Command Line",
+    "source": "Copilot Fundamentals \u00b7 GitHub Copilot Across Environments / GitHub Copilot for the Command Line",
     "course": "copilot"
   },
   {
@@ -1174,12 +1174,12 @@
         "correct": false
       }
     ],
-    "explanation": "Cloud sandbox sessions run in GitHub-hosted infrastructure (built on Azure Container Apps Sandboxes), meaning work is not tied to a specific computer — you can start on one device and resume on another. Local sandboxing uses the developer's own machine resources.",
-    "source": "Copilot Fundamentals · GitHub Copilot Across Environments / GitHub Copilot for the Command Line",
+    "explanation": "Cloud sandbox sessions run in GitHub-hosted infrastructure (built on Azure Container Apps Sandboxes), meaning work is not tied to a specific computer \u2014 you can start on one device and resume on another. Local sandboxing uses the developer's own machine resources.",
+    "source": "Copilot Fundamentals \u00b7 GitHub Copilot Across Environments / GitHub Copilot for the Command Line",
     "course": "copilot"
   },
   {
-    "question": "In the GitHub Copilot app, which session mode has the agent work AUTONOMOUSLY — running tests, iterating on fixes, and completing tasks with minimal developer intervention?",
+    "question": "In the GitHub Copilot app, which session mode has the agent work AUTONOMOUSLY \u2014 running tests, iterating on fixes, and completing tasks with minimal developer intervention?",
     "type": "single",
     "options": [
       {
@@ -1199,8 +1199,8 @@
         "correct": false
       }
     ],
-    "explanation": "Autopilot mode lets the agent work autonomously to implement changes, run tests, iterate on fixes, and complete the task with minimal intervention — best for well-defined implementation work. Interactive mode collaborates step-by-step, and Plan mode creates a review-ready plan before executing.",
-    "source": "Copilot Fundamentals · GitHub Copilot Across Environments / The GitHub Copilot app",
+    "explanation": "Autopilot mode lets the agent work autonomously to implement changes, run tests, iterate on fixes, and complete the task with minimal intervention \u2014 best for well-defined implementation work. Interactive mode collaborates step-by-step, and Plan mode creates a review-ready plan before executing.",
+    "source": "Copilot Fundamentals \u00b7 GitHub Copilot Across Environments / The GitHub Copilot app",
     "course": "copilot"
   },
   {
@@ -1224,8 +1224,8 @@
         "correct": false
       }
     ],
-    "explanation": "The comparison table identifies the GitHub Copilot app as best for 'managing end-to-end agent workflows' with its key role being 'orchestrating work from issue → code → PR → merge.' The IDE is for hands-on editing; CLI is for terminal automation; GitHub.com is for collaboration and planning.",
-    "source": "Copilot Fundamentals · GitHub Copilot Across Environments / The GitHub Copilot app",
+    "explanation": "The comparison table identifies the GitHub Copilot app as best for 'managing end-to-end agent workflows' with its key role being 'orchestrating work from issue \u2192 code \u2192 PR \u2192 merge.' The IDE is for hands-on editing; CLI is for terminal automation; GitHub.com is for collaboration and planning.",
+    "source": "Copilot Fundamentals \u00b7 GitHub Copilot Across Environments / The GitHub Copilot app",
     "course": "copilot"
   },
   {
@@ -1249,8 +1249,8 @@
         "correct": false
       }
     ],
-    "explanation": "According to the management policy features table, 'Data excluded from training by default' is marked available (✅) only for Business and Enterprise, and not available (❌) for Free and Pro plans.",
-    "source": "Copilot Fundamentals · Management and Customization Considerations / Explore GitHub Copilot plans",
+    "explanation": "According to the management policy features table, 'Data excluded from training by default' is marked available (\u2705) only for Business and Enterprise, and not available (\u274c) for Free and Pro plans.",
+    "source": "Copilot Fundamentals \u00b7 Management and Customization Considerations / Explore GitHub Copilot plans",
     "course": "copilot"
   },
   {
@@ -1275,7 +1275,7 @@
       }
     ],
     "explanation": "The customization features table shows that attaching knowledge bases to chat for organizational context (and tailoring chat to a private codebase) are available only on Enterprise. Copilot Extensions (public and private) are available on all plans.",
-    "source": "Copilot Fundamentals · Management and Customization Considerations / Explore GitHub Copilot plans",
+    "source": "Copilot Fundamentals \u00b7 Management and Customization Considerations / Explore GitHub Copilot plans",
     "course": "copilot"
   },
   {
@@ -1300,7 +1300,7 @@
       }
     ],
     "explanation": "The module states that for GitHub to assume legal responsibility under IP indemnity, the 'Matching public code' setting must be set to 'Blocked.' Without this setting, IP indemnity protection does not apply.",
-    "source": "Copilot Fundamentals · Management and Customization Considerations / Contractual protections and disabling matching public code",
+    "source": "Copilot Fundamentals \u00b7 Management and Customization Considerations / Contractual protections and disabling matching public code",
     "course": "copilot"
   },
   {
@@ -1325,7 +1325,7 @@
       }
     ],
     "explanation": "For org-provided seats, the toggle may be locked and will reflect the organization's policy. Individual users who purchase their own license (Free, Pro, Pro+) can fully control this setting themselves.",
-    "source": "Copilot Fundamentals · Management and Customization Considerations / Contractual protections and disabling matching public code",
+    "source": "Copilot Fundamentals \u00b7 Management and Customization Considerations / Contractual protections and disabling matching public code",
     "course": "copilot"
   },
   {
@@ -1350,7 +1350,7 @@
       }
     ],
     "explanation": "The module lists exactly three effects of content exclusion: (1) code completion unavailable in excluded files, (2) excluded content doesn't inform suggestions in other files, and (3) excluded content doesn't inform Copilot Chat responses. Files are never deleted.",
-    "source": "Copilot Fundamentals · Management and Customization Considerations / Manage content exclusions",
+    "source": "Copilot Fundamentals \u00b7 Management and Customization Considerations / Manage content exclusions",
     "course": "copilot"
   },
   {
@@ -1375,7 +1375,7 @@
       }
     ],
     "explanation": "A documented IDE limitation is that in Visual Studio Code and Visual Studio, content exclusions are not applied when you use the @github chat participant in your question. This means sensitive content may still surface through that specific interaction mode.",
-    "source": "Copilot Fundamentals · Management and Customization Considerations / Manage content exclusions",
+    "source": "Copilot Fundamentals \u00b7 Management and Customization Considerations / Manage content exclusions",
     "course": "copilot"
   },
   {
@@ -1400,7 +1400,7 @@
       }
     ],
     "explanation": "The troubleshooting unit states that content exclusion changes can take up to 30 minutes to take effect in already-loaded IDEs. To apply changes immediately, administrators or users should reload the content exclusion settings in their IDE.",
-    "source": "Copilot Fundamentals · Management and Customization Considerations / Troubleshoot common problems with GitHub Copilot",
+    "source": "Copilot Fundamentals \u00b7 Management and Customization Considerations / Troubleshoot common problems with GitHub Copilot",
     "course": "copilot"
   },
   {
@@ -1424,8 +1424,8 @@
         "correct": false
       }
     ],
-    "explanation": "The troubleshooting unit recommends reviewing content exclusions as one of the primary actions when suggestions are missing — if a file is excluded, suggestions won't appear. Other recommended actions include checking internet connection, updating the extension, and verifying IDE compatibility.",
-    "source": "Copilot Fundamentals · Management and Customization Considerations / Troubleshoot common problems with GitHub Copilot",
+    "explanation": "The troubleshooting unit recommends reviewing content exclusions as one of the primary actions when suggestions are missing \u2014 if a file is excluded, suggestions won't appear. Other recommended actions include checking internet connection, updating the extension, and verifying IDE compatibility.",
+    "source": "Copilot Fundamentals \u00b7 Management and Customization Considerations / Troubleshoot common problems with GitHub Copilot",
     "course": "copilot"
   },
   {
@@ -1449,8 +1449,8 @@
         "correct": false
       }
     ],
-    "explanation": "The module specifies that content exclusion settings apply only to members of the organization in which the exclusion is configured — specifically those licensed under a Copilot Business or Enterprise subscription. External users who access the same files can still receive suggestions.",
-    "source": "Copilot Fundamentals · Management and Customization Considerations / Manage content exclusions",
+    "explanation": "The module specifies that content exclusion settings apply only to members of the organization in which the exclusion is configured \u2014 specifically those licensed under a Copilot Business or Enterprise subscription. External users who access the same files can still receive suggestions.",
+    "source": "Copilot Fundamentals \u00b7 Management and Customization Considerations / Manage content exclusions",
     "course": "copilot"
   },
   {
@@ -1475,7 +1475,7 @@
       }
     ],
     "explanation": "The module explicitly states that Inline Suggestions function similarly to traditional autocomplete, while Agent Mode 'takes automation to the next level by orchestrating development tasks dynamically' and 'not only refines its own outputs but also iterates multiple times to improve accuracy.'",
-    "source": "Copilot Fundamentals · Building Applications with GitHub Copilot Agent Mode / What is GitHub Copilot Agent Mode?",
+    "source": "Copilot Fundamentals \u00b7 Building Applications with GitHub Copilot Agent Mode / What is GitHub Copilot Agent Mode?",
     "course": "copilot"
   },
   {
@@ -1483,32 +1483,32 @@
     "type": "single",
     "options": [
       {
-        "text": "Determines relevant files and dependencies → suggests and executes code changes → runs terminal commands → monitors and refines output",
+        "text": "Determines relevant files and dependencies \u2192 suggests and executes code changes \u2192 runs terminal commands \u2192 monitors and refines output",
         "correct": true
       },
       {
-        "text": "Runs terminal commands → determines relevant files → suggests code changes → submits a pull request for review",
+        "text": "Runs terminal commands \u2192 determines relevant files \u2192 suggests code changes \u2192 submits a pull request for review",
         "correct": false
       },
       {
-        "text": "Generates documentation → refactors code → determines dependencies → runs tests",
+        "text": "Generates documentation \u2192 refactors code \u2192 determines dependencies \u2192 runs tests",
         "correct": false
       },
       {
-        "text": "Asks the developer to select files → writes code → monitors output → closes the task",
+        "text": "Asks the developer to select files \u2192 writes code \u2192 monitors output \u2192 closes the task",
         "correct": false
       }
     ],
     "explanation": "The unit lists the four steps in exact order: determine files and dependencies, suggest and execute changes aligned with project structure, run terminal commands (compile, install, test), then monitor and refine output iteratively.",
-    "source": "Copilot Fundamentals · Building Applications with GitHub Copilot Agent Mode / What is GitHub Copilot Agent Mode?",
+    "source": "Copilot Fundamentals \u00b7 Building Applications with GitHub Copilot Agent Mode / What is GitHub Copilot Agent Mode?",
     "course": "copilot"
   },
   {
-    "question": "A developer uses Agent Mode's draft-review workflow. Approximately how many Premium Request Units (PRUs) does a standard two-step draft–review sequence consume?",
+    "question": "A developer uses Agent Mode's draft-review workflow. Approximately how many Premium Request Units (PRUs) does a standard two-step draft\u2013review sequence consume?",
     "type": "single",
     "options": [
       {
-        "text": "2–3 PRUs",
+        "text": "2\u20133 PRUs",
         "correct": true
       },
       {
@@ -1516,7 +1516,7 @@
         "correct": false
       },
       {
-        "text": "4–6 PRUs",
+        "text": "4\u20136 PRUs",
         "correct": false
       },
       {
@@ -1524,8 +1524,8 @@
         "correct": false
       }
     ],
-    "explanation": "The module states that 'each handoff in Agent Mode consumes ~1 PRU' and that 'a 2-step draft–review sequence typically uses 2–3 PRUs.'",
-    "source": "Copilot Fundamentals · Building Applications with GitHub Copilot Agent Mode / Explore the power of autonomous development assistance",
+    "explanation": "The module states that 'each handoff in Agent Mode consumes ~1 PRU' and that 'a 2-step draft\u2013review sequence typically uses 2\u20133 PRUs.'",
+    "source": "Copilot Fundamentals \u00b7 Building Applications with GitHub Copilot Agent Mode / Explore the power of autonomous development assistance",
     "course": "copilot"
   },
   {
@@ -1550,7 +1550,7 @@
       }
     ],
     "explanation": "The 'self-healing' section of the unit describes Agent Mode's iterative process: it detects the failure, applies a fix, and re-runs the tests until they pass, minimising manual debugging effort.",
-    "source": "Copilot Fundamentals · Building Applications with GitHub Copilot Agent Mode / Explore the power of autonomous development assistance",
+    "source": "Copilot Fundamentals \u00b7 Building Applications with GitHub Copilot Agent Mode / Explore the power of autonomous development assistance",
     "course": "copilot"
   },
   {
@@ -1575,7 +1575,7 @@
       }
     ],
     "explanation": "The unit states that Agent Mode 'recognises project type via package.json' and then 'runs suitable build scripts' aligned with existing workflow contexts to provide accurate outputs.",
-    "source": "Copilot Fundamentals · Building Applications with GitHub Copilot Agent Mode / Explore the power of autonomous development assistance",
+    "source": "Copilot Fundamentals \u00b7 Building Applications with GitHub Copilot Agent Mode / Explore the power of autonomous development assistance",
     "course": "copilot"
   },
   {
@@ -1600,7 +1600,7 @@
       }
     ],
     "explanation": "The module notes that Agent Mode 'may struggle with specialized domain logic, nuanced business rules, or when critical project context is missing,' and gives poorly documented custom business logic as the example limitation.",
-    "source": "Copilot Fundamentals · Building Applications with GitHub Copilot Agent Mode / Explore the power of autonomous development assistance",
+    "source": "Copilot Fundamentals \u00b7 Building Applications with GitHub Copilot Agent Mode / Explore the power of autonomous development assistance",
     "course": "copilot"
   },
   {
@@ -1624,8 +1624,8 @@
         "correct": false
       }
     ],
-    "explanation": "The module states that 'premium reasoning (using more advanced models)… often doubles PRU consumption. A single request may use ~4+ PRUs compared to ~2 with the standard model.'",
-    "source": "Copilot Fundamentals · Building Applications with GitHub Copilot Agent Mode / Explore the power of autonomous development assistance",
+    "explanation": "The module states that 'premium reasoning (using more advanced models)\u2026 often doubles PRU consumption. A single request may use ~4+ PRUs compared to ~2 with the standard model.'",
+    "source": "Copilot Fundamentals \u00b7 Building Applications with GitHub Copilot Agent Mode / Explore the power of autonomous development assistance",
     "course": "copilot"
   },
   {
@@ -1649,8 +1649,8 @@
         "correct": false
       }
     ],
-    "explanation": "The module explicitly distinguishes the two: 'Cloud agent: Runs autonomously in a GitHub Actions-powered environment… Agent mode (Copilot Edits): Performs autonomous local edits directly in your IDE session.'",
-    "source": "Copilot Fundamentals · Accelerate Development with GitHub Copilot Cloud Agent / Understanding and Enabling the GitHub Copilot Cloud Agent",
+    "explanation": "The module explicitly distinguishes the two: 'Cloud agent: Runs autonomously in a GitHub Actions-powered environment\u2026 Agent mode (Copilot Edits): Performs autonomous local edits directly in your IDE session.'",
+    "source": "Copilot Fundamentals \u00b7 Accelerate Development with GitHub Copilot Cloud Agent / Understanding and Enabling the GitHub Copilot Cloud Agent",
     "course": "copilot"
   },
   {
@@ -1675,7 +1675,7 @@
       }
     ],
     "explanation": "The security model states that 'pushes are restricted to copilot/ branches (not main/master),' ensuring the agent cannot modify protected default branches.",
-    "source": "Copilot Fundamentals · Accelerate Development with GitHub Copilot Cloud Agent / Security, Risks, and Limitations",
+    "source": "Copilot Fundamentals \u00b7 Accelerate Development with GitHub Copilot Cloud Agent / Security, Risks, and Limitations",
     "course": "copilot"
   },
   {
@@ -1683,7 +1683,7 @@
     "type": "single",
     "options": [
       {
-        "text": "Copilot adds an 👀 reaction to the issue",
+        "text": "Copilot adds an \ud83d\udc40 reaction to the issue",
         "correct": true
       },
       {
@@ -1699,8 +1699,8 @@
         "correct": false
       }
     ],
-    "explanation": "The tracking section states: 'Shortly after you assign an issue, Copilot adds an 👀 reaction to the issue' as the immediate confirmation of acknowledgement.",
-    "source": "Copilot Fundamentals · Accelerate Development with GitHub Copilot Cloud Agent / Assigning, Tracking, and Troubleshooting",
+    "explanation": "The tracking section states: 'Shortly after you assign an issue, Copilot adds an \ud83d\udc40 reaction to the issue' as the immediate confirmation of acknowledgement.",
+    "source": "Copilot Fundamentals \u00b7 Accelerate Development with GitHub Copilot Cloud Agent / Assigning, Tracking, and Troubleshooting",
     "course": "copilot"
   },
   {
@@ -1724,8 +1724,8 @@
         "correct": false
       }
     ],
-    "explanation": "The module states that 'Copilot Cloud Agent uses two main resources: GitHub Actions minutes for the ephemeral build/test environment… and Copilot Premium Requests (PRUs) to power advanced model reasoning.'",
-    "source": "Copilot Fundamentals · Accelerate Development with GitHub Copilot Cloud Agent / Understanding and Enabling the GitHub Copilot Cloud Agent",
+    "explanation": "The module states that 'Copilot Cloud Agent uses two main resources: GitHub Actions minutes for the ephemeral build/test environment\u2026 and Copilot Premium Requests (PRUs) to power advanced model reasoning.'",
+    "source": "Copilot Fundamentals \u00b7 Accelerate Development with GitHub Copilot Cloud Agent / Understanding and Enabling the GitHub Copilot Cloud Agent",
     "course": "copilot"
   },
   {
@@ -1750,11 +1750,11 @@
       }
     ],
     "explanation": "The module states that 'the developer who asked Copilot to create the pull request cannot approve it, which preserves your repository's required reviews rules and ensures an independent review before merge.'",
-    "source": "Copilot Fundamentals · Accelerate Development with GitHub Copilot Cloud Agent / Assigning, Tracking, and Troubleshooting",
+    "source": "Copilot Fundamentals \u00b7 Accelerate Development with GitHub Copilot Cloud Agent / Assigning, Tracking, and Troubleshooting",
     "course": "copilot"
   },
   {
-    "question": "What file must you create—and what job name must it contain—to pre-install tools and dependencies before Copilot Cloud Agent starts a session?",
+    "question": "What file must you create\u2014and what job name must it contain\u2014to pre-install tools and dependencies before Copilot Cloud Agent starts a session?",
     "type": "single",
     "options": [
       {
@@ -1775,7 +1775,7 @@
       }
     ],
     "explanation": "The customization unit specifies: 'Create .github/workflows/copilot-setup-steps.yml on your repository's default branch. The workflow must define a single job named copilot-setup-steps.'",
-    "source": "Copilot Fundamentals · Accelerate Development with GitHub Copilot Cloud Agent / Customizing, Extending, and Validating",
+    "source": "Copilot Fundamentals \u00b7 Accelerate Development with GitHub Copilot Cloud Agent / Customizing, Extending, and Validating",
     "course": "copilot"
   },
   {
@@ -1800,7 +1800,7 @@
       }
     ],
     "explanation": "The unit explicitly notes: 'Copilot Cloud Agent supports MCP tools only (not resources or prompts). Remote MCP servers that require OAuth aren't supported.'",
-    "source": "Copilot Fundamentals · Accelerate Development with GitHub Copilot Cloud Agent / Customizing, Extending, and Validating",
+    "source": "Copilot Fundamentals \u00b7 Accelerate Development with GitHub Copilot Cloud Agent / Customizing, Extending, and Validating",
     "course": "copilot"
   },
   {
@@ -1825,7 +1825,7 @@
       }
     ],
     "explanation": "The validation best-practices section advises: 'Iterate instructions in .github/copilot-instructions.md when you see repeated mistakes,' and the troubleshooting section says to 'Provide clear repo-level guidance via .github/copilot-instructions.md so the agent can self-validate with tests/linters.'",
-    "source": "Copilot Fundamentals · Accelerate Development with GitHub Copilot Cloud Agent / Customizing, Extending, and Validating",
+    "source": "Copilot Fundamentals \u00b7 Accelerate Development with GitHub Copilot Cloud Agent / Customizing, Extending, and Validating",
     "course": "copilot"
   },
   {
@@ -1850,7 +1850,7 @@
       }
     ],
     "explanation": "The module states directly: 'MCP (Model Context Protocol) is like a USB-C standard for your AI tools, providing a consistent and secure way for AI models to connect to the tools and data sources they need.'",
-    "source": "Copilot Fundamentals · Introduction to MCP Server / Simplify Your AI Workflow with GitHub MCP Server",
+    "source": "Copilot Fundamentals \u00b7 Introduction to MCP Server / Simplify Your AI Workflow with GitHub MCP Server",
     "course": "copilot"
   },
   {
@@ -1875,7 +1875,7 @@
       }
     ],
     "explanation": "The configuration unit specifies: 'In the Server URL field, enter https://api.githubcopilot.com/mcp/, then press Enter.'",
-    "source": "Copilot Fundamentals · Introduction to MCP Server / Configure, Connect, and Use GitHub MCP Server in VS Code",
+    "source": "Copilot Fundamentals \u00b7 Introduction to MCP Server / Configure, Connect, and Use GitHub MCP Server in VS Code",
     "course": "copilot"
   },
   {
@@ -1900,7 +1900,7 @@
       }
     ],
     "explanation": "The module states: 'For local use, the MCP Server requires Docker and authentication with a Personal Access Token (PAT). OAuth isn't supported in this setup.'",
-    "source": "Copilot Fundamentals · Introduction to MCP Server / Configure, Connect, and Use GitHub MCP Server in VS Code",
+    "source": "Copilot Fundamentals \u00b7 Introduction to MCP Server / Configure, Connect, and Use GitHub MCP Server in VS Code",
     "course": "copilot"
   },
   {
@@ -1925,7 +1925,7 @@
       }
     ],
     "explanation": "The unit instructs: 'Create a PAT with repo and read:packages scope in your GitHub account.'",
-    "source": "Copilot Fundamentals · Introduction to MCP Server / Configure, Connect, and Use GitHub MCP Server in VS Code",
+    "source": "Copilot Fundamentals \u00b7 Introduction to MCP Server / Configure, Connect, and Use GitHub MCP Server in VS Code",
     "course": "copilot"
   },
   {
@@ -1950,7 +1950,7 @@
       }
     ],
     "explanation": "The unit's usage instructions state: 'Open Copilot Chat in Visual Studio Code and switch to Agent mode to activate the MCP Server tools.'",
-    "source": "Copilot Fundamentals · Introduction to MCP Server / Using GitHub MCP Server with Copilot Chat",
+    "source": "Copilot Fundamentals \u00b7 Introduction to MCP Server / Using GitHub MCP Server with Copilot Chat",
     "course": "copilot"
   },
   {
@@ -1958,7 +1958,7 @@
     "type": "single",
     "options": [
       {
-        "text": "Copilot dynamically seeks information, analyzes results, and makes informed next steps—all without restarting the process from scratch",
+        "text": "Copilot dynamically seeks information, analyzes results, and makes informed next steps\u2014all without restarting the process from scratch",
         "correct": true
       },
       {
@@ -1975,7 +1975,7 @@
       }
     ],
     "explanation": "The unit describes the agentic loop as: 'Copilot isn't just reacting to a single prompt. Instead, it's working in a cycle: exploring, adapting, and refining until it produces the outcome you want.' It 'dynamically seeks information, analyzes results, and makes informed next steps, all without restarting the process from scratch.'",
-    "source": "Copilot Fundamentals · Introduction to MCP Server / Using GitHub MCP Server with Copilot Chat",
+    "source": "Copilot Fundamentals \u00b7 Introduction to MCP Server / Using GitHub MCP Server with Copilot Chat",
     "course": "copilot"
   },
   {
@@ -2000,7 +2000,7 @@
       }
     ],
     "explanation": "The module states that local MCP servers 'typically requires Docker, token management, and manual configuration,' whereas 'connecting to the GitHub-hosted server is quick and easy with no need for docker or config files' and provides 'easy one-click OAuth login.'",
-    "source": "Copilot Fundamentals · Introduction to MCP Server / Simplify Your AI Workflow with GitHub MCP Server",
+    "source": "Copilot Fundamentals \u00b7 Introduction to MCP Server / Simplify Your AI Workflow with GitHub MCP Server",
     "course": "copilot"
   },
   {
@@ -2008,7 +2008,7 @@
     "type": "single",
     "options": [
       {
-        "text": "A comment review only — it never approves or rejects the pull request",
+        "text": "A comment review only \u2014 it never approves or rejects the pull request",
         "correct": true
       },
       {
@@ -2024,8 +2024,8 @@
         "correct": false
       }
     ],
-    "explanation": "Copilot generates a comment review—not an approval or rejection—so it never blocks merges but instead adds valuable context for human reviewers. Its comments do not count toward required approvals.",
-    "source": "Copilot Fundamentals · Leveling Up Code Reviews and Pull Requests with GitHub Copilot / Using Copilot as a reviewer in GitHub.com",
+    "explanation": "Copilot generates a comment review\u2014not an approval or rejection\u2014so it never blocks merges but instead adds valuable context for human reviewers. Its comments do not count toward required approvals.",
+    "source": "Copilot Fundamentals \u00b7 Leveling Up Code Reviews and Pull Requests with GitHub Copilot / Using Copilot as a reviewer in GitHub.com",
     "course": "copilot"
   },
   {
@@ -2041,7 +2041,7 @@
         "correct": false
       },
       {
-        "text": "Enable the option under repository Settings → Actions → AI Reviews",
+        "text": "Enable the option under repository Settings \u2192 Actions \u2192 AI Reviews",
         "correct": false
       },
       {
@@ -2050,7 +2050,7 @@
       }
     ],
     "explanation": "On GitHub.com, requesting a Copilot review is as simple as selecting Copilot from the Reviewers menu. Copilot typically finishes the review in less than 30 seconds.",
-    "source": "Copilot Fundamentals · Leveling Up Code Reviews and Pull Requests with GitHub Copilot / Using Copilot as a reviewer in GitHub.com",
+    "source": "Copilot Fundamentals \u00b7 Leveling Up Code Reviews and Pull Requests with GitHub Copilot / Using Copilot as a reviewer in GitHub.com",
     "course": "copilot"
   },
   {
@@ -2075,7 +2075,7 @@
       }
     ],
     "explanation": "Teams create a .github/copilot-instructions.md file to customize Copilot's review behavior, directing it to look for the same patterns the team does and keeping suggestions aligned with their standards for readability, security, or style.",
-    "source": "Copilot Fundamentals · Leveling Up Code Reviews and Pull Requests with GitHub Copilot / Using Copilot as a reviewer in GitHub.com",
+    "source": "Copilot Fundamentals \u00b7 Leveling Up Code Reviews and Pull Requests with GitHub Copilot / Using Copilot as a reviewer in GitHub.com",
     "course": "copilot"
   },
   {
@@ -2100,7 +2100,7 @@
       }
     ],
     "explanation": "Path-specific instruction files are placed in .github/instructions/ with names ending in .instructions.md. Each file must include a frontmatter block with the 'applyTo' keyword using glob syntax (e.g., 'app/models/**/*.rb') to specify which paths the instructions apply to.",
-    "source": "Copilot Fundamentals · Leveling Up Code Reviews and Pull Requests with GitHub Copilot / Catching issues early and automating reviews with Copilot",
+    "source": "Copilot Fundamentals \u00b7 Leveling Up Code Reviews and Pull Requests with GitHub Copilot / Catching issues early and automating reviews with Copilot",
     "course": "copilot"
   },
   {
@@ -2125,7 +2125,7 @@
       }
     ],
     "explanation": "The automatic Copilot code review option for a personal account is only available on the Copilot Pro or Copilot Pro+ plans. It is enabled through the user's personal Copilot settings page.",
-    "source": "Copilot Fundamentals · Leveling Up Code Reviews and Pull Requests with GitHub Copilot / Catching issues early and automating reviews with Copilot",
+    "source": "Copilot Fundamentals \u00b7 Leveling Up Code Reviews and Pull Requests with GitHub Copilot / Catching issues early and automating reviews with Copilot",
     "course": "copilot"
   },
   {
@@ -2145,12 +2145,12 @@
         "correct": false
       },
       {
-        "text": "Enable automatic reviews under repository Settings → Code Security → AI Features",
+        "text": "Enable automatic reviews under repository Settings \u2192 Code Security \u2192 AI Features",
         "correct": false
       }
     ],
     "explanation": "Repository admins enforce automatic Copilot reviews by creating a branch ruleset, enabling 'Require a pull request before merging', then selecting 'Request pull request review from Copilot' in the expanded options. This ensures every PR targeting the specified branch is reviewed.",
-    "source": "Copilot Fundamentals · Leveling Up Code Reviews and Pull Requests with GitHub Copilot / Catching issues early and automating reviews with Copilot",
+    "source": "Copilot Fundamentals \u00b7 Leveling Up Code Reviews and Pull Requests with GitHub Copilot / Catching issues early and automating reviews with Copilot",
     "course": "copilot"
   },
   {
@@ -2175,7 +2175,7 @@
       }
     ],
     "explanation": "PRUs unlock Copilot's advanced reasoning: with PRUs it can analyze large diffs, interpret custom review guidelines, and produce context-rich actionable fixes. Without them, Copilot provides only its default lightweight suggestions.",
-    "source": "Copilot Fundamentals · Leveling Up Code Reviews and Pull Requests with GitHub Copilot / Measuring impact and optimizing premium request units (PRUs)",
+    "source": "Copilot Fundamentals \u00b7 Leveling Up Code Reviews and Pull Requests with GitHub Copilot / Measuring impact and optimizing premium request units (PRUs)",
     "course": "copilot"
   },
   {
@@ -2200,7 +2200,7 @@
       }
     ],
     "explanation": "The module recommends using PRUs strategically: reserving premium reviews for large or high-risk changes while using standard suggestions for simple edits, and setting usage alerts at 75%, 90%, and 100% of monthly PRU consumption to track spending.",
-    "source": "Copilot Fundamentals · Leveling Up Code Reviews and Pull Requests with GitHub Copilot / Measuring impact and optimizing premium request units (PRUs)",
+    "source": "Copilot Fundamentals \u00b7 Leveling Up Code Reviews and Pull Requests with GitHub Copilot / Measuring impact and optimizing premium request units (PRUs)",
     "course": "copilot"
   },
   {
@@ -2225,7 +2225,7 @@
       }
     ],
     "explanation": "Copilot suggestions appear as grey text in the editor. To accept the suggestion, press the Tab key.",
-    "source": "Copilot Fundamentals · Using GitHub Copilot with JavaScript / What is GitHub Copilot",
+    "source": "Copilot Fundamentals \u00b7 Using GitHub Copilot with JavaScript / What is GitHub Copilot",
     "course": "copilot"
   },
   {
@@ -2250,7 +2250,7 @@
       }
     ],
     "explanation": "To cycle through multiple Copilot suggestions, use Ctrl+Enter (or Cmd+Enter on Mac). This lets you view various suggestions and select the most appropriate one.",
-    "source": "Copilot Fundamentals · Using GitHub Copilot with JavaScript / What is GitHub Copilot",
+    "source": "Copilot Fundamentals \u00b7 Using GitHub Copilot with JavaScript / What is GitHub Copilot",
     "course": "copilot"
   },
   {
@@ -2274,8 +2274,8 @@
         "correct": false
       }
     ],
-    "explanation": "Ambiguous prompts like '// Create an API endpoint' give Copilot insufficient context, leading to suggestions that may use an unknown framework or unexpected data. A specific prompt—such as one naming the framework and request type—allows Copilot to understand the goal and scope of the task.",
-    "source": "Copilot Fundamentals · Using GitHub Copilot with JavaScript / Use GitHub Copilot with JavaScript",
+    "explanation": "Ambiguous prompts like '// Create an API endpoint' give Copilot insufficient context, leading to suggestions that may use an unknown framework or unexpected data. A specific prompt\u2014such as one naming the framework and request type\u2014allows Copilot to understand the goal and scope of the task.",
+    "source": "Copilot Fundamentals \u00b7 Using GitHub Copilot with JavaScript / Use GitHub Copilot with JavaScript",
     "course": "copilot"
   },
   {
@@ -2300,7 +2300,7 @@
       }
     ],
     "explanation": "GitHub Copilot uses all open files in the editor as additional context, providing useful information beyond the immediate prompt or code being written. Opening related files therefore helps Copilot generate more relevant suggestions.",
-    "source": "Copilot Fundamentals · Using GitHub Copilot with JavaScript / Use GitHub Copilot with JavaScript",
+    "source": "Copilot Fundamentals \u00b7 Using GitHub Copilot with JavaScript / Use GitHub Copilot with JavaScript",
     "course": "copilot"
   },
   {
@@ -2325,7 +2325,7 @@
       }
     ],
     "explanation": "Copilot recognizes prompts when they appear as comments in code files (.py, .js, etc.) or as text typed in a Markdown file after which you pause briefly so Copilot can generate a response.",
-    "source": "Copilot Fundamentals · Using GitHub Copilot with Python / What is GitHub Copilot?",
+    "source": "Copilot Fundamentals \u00b7 Using GitHub Copilot with Python / What is GitHub Copilot?",
     "course": "copilot"
   },
   {
@@ -2350,7 +2350,7 @@
       }
     ],
     "explanation": "A vague prompt may cause Copilot to use an unrecognized framework or unfamiliar data shapes. A specific prompt that names the framework (FastAPI) and request type (POST with JSON payload) lets Copilot understand both the goal and the scope, producing a higher-quality output.",
-    "source": "Copilot Fundamentals · Using GitHub Copilot with Python / Use GitHub Copilot with Python",
+    "source": "Copilot Fundamentals \u00b7 Using GitHub Copilot with Python / Use GitHub Copilot with Python",
     "course": "copilot"
   },
   {
@@ -2375,7 +2375,7 @@
       }
     ],
     "explanation": "The module recommends starting with a simple prompt and then elaborating with additional requirements in follow-up prompts. This iterative approach guides Copilot toward progressively more specific and useful suggestions.",
-    "source": "Copilot Fundamentals · Using GitHub Copilot with Python / Use GitHub Copilot with Python",
+    "source": "Copilot Fundamentals \u00b7 Using GitHub Copilot with Python / Use GitHub Copilot with Python",
     "course": "copilot"
   },
   {
@@ -2400,7 +2400,7 @@
       }
     ],
     "explanation": "If suggestions are unhelpful, the module advises rewording the prompt to be clearer and more specific, or beginning to write the code yourself so Copilot can autocomplete from the partial implementation.",
-    "source": "Copilot Fundamentals · Using GitHub Copilot with Python / Use GitHub Copilot with Python",
+    "source": "Copilot Fundamentals \u00b7 Using GitHub Copilot with Python / Use GitHub Copilot with Python",
     "course": "copilot"
   },
   {
@@ -2425,7 +2425,7 @@
       }
     ],
     "explanation": "If you're a member of an organization or enterprise with a Copilot Business or Copilot Enterprise plan, the 'MCP servers in Copilot' policy must be enabled in order to use MCP with Copilot.",
-    "source": "Copilot Fundamentals · Introduction to MCP Server / Prerequisites and setup",
+    "source": "Copilot Fundamentals \u00b7 Introduction to MCP Server / Prerequisites and setup",
     "course": "copilot"
   },
   {
@@ -2450,7 +2450,7 @@
       }
     ],
     "explanation": "GitHub Copilot's in-editor assistance keeps developers in their workflow by surfacing suggestions and API references without requiring them to leave the IDE to consult external documentation.",
-    "source": "Copilot Fundamentals · Developer use cases for AI with GitHub Copilot / Boost developer productivity with AI",
+    "source": "Copilot Fundamentals \u00b7 Developer use cases for AI with GitHub Copilot / Boost developer productivity with AI",
     "course": "copilot"
   },
   {
@@ -2474,8 +2474,8 @@
         "correct": false
       }
     ],
-    "explanation": "The module states that Copilot can generate a new microservice's full project structure—Docker configs, CI/CD pipelines, and monitoring setup—based on only a few descriptive comments, illustrating its advanced boilerplate automation.",
-    "source": "Copilot Fundamentals · Developer use cases for AI with GitHub Copilot / Boost developer productivity with AI",
+    "explanation": "The module states that Copilot can generate a new microservice's full project structure\u2014Docker configs, CI/CD pipelines, and monitoring setup\u2014based on only a few descriptive comments, illustrating its advanced boilerplate automation.",
+    "source": "Copilot Fundamentals \u00b7 Developer use cases for AI with GitHub Copilot / Boost developer productivity with AI",
     "course": "copilot"
   },
   {
@@ -2500,7 +2500,7 @@
       }
     ],
     "explanation": "The module explicitly notes that GitHub Copilot isn't a full-on debugger but assists via plain-language error explanation and log-statement generation to isolate complex issues.",
-    "source": "Copilot Fundamentals · Developer use cases for AI with GitHub Copilot / Align with developer preferences",
+    "source": "Copilot Fundamentals \u00b7 Developer use cases for AI with GitHub Copilot / Align with developer preferences",
     "course": "copilot"
   },
   {
@@ -2525,7 +2525,7 @@
       }
     ],
     "explanation": "Under the Testing & QA stage, the module lists unit test creation, test data generation, edge case identification, and assertion suggestions as the specific contributions GitHub Copilot makes.",
-    "source": "Copilot Fundamentals · Developer use cases for AI with GitHub Copilot / AI in the Software Development Lifecycle (SDLC)",
+    "source": "Copilot Fundamentals \u00b7 Developer use cases for AI with GitHub Copilot / AI in the Software Development Lifecycle (SDLC)",
     "course": "copilot"
   },
   {
@@ -2550,7 +2550,7 @@
       }
     ],
     "explanation": "The module identifies two training-data limitations: suggestions may carry biases or outdated patterns from training data, and there is ongoing debate about the copyright implications of AI-generated code.",
-    "source": "Copilot Fundamentals · Developer use cases for AI with GitHub Copilot / Understand limitations and measure impact",
+    "source": "Copilot Fundamentals \u00b7 Developer use cases for AI with GitHub Copilot / Understand limitations and measure impact",
     "course": "copilot"
   },
   {
@@ -2575,7 +2575,7 @@
       }
     ],
     "explanation": "The Evaluation stage is the initial adoption phase; it focuses on leading indicators (developer satisfaction, task completion) and uses the REST API to collect metrics such as Average Daily Active Users, Total Acceptance Rate, and Lines of Code Accepted.",
-    "source": "Copilot Fundamentals · Developer use cases for AI with GitHub Copilot / Understand limitations and measure impact",
+    "source": "Copilot Fundamentals \u00b7 Developer use cases for AI with GitHub Copilot / Understand limitations and measure impact",
     "course": "copilot"
   },
   {
@@ -2600,7 +2600,7 @@
       }
     ],
     "explanation": "The module recommends the long-form survey be conducted no more than once every four weeks, particularly at the end of the evaluation and adoption stages, to capture comprehensive feedback without fatigue.",
-    "source": "Copilot Fundamentals · Developer use cases for AI with GitHub Copilot / Understand limitations and measure impact",
+    "source": "Copilot Fundamentals \u00b7 Developer use cases for AI with GitHub Copilot / Understand limitations and measure impact",
     "course": "copilot"
   },
   {
@@ -2625,7 +2625,7 @@
       }
     ],
     "explanation": "The module explicitly lists xUnit, NUnit, and MSTest as the three test frameworks supported by the C# Dev Kit extension for Visual Studio Code.",
-    "source": "Copilot Fundamentals · Develop unit tests using GitHub Copilot tools / Examine Visual Studio Code support for unit testing",
+    "source": "Copilot Fundamentals \u00b7 Develop unit tests using GitHub Copilot tools / Examine Visual Studio Code support for unit testing",
     "course": "copilot"
   },
   {
@@ -2650,7 +2650,7 @@
       }
     ],
     "explanation": "Test Explorer is described as a tree view that shows all test cases in your workspace, with options to run or debug tests and view results including pass/fail icons and durations.",
-    "source": "Copilot Fundamentals · Develop unit tests using GitHub Copilot tools / Examine Visual Studio Code support for unit testing",
+    "source": "Copilot Fundamentals \u00b7 Develop unit tests using GitHub Copilot tools / Examine Visual Studio Code support for unit testing",
     "course": "copilot"
   },
   {
@@ -2675,7 +2675,7 @@
       }
     ],
     "explanation": "The module states that Agent mode with Default Approvals is the recommended starting point because the Agent can edit files, run terminal commands, and rerun tests, while Default Approvals keeps the developer in the loop by confirming each tool invocation.",
-    "source": "Copilot Fundamentals · Develop unit tests using GitHub Copilot tools / Generate unit tests with the GitHub Copilot Chat view",
+    "source": "Copilot Fundamentals \u00b7 Develop unit tests using GitHub Copilot tools / Generate unit tests with the GitHub Copilot Chat view",
     "course": "copilot"
   },
   {
@@ -2700,7 +2700,7 @@
       }
     ],
     "explanation": "The /setupTests slash command recommends a framework and, in Agent mode, installs packages, scaffolds the test project, and recommends VS Code testing extensions. It is most useful when starting a new test project or onboarding a project that doesn't yet include tests.",
-    "source": "Copilot Fundamentals · Develop unit tests using GitHub Copilot tools / Generate unit tests with the GitHub Copilot Chat view",
+    "source": "Copilot Fundamentals \u00b7 Develop unit tests using GitHub Copilot tools / Generate unit tests with the GitHub Copilot Chat view",
     "course": "copilot"
   },
   {
@@ -2725,7 +2725,7 @@
       }
     ],
     "explanation": "Plan is for structured, step-by-step implementation plans you review before implementation, while Agent handles autonomous, multi-file coding workflows including running tests and iterating on failures.",
-    "source": "Copilot Fundamentals · Develop unit tests using GitHub Copilot tools / Plan and automate test workflows using the Plan and Agent modes",
+    "source": "Copilot Fundamentals \u00b7 Develop unit tests using GitHub Copilot tools / Plan and automate test workflows using the Plan and Agent modes",
     "course": "copilot"
   },
   {
@@ -2750,7 +2750,7 @@
       }
     ],
     "explanation": "Ghost text is called the fastest way to extend coverage once initial tests are in place. It uses existing test patterns in the file to suggest similar test cases as the developer types, without leaving the editor.",
-    "source": "Copilot Fundamentals · Develop unit tests using GitHub Copilot tools / Extend tests with ghost text and fix failing tests",
+    "source": "Copilot Fundamentals \u00b7 Develop unit tests using GitHub Copilot tools / Extend tests with ghost text and fix failing tests",
     "course": "copilot"
   },
   {
@@ -2775,7 +2775,7 @@
       }
     ],
     "explanation": "Hovering over a failing test in Test Explorer and selecting the Fix Test Failure button (sparkle icon) triggers GitHub Copilot to open a chat session with the failing test and its output already attached.",
-    "source": "Copilot Fundamentals · Develop unit tests using GitHub Copilot tools / Extend tests with ghost text and fix failing tests",
+    "source": "Copilot Fundamentals \u00b7 Develop unit tests using GitHub Copilot tools / Extend tests with ghost text and fix failing tests",
     "course": "copilot"
   },
   {
@@ -2796,7 +2796,7 @@
       }
     ],
     "explanation": "GitHub Copilot provides IDE extensions for Visual Studio Code, Visual Studio, Neovim, and the JetBrains suite of IDEs.",
-    "source": "Copilot Fundamentals · Introduction to GitHub Copilot (study screenshot)",
+    "source": "Copilot Fundamentals \u00b7 Introduction to GitHub Copilot (study screenshot)",
     "course": "copilot"
   },
   {
@@ -2821,7 +2821,7 @@
       }
     ],
     "explanation": "GitHub Copilot Enterprise builds on Business by adding a layer of personalization, letting organizations tailor Copilot to their own codebase.",
-    "source": "Copilot Fundamentals · Introduction to GitHub Copilot (study screenshot)",
+    "source": "Copilot Fundamentals \u00b7 Introduction to GitHub Copilot (study screenshot)",
     "course": "copilot"
   },
   {
@@ -2846,7 +2846,395 @@
       }
     ],
     "explanation": "GitHub Copilot Pro+ includes all Pro features and adds extra premium usage along with priority access to infrastructure.",
-    "source": "Copilot Fundamentals · Introduction to GitHub Copilot (study screenshot)",
+    "source": "Copilot Fundamentals \u00b7 Introduction to GitHub Copilot (study screenshot)",
     "course": "copilot"
+  },
+  {
+    "question": "What role does prompting play in utilizing GitHub Copilot effectively?",
+    "type": "single",
+    "options": [
+      {
+        "text": "It enhances the quality of code suggestions.",
+        "correct": true
+      },
+      {
+        "text": "It generates instant bug fixes.",
+        "correct": false
+      },
+      {
+        "text": "It automates the coding process entirely.",
+        "correct": false
+      },
+      {
+        "text": "It implements real-time collaboration.",
+        "correct": false
+      }
+    ],
+    "explanation": "Good prompts improve the relevance and quality of Copilot's suggestions.",
+    "course": "copilot",
+    "source": "copilot screenshots"
+  },
+  {
+    "question": "Which of the following rules is a principle of the 4S Method of prompt engineering?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Specify instructions explicitly and in detail.",
+        "correct": true
+      },
+      {
+        "text": "Summarize code objectives concisely.",
+        "correct": false
+      },
+      {
+        "text": "Streamline processes for efficient code suggestions.",
+        "correct": false
+      },
+      {
+        "text": "Simplify coding languages for universal understanding.",
+        "correct": false
+      }
+    ],
+    "explanation": "The 4S Method includes being Specific \u2014 give explicit, detailed instructions.",
+    "course": "copilot",
+    "source": "copilot screenshots"
+  },
+  {
+    "question": "When using Copilot Code Review on GitHub.com, what important billing consideration should you be aware of?",
+    "type": "single",
+    "options": [
+      {
+        "text": "It consumes Premium Request Units (PRUs)",
+        "correct": true
+      },
+      {
+        "text": "It's completely free with no usage limits",
+        "correct": false
+      },
+      {
+        "text": "It only works with paid GitHub Enterprise accounts",
+        "correct": false
+      },
+      {
+        "text": "It requires a separate subscription beyond GitHub Copilot",
+        "correct": false
+      }
+    ],
+    "explanation": "Copilot Code Review consumes Premium Request Units (PRUs).",
+    "course": "copilot",
+    "source": "copilot screenshots"
+  },
+  {
+    "question": "What are the benefits of using implicit prompts with slash commands in inline chat for fixing code issues with GitHub Copilot?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Implicit prompts help get better responses from GitHub Copilot without writing longer prompts, making it easier to interact and fix code issues.",
+        "correct": true
+      },
+      {
+        "text": "Implicit prompts help enforce a consistent naming convention and syntax based on best practices within Visual Studio Code projects for improved readability.",
+        "correct": false
+      },
+      {
+        "text": "Implicit prompts help detect security vulnerabilities and potential malicious activities within Visual Studio Code projects for increased safety.",
+        "correct": false
+      }
+    ],
+    "explanation": "Slash commands act as implicit prompts, getting better responses without long typed prompts.",
+    "course": "copilot",
+    "source": "copilot screenshots"
+  },
+  {
+    "question": "What is LoRA in the context of fine-tuning Large Language Models (LLMs)?",
+    "type": "single",
+    "options": [
+      {
+        "text": "A method that adds trainable elements to each layer of the pretrained model without a complete overhaul.",
+        "correct": true
+      },
+      {
+        "text": "A technology optimizing communication between different coding languages.",
+        "correct": false
+      },
+      {
+        "text": "A specialized software library enhancing Copilot's performance.",
+        "correct": false
+      },
+      {
+        "text": "A new programming paradigm supported exclusively by Copilot.",
+        "correct": false
+      }
+    ],
+    "explanation": "LoRA (Low-Rank Adaptation) adds small trainable elements per layer instead of full retraining.",
+    "course": "copilot",
+    "source": "copilot screenshots"
+  },
+  {
+    "question": "How does Copilot use the context to provide code suggestions?",
+    "type": "single",
+    "options": [
+      {
+        "text": "It considers the surrounding code, file type, and content of parallel open tabs in the code editor.",
+        "correct": true
+      },
+      {
+        "text": "It considers only the prompt text you provide.",
+        "correct": false
+      },
+      {
+        "text": "It considers the file type but not the content of the file.",
+        "correct": false
+      },
+      {
+        "text": "It randomly selects context from the internet.",
+        "correct": false
+      }
+    ],
+    "explanation": "Copilot uses surrounding code, file type, and open tabs as context.",
+    "course": "copilot",
+    "source": "copilot screenshots"
+  },
+  {
+    "question": "Which of these strategies helps to improve prompt effectiveness in GitHub Copilot?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Providing detailed contextual information with clarity.",
+        "correct": true
+      },
+      {
+        "text": "Making the prompt as general as possible.",
+        "correct": false
+      },
+      {
+        "text": "Keeping the prompt lengthy and detailed.",
+        "correct": false
+      },
+      {
+        "text": "Avoiding examples in the prompt to not restrict Copilot's creativity.",
+        "correct": false
+      }
+    ],
+    "explanation": "Clear, detailed context improves prompt effectiveness.",
+    "course": "copilot",
+    "source": "copilot screenshots"
+  },
+  {
+    "question": "Which statement about Copilot Space ownership and description is true?",
+    "type": "single",
+    "options": [
+      {
+        "text": "You can choose personal or organization ownership (where available), and the description is for human readers",
+        "correct": true
+      },
+      {
+        "text": "A Space must be organization-owned; personal Spaces aren't supported",
+        "correct": false
+      },
+      {
+        "text": "The description changes Copilot's answers in the Space",
+        "correct": false
+      },
+      {
+        "text": "Ownership can't be changed once set, and descriptions affect answer quality",
+        "correct": false
+      }
+    ],
+    "explanation": "Ownership can be personal or org; the description is informational for people, not the model.",
+    "course": "copilot",
+    "source": "copilot screenshots"
+  },
+  {
+    "question": "Which action does NOT add usable context for Copilot in a Space?",
+    "type": "single",
+    "options": [
+      {
+        "text": "@-mentioning a Copilot extension so it can run in Space chat",
+        "correct": true
+      },
+      {
+        "text": "Attaching files or folders from a GitHub repository",
+        "correct": false
+      },
+      {
+        "text": "Pasting URLs of GitHub issues and pull requests",
+        "correct": false
+      },
+      {
+        "text": "Uploading a local file (for example, a text document or spreadsheet)",
+        "correct": false
+      }
+    ],
+    "explanation": "Attachments (repo files, issue/PR URLs, uploaded files) add context; @-mentioning an extension does not.",
+    "course": "copilot",
+    "source": "copilot screenshots"
+  },
+  {
+    "question": "How do you access GitHub Copilot's inline chat?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Use Ctrl+i on Windows or Command+i on a Mac to open the inline chat.",
+        "correct": true
+      },
+      {
+        "text": "Access the inline chat by clicking on the chat icon in the left sidebar of Visual Studio Code.",
+        "correct": false
+      },
+      {
+        "text": "Access the inline chat by using Alt+i on Windows or Option+i on a Mac.",
+        "correct": false
+      }
+    ],
+    "explanation": "Inline chat opens with Ctrl+i (Windows) or Command+i (Mac).",
+    "course": "copilot",
+    "source": "copilot screenshots"
+  },
+  {
+    "question": "What are slash commands used for in GitHub Copilot?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Slash commands are shortcuts to quickly solve common development tasks within the chat or inline pane.",
+        "correct": true
+      },
+      {
+        "text": "Slash commands are used to format your codebase according to best practices.",
+        "correct": false
+      },
+      {
+        "text": "Slash commands are used to debug code and detect security vulnerabilities within your projects.",
+        "correct": false
+      }
+    ],
+    "explanation": "Slash commands are shortcuts for common tasks in the chat/inline pane.",
+    "course": "copilot",
+    "source": "copilot screenshots"
+  },
+  {
+    "question": "You need branch-specific guidance or a historical snapshot in a Copilot Space. What should you do?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Narrow references to relevant files and add a brief example, or attach a text file with the exact content",
+        "correct": true
+      },
+      {
+        "text": "Change the repository's default branch to lock Space answers to that branch",
+        "correct": false
+      },
+      {
+        "text": "Rely on general chat to retrieve older versions automatically",
+        "correct": false
+      },
+      {
+        "text": "Paste the sensitive historical content into free-text notes for convenience",
+        "correct": false
+      }
+    ],
+    "explanation": "Attach the specific files/example or a text file with the exact content you need referenced.",
+    "course": "copilot",
+    "source": "copilot screenshots"
+  },
+  {
+    "question": "Which prompting pattern best supports runnable, verifiable outputs in a Copilot Space?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Confirm intent, add concrete constraints (formats, ranges, file paths), and request executable outputs with references",
+        "correct": true
+      },
+      {
+        "text": "Ask for a summary without constraints to keep the model creative",
+        "correct": false
+      },
+      {
+        "text": "Use many broad instructions to widen the context as much as possible",
+        "correct": false
+      },
+      {
+        "text": "Avoid referencing attached sources to prevent overfitting",
+        "correct": false
+      }
+    ],
+    "explanation": "Concrete constraints plus requests for executable, referenced output yield verifiable results.",
+    "course": "copilot",
+    "source": "copilot screenshots"
+  },
+  {
+    "question": "You notice size warnings and increasingly vague answers from your Copilot Space. What's the best next step?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Reduce sources or split the Space into smaller, single-job Spaces",
+        "correct": true
+      },
+      {
+        "text": "Add more examples to increase context so the model has more to learn from",
+        "correct": false
+      },
+      {
+        "text": "Start @-mentioning people to pull in their expertise",
+        "correct": false
+      },
+      {
+        "text": "Turn off repository linking so the Space doesn't change",
+        "correct": false
+      }
+    ],
+    "explanation": "Oversized Spaces degrade answers; trim sources or split into smaller, focused Spaces.",
+    "course": "copilot",
+    "source": "copilot screenshots"
+  },
+  {
+    "question": "Which slash command in GitHub Copilot Chat is used to generate unit tests for selected code?",
+    "type": "single",
+    "options": [
+      {
+        "text": "/tests",
+        "correct": true
+      },
+      {
+        "text": "/generate",
+        "correct": false
+      },
+      {
+        "text": "/test",
+        "correct": false
+      },
+      {
+        "text": "/unittest",
+        "correct": false
+      }
+    ],
+    "explanation": "The /tests slash command generates unit tests for the selected code.",
+    "course": "copilot",
+    "source": "copilot screenshots"
+  },
+  {
+    "question": "What command would you use to get an explanation of a specific command using GitHub Copilot CLI?",
+    "type": "single",
+    "options": [
+      {
+        "text": "gh copilot explain",
+        "correct": true
+      },
+      {
+        "text": "gh copilot suggest",
+        "correct": false
+      },
+      {
+        "text": "gh copilot clarify",
+        "correct": false
+      },
+      {
+        "text": "gh copilot describe",
+        "correct": false
+      }
+    ],
+    "explanation": "`gh copilot explain` explains a given shell command.",
+    "course": "copilot",
+    "source": "copilot screenshots"
   }
 ]

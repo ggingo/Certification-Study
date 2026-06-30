@@ -6469,6 +6469,198 @@
     "source": "p001.png"
   },
   {
+    "question": "What's GitHub Copilot?",
+    "type": "single",
+    "options": [
+      {
+        "text": "An assistant for coding, powered by OpenAI.",
+        "correct": true
+      },
+      {
+        "text": "A platform for code repositories.",
+        "correct": false
+      },
+      {
+        "text": "A model powered by machine learning.",
+        "correct": false
+      },
+      {
+        "text": "A service for web hosting.",
+        "correct": false
+      }
+    ],
+    "explanation": "GitHub Copilot is an AI coding assistant built on OpenAI technology.",
+    "course": "copilot",
+    "source": "p001.png"
+  },
+  {
+    "question": "Which of the following is NOT a common use case for GitHub Copilot agent tasks on GitHub.com?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Compiling and deploying applications",
+        "correct": true
+      },
+      {
+        "text": "Generating pull request summaries",
+        "correct": false
+      },
+      {
+        "text": "Explaining repository code and structure",
+        "correct": false
+      },
+      {
+        "text": "Suggesting code review comments",
+        "correct": false
+      }
+    ],
+    "explanation": "Copilot agent tasks focus on code understanding and authoring, not build/deploy pipelines.",
+    "course": "copilot",
+    "source": "p002.png"
+  },
+  {
+    "question": "What are the benefits of using agents like '@terminal' when interacting with GitHub Copilot?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Agents in Visual Studio Code help you ask questions within a specific context, allowing for more precise and relevant answers from GitHub Copilot.",
+        "correct": true
+      },
+      {
+        "text": "Agents help enforce a consistent code format based on best practices within Visual Studio Code for improved readability.",
+        "correct": false
+      },
+      {
+        "text": "Agents provide extra security features for detecting vulnerabilities and intrusions within Visual Studio Code projects.",
+        "correct": false
+      }
+    ],
+    "explanation": "Agents scope Copilot to a context (e.g. the terminal) for more relevant answers.",
+    "course": "copilot",
+    "source": "p003.png"
+  },
+  {
+    "question": "How does GitHub Copilot handle personal data?",
+    "type": "single",
+    "options": [
+      {
+        "text": "It actively filters out personal data to protect user privacy.",
+        "correct": true
+      },
+      {
+        "text": "It saves all personal data for future references.",
+        "correct": false
+      },
+      {
+        "text": "It shares personal data with other users for collaborative projects.",
+        "correct": false
+      },
+      {
+        "text": "It encrypts personal data.",
+        "correct": false
+      }
+    ],
+    "explanation": "Copilot is designed to filter out personal data to protect user privacy.",
+    "course": "copilot",
+    "source": "p004.png"
+  },
+  {
+    "question": "When is a GitHub Copilot Space the better choice than general or repo-wide chat?",
+    "type": "single",
+    "options": [
+      {
+        "text": "When you want consistent, reproducible answers on a tightly scoped topic",
+        "correct": true
+      },
+      {
+        "text": "When you need broad discovery across many repositories",
+        "correct": false
+      },
+      {
+        "text": "When you want Copilot to automatically discover any relevant content in your org",
+        "correct": false
+      },
+      {
+        "text": "When you have no specific task or domain in mind",
+        "correct": false
+      }
+    ],
+    "explanation": "Spaces give consistent, reproducible answers on a tightly scoped topic.",
+    "course": "copilot",
+    "source": "p005.png"
+  },
+  {
+    "question": "What is ghost text in GitHub Copilot?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Ghost text in GitHub Copilot are suggestions that appear in your text editor as you type.",
+        "correct": true
+      },
+      {
+        "text": "Ghost text in GitHub Copilot are options used when typing to provide suggestions.",
+        "correct": false
+      },
+      {
+        "text": "Ghost text in GitHub Copilot involves using prompts and natural language questions within your code or documentation.",
+        "correct": false
+      }
+    ],
+    "explanation": "Ghost text is the inline suggestion that appears in the editor as you type.",
+    "course": "copilot",
+    "source": "p006.png"
+  },
+  {
+    "question": "How do Spaces handle security and access to linked items?",
+    "type": "single",
+    "options": [
+      {
+        "text": "A Space mirrors GitHub permissions and surfaces only what a viewer can already see",
+        "correct": true
+      },
+      {
+        "text": "A Space grants temporary read access to all linked private repositories",
+        "correct": false
+      },
+      {
+        "text": "A Space creates a copy of private content that anyone with the link can access",
+        "correct": false
+      },
+      {
+        "text": "A Space requires repo admins to approved list each viewer manually",
+        "correct": false
+      }
+    ],
+    "explanation": "Spaces respect GitHub permissions; viewers only see what they already have access to.",
+    "course": "copilot",
+    "source": "p007.png"
+  },
+  {
+    "question": "Which of the following choices isn't mentioned as one of the programming languages receiving strong support from GitHub Copilot?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Rust",
+        "correct": true
+      },
+      {
+        "text": "Python",
+        "correct": false
+      },
+      {
+        "text": "JavaScript",
+        "correct": false
+      },
+      {
+        "text": "Ruby",
+        "correct": false
+      }
+    ],
+    "explanation": "Python, JavaScript and Ruby are cited as strongly supported; Rust is not in that list.",
+    "course": "copilot",
+    "source": "p008.png"
+  },
+  {
     "question": "How is GitHub Copilot best described?",
     "type": "single",
     "options": [
@@ -9317,5 +9509,393 @@
     "explanation": "GitHub Copilot Pro+ includes all Pro features and adds extra premium usage along with priority access to infrastructure.",
     "course": "copilot",
     "source": "Copilot Fundamentals · Introduction to GitHub Copilot (study screenshot)"
+  },
+  {
+    "question": "What role does prompting play in utilizing GitHub Copilot effectively?",
+    "type": "single",
+    "options": [
+      {
+        "text": "It enhances the quality of code suggestions.",
+        "correct": true
+      },
+      {
+        "text": "It generates instant bug fixes.",
+        "correct": false
+      },
+      {
+        "text": "It automates the coding process entirely.",
+        "correct": false
+      },
+      {
+        "text": "It implements real-time collaboration.",
+        "correct": false
+      }
+    ],
+    "explanation": "Good prompts improve the relevance and quality of Copilot's suggestions.",
+    "course": "copilot",
+    "source": "copilot screenshots"
+  },
+  {
+    "question": "Which of the following rules is a principle of the 4S Method of prompt engineering?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Specify instructions explicitly and in detail.",
+        "correct": true
+      },
+      {
+        "text": "Summarize code objectives concisely.",
+        "correct": false
+      },
+      {
+        "text": "Streamline processes for efficient code suggestions.",
+        "correct": false
+      },
+      {
+        "text": "Simplify coding languages for universal understanding.",
+        "correct": false
+      }
+    ],
+    "explanation": "The 4S Method includes being Specific — give explicit, detailed instructions.",
+    "course": "copilot",
+    "source": "copilot screenshots"
+  },
+  {
+    "question": "When using Copilot Code Review on GitHub.com, what important billing consideration should you be aware of?",
+    "type": "single",
+    "options": [
+      {
+        "text": "It consumes Premium Request Units (PRUs)",
+        "correct": true
+      },
+      {
+        "text": "It's completely free with no usage limits",
+        "correct": false
+      },
+      {
+        "text": "It only works with paid GitHub Enterprise accounts",
+        "correct": false
+      },
+      {
+        "text": "It requires a separate subscription beyond GitHub Copilot",
+        "correct": false
+      }
+    ],
+    "explanation": "Copilot Code Review consumes Premium Request Units (PRUs).",
+    "course": "copilot",
+    "source": "copilot screenshots"
+  },
+  {
+    "question": "What are the benefits of using implicit prompts with slash commands in inline chat for fixing code issues with GitHub Copilot?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Implicit prompts help get better responses from GitHub Copilot without writing longer prompts, making it easier to interact and fix code issues.",
+        "correct": true
+      },
+      {
+        "text": "Implicit prompts help enforce a consistent naming convention and syntax based on best practices within Visual Studio Code projects for improved readability.",
+        "correct": false
+      },
+      {
+        "text": "Implicit prompts help detect security vulnerabilities and potential malicious activities within Visual Studio Code projects for increased safety.",
+        "correct": false
+      }
+    ],
+    "explanation": "Slash commands act as implicit prompts, getting better responses without long typed prompts.",
+    "course": "copilot",
+    "source": "copilot screenshots"
+  },
+  {
+    "question": "What is LoRA in the context of fine-tuning Large Language Models (LLMs)?",
+    "type": "single",
+    "options": [
+      {
+        "text": "A method that adds trainable elements to each layer of the pretrained model without a complete overhaul.",
+        "correct": true
+      },
+      {
+        "text": "A technology optimizing communication between different coding languages.",
+        "correct": false
+      },
+      {
+        "text": "A specialized software library enhancing Copilot's performance.",
+        "correct": false
+      },
+      {
+        "text": "A new programming paradigm supported exclusively by Copilot.",
+        "correct": false
+      }
+    ],
+    "explanation": "LoRA (Low-Rank Adaptation) adds small trainable elements per layer instead of full retraining.",
+    "course": "copilot",
+    "source": "copilot screenshots"
+  },
+  {
+    "question": "How does Copilot use the context to provide code suggestions?",
+    "type": "single",
+    "options": [
+      {
+        "text": "It considers the surrounding code, file type, and content of parallel open tabs in the code editor.",
+        "correct": true
+      },
+      {
+        "text": "It considers only the prompt text you provide.",
+        "correct": false
+      },
+      {
+        "text": "It considers the file type but not the content of the file.",
+        "correct": false
+      },
+      {
+        "text": "It randomly selects context from the internet.",
+        "correct": false
+      }
+    ],
+    "explanation": "Copilot uses surrounding code, file type, and open tabs as context.",
+    "course": "copilot",
+    "source": "copilot screenshots"
+  },
+  {
+    "question": "Which of these strategies helps to improve prompt effectiveness in GitHub Copilot?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Providing detailed contextual information with clarity.",
+        "correct": true
+      },
+      {
+        "text": "Making the prompt as general as possible.",
+        "correct": false
+      },
+      {
+        "text": "Keeping the prompt lengthy and detailed.",
+        "correct": false
+      },
+      {
+        "text": "Avoiding examples in the prompt to not restrict Copilot's creativity.",
+        "correct": false
+      }
+    ],
+    "explanation": "Clear, detailed context improves prompt effectiveness.",
+    "course": "copilot",
+    "source": "copilot screenshots"
+  },
+  {
+    "question": "Which statement about Copilot Space ownership and description is true?",
+    "type": "single",
+    "options": [
+      {
+        "text": "You can choose personal or organization ownership (where available), and the description is for human readers",
+        "correct": true
+      },
+      {
+        "text": "A Space must be organization-owned; personal Spaces aren't supported",
+        "correct": false
+      },
+      {
+        "text": "The description changes Copilot's answers in the Space",
+        "correct": false
+      },
+      {
+        "text": "Ownership can't be changed once set, and descriptions affect answer quality",
+        "correct": false
+      }
+    ],
+    "explanation": "Ownership can be personal or org; the description is informational for people, not the model.",
+    "course": "copilot",
+    "source": "copilot screenshots"
+  },
+  {
+    "question": "Which action does NOT add usable context for Copilot in a Space?",
+    "type": "single",
+    "options": [
+      {
+        "text": "@-mentioning a Copilot extension so it can run in Space chat",
+        "correct": true
+      },
+      {
+        "text": "Attaching files or folders from a GitHub repository",
+        "correct": false
+      },
+      {
+        "text": "Pasting URLs of GitHub issues and pull requests",
+        "correct": false
+      },
+      {
+        "text": "Uploading a local file (for example, a text document or spreadsheet)",
+        "correct": false
+      }
+    ],
+    "explanation": "Attachments (repo files, issue/PR URLs, uploaded files) add context; @-mentioning an extension does not.",
+    "course": "copilot",
+    "source": "copilot screenshots"
+  },
+  {
+    "question": "How do you access GitHub Copilot's inline chat?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Use Ctrl+i on Windows or Command+i on a Mac to open the inline chat.",
+        "correct": true
+      },
+      {
+        "text": "Access the inline chat by clicking on the chat icon in the left sidebar of Visual Studio Code.",
+        "correct": false
+      },
+      {
+        "text": "Access the inline chat by using Alt+i on Windows or Option+i on a Mac.",
+        "correct": false
+      }
+    ],
+    "explanation": "Inline chat opens with Ctrl+i (Windows) or Command+i (Mac).",
+    "course": "copilot",
+    "source": "copilot screenshots"
+  },
+  {
+    "question": "What are slash commands used for in GitHub Copilot?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Slash commands are shortcuts to quickly solve common development tasks within the chat or inline pane.",
+        "correct": true
+      },
+      {
+        "text": "Slash commands are used to format your codebase according to best practices.",
+        "correct": false
+      },
+      {
+        "text": "Slash commands are used to debug code and detect security vulnerabilities within your projects.",
+        "correct": false
+      }
+    ],
+    "explanation": "Slash commands are shortcuts for common tasks in the chat/inline pane.",
+    "course": "copilot",
+    "source": "copilot screenshots"
+  },
+  {
+    "question": "You need branch-specific guidance or a historical snapshot in a Copilot Space. What should you do?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Narrow references to relevant files and add a brief example, or attach a text file with the exact content",
+        "correct": true
+      },
+      {
+        "text": "Change the repository's default branch to lock Space answers to that branch",
+        "correct": false
+      },
+      {
+        "text": "Rely on general chat to retrieve older versions automatically",
+        "correct": false
+      },
+      {
+        "text": "Paste the sensitive historical content into free-text notes for convenience",
+        "correct": false
+      }
+    ],
+    "explanation": "Attach the specific files/example or a text file with the exact content you need referenced.",
+    "course": "copilot",
+    "source": "copilot screenshots"
+  },
+  {
+    "question": "Which prompting pattern best supports runnable, verifiable outputs in a Copilot Space?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Confirm intent, add concrete constraints (formats, ranges, file paths), and request executable outputs with references",
+        "correct": true
+      },
+      {
+        "text": "Ask for a summary without constraints to keep the model creative",
+        "correct": false
+      },
+      {
+        "text": "Use many broad instructions to widen the context as much as possible",
+        "correct": false
+      },
+      {
+        "text": "Avoid referencing attached sources to prevent overfitting",
+        "correct": false
+      }
+    ],
+    "explanation": "Concrete constraints plus requests for executable, referenced output yield verifiable results.",
+    "course": "copilot",
+    "source": "copilot screenshots"
+  },
+  {
+    "question": "You notice size warnings and increasingly vague answers from your Copilot Space. What's the best next step?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Reduce sources or split the Space into smaller, single-job Spaces",
+        "correct": true
+      },
+      {
+        "text": "Add more examples to increase context so the model has more to learn from",
+        "correct": false
+      },
+      {
+        "text": "Start @-mentioning people to pull in their expertise",
+        "correct": false
+      },
+      {
+        "text": "Turn off repository linking so the Space doesn't change",
+        "correct": false
+      }
+    ],
+    "explanation": "Oversized Spaces degrade answers; trim sources or split into smaller, focused Spaces.",
+    "course": "copilot",
+    "source": "copilot screenshots"
+  },
+  {
+    "question": "Which slash command in GitHub Copilot Chat is used to generate unit tests for selected code?",
+    "type": "single",
+    "options": [
+      {
+        "text": "/tests",
+        "correct": true
+      },
+      {
+        "text": "/generate",
+        "correct": false
+      },
+      {
+        "text": "/test",
+        "correct": false
+      },
+      {
+        "text": "/unittest",
+        "correct": false
+      }
+    ],
+    "explanation": "The /tests slash command generates unit tests for the selected code.",
+    "course": "copilot",
+    "source": "copilot screenshots"
+  },
+  {
+    "question": "What command would you use to get an explanation of a specific command using GitHub Copilot CLI?",
+    "type": "single",
+    "options": [
+      {
+        "text": "gh copilot explain",
+        "correct": true
+      },
+      {
+        "text": "gh copilot suggest",
+        "correct": false
+      },
+      {
+        "text": "gh copilot clarify",
+        "correct": false
+      },
+      {
+        "text": "gh copilot describe",
+        "correct": false
+      }
+    ],
+    "explanation": "`gh copilot explain` explains a given shell command.",
+    "course": "copilot",
+    "source": "copilot screenshots"
   }
 ]

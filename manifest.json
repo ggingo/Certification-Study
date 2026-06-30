@@ -7779,5 +7779,197 @@
     "explanation": "GitHub Copilot is an AI pair programmer that provides code suggestions directly in your editor.",
     "source": "p001.png",
     "course": "copilot"
+  },
+  "384d6680d10b292e118f6dbfa716fc7451fba081bc590d134d12d27861bc0eef": {
+    "question": "What's GitHub Copilot?",
+    "type": "single",
+    "options": [
+      {
+        "text": "An assistant for coding, powered by OpenAI.",
+        "correct": true
+      },
+      {
+        "text": "A platform for code repositories.",
+        "correct": false
+      },
+      {
+        "text": "A model powered by machine learning.",
+        "correct": false
+      },
+      {
+        "text": "A service for web hosting.",
+        "correct": false
+      }
+    ],
+    "explanation": "GitHub Copilot is an AI coding assistant built on OpenAI technology.",
+    "source": "p001.png",
+    "course": "copilot"
+  },
+  "3bb8e39593f6748b89140bba533e9697f17c0b187e6d0830013989422945fb10": {
+    "question": "Which of the following is NOT a common use case for GitHub Copilot agent tasks on GitHub.com?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Compiling and deploying applications",
+        "correct": true
+      },
+      {
+        "text": "Generating pull request summaries",
+        "correct": false
+      },
+      {
+        "text": "Explaining repository code and structure",
+        "correct": false
+      },
+      {
+        "text": "Suggesting code review comments",
+        "correct": false
+      }
+    ],
+    "explanation": "Copilot agent tasks focus on code understanding and authoring, not build/deploy pipelines.",
+    "source": "p002.png",
+    "course": "copilot"
+  },
+  "73e524bec77da8b59e381ea6443f79fbce434a4b87e3719ec57957afe35ca5b1": {
+    "question": "What are the benefits of using agents like '@terminal' when interacting with GitHub Copilot?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Agents in Visual Studio Code help you ask questions within a specific context, allowing for more precise and relevant answers from GitHub Copilot.",
+        "correct": true
+      },
+      {
+        "text": "Agents help enforce a consistent code format based on best practices within Visual Studio Code for improved readability.",
+        "correct": false
+      },
+      {
+        "text": "Agents provide extra security features for detecting vulnerabilities and intrusions within Visual Studio Code projects.",
+        "correct": false
+      }
+    ],
+    "explanation": "Agents scope Copilot to a context (e.g. the terminal) for more relevant answers.",
+    "source": "p003.png",
+    "course": "copilot"
+  },
+  "8be1b20032f3dd21c4ec419e62942c377d1ca9399e7f13c61a749c4b5d77ac89": {
+    "question": "How does GitHub Copilot handle personal data?",
+    "type": "single",
+    "options": [
+      {
+        "text": "It actively filters out personal data to protect user privacy.",
+        "correct": true
+      },
+      {
+        "text": "It saves all personal data for future references.",
+        "correct": false
+      },
+      {
+        "text": "It shares personal data with other users for collaborative projects.",
+        "correct": false
+      },
+      {
+        "text": "It encrypts personal data.",
+        "correct": false
+      }
+    ],
+    "explanation": "Copilot is designed to filter out personal data to protect user privacy.",
+    "source": "p004.png",
+    "course": "copilot"
+  },
+  "bffad132e4d231b19bbb6cf4c89d2c0befd8f4972cde3c930ae238bed3bf463a": {
+    "question": "When is a GitHub Copilot Space the better choice than general or repo-wide chat?",
+    "type": "single",
+    "options": [
+      {
+        "text": "When you want consistent, reproducible answers on a tightly scoped topic",
+        "correct": true
+      },
+      {
+        "text": "When you need broad discovery across many repositories",
+        "correct": false
+      },
+      {
+        "text": "When you want Copilot to automatically discover any relevant content in your org",
+        "correct": false
+      },
+      {
+        "text": "When you have no specific task or domain in mind",
+        "correct": false
+      }
+    ],
+    "explanation": "Spaces give consistent, reproducible answers on a tightly scoped topic.",
+    "source": "p005.png",
+    "course": "copilot"
+  },
+  "d3b7d530b8e6d0e6dbd255b4304ab863a29bc51e525de8a5b0519e774eade2a1": {
+    "question": "What is ghost text in GitHub Copilot?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Ghost text in GitHub Copilot are suggestions that appear in your text editor as you type.",
+        "correct": true
+      },
+      {
+        "text": "Ghost text in GitHub Copilot are options used when typing to provide suggestions.",
+        "correct": false
+      },
+      {
+        "text": "Ghost text in GitHub Copilot involves using prompts and natural language questions within your code or documentation.",
+        "correct": false
+      }
+    ],
+    "explanation": "Ghost text is the inline suggestion that appears in the editor as you type.",
+    "source": "p006.png",
+    "course": "copilot"
+  },
+  "da83ee54ddcdc25b0b069119c74ca1eeac46ac89cfbb8840e99ad343b161e540": {
+    "question": "How do Spaces handle security and access to linked items?",
+    "type": "single",
+    "options": [
+      {
+        "text": "A Space mirrors GitHub permissions and surfaces only what a viewer can already see",
+        "correct": true
+      },
+      {
+        "text": "A Space grants temporary read access to all linked private repositories",
+        "correct": false
+      },
+      {
+        "text": "A Space creates a copy of private content that anyone with the link can access",
+        "correct": false
+      },
+      {
+        "text": "A Space requires repo admins to approved list each viewer manually",
+        "correct": false
+      }
+    ],
+    "explanation": "Spaces respect GitHub permissions; viewers only see what they already have access to.",
+    "source": "p007.png",
+    "course": "copilot"
+  },
+  "dba757e80a7c00af94186e453660215073181b1d500d2c09032d48b4abb0567a": {
+    "question": "Which of the following choices isn't mentioned as one of the programming languages receiving strong support from GitHub Copilot?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Rust",
+        "correct": true
+      },
+      {
+        "text": "Python",
+        "correct": false
+      },
+      {
+        "text": "JavaScript",
+        "correct": false
+      },
+      {
+        "text": "Ruby",
+        "correct": false
+      }
+    ],
+    "explanation": "Python, JavaScript and Ruby are cited as strongly supported; Rust is not in that list.",
+    "source": "p008.png",
+    "course": "copilot"
   }
 }
