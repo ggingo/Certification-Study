@@ -7971,5 +7971,1522 @@
     "explanation": "Python, JavaScript and Ruby are cited as strongly supported; Rust is not in that list.",
     "source": "p008.png",
     "course": "copilot"
+  },
+  "0556ef53140bcf5abbf922c0f9d05eb551b4c10424dfcee8ac1270d284ef90b7": {
+    "question": "What percentage of developers said that GitHub Copilot helps them code faster?",
+    "type": "single",
+    "options": [
+      {
+        "text": "70%",
+        "correct": false
+      },
+      {
+        "text": "83%",
+        "correct": false
+      },
+      {
+        "text": "65%",
+        "correct": false
+      },
+      {
+        "text": "90%",
+        "correct": true
+      }
+    ],
+    "explanation": "According to surveys, 90% of developers reported that GitHub Copilot helps them code faster.",
+    "source": "p001.png",
+    "course": "copilot"
+  },
+  "05ad104f349b351a0fbcdaf571afc3acb885ee1abc13c18e8c1b63de28c486be": {
+    "question": "What is GitHub Copilot?",
+    "type": "single",
+    "options": [
+      {
+        "text": "GitHub Copilot is an AI pair programmer that you can use to get code suggestions.",
+        "correct": true
+      },
+      {
+        "text": "GitHub Copilot is OpenAI Codex, a new AI system created by OpenAI.",
+        "correct": false
+      },
+      {
+        "text": "GitHub Copilot is a JavaScript public repository and is one of the best supported languages.",
+        "correct": false
+      },
+      {
+        "text": "GitHub Copilot is a code review tool that automatically checks for bugs.",
+        "correct": false
+      }
+    ],
+    "explanation": "GitHub Copilot is an AI pair programmer that provides code suggestions.",
+    "source": "p002.png",
+    "course": "copilot"
+  },
+  "0773cf68b388babee1fb62a6450600e7e7938557cbb3b7255140b7040312fef2": {
+    "question": "What are the benefits of using implicit prompts with slash commands in inline chat for fixing code issues with GitHub Copilot?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Implicit prompts help enforce a consistent naming convention and syntax based on best practices within Visual Studio Code projects for improved readability.",
+        "correct": false
+      },
+      {
+        "text": "Implicit prompts help get better responses from GitHub Copilot without writing longer prompts, making it easier to interact and fix code issues.",
+        "correct": true
+      },
+      {
+        "text": "Implicit prompts help detect security vulnerabilities and potential malicious activities within Visual Studio Code projects for increased safety.",
+        "correct": false
+      },
+      {
+        "text": "Implicit prompts automatically refactor your code to follow design patterns.",
+        "correct": false
+      }
+    ],
+    "explanation": "Implicit prompts with slash commands allow developers to quickly and efficiently communicate their intentions to GitHub Copilot without the need for lengthy explanations.",
+    "source": "p003.png",
+    "course": "copilot"
+  },
+  "079a412531246c18edd62f6131abcaae3a257fde85f047c82fd20709fb35f22a": {
+    "question": "What are slash commands used for in GitHub Copilot?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Slash commands are used to format your codebase according to best practices.",
+        "correct": false
+      },
+      {
+        "text": "Slash commands are used to debug code and detect security vulnerabilities within your projects.",
+        "correct": false
+      },
+      {
+        "text": "Slash commands are shortcuts to quickly solve common development tasks within the chat or inline pane.",
+        "correct": true
+      },
+      {
+        "text": "Slash commands are used to switch between different programming languages.",
+        "correct": false
+      }
+    ],
+    "explanation": "Slash commands in GitHub Copilot provide quick access to specific functionalities, allowing developers to perform common tasks efficiently.",
+    "source": "p004.png",
+    "course": "copilot"
+  },
+  "0d0d97b51ab0bf4cdae045164101cf14c85e3993d335bad4a3265d4cc766b7fd": {
+    "question": "What is the purpose of generating inline code documentation in software development?",
+    "type": "single",
+    "options": [
+      {
+        "text": "To make the code more complex and challenging for other developers.",
+        "correct": false
+      },
+      {
+        "text": "To create a more readable and maintainable codebase that's easier for other developers to understand and work with.",
+        "correct": true
+      },
+      {
+        "text": "To increase the size of the codebase.",
+        "correct": false
+      },
+      {
+        "text": "To showcase the developer's coding skills.",
+        "correct": false
+      }
+    ],
+    "explanation": "Inline documentation improves code readability and maintainability, making it easier for developers to understand and work with.",
+    "source": "p005.png",
+    "course": "copilot"
+  },
+  "10b6a433ed28778f6290378e5177ea226f434ee04980abb8c13d40581394d18e": {
+    "question": "In what key way does GitHub Copilot Agent Mode differ from traditional AI-assisted coding tools?",
+    "type": "single",
+    "options": [
+      {
+        "text": "It exclusively relies on user-provided step-by-step instructions to generate code.",
+        "correct": false
+      },
+      {
+        "text": "It dynamically analyzes entire projects, autonomously performs multi-step tasks, and iteratively refines its outputs.",
+        "correct": true
+      },
+      {
+        "text": "It primarily suggests code snippets based on the immediate context of a single open file.",
+        "correct": false
+      },
+      {
+        "text": "It provides real-time inline suggestions but cannot autonomously refactor or execute code.",
+        "correct": false
+      }
+    ],
+    "explanation": "Agent Mode dynamically analyzes entire projects, autonomously performs multi-step tasks, and iteratively refines its outputs.",
+    "source": "p006.png",
+    "course": "copilot"
+  },
+  "14e3dc67ff83c593748b7121dd0f6cebd4deec0d4cf1f9dd6d5ed94c5265d593": {
+    "question": "What are the supported integrated development environment extensions for GitHub Copilot?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Visual Studio Code and Visual Studio.",
+        "correct": false
+      },
+      {
+        "text": "GitHub.com, Visual Studio Code, Visual Studio, Neovim, and JetBrains.",
+        "correct": false
+      },
+      {
+        "text": "Visual Studio Code, Visual Studio, Neovim, and JetBrains.",
+        "correct": true
+      },
+      {
+        "text": "Only Visual Studio Code.",
+        "correct": false
+      }
+    ],
+    "explanation": "Copilot supports Visual Studio Code, Visual Studio, Neovim, and JetBrains.",
+    "source": "p007.png",
+    "course": "copilot"
+  },
+  "1622a94b2fe59225386ce0beecbeeea5cb67a1d72e038672acebb4f392812d77": {
+    "question": "What is the primary purpose of content filtering in GitHub Copilot?",
+    "type": "single",
+    "options": [
+      {
+        "text": "To prioritize speed and efficiency in code generation",
+        "correct": false
+      },
+      {
+        "text": "To suggest code that aligns with the latest coding trends",
+        "correct": false
+      },
+      {
+        "text": "To eliminate irrelevant or outdated information",
+        "correct": false
+      },
+      {
+        "text": "To prevent the generation of malicious or harmful code",
+        "correct": true
+      }
+    ],
+    "explanation": "Content filtering ensures that Copilot does not generate malicious or harmful code.",
+    "source": "p008.png",
+    "course": "copilot"
+  },
+  "23c4483349bb9520ce8906c869426be15009eddbfeaef306f0b25ad1e1d6484f": {
+    "question": "How does the Fill-in-the-Middle (FIM) technique enhance GitHub Copilot's code suggestions?",
+    "type": "single",
+    "options": [
+      {
+        "text": "By allowing Copilot to process larger code files more efficiently",
+        "correct": false
+      },
+      {
+        "text": "By providing Copilot with access to more training data",
+        "correct": false
+      },
+      {
+        "text": "By enabling Copilot to consider a wider context of code surrounding the cursor position",
+        "correct": true
+      },
+      {
+        "text": "By improving Copilot's ability to understand natural language prompts",
+        "correct": false
+      }
+    ],
+    "explanation": "FIM allows Copilot to consider code before and after the cursor, improving suggestion accuracy.",
+    "source": "p009.png",
+    "course": "copilot"
+  },
+  "24b7399a8cc946017b3a5851783d167ac35724c7fb8f34b6f82d491465c224a0": {
+    "question": "How does Microsoft address potential biases in AI systems?",
+    "type": "single",
+    "options": [
+      {
+        "text": "By ignoring the issue and focusing on other areas.",
+        "correct": false
+      },
+      {
+        "text": "By providing AI systems with more data.",
+        "correct": false
+      },
+      {
+        "text": "By reviewing training data, testing with balanced samples, and using adversarial debiasing.",
+        "correct": true
+      },
+      {
+        "text": "By allowing users to modify AI system outputs directly.",
+        "correct": false
+      }
+    ],
+    "explanation": "Microsoft addresses bias by reviewing training data, testing with balanced samples, and using adversarial debiasing.",
+    "source": "p010.png",
+    "course": "copilot"
+  },
+  "27673414ca4af6a007b1be2089adf481eae151bf2f4354f3c812b3e5f3d95104": {
+    "question": "How does GitHub Copilot learn from your prompts?",
+    "type": "single",
+    "options": [
+      {
+        "text": "It only relies on its pre-existing training data.",
+        "correct": false
+      },
+      {
+        "text": "It utilizes various approaches including zero-shot, one-shot, and few-shot learning.",
+        "correct": true
+      },
+      {
+        "text": "It requires extensive manual training on specific tasks.",
+        "correct": false
+      },
+      {
+        "text": "It cannot learn and adapt based on user interactions.",
+        "correct": false
+      }
+    ],
+    "explanation": "Copilot uses zero-shot, one-shot, and few-shot learning to adapt to different scenarios and generate relevant code.",
+    "source": "p011.png",
+    "course": "copilot"
+  },
+  "2db706162dacdf896fa72952186e6d369f8846f942002c5d8b084d82d4f103f2": {
+    "question": "What is the role of GitHub Copilot Chat in generating unit test cases?",
+    "type": "single",
+    "options": [
+      {
+        "text": "It manually writes all the test cases for the user.",
+        "correct": false
+      },
+      {
+        "text": "It only suggests possible input parameters and expected output values.",
+        "correct": false
+      },
+      {
+        "text": "It helps generate code snippets for test cases based on the code specified by the user, suggests possible input parameters, expected output values, and assertions, and can help identify edge cases and boundary conditions.",
+        "correct": true
+      },
+      {
+        "text": "It automatically runs all unit tests and reports the results.",
+        "correct": false
+      }
+    ],
+    "explanation": "GitHub Copilot Chat generates test cases, suggests inputs, outputs, and assertions, and identifies edge cases.",
+    "source": "p012.png",
+    "course": "copilot"
+  },
+  "36c0fd19d0a85880d969ed2d61d506fe44f4e924f9389248c478e770ea625c1f": {
+    "question": "What does the quality of the output from GitHub Copilot depend on?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Your code editor.",
+        "correct": false
+      },
+      {
+        "text": "How well your extensions were installed.",
+        "correct": false
+      },
+      {
+        "text": "How well you crafted your prompt.",
+        "correct": true
+      },
+      {
+        "text": "The time of day you're coding.",
+        "correct": false
+      }
+    ],
+    "explanation": "Clear and well-crafted prompts lead to better suggestions.",
+    "source": "p013.png",
+    "course": "copilot"
+  },
+  "37a41b2d3e2c0e16e966c5150acce86b45786a80a36fe62ab6a24e52d086daee": {
+    "question": "Why would you use a local MCP server setup with Docker?",
+    "type": "single",
+    "options": [
+      {
+        "text": "To avoid using PATs for authentication",
+        "correct": false
+      },
+      {
+        "text": "To access resources or APIs restricted by enterprise policy",
+        "correct": true
+      },
+      {
+        "text": "To enable OAuth authentication only",
+        "correct": false
+      },
+      {
+        "text": "To disable all external integrations",
+        "correct": false
+      }
+    ],
+    "explanation": "A local MCP server setup with Docker lets you access resources or APIs restricted by enterprise policy.",
+    "source": "p014.png",
+    "course": "copilot"
+  },
+  "4591037975a888c7219673c6d5088dff1e0fbcd31bbad910031d8da95327f8c5": {
+    "question": "How does GitHub Copilot work?",
+    "type": "single",
+    "options": [
+      {
+        "text": "GitHub Copilot uses the prompts that you write in natural language text, to provide suggestions based on what you type.",
+        "correct": true
+      },
+      {
+        "text": "GitHub Copilot uses flashing lights to instruct you what to type.",
+        "correct": false
+      },
+      {
+        "text": "GitHub Copilot accepts prompts written in radio language, and provides suggestions based on what you type.",
+        "correct": false
+      }
+    ],
+    "explanation": "GitHub Copilot uses the natural language prompts you write to provide suggestions based on what you type.",
+    "source": "p015.png",
+    "course": "copilot"
+  },
+  "46092c9b3048b52cbeaca44cc596673e1cd3f2f7197b3f1203d32f824c39531a": {
+    "question": "What is the benefit of using GitHub Copilot for generating unit tests?",
+    "type": "single",
+    "options": [
+      {
+        "text": "It reduces the need for manual testing.",
+        "correct": false
+      },
+      {
+        "text": "It can suggest a range of unit tests based on the code context, saving development time.",
+        "correct": true
+      },
+      {
+        "text": "It automatically fixes bugs in the code.",
+        "correct": false
+      },
+      {
+        "text": "It guarantees 100% code coverage.",
+        "correct": false
+      }
+    ],
+    "explanation": "GitHub Copilot saves time by suggesting relevant unit tests based on the code context.",
+    "source": "p016.png",
+    "course": "copilot"
+  },
+  "49d57c67c3436b3d1ae959c8fc3cd259fc88848bddd17f86b4a0baf1227bb4f1": {
+    "question": "What is the role of project documentation files (such as README.md) when working with GitHub Copilot Agent Mode?",
+    "type": "single",
+    "options": [
+      {
+        "text": "They serve exclusively as reference documents for developers and have no influence on Agent Mode's behavior.",
+        "correct": false
+      },
+      {
+        "text": "They help Agent Mode understand the project's intended behavior, influencing how it autonomously executes tasks.",
+        "correct": true
+      },
+      {
+        "text": "They restrict Agent Mode's access to code files, preventing unwanted modifications.",
+        "correct": false
+      },
+      {
+        "text": "Agent Mode completely ignores documentation files and relies solely on the file structure and source code.",
+        "correct": false
+      }
+    ],
+    "explanation": "Documentation files help Agent Mode understand the project's intended behavior, influencing how it autonomously executes tasks.",
+    "source": "p017.png",
+    "course": "copilot"
+  },
+  "4bd8d569bf9f4beb9d5378c98ad4d2aeeecb9ffdf1df117fe6cdeac8205bf0eb": {
+    "question": "What is the difference between GitHub Copilot Business and GitHub Copilot Enterprise?",
+    "type": "single",
+    "options": [
+      {
+        "text": "GitHub Copilot Enterprise has code completions, while GitHub Copilot Business does not.",
+        "correct": false
+      },
+      {
+        "text": "GitHub Copilot Enterprise has chat in IDE and mobile, while GitHub Copilot Business does not.",
+        "correct": false
+      },
+      {
+        "text": "GitHub Copilot Enterprise has an extra layer of personalization, with organization utilizing their own codebase to train GitHub Copilot.",
+        "correct": true
+      },
+      {
+        "text": "GitHub Copilot Enterprise has an extra layer of security, with IP indemnity and enterprise-grade security, safety, and privacy.",
+        "correct": false
+      }
+    ],
+    "explanation": "Enterprise allows organizations to train Copilot with their own codebase for tailored suggestions.",
+    "source": "p018.png",
+    "course": "copilot"
+  },
+  "4ca718ecfade31198a2721394f601eb4c63339a275d66215d9c701a076e4af9e": {
+    "question": "What is the primary goal of Responsible AI?",
+    "type": "single",
+    "options": [
+      {
+        "text": "To maximize profits from AI systems.",
+        "correct": false
+      },
+      {
+        "text": "To develop AI systems as quickly as possible.",
+        "correct": false
+      },
+      {
+        "text": "To ensure AI systems are safe, trustworthy, and ethical.",
+        "correct": true
+      },
+      {
+        "text": "To replace human decision-making with AI.",
+        "correct": false
+      }
+    ],
+    "explanation": "The primary goal of Responsible AI is to ensure AI systems are safe, trustworthy, and ethical.",
+    "source": "p019.png",
+    "course": "copilot"
+  },
+  "5809097e86a2aec435116ce5544192fd842ca17ddb0ac7cd94d038240df99d4f": {
+    "question": "How can GitHub Copilot Chat assist when encountering an error in the code?",
+    "type": "single",
+    "options": [
+      {
+        "text": "It can explain the cause of the error and suggest ways to fix it.",
+        "correct": true
+      },
+      {
+        "text": "It can prevent errors from occurring in the first place.",
+        "correct": false
+      },
+      {
+        "text": "It can automatically fix the error without any user interaction.",
+        "correct": false
+      },
+      {
+        "text": "It can run a series of automated tests to isolate the error.",
+        "correct": false
+      }
+    ],
+    "explanation": "GitHub Copilot Chat can analyze the error context and provide explanations and suggestions for fixing it.",
+    "source": "p020.png",
+    "course": "copilot"
+  },
+  "5b50d22bb0bb2ad42ec55cb845dafd7e3b76a80f19966867657ebbd2b143dfb7": {
+    "question": "What is the best way to provide context to GitHub Copilot for better code suggestions?",
+    "type": "single",
+    "options": [
+      {
+        "text": "By keeping all files closed in the editor.",
+        "correct": false
+      },
+      {
+        "text": "By using complex function names.",
+        "correct": false
+      },
+      {
+        "text": "By providing meaningful function names, specific function comments, and having related files open in the editor.",
+        "correct": true
+      },
+      {
+        "text": "By writing code without any comments or documentation.",
+        "correct": false
+      }
+    ],
+    "explanation": "Clear function names, comments, and open related files help Copilot understand the project structure and intent better.",
+    "source": "p021.png",
+    "course": "copilot"
+  },
+  "6582dee00c98192ee49686f6955da9ed91202b3bf5ae2b5a6b1f06e9d8fbdd31": {
+    "question": "What is the significance of the Arrange, Act, and Assert sections in unit tests?",
+    "type": "single",
+    "options": [
+      {
+        "text": "They are used to organize the code in the main application.",
+        "correct": false
+      },
+      {
+        "text": "They are used to structure unit tests into setup (Arrange), execution (Act), and verification (Assert) phases.",
+        "correct": true
+      },
+      {
+        "text": "They are used to compile and run the unit tests.",
+        "correct": false
+      },
+      {
+        "text": "They are used to generate documentation for the tests.",
+        "correct": false
+      }
+    ],
+    "explanation": "This pattern structures unit tests into setup, execution, and verification phases.",
+    "source": "p022.png",
+    "course": "copilot"
+  },
+  "718df9686d87b9615869e79800c09999bf9503c8c3bf83bff654c1130389faa5": {
+    "question": "How can organizations manage and utilize docsets within Copilot Enterprise to tailor code suggestions and improve development workflows?",
+    "type": "single",
+    "options": [
+      {
+        "text": "By using docsets to create custom collections of internal code and documentation.",
+        "correct": true
+      },
+      {
+        "text": "By using docsets to automatically generate code snippets.",
+        "correct": false
+      },
+      {
+        "text": "By using docsets to track developers' activity within a project.",
+        "correct": false
+      },
+      {
+        "text": "By using docsets to enforce coding standards.",
+        "correct": false
+      }
+    ],
+    "explanation": "Docsets allow organizations to create custom collections of internal code and documentation, enabling Copilot to provide more relevant suggestions.",
+    "source": "p023.png",
+    "course": "copilot"
+  },
+  "71b9d89870955f5b6b4907cde44200477befe484322adc12b1ff70f67c356a37": {
+    "question": "What is one way to improve code reliability?",
+    "type": "single",
+    "options": [
+      {
+        "text": "By optimizing algorithms and data structures for the task at hand.",
+        "correct": false
+      },
+      {
+        "text": "By identifying potential issues in the code to prevent bugs and errors from occurring.",
+        "correct": true
+      },
+      {
+        "text": "By minimizing disk and network I/O operations or performing them asynchronously.",
+        "correct": false
+      },
+      {
+        "text": "By using the latest programming language features and syntax.",
+        "correct": false
+      }
+    ],
+    "explanation": "Identifying and addressing potential issues in the code helps prevent bugs and errors, improving reliability.",
+    "source": "p024.png",
+    "course": "copilot"
+  },
+  "79c16f5d2a0ff9940175c0554a97121bade3f94ce9e0a4975147100b7735bfbf": {
+    "question": "What is ghost text in GitHub Copilot?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Ghost text in GitHub Copilot are suggestions that appear in your text editor as you type.",
+        "correct": true
+      },
+      {
+        "text": "Ghost text in GitHub Copilot are options used when typing to provide suggestions.",
+        "correct": false
+      },
+      {
+        "text": "Ghost text in GitHub Copilot involves using prompts and natural language questions within your code or documentation.",
+        "correct": false
+      },
+      {
+        "text": "Ghost text in GitHub Copilot is a feature that automatically deletes unused code.",
+        "correct": false
+      }
+    ],
+    "explanation": "Ghost text is a feature in GitHub Copilot that provides real-time code suggestions as you type, appearing as faded text in your editor that you can preview and accept or modify.",
+    "source": "p025.png",
+    "course": "copilot"
+  },
+  "7a8ba5b28899c5620386f9d2904c6de508a959534b0061597f351105f659257b": {
+    "question": "Identify which statement is valid and select the correct answer: (prompt definition)",
+    "type": "single",
+    "options": [
+      {
+        "text": "A prompt, which is our output, is a collection of songs that tells GitHub Copilot what to generate.",
+        "correct": false
+      },
+      {
+        "text": "A prompt, which is our input, is a collection of instructions or guidelines that tell GitHub Copilot what to generate.",
+        "correct": true
+      },
+      {
+        "text": "A prompt, which is a separate document, is a collection of instructions that tells GitHub Copilot what to generate.",
+        "correct": false
+      }
+    ],
+    "explanation": "A prompt is our input: a collection of instructions or guidelines that tell GitHub Copilot what to generate.",
+    "source": "p026.png",
+    "course": "copilot"
+  },
+  "7be79d1b8cff3a7827cb27eebc9986b520405a9db7cb5cb92045788221b88c19": {
+    "question": "Which troubleshooting step should you try first if MCP Server tools aren't working in VS Code?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Reinstall Docker",
+        "correct": false
+      },
+      {
+        "text": "Confirm you're signed into your GitHub account in VS Code",
+        "correct": true
+      },
+      {
+        "text": "Delete your PAT",
+        "correct": false
+      },
+      {
+        "text": "Remove all server configurations",
+        "correct": false
+      }
+    ],
+    "explanation": "First confirm you're signed into your GitHub account in VS Code when MCP Server tools aren't working.",
+    "source": "p027.png",
+    "course": "copilot"
+  },
+  "7f965a950ea61fd2c3b0c991003c5212f149cf86895cea49a2bdd5b7802dd309": {
+    "question": "What is the purpose of the Test Explorer in Visual Studio Code?",
+    "type": "single",
+    "options": [
+      {
+        "text": "To write new code snippets for unit tests.",
+        "correct": false
+      },
+      {
+        "text": "To run and debug unit tests, view the results of test runs, and manage test cases in the workspace.",
+        "correct": true
+      },
+      {
+        "text": "To generate test cases based on the code context.",
+        "correct": false
+      },
+      {
+        "text": "To automatically fix failing tests.",
+        "correct": false
+      }
+    ],
+    "explanation": "Test Explorer is used to run, debug, and manage unit tests in Visual Studio Code.",
+    "source": "p028.png",
+    "course": "copilot"
+  },
+  "7fdf9c141a96e4640d58307e87123b8be9ca6a6e61b49e8ae772894e9f9ff84c": {
+    "question": "What does GitHub Copilot provide when creating unit tests for specific conditions?",
+    "type": "single",
+    "options": [
+      {
+        "text": "It provides a user interface for manually writing tests.",
+        "correct": false
+      },
+      {
+        "text": "It automatically runs the tests and provides the results.",
+        "correct": false
+      },
+      {
+        "text": "It suggests completions and generates tests based on the code context.",
+        "correct": true
+      },
+      {
+        "text": "It creates a full test suite without any user input.",
+        "correct": false
+      }
+    ],
+    "explanation": "GitHub Copilot suggests and generates tests based on the code context.",
+    "source": "p029.png",
+    "course": "copilot"
+  },
+  "80988ff55601c8db389e0d80621269fd3e513e111003c1f4dedc6ed76e735640": {
+    "question": "How does GitHub Copilot Chat propose fixes for bugs in your code?",
+    "type": "single",
+    "options": [
+      {
+        "text": "By running automated tests and identifying the root cause.",
+        "correct": false
+      },
+      {
+        "text": "By suggesting code snippets and solutions based on the context of the error or issue.",
+        "correct": true
+      },
+      {
+        "text": "By comparing your code with a database of known bug patterns.",
+        "correct": false
+      },
+      {
+        "text": "By simulating various input scenarios to detect edge cases.",
+        "correct": false
+      }
+    ],
+    "explanation": "GitHub Copilot Chat analyzes the context of the error and provides relevant code snippets and solutions.",
+    "source": "p030.png",
+    "course": "copilot"
+  },
+  "8305c9e8bce4b6afc8089aba91740f3f9b16a4d62a80392301087459a1df2655": {
+    "question": "Identify which statement is valid and select the correct answer: (prompt definition, four options)",
+    "type": "single",
+    "options": [
+      {
+        "text": "A prompt, which is our output, is a collection of songs that tells our copilot what to generate.",
+        "correct": false
+      },
+      {
+        "text": "A prompt, which is our input, is a collection of instructions or guidelines that tell our copilot what to generate.",
+        "correct": true
+      },
+      {
+        "text": "A prompt, which is our document, is a collection of laptops that tells our Copilot what to generate.",
+        "correct": false
+      },
+      {
+        "text": "A prompt is a series of binary commands that control Copilot's behavior.",
+        "correct": false
+      }
+    ],
+    "explanation": "Prompts are inputs that guide Copilot in generating relevant suggestions.",
+    "source": "p031.png",
+    "course": "copilot"
+  },
+  "83edba4ba31b7bba4877b95034f930fc4928ca6fd8fdf986f4adf5b1e5d0add2": {
+    "question": "Is GitHub Copilot free?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Yes, it's free for everyone.",
+        "correct": false
+      },
+      {
+        "text": "No, it's a service you can sign up for that's free for students to use but currently costs 10 dollars per month.",
+        "correct": true
+      },
+      {
+        "text": "It's not free, even if you're a student or a teacher.",
+        "correct": false
+      },
+      {
+        "text": "It's free for the first month, then requires a subscription.",
+        "correct": false
+      }
+    ],
+    "explanation": "GitHub Copilot costs $10 per month but is free for verified students, teachers, and open-source maintainers.",
+    "source": "p032.png",
+    "course": "copilot"
+  },
+  "842bf9cfc2cda544177bc510b62f68f58ffb5c8de5b593bba597ba1b4d3f776d": {
+    "question": "What types of code conversions can be completed using GitHub Copilot?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Convert an entire code file, a function, or a code snippet to an image.",
+        "correct": false
+      },
+      {
+        "text": "Convert an entire code file, a function, or a code snippet to another programming language.",
+        "correct": true
+      },
+      {
+        "text": "Convert a programming language to a human language.",
+        "correct": false
+      },
+      {
+        "text": "Convert compiled code back to source code.",
+        "correct": false
+      }
+    ],
+    "explanation": "GitHub Copilot can assist in converting code between programming languages, aiding cross-platform development.",
+    "source": "p033.png",
+    "course": "copilot"
+  },
+  "8efe758f11bd231ef048d2e673de26c09d0a638d1bd378b10e91c59b484e0b69": {
+    "question": "How can GitHub Copilot Chat be used in the context of project documentation?",
+    "type": "single",
+    "options": [
+      {
+        "text": "To generate specific sections of the project documentation, such as the project overview, requirements, constraints, dependencies, and summary.",
+        "correct": true
+      },
+      {
+        "text": "To communicate with the project stakeholders and gather their requirements.",
+        "correct": false
+      },
+      {
+        "text": "To automatically write the entire codebase for the project.",
+        "correct": false
+      },
+      {
+        "text": "To create visual diagrams and charts for the documentation.",
+        "correct": false
+      }
+    ],
+    "explanation": "GitHub Copilot Chat can assist in creating various sections of project documentation by generating content based on the project context and user prompts.",
+    "source": "p034.png",
+    "course": "copilot"
+  },
+  "8fe4f00bb211c59066ba7c2997874fed4d73a8a2f989f22d6232bb1e98d9d8fa": {
+    "question": "Which GitHub Copilot plans include enterprise-grade security and privacy features?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Pro",
+        "correct": false
+      },
+      {
+        "text": "Business and Enterprise",
+        "correct": true
+      },
+      {
+        "text": "Business",
+        "correct": false
+      },
+      {
+        "text": "Enterprise",
+        "correct": false
+      }
+    ],
+    "explanation": "Both the Business and Enterprise plans include enterprise-grade security and privacy features.",
+    "source": "p035.png",
+    "course": "copilot"
+  },
+  "97612d7efe426c2e6e30a4360375c9192152cdc2e72559f1c128d29386fcaf6e": {
+    "question": "What is the purpose of using chat participants, slash commands, and chat variables in GitHub Copilot Chat?",
+    "type": "single",
+    "options": [
+      {
+        "text": "They limit the scope of the AI's responses.",
+        "correct": false
+      },
+      {
+        "text": "They add complexity to the chat interface.",
+        "correct": false
+      },
+      {
+        "text": "They help GitHub Copilot Chat understand the context and intent of the question.",
+        "correct": true
+      },
+      {
+        "text": "They allow users to customize the appearance of the chat interface.",
+        "correct": false
+      }
+    ],
+    "explanation": "These features provide additional context and specificity, enabling Copilot Chat to generate more accurate and relevant responses.",
+    "source": "p036.png",
+    "course": "copilot"
+  },
+  "995959e33bfa58142fdbbc31b5cc389f713e7dd89a3f440ab62f4847d52517ce": {
+    "question": "How can a developer optimize their experience when interacting with GitHub Copilot via chat?",
+    "type": "single",
+    "options": [
+      {
+        "text": "By being vague about the inputs, outputs, APIs, or frameworks they want to use.",
+        "correct": false
+      },
+      {
+        "text": "By using chat participants, slash commands, chat variables, and being specific in your prompts.",
+        "correct": true
+      },
+      {
+        "text": "By asking Copilot to perform large tasks at once.",
+        "correct": false
+      },
+      {
+        "text": "By avoiding the use of code snippets in prompts.",
+        "correct": false
+      }
+    ],
+    "explanation": "Using these features and being specific in prompts provides clear context and intent, resulting in better responses.",
+    "source": "p037.png",
+    "course": "copilot"
+  },
+  "a5a7a2a570e88b8304a7f7c0bdbd52d2eee58b338e3a56a3d62582d7b6b2c22c": {
+    "question": "How can GitHub Copilot Chat assist in improving the modularity of a class?",
+    "type": "single",
+    "options": [
+      {
+        "text": "By suggesting potential refactoring updates based on the context of your codebase.",
+        "correct": true
+      },
+      {
+        "text": "By providing a detailed analysis of the class's dependencies.",
+        "correct": false
+      },
+      {
+        "text": "By automatically rewriting the entire class.",
+        "correct": false
+      },
+      {
+        "text": "By generating unit tests for each method in the class.",
+        "correct": false
+      }
+    ],
+    "explanation": "GitHub Copilot Chat can analyze the context of your codebase and suggest potential refactoring updates to improve class modularity.",
+    "source": "p038.png",
+    "course": "copilot"
+  },
+  "a775d2b4bde40fe865cfa76663cf6c68cf6bcc4d79e4f1c8050f12ee9f15049e": {
+    "question": "How does GitHub Copilot assist developers in accelerating the learning of new programming languages or frameworks?",
+    "type": "single",
+    "options": [
+      {
+        "text": "By automatically translating code between different programming languages.",
+        "correct": false
+      },
+      {
+        "text": "By providing context-aware code snippets and inline documentation related to new functions and libraries.",
+        "correct": true
+      },
+      {
+        "text": "By offering video tutorials and interactive coding sessions within the IDE.",
+        "correct": false
+      },
+      {
+        "text": "By managing project dependencies and version control automatically.",
+        "correct": false
+      }
+    ],
+    "explanation": "Copilot provides context-aware code snippets and inline documentation related to new functions and libraries, accelerating learning.",
+    "source": "p039.png",
+    "course": "copilot"
+  },
+  "a79572c3ad17aaf17d5fa0af6f02ceadcbeae8d62d02c5fd8c54b8e4187129f0": {
+    "question": "What are some ways to improve exception handling in code to make it more secure?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Revealing sensitive information in exceptions, catching general exceptions only, and swallowing exceptions.",
+        "correct": false
+      },
+      {
+        "text": "Catch the most specific exceptions possible, avoid revealing sensitive information in exceptions, and avoid swallowing exceptions.",
+        "correct": true
+      },
+      {
+        "text": "Exposing detailed error information, catching only specific exceptions, and not rethrowing exceptions.",
+        "correct": false
+      },
+      {
+        "text": "Using try-catch blocks for every line of code and logging all exceptions to a public server.",
+        "correct": false
+      }
+    ],
+    "explanation": "Catching specific exceptions allows for targeted handling, avoiding sensitive information in exceptions prevents leaks, and not swallowing exceptions ensures errors are logged or rethrown for debugging.",
+    "source": "p040.png",
+    "course": "copilot"
+  },
+  "a9d44a53e12ccce13fe505a50aca8dd994f803154e6a240f6910d998a32645d3": {
+    "question": "Describe the purpose and benefits of Copilot's pull request summaries in GitHub Copilot Enterprise.",
+    "type": "single",
+    "options": [
+      {
+        "text": "They aim to provide a detailed history of code changes in pull requests.",
+        "correct": false
+      },
+      {
+        "text": "They assist in automatically generating concise overviews of pull requests based on code changes, enhancing understanding and accelerating review processes.",
+        "correct": true
+      },
+      {
+        "text": "They track developers' activity within a pull request.",
+        "correct": false
+      },
+      {
+        "text": "They automatically merge pull requests without human intervention.",
+        "correct": false
+      }
+    ],
+    "explanation": "Pull request summaries automatically generate concise overviews of code changes, helping reviewers quickly understand the scope and impact of changes.",
+    "source": "p041.png",
+    "course": "copilot"
+  },
+  "a9f532d2d5a23adfc41f82ed27c56503e4669f5a453b37c9f9a33295a188f100": {
+    "question": "What happens when GitHub Copilot generates more than one code completion suggestion?",
+    "type": "single",
+    "options": [
+      {
+        "text": "It adds all of the suggestions to your code.",
+        "correct": false
+      },
+      {
+        "text": "It selects the most relevant suggestion automatically.",
+        "correct": false
+      },
+      {
+        "text": "It enables developers to review each suggestion by selecting the left or right arrows.",
+        "correct": true
+      },
+      {
+        "text": "It discards all but the first suggestion.",
+        "correct": false
+      }
+    ],
+    "explanation": "Developers can cycle through multiple suggestions using left and right arrows to select the most appropriate one.",
+    "source": "p042.png",
+    "course": "copilot"
+  },
+  "abd10e60f5fcb9d1232abce086556899f38a61fd37d2c51dc8efc1f7977d277e": {
+    "question": "What is the importance of context and intent when developing prompts for GitHub Copilot Chat?",
+    "type": "single",
+    "options": [
+      {
+        "text": "They determine the color scheme used by GitHub Copilot Chat.",
+        "correct": false
+      },
+      {
+        "text": "They control the volume of the audio output from GitHub Copilot Chat.",
+        "correct": false
+      },
+      {
+        "text": "They specify the scope that GitHub Copilot should examine and the goal to be achieved.",
+        "correct": true
+      },
+      {
+        "text": "They influence the programming language used for code suggestions.",
+        "correct": false
+      }
+    ],
+    "explanation": "Context and intent guide Copilot to provide relevant suggestions.",
+    "source": "p043.png",
+    "course": "copilot"
+  },
+  "adabdd6d554102e146e4a4f646e10b12f7fad5cae9b776e664a6252b8df99b5d": {
+    "question": "How does GitHub Copilot determine the code completion suggestions it provides?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Based on the context of code in the editor.",
+        "correct": true
+      },
+      {
+        "text": "Based on the programming language used.",
+        "correct": false
+      },
+      {
+        "text": "Based on the length of the code written.",
+        "correct": false
+      },
+      {
+        "text": "Based on a random selection of popular coding patterns.",
+        "correct": false
+      }
+    ],
+    "explanation": "Copilot analyzes the context of the code in the editor, including surrounding code and comments, to generate relevant suggestions.",
+    "source": "p044.png",
+    "course": "copilot"
+  },
+  "b64d219781f6a0fc43db05264fcf19dd1ebd97384411d206f5a61b9bac56cbbd": {
+    "question": "How does GitHub Copilot work? (natural language prompts)",
+    "type": "single",
+    "options": [
+      {
+        "text": "GitHub Copilot uses prompts and natural language text that you type to provide coding suggestions.",
+        "correct": true
+      },
+      {
+        "text": "GitHub Copilot uses lights that you type, and it provides suggestions based on what you type.",
+        "correct": false
+      },
+      {
+        "text": "GitHub Copilot uses radio language that you type, and it provides suggestions based on what you type.",
+        "correct": false
+      },
+      {
+        "text": "GitHub Copilot uses binary code input to generate suggestions.",
+        "correct": false
+      }
+    ],
+    "explanation": "GitHub Copilot uses natural language prompts and context from your code to generate suggestions.",
+    "source": "p045.png",
+    "course": "copilot"
+  },
+  "b666dfa26426b41d5ea3431ea3c0c6ffe065f207392032654ccdfc9947f41d96": {
+    "question": "What is the purpose of code refactoring?",
+    "type": "single",
+    "options": [
+      {
+        "text": "To alter the external behavior or functionality of the code.",
+        "correct": false
+      },
+      {
+        "text": "To improve the internal structure of the code without altering its external behavior or functionality.",
+        "correct": true
+      },
+      {
+        "text": "To add new features or enhancements to the code.",
+        "correct": false
+      },
+      {
+        "text": "To optimize the code for better performance.",
+        "correct": false
+      }
+    ],
+    "explanation": "Refactoring enhances the internal structure while maintaining the same external behavior.",
+    "source": "p046.png",
+    "course": "copilot"
+  },
+  "bbbfc935c8d2dd7c167d5433f0ec4ca9d2689bf57c31a54fb29635bb3012348e": {
+    "question": "What does code reliability refer to in software development?",
+    "type": "single",
+    "options": [
+      {
+        "text": "The use of modern CPU architectures by parallelizing tasks and performing I/O operations asynchronously.",
+        "correct": false
+      },
+      {
+        "text": "The likelihood that software will function correctly under specific conditions and for a certain period of time.",
+        "correct": true
+      },
+      {
+        "text": "The efficiency of a program or application.",
+        "correct": false
+      },
+      {
+        "text": "The ability of the code to handle large amounts of data.",
+        "correct": false
+      }
+    ],
+    "explanation": "Code reliability is a measure of how consistently a software system performs its intended functions without failures or errors under specified conditions.",
+    "source": "p047.png",
+    "course": "copilot"
+  },
+  "bc0ae622a5d30f7589577b217cf991f7d1e00fa0afa6e05c39b0de6111a988de": {
+    "question": "What is a recommended practice to improve the performance of GitHub Copilot Chat?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Limiting the prompt to coding questions or tasks to enhance the model's output quality.",
+        "correct": true
+      },
+      {
+        "text": "Using Copilot Chat as a replacement for human programming.",
+        "correct": false
+      },
+      {
+        "text": "Ignoring secure coding and code review practices.",
+        "correct": false
+      },
+      {
+        "text": "Asking Copilot Chat to generate entire applications without any guidance.",
+        "correct": false
+      }
+    ],
+    "explanation": "By focusing prompts on specific coding questions or tasks, developers can help GitHub Copilot Chat generate more accurate and relevant responses.",
+    "source": "p048.png",
+    "course": "copilot"
+  },
+  "bdbd20d1e75bcd38c8718df191c2438640b7dd9be92eb7a9f8f5f64d224cd344": {
+    "question": "What is the purpose of reviewing and correcting the output generated by GitHub Copilot Chat?",
+    "type": "single",
+    "options": [
+      {
+        "text": "To ensure that the AI is learning correctly.",
+        "correct": false
+      },
+      {
+        "text": "To ensure the accuracy and completeness of the generated explanations and documentation.",
+        "correct": true
+      },
+      {
+        "text": "To provide feedback to the AI for future improvements.",
+        "correct": false
+      },
+      {
+        "text": "To track the performance of the AI over time.",
+        "correct": false
+      }
+    ],
+    "explanation": "Reviewing and correcting the output ensures that the explanations and documentation are accurate and complete.",
+    "source": "p049.png",
+    "course": "copilot"
+  },
+  "c0a5a95248719ec33325a454163209aa1608c7dd3d2bfd6774c43f804b3a9c60": {
+    "question": "Which of the following is NOT a principle of effective prompt engineering for GitHub Copilot?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Clarity - Focus on a single, well-defined task.",
+        "correct": false
+      },
+      {
+        "text": "Verbosity - Provide extensive and detailed descriptions.",
+        "correct": true
+      },
+      {
+        "text": "Specificity - Use clear and explicit instructions.",
+        "correct": false
+      },
+      {
+        "text": "Surround - Utilize descriptive filenames and keep related files open.",
+        "correct": false
+      }
+    ],
+    "explanation": "Verbosity is not a principle of effective prompt engineering. Concise and clear prompts are more effective than overly detailed ones.",
+    "source": "p050.png",
+    "course": "copilot"
+  },
+  "c16371f95a21d65f4137d5a7375c874d90324007ecf38bb97e3c5167bbcc6072": {
+    "question": "What is the purpose of generating assertions to ensure that function input parameters are valid?",
+    "type": "single",
+    "options": [
+      {
+        "text": "To enhance the performance of the function.",
+        "correct": false
+      },
+      {
+        "text": "To prevent invalid data from being processed by the function.",
+        "correct": true
+      },
+      {
+        "text": "To check if the function returns the expected output.",
+        "correct": false
+      },
+      {
+        "text": "To document the function's expected inputs.",
+        "correct": false
+      }
+    ],
+    "explanation": "Assertions ensure that only valid data is processed by the function.",
+    "source": "p051.png",
+    "course": "copilot"
+  },
+  "c72f4d676095c555d3998e5e891f2bca0c61d21b9af2eae644ef542a770bc7da": {
+    "question": "How does Copilot use an organization's codebase and internal knowledge to enhance productivity and collaboration?",
+    "type": "single",
+    "options": [
+      {
+        "text": "By providing code suggestions based on open-source libraries only",
+        "correct": false
+      },
+      {
+        "text": "By tailoring coding assistance, answering questions, and suggesting code aligned with the organization's standards and best practices",
+        "correct": true
+      },
+      {
+        "text": "By suggesting code without considering the project context",
+        "correct": false
+      },
+      {
+        "text": "By randomly generating code snippets",
+        "correct": false
+      }
+    ],
+    "explanation": "Copilot Enterprise enhances productivity by aligning with organizational standards and best practices.",
+    "source": "p052.png",
+    "course": "copilot"
+  },
+  "c76e83093143d634f95be77b42085fb8a04fd6e14a88691e0d825680c8e94bb1": {
+    "question": "What is the primary purpose of project documentation in software development?",
+    "type": "single",
+    "options": [
+      {
+        "text": "To provide a detailed codebase for developers to use.",
+        "correct": false
+      },
+      {
+        "text": "To generate a high-level overview for the end-users of the software.",
+        "correct": false
+      },
+      {
+        "text": "To provide essential information for understanding the project's scope and purpose.",
+        "correct": true
+      },
+      {
+        "text": "To create a timeline of the project's development history.",
+        "correct": false
+      }
+    ],
+    "explanation": "Project documentation outlines the scope, purpose, and requirements, aiding understanding and collaboration.",
+    "source": "p053.png",
+    "course": "copilot"
+  },
+  "c7aa6849f1009694c21722f3bf7111f1cbcb3040d00e07e84df285fccddfced9": {
+    "question": "What is the effect of maintaining a high quality bar in your code when using GitHub Copilot?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Copilot latches on to your code to generate suggestions that follow the existing pattern.",
+        "correct": true
+      },
+      {
+        "text": "It confuses Copilot and leads to irrelevant suggestions.",
+        "correct": false
+      },
+      {
+        "text": "It slows down the suggestion process.",
+        "correct": false
+      },
+      {
+        "text": "It causes Copilot to ignore your existing code structure.",
+        "correct": false
+      }
+    ],
+    "explanation": "Maintaining high-quality code helps Copilot understand and replicate existing patterns, leading to more relevant and consistent suggestions.",
+    "source": "p054.png",
+    "course": "copilot"
+  },
+  "d7c40d9870ef7fbeeec3b790294049a00f8947b76d2707c675842c6fe3e534cd": {
+    "question": "In the outbound flow of GitHub Copilot, which of the following actions might occur after the code suggestion is generated?",
+    "type": "single",
+    "options": [
+      {
+        "text": "The suggestion is immediately integrated into the user's code",
+        "correct": false
+      },
+      {
+        "text": "The suggestion is presented to the user for review and acceptance",
+        "correct": true
+      },
+      {
+        "text": "The suggestion is sent to a third-party server for evaluation",
+        "correct": false
+      },
+      {
+        "text": "The suggestion is automatically deleted to protect user privacy",
+        "correct": false
+      }
+    ],
+    "explanation": "Suggestions are presented to the user for review and acceptance before integration.",
+    "source": "p055.png",
+    "course": "copilot"
+  },
+  "d91bd051f5368072ac13064945dfa58e9da686cebe68bd0b57f7d4e265605ef4": {
+    "question": "What is the primary purpose of the toxicity filter in GitHub Copilot?",
+    "type": "single",
+    "options": [
+      {
+        "text": "To ensure code suggestions are syntactically correct",
+        "correct": false
+      },
+      {
+        "text": "To prevent the generation of code that violates intellectual property rights",
+        "correct": false
+      },
+      {
+        "text": "To eliminate harmful or offensive content in code suggestions",
+        "correct": true
+      },
+      {
+        "text": "To suggest code that adheres to specific coding standards",
+        "correct": false
+      }
+    ],
+    "explanation": "The toxicity filter prevents harmful or offensive content in code suggestions.",
+    "source": "p056.png",
+    "course": "copilot"
+  },
+  "d9496fc2d772bdd2098bfb6c8e16c2aa38b5a8d2c0f202c190178a1a7bcc7496": {
+    "question": "What factors can be considered when working on code quality improvements?",
+    "type": "single",
+    "options": [
+      {
+        "text": "The number of lines of code in the program.",
+        "correct": false
+      },
+      {
+        "text": "The time required to write code.",
+        "correct": false
+      },
+      {
+        "text": "Readability, complexity, modularity, reusability, testability, extensibility, reliability, performance, security, scalability, usability, and portability.",
+        "correct": true
+      },
+      {
+        "text": "The number of developers working on the project.",
+        "correct": false
+      }
+    ],
+    "explanation": "These factors comprehensively define code quality.",
+    "source": "p057.png",
+    "course": "copilot"
+  },
+  "e94af37bd64dfecf012c8cf5a2ba18a4ad26ae7ffc225698cdc271961e75ef1d": {
+    "question": "Why would you use a local MCP server setup with Docker?",
+    "type": "single",
+    "options": [
+      {
+        "text": "To avoid using PATs for authentication",
+        "correct": false
+      },
+      {
+        "text": "To access resources or APIs restricted by enterprise policy",
+        "correct": true
+      },
+      {
+        "text": "To enable OAuth authentication only",
+        "correct": false
+      },
+      {
+        "text": "To disable all external integrations",
+        "correct": false
+      }
+    ],
+    "explanation": "A local MCP server setup with Docker lets you access resources or APIs restricted by enterprise policy.",
+    "source": "p058.png",
+    "course": "copilot"
+  },
+  "e9835758e3b831d0d9f7d0624f8f264280c2d81a9e63d822b248d83751c8b760": {
+    "question": "Which of the following is NOT a step in the process of GitHub Copilot processing a user's prompt into a code suggestion?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Statistical analysis and pattern recognition",
+        "correct": true
+      },
+      {
+        "text": "Secure prompt transmission and context gathering",
+        "correct": false
+      },
+      {
+        "text": "Content filtering to ensure safety and security",
+        "correct": false
+      },
+      {
+        "text": "Context analysis to understand the user's intent",
+        "correct": false
+      }
+    ],
+    "explanation": "Copilot does not rely on traditional statistical analysis and pattern recognition but uses neural networks and language models.",
+    "source": "p059.png",
+    "course": "copilot"
+  },
+  "ed196be9d60fd008d1d3f3dfd3e5119982cf9610a0ef04c15785f955fb1e4085": {
+    "question": "Which of these advanced features aren't available in GitHub Copilot Enterprise but were available in GitHub Copilot Business?",
+    "type": "single",
+    "options": [
+      {
+        "text": "Copilot Chat Customized to your Codebase",
+        "correct": false
+      },
+      {
+        "text": "Copilot Pull Request Summaries",
+        "correct": false
+      },
+      {
+        "text": "Copilot Documentation Search and Summaries using Docsets",
+        "correct": false
+      },
+      {
+        "text": "None of the above",
+        "correct": true
+      }
+    ],
+    "explanation": "All mentioned features are available in GitHub Copilot Enterprise.",
+    "source": "p060.png",
+    "course": "copilot"
+  },
+  "f3b932b9597fd186ad2f1d37801222b42a912aa9f6f15d67656164f7ba85c516": {
+    "question": "What is the role of Large Language Models (LLMs) in GitHub Copilot?",
+    "type": "single",
+    "options": [
+      {
+        "text": "To manage user accounts and billing information",
+        "correct": false
+      },
+      {
+        "text": "To understand and analyze the user's code structure",
+        "correct": false
+      },
+      {
+        "text": "To generate context-aware code suggestions and respond to prompts",
+        "correct": true
+      },
+      {
+        "text": "To compile and execute the generated code within the IDE",
+        "correct": false
+      }
+    ],
+    "explanation": "LLMs generate context-aware code suggestions and respond to user prompts.",
+    "source": "p061.png",
+    "course": "copilot"
   }
 }
